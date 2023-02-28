@@ -1,0 +1,144 @@
+.nova-top_bar-main_view {
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+}
+
+.nova-top_bar-data_view {
+  padding: 1.6rem 2rem 1.4rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.nova-top_bar-data_view img {
+  width: 9.1rem;
+  height: 3.9rem;
+  object-fit: cover;
+  margin-right: 7.4rem;
+}
+
+.nova-top_bar-data_view h2 {
+  display: flex;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #292929;
+  padding-right: 2.2rem;
+}
+
+.nova-top_bar-small_divider {
+  display: flex;
+  border: 1px solid #A5A5A5;
+  height: 3.8rem;
+  margin-right: 3.7rem;
+}
+
+.nova-top_bar-buttons_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 9rem;
+}
+
+.nova-top_bar-login_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 4rem;
+  height: 3.6rem;
+  background: #FFC9E3;
+  border-radius: 8px;
+  margin-right: 1.6rem;
+}
+
+.nova-top_bar-login_button h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #EE509C;
+}
+
+.nova-top_bar-signup_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 2.8rem;
+  height: 3.6rem;
+  background: #EE509C;
+  border-radius: 8px;
+}
+
+.nova-top_bar-signup_button h3 {
+
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #FFFFFF
+}
+
+.nova-top_bar-divider {
+  display: flex;
+  border: 1px solid #A5A5A5;
+  margin-bottom: 1.8rem;
+}
+
+@media screen and (max-width: 1440px) {
+  .nova-top_bar-data_view {
+    padding: 1.2rem 2rem 1rem 2rem;
+  }
+
+  .nova-top_bar-data_view img {
+    width: 7.1rem;
+    height: 2.9rem;
+    object-fit: cover;
+    margin-right: 5.4rem;
+  }
+
+  .nova-top_bar-data_view h2 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: #292929;
+    padding-right: 2rem;
+  }
+
+  .nova-top_bar-buttons_view {
+    margin-left: 5rem;
+  }
+
+  .nova-top_bar-login_button {
+    padding: 0rem 3rem;
+    height: 3.5rem;
+  }
+
+  .nova-top_bar-login_button h3 {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+
+  .nova-top_bar-signup_button {
+    padding: 0rem 2rem;
+    height: 3.5rem;
+  }
+
+  .nova-top_bar-signup_button h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: #FFFFFF
+  }
+
+  .nova-top_bar-divider {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 1161px) {
+  .nova-top_bar-main_view {
+    display: none;
+  }
+}

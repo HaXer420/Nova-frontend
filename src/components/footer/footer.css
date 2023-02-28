@@ -1,177 +1,496 @@
-.cactus-footerTopView {
-  background-color: #121212;
-  padding: 1.9rem 13.6rem 1rem 14.8rem;
+.nova-footer_top_view {
+  background-color: #EE509C;
+  padding: 6.5rem 17.5rem 3rem 16.6rem;
 }
 
-.cactus-footerContainer {
+.nova-footer_contact_us-top_view {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 9.5rem;
+}
+
+.nova-footer_contact_us_view {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.nova-footer_contact_us_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 5.4rem;
+  color: #FFFFFF;
+  padding-bottom: 7.1rem;
+
+}
+
+.nova-footer_contact_us_view h2 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 5.4rem;
+  color: #FFFFFF;
+  padding-bottom: 3.6rem;
+
+}
+
+.nova-footer_contact_us_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #FFFFFF;
+}
+
+.nova-footer_contact_us_form_top_view {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin-top: 3rem;
+}
+
+.nova-footer_contact_us_form_top_view input,
+.nova-footer_contact_us_form_top_view textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: #EE509C;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #f284ba;
+  font-family: 'Poppins';
+  margin-bottom: 4.5rem;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  color: #FFFFFF;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Poppins';
+  font-weight: 300;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  color: #FFFFFF;
+}
+
+.nova-footer_contact_us_form_button_top_view {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.nova-footer_contact_us_form_button_border_view {
+  position: relative;
+  width: 21.2rem;
+  height: 8rem;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
+  transform: rotate(160deg);
+}
+
+.nova-footer_contact_us_form_button_main_view {
+  position: absolute;
+  width: 21.2rem;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
+  cursor: pointer;
+}
+
+.nova-footer_contact_us_form_button_main_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #292929;
+}
+
+.nova-footer_detail_top_view {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
-.margin100 {
-  margin-left: -10rem;
-}
-
-.cactus-footerItemTopView {
+.nova-footer_detail_logo_top_view {
   display: flex;
   flex-direction: column;
+  width: 30%;
+
 }
 
-.cactus-footerItemTopView h1 {
-  font-family: 'K2D';
-  font-weight: 300;
+.nova-footer_detail_logo_top_view img {
+  width: 11.2rem;
+  height: 4.5rem;
+  object-fit: contain;
+  margin-bottom: 2.9rem;
+}
+
+.nova-footer_detail_logo_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
   font-size: 3.2rem;
-  line-height: 5rem;
-  letter-spacing: -0.5px;
-  padding-bottom: 2.4rem;
+  line-height: 3.6rem;
   color: #FFFFFF;
+  margin-bottom: 2.7rem;
+
 }
 
-.cactus-footerItemTopView h4 {
-  font-family: 'K2D';
+
+.nova-footer_detail_logo_top_view h2 {
+  font-family: 'Poppins';
   font-weight: 400;
-  font-size: 3rem;
-  line-height: 2.6rem;
-  padding-bottom: 1.6rem;
+  font-size: 2rem;
+  line-height: 3rem;
   color: #FFFFFF;
 }
 
-.cactus-footerItemTopView h2 {
-  font-family: 'K2D';
-  font-weight: 300;
-  font-size: 2rem;
-  line-height: 3.2rem;
-  letter-spacing: -0.5px;
-  padding-bottom: 1.8rem;
+.nova-footer_detail_links_top_view {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rem;
+}
+
+.nova-footer_detail_contacts_top_view h1,
+.nova-footer_detail_socials_top_view h1,
+.nova-footer_detail_links_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #FFFFFF;
+  line-height: 105.47%;
+  padding-bottom: 3.2rem;
+}
+
+.nova-footer_detail_contacts_top_view h2,
+.nova-footer_detail_socials_top_view h2,
+.nova-footer_detail_links_top_view h2 {
+  font-family: 'Comfortaa';
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 146.47%;
   color: #FFFFFF;
   cursor: pointer;
+  padding-bottom: 0.8rem;
 }
 
-.cactus-footerTopView h3 {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  text-align: center;
-  color: #b9b9b9;
+.nova-footer_detail_contacts_top_view span {
+  font-family: 'Comfortaa';
+  font-weight: 500;
+  font-size: 2.3rem;
+  line-height: 146.47%;
+  color: #FFFFFF;
 }
 
-.cactus-footerItemTopView p {
-  margin-bottom: 2.3rem;
-  max-width: 32rem;
-  font-family: 'K2D';
+.nova-footer_detail_socials_top_view {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8rem;
+  margin-right: 12.1rem;
+
+}
+
+.nova-footer_detail_contacts_top_view {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.nova-footer_divider {
+  display: flex;
+  border: 1px solid rgb(255, 255, 255);
+  margin: 4rem 15rem 2.1rem 15rem;
+  align-self: center;
+  align-items: center;
+}
+
+.nova-footer_bottom_view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nova-footer_bottom_view p {
+  font-family: 'Poppins';
   font-weight: 300;
   font-size: 1.6rem;
-  line-height: 2.4rem;
-  color: #C7C7C7;
+  line-height: 2.6rem;
+  color: #FFFFFF;
+  text-align: center;
 }
 
-.cactus-footer-input_text_view {
-  display: flex;
-  width: 29.5rem;
-  height: 5rem;
-  padding: 1.3rem 3rem;
-  background: #212121;
-  border-radius: 5px;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
-.cactus-footer-input_text_view input {
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-family: 'K2D';
-  font-weight: 400;
-  font-size: 1.4rem;
-  line-height: 3.4rem;
-  width: 80%;
-  color: #C7C7C7;
-}
-
-
-.cactus-footer-input_text_view img {
-  width: 2.4rem;
-  height: 2.4rem;
-  object-fit: cover;
-  cursor: pointer;
-}
-
-.cactus-footerSocialView img {
-  width: 2.2rem;
-  height: 2.2rem;
-  margin-right: 1.6rem;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 1175px) {
-  .margin100 {
-    margin-left: 0rem;
-  }
-}
-
-@media screen and (max-width: 1077px) {
-
-  .cactus-footerTopView {
-    background-color: #121212;
-    padding: 1.9rem 10rem 1rem 10rem;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .cactus-footerTopView {
-    background-color: #121212;
-    padding: 1.9rem 5rem 1rem 5rem;
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .cactus-footerSocialView img {
-    margin-bottom: 2rem;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .cactus-footerItemTopView h1 {
-    font-size: 2.8rem;
-    line-height: 4.6re, ;
-    padding-bottom: 2.4rem;
+@media screen and (max-width: 1440px) {
+  .nova-footer_top_view {
+    padding: 4.5rem 10.5rem 2rem 10.6rem;
   }
 
-  .cactus-footerItemTopView h4 {
-    font-size: 2.6rem;
-    line-height: 2.2rem;
+  .nova-footer_contact_us_view h1 {
+    font-size: 4rem;
+    line-height: 4.6rem;
+    padding-bottom: 5.1rem;
+  }
+
+  .nova-footer_contact_us_view h2 {
+    font-size: 4rem;
+    line-height: 4.6rem;
     padding-bottom: 1.6rem;
   }
 
-  .cactus-footerItemTopView h2 {
+  .nova-footer_contact_us_view h3 {
     font-size: 1.6rem;
-    line-height: 2.8rem;
-    padding-bottom: 1.8rem;
+    line-height: 2.6rem;
   }
 
-  .cactus-footerTopView h3 {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
+  .nova-footer_contact_us_form_top_view {
+    width: 30%;
   }
 
-  .cactus-footerItemTopView p {
-    margin-bottom: 2.3rem;
-    max-width: 25rem;
-    font-size: 1.2rem;
-    line-height: 2rem;
+  .nova-footer_contact_us_form_top_view input,
+  .nova-footer_contact_us_form_top_view textarea {
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 
-  .cactus-footer-input_text_view {
-    width: 25rem;
+  ::-webkit-input-placeholder {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .nova-footer_contact_us_form_button_border_view {
+    width: 17.2rem;
+    height: 5.9rem;
+  }
+
+  .nova-footer_contact_us_form_button_main_view {
+    width: 17.2rem;
+    height: 5.9rem;
+  }
+
+  .nova-footer_contact_us_form_button_main_view h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-footer_detail_logo_top_view img {
+    width: 10.2rem;
+    height: 3.5rem;
+  }
+
+  .nova-footer_detail_logo_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem
+  }
+
+  .nova-footer_detail_logo_top_view h2 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: #FFFFFF;
+  }
+
+  .nova-footer_detail_contacts_top_view h1,
+  .nova-footer_detail_socials_top_view h1,
+  .nova-footer_detail_links_top_view h1 {
+    font-size: 2.2rem;
+    line-height: 100.47%;
+  }
+
+  .nova-footer_detail_contacts_top_view h2,
+  .nova-footer_detail_socials_top_view h2,
+  .nova-footer_detail_links_top_view h2 {
+    font-size: 1.6rem;
+    line-height: 140.47%;
+  }
+
+  .nova-footer_detail_contacts_top_view span {
+    font-size: 2rem;
+    line-height: 140.47%;
+  }
+
+  .nova-footer_bottom_view p {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .cactus-footerTopView {
-    padding: 3.2rem 3.6rem;
+@media screen and (max-width: 1160px) {
+  .nova-footer_detail_contacts_top_view {
+    margin-top: 5rem;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .nova-footer_contact_us_view {
+    width: 100%;
+  }
+
+  .nova-footer_contact_us-top_view {
+    flex-direction: column;
+  }
+
+  .nova-footer_contact_us_form_top_view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 5rem;
+
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .nova-footer_detail_socials_top_view {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+
+  .nova-footer_detail_links_top_view {
+    margin-left: 10rem;
+    margin-right: 8rem;
+  }
+}
+
+@media screen and (max-width: 781px) {
+  .nova-footer_detail_socials_top_view {
+    margin-top: 5rem;
+  }
+
+  .nova-footer_detail_contacts_top_view {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 12rem;
+  }
+}
+
+@media screen and (max-width: 735px) {
+  .nova-footer_top_view {
+    padding: 4.5rem 5.5rem 2rem 5.6rem;
+  }
+
+  .nova-footer_detail_socials_top_view {
+    margin-top: 0rem;
+  }
+
+  .nova-footer_detail_contacts_top_view {
+    margin-left: 0rem;
+  }
+
+  .nova-footer_divider {
+    margin: 4rem 5rem 2.1rem 5rem;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .nova-footer_detail_socials_top_view {
+    margin-top: 5rem;
+  }
+
+  .nova-footer_detail_contacts_top_view {
+    margin-left: 5rem;
+  }
+
+  .nova-footer_contact_us_view h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+    padding-bottom: 3.1rem;
+  }
+
+  .nova-footer_contact_us_view h2 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+
+  .nova-footer_contact_us_view h3 {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+
+  .nova-footer_contact_us_form_top_view input,
+  .nova-footer_contact_us_form_top_view textarea {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .nova-footer_detail_logo_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem
+  }
+
+  .nova-footer_detail_logo_top_view h2 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: #FFFFFF;
+  }
+
+  .nova-footer_detail_contacts_top_view h1,
+  .nova-footer_detail_socials_top_view h1,
+  .nova-footer_detail_links_top_view h1 {
+    font-size: 1.8rem;
+    line-height: 95.47%;
+  }
+
+  .nova-footer_detail_contacts_top_view h2,
+  .nova-footer_detail_socials_top_view h2,
+  .nova-footer_detail_links_top_view h2 {
+    font-size: 1.4rem;
+    line-height: 135.47%;
+  }
+
+  .nova-footer_detail_contacts_top_view span {
+    font-size: 1.6rem;
+    line-height: 135.47%;
+  }
+
+  .nova-footer_bottom_view p {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+  }
+
+}
+
+@media screen and (max-width: 525px) {
+  .nova-footer_detail_logo_top_view {
+    width: 100%;
+  }
+
+  .nova-footer_detail_links_top_view {
+    margin-left: 0rem;
+    margin-top: 5rem;
+  }
+
+  .nova-footer_detail_contacts_top_view {
+    margin-left: 0rem;
+    flex: 0;
+  }
+
+  .nova-footer_detail_socials_top_view {
+    margin-right: 5.1rem;
+
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .nova-footer_top_view {
+    padding: 4.5rem 3.5rem 2rem 3.6rem;
+  }
+
+  .nova-footer_contact_us_view h1 {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+
+  .nova-footer_contact_us_view h2 {
+    font-size: 3rem;
+    line-height: 3.5rem;
   }
 }
