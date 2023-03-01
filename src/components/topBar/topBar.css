@@ -53,6 +53,7 @@
   background: #FFC9E3;
   border-radius: 8px;
   margin-right: 1.6rem;
+  cursor: pointer;
 }
 
 .nova-top_bar-login_button h3 {
@@ -71,6 +72,7 @@
   height: 3.6rem;
   background: #EE509C;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .nova-top_bar-signup_button h3 {

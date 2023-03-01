@@ -17,3 +17,7 @@ export { default as waxing } from "./waxing.png";
 export { default as waxingCombo } from "./waxingCombo.png";
 export { default as plus } from "./plus.png";
 export { default as minus } from "./minus.png";
+export { default as calender } from "./calender.png";
+export { default as show } from "./show.png";
+export { default as hide } from "./hide.png";
+export { default as edit } from "./edit.png";

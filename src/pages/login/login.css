@@ -1,0 +1,83 @@
+.nova-login_main_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: scroll;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.nova-login_main_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 4rem;
+  color: #292929;
+  padding-top: 8.1rem;
+  padding-bottom: 8rem;
+}
+
+.nova-login_inputs_view {
+  display: flex;
+  flex-direction: column;
+  width: 56rem;
+}
+
+.nova-login_forgot_password_text_view {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -2rem;
+  margin-bottom: 7.1rem;
+
+}
+
+.nova-login_forgot_password_text_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #292929;
+  cursor: pointer;
+}
+
+.nova-login_dont_have_account_text_view {
+  display: flex;
+  justify-content: center;
+  margin-top: 5.9rem;
+}
+
+.nova-login_dont_have_account_text_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.9rem;
+  color: #292929;
+  cursor: pointer;
+}
+
+@media screen and (max-width:700px) {
+  .nova-login_inputs_view {
+    width: 40rem;
+  }
+}
+
+@media screen and (max-width:470px) {
+  .nova-login_inputs_view {
+    width: 27rem;
+  }
+
+  .nova-login_main_view h1 {
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+
+  .nova-login_forgot_password_text_view h2 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+
+  .nova-login_dont_have_account_text_view h3 {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+  }
+}

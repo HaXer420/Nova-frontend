@@ -1,8 +1,10 @@
 import React from 'react'
 import './topBar.css'
 import { logoTheme } from '../../assets'
+import { useNavigate } from 'react-router-dom'
 
 const TopBar = () => {
+    const navigate = useNavigate()
     return (
         <div className="nova-top_bar-main_view">
             <div className="nova-top_bar-data_view">
@@ -13,10 +15,10 @@ const TopBar = () => {
                 <div className="nova-top_bar-small_divider" />
                 <h2>+1 5654 4658 23</h2>
                 <div className="nova-top_bar-buttons_view">
-                    <div className="nova-top_bar-login_button">
+                    <div onClick={() => navigate('/login')} className="nova-top_bar-login_button">
                         <h3>Login</h3>
                     </div>
-                    <div className="nova-top_bar-signup_button">
+                    <div onClick={() => navigate('/signup')} className="nova-top_bar-signup_button">
                         <h3>Sign Up</h3>
                     </div>
                 </div>

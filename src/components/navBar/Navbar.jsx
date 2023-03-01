@@ -59,7 +59,7 @@ const Navbar = () => {
                         <h5>Mon - Sat 10 Am to 8 Pm</h5>
                         <h5>Sun 11 Am to 6 Pm</h5>
                         <h5>+1 5654 4658 23</h5>
-                        <div className="nova-navBar_button">
+                        <div onClick={() => navigate('/login')} className="nova-navBar_button">
                             <h6>Login</h6>
                         </div>
                         <div className="nova-navBar_button">
