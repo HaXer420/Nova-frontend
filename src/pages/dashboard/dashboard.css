@@ -439,3 +439,707 @@
   line-height: 3rem;
   color: #686161;
 }
+
+@media screen and (max-width:1440px) {
+  .nova-dashboard-banner_top_view {
+    padding: 0rem 12.6rem 4.1rem 12.6rem;
+  }
+
+  .nova-dashboard-banner_detail_view {
+    padding-top: 12.8rem;
+  }
+
+  .nova-dashboard-banner_detail_view h1 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+    padding-bottom: 2rem;
+  }
+
+  .nova-dashboard-banner_detail_view h5 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    padding-bottom: 5rem;
+  }
+
+  .nova-dashboard-banner_detail_view h3 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    padding-bottom: 2rem;
+  }
+
+  .nova-dashboard-banner_percantages_view div {
+    margin-right: 4rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h2 {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h4 {
+    font-size: 1.6rem;
+    line-height: 100.5%;
+    width: 9.8rem;
+  }
+
+  .nova-dashboard-banner_image_view {
+    padding-top: 3.7rem;
+  }
+
+  .nova-dashboard-banner_image_view img {
+    width: 40.1rem;
+    height: 45.1rem;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view {
+    padding-top: 4rem;
+    padding-left: 12.6rem;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    padding-bottom: 2rem;
+  }
+
+  .nova-dashboard-map_top_view {
+    padding: 4.4rem 12.6rem;
+  }
+
+  .nova-dashboard-map_top_view div {
+    width: 119.6rem;
+    height: 51.8rem;
+  }
+
+  .nova-dashboard-about_me_top_view {
+    padding: 0rem 12.6rem 3.4rem 12.6rem;
+  }
+
+  .nova-dashboard-about_me_know_text h1 {
+    font-size: 6rem;
+    line-height: 6.9rem;
+    color: #292929;
+  }
+
+  .nova-dashboard-about_me_know_text span {
+    -webkit-text-stroke: 1.5px #292929;
+    color: #ffffff;
+  }
+
+  .nova-dashboard-about_me_dont_find_text h2 {
+    font-size: 4.4rem;
+    line-height: 5.1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .nova-dashboard-about_me_dont_find_text span {
+    padding: 3px;
+  }
+
+  .nova-dashboard-about_me_detail_view h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    width: 80%;
+  }
+
+  .nova-dashboard-about_me_clients_top_view div {
+    margin-right: 4rem;
+  }
+
+  .nova-dashboard-about_me_clients_top_view h4 {
+    font-size: 4rem;
+    line-height: 126.47%;
+  }
+
+  .nova-dashboard-about_me_clients_top_view h5 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  .nova-dashboard-about_me_image_view img {
+    height: 85%;
+  }
+
+  .nova-dashboard-reviews_top_view {
+    padding: 0rem 0rem 4.4rem 12.6rem;
+  }
+
+  .nova-dashboard-reviews_top_view h1 {
+    font-size: 4rem;
+    line-height: 4.6rem;
+    padding-bottom: 3rem;
+  }
+
+  .nova-dashboard-single_review {
+    margin-right: 4.4rem;
+  }
+
+  .nova-dashboard-single_review img {
+    width: 12.3rem;
+    height: 12.3rem;
+    border-radius: 1.2rem;
+    margin-right: 3.2rem;
+  }
+
+  .nova-dashboard-single_review p {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    height: 14.2rem;
+    width: 24.8rem;
+  }
+
+  .nova-dashboard-questions_top_view {
+    padding: 0rem 12.6rem 1rem 12.6rem;
+  }
+
+  .nova-dashboard-questions_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    padding-bottom: 6.1rem;
+  }
+
+  .nova-dashboard-single_question_title_view h3 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-single_question_title_view img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .nova-dashboard-single_question_divider {
+    margin-bottom: 3rem;
+  }
+
+  .nova-dashboard-single_question_view h4 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-dashboard-questions_image_view img {
+    width: 49.2rem;
+    height: 46.3rem;
+  }
+
+  .nova-dashboard-team_members_top_view {
+    padding-left: 12.6rem;
+    padding-bottom: 8.3rem;
+  }
+
+  .nova-dashboard-team_members_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    padding-bottom: 2.8rem;
+  }
+
+  .nova-dashboard-single_member_view {
+    width: 28rem;
+    margin-right: 4rem;
+  }
+
+  .nova-dashboard-single_member_view img {
+    width: 28rem;
+    height: 27.1rem;
+    margin-bottom: 3.5rem;
+  }
+
+
+  .nova-dashboard-single_member_detail_view_divider {
+    margin-right: 2rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h2 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    color: #686161;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .nova-dashboard-banner_detail_view {
+    padding-top: 10.8rem;
+  }
+
+  .nova-dashboard-banner_detail_view h1 {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+  }
+
+  .nova-dashboard-banner_detail_view h5 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    padding-bottom: 4rem;
+  }
+
+  .nova-dashboard-banner_detail_view h3 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-dashboard-banner_percantages_view div {
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h2 {
+    font-size: 3.6rem;
+    line-height: 4.6rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h4 {
+    font-size: 1.4rem;
+    line-height: 90.5%;
+    width: 7.8rem;
+  }
+
+  .nova-dashboard-banner_image_view {
+    padding-top: 2.7rem;
+  }
+
+  .nova-dashboard-banner_image_view img {
+    width: 30.1rem;
+    height: 35.1rem;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-dashboard-map_top_view div {
+    width: 100%;
+    height: 51.8rem;
+  }
+
+  .nova-dashboard-about_me_know_text h1 {
+    font-size: 5rem;
+    line-height: 5.9rem;
+  }
+
+  .nova-dashboard-about_me_dont_find_text h2 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+
+  .nova-dashboard-about_me_dont_find_text span {
+    padding: 2px;
+  }
+
+  .nova-dashboard-about_me_detail_view h3 {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+
+  .nova-dashboard-about_me_clients_top_view div {
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-about_me_clients_top_view h4 {
+    font-size: 3.6rem;
+    line-height: 120.47%;
+  }
+
+  .nova-dashboard-about_me_clients_top_view h5 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-dashboard-about_me_image_view img {
+    height: 90%;
+  }
+
+  .nova-dashboard-reviews_top_view h1 {
+    font-size: 3.6rem;
+    line-height: 4rem;
+  }
+
+  .nova-dashboard-single_review {
+    margin-right: 4rem;
+  }
+
+  .nova-dashboard-single_review img {
+    width: 10.3rem;
+    height: 10.3rem;
+    border-radius: 1rem;
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-single_review p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    height: 11.2rem;
+    width: 24.8rem;
+  }
+
+
+  .nova-dashboard-questions_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    padding-bottom: 5.1rem;
+  }
+
+  .nova-dashboard-single_question_title_view h3 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .nova-dashboard-single_question_title_view img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nova-dashboard-single_question_divider {
+    margin-bottom: 2rem;
+  }
+
+  .nova-dashboard-single_question_view h4 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-questions_image_view img {
+    width: 39.2rem;
+    height: 34.3rem;
+  }
+
+  .nova-dashboard-team_members_top_view {
+    padding-left: 10.6rem;
+    padding-bottom: 6.3rem;
+  }
+
+  .nova-dashboard-team_members_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .nova-dashboard-single_member_view {
+    width: 25rem;
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-single_member_view img {
+    width: 25rem;
+    height: 24.1rem;
+  }
+
+  .nova-dashboard-single_member_detail_view_divider {
+    margin-right: 2rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h2 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h3 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: #686161;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .nova-dashboard-banner_top_view {
+    padding: 0rem 8.6rem 3.1rem 8.6rem;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view {
+    padding-left: 8.6rem;
+  }
+
+  .nova-dashboard-map_top_view {
+    padding: 3.4rem 8.6rem;
+  }
+
+  .nova-dashboard-about_me_top_view {
+    padding: 0rem 8.6rem 3.4rem 8.6rem;
+  }
+
+
+  .nova-dashboard-reviews_top_view {
+    padding: 0rem 0rem 3.4rem 8.6rem;
+  }
+
+  .nova-dashboard-questions_top_view {
+    padding: 0rem 8.6rem 1rem 8.6rem;
+  }
+
+  .nova-dashboard-team_members_top_view {
+    padding-left: 8.6rem;
+  }
+
+}
+
+@media screen and (max-width:900px) {
+  .nova-dashboard-banner_top_view {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nova-dashboard-banner_detail_view {
+    width: 100%;
+    padding-top: 5.8rem;
+  }
+
+  .nova-dashboard-about_me_top_view {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nova-dashboard-about_me_detail_view {
+    width: 100%;
+  }
+
+  .nova-dashboard-about_me_image_view {
+    margin-top: 2rem;
+  }
+
+  .nova-dashboard-about_me_image_view img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .nova-dashboard-questions_top_view {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nova-dashboard-questions_view {
+    width: 100%;
+  }
+
+  .nova-dashboard-questions_image_view {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .nova-dashboard-questions_image_view img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .nova-dashboard-about_me_detail_view h3 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:550px) {
+  .nova-dashboard-banner_top_view {
+    padding: 0rem 3.6rem 3.1rem 3.6rem;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view {
+    padding-left: 3.6rem;
+  }
+
+  .nova-dashboard-map_top_view {
+    padding: 3.4rem 3.6rem;
+  }
+
+  .nova-dashboard-about_me_top_view {
+    padding: 0rem 3.6rem 3.4rem 3.6rem;
+  }
+
+
+  .nova-dashboard-reviews_top_view {
+    padding: 0rem 0rem 3.4rem 3.6rem;
+  }
+
+  .nova-dashboard-questions_top_view {
+    padding: 0rem 3.6rem 1rem 3.6rem;
+  }
+
+  .nova-dashboard-team_members_top_view {
+    padding-left: 3.6rem;
+  }
+
+}
+
+@media screen and (max-width:470px) {
+
+  .nova-dashboard-banner_detail_view h1 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .nova-dashboard-banner_detail_view h5 {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    padding-bottom: 3rem;
+  }
+
+  .nova-dashboard-banner_detail_view h3 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-banner_percantages_view {
+    flex-wrap: wrap;
+  }
+
+  .nova-dashboard-banner_percantages_view div {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h2 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .nova-dashboard-banner_percantages_view h4 {
+    font-size: 1.2rem;
+    line-height: 85.5%;
+    width: 7rem;
+  }
+
+  .nova-dashboard-banner_image_view {
+    padding-top: 2.2rem;
+  }
+
+  .nova-dashboard-banner_image_view img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nova-dashboard-our_services_and_specials_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-map_top_view div {
+    width: 100%;
+    height: 40.8rem;
+  }
+
+  .nova-dashboard-about_me_know_text h1 {
+    font-size: 4rem;
+    line-height: 4.9rem;
+  }
+
+  .nova-dashboard-about_me_dont_find_text h2 {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+
+  .nova-dashboard-about_me_detail_view h3 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .nova-dashboard-about_me_clients_top_view {
+    flex-wrap: wrap;
+  }
+
+  .nova-dashboard-about_me_clients_top_view div {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+
+  }
+
+  .nova-dashboard-about_me_clients_top_view h4 {
+    font-size: 3.2rem;
+    line-height: 100.47%;
+  }
+
+  .nova-dashboard-about_me_clients_top_view h5 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-about_me_image_view img {
+    height: 100%;
+  }
+
+  .nova-dashboard-reviews_top_view h1 {
+    font-size: 2.6rem;
+    line-height: 3rem;
+  }
+
+  .nova-dashboard-single_review {
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-single_review img {
+    width: 8.3rem;
+    height: 8.3rem;
+    border-radius: 0.8rem;
+    margin-right: 3rem;
+  }
+
+  .nova-dashboard-single_review p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    height: 9.2rem;
+    width: 22.8rem;
+  }
+
+
+  .nova-dashboard-questions_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    padding-bottom: 3.1rem;
+  }
+
+  .nova-dashboard-single_question_title_view h3 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  .nova-dashboard-single_question_title_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .nova-dashboard-single_question_divider {
+    margin-bottom: 2rem;
+  }
+
+  .nova-dashboard-single_question_view h4 {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+  }
+
+  .nova-dashboard-team_members_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    padding-bottom: 2.2rem;
+  }
+
+  .nova-dashboard-single_member_view {
+    width: 20rem;
+    margin-right: 2rem;
+  }
+
+  .nova-dashboard-single_member_view img {
+    width: 20rem;
+    height: 20.1rem;
+  }
+
+  .nova-dashboard-single_member_detail_view_divider {
+    margin-right: 2rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h2 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-dashboard-single_member_detail_view h3 {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    color: #686161;
+  }
+}
