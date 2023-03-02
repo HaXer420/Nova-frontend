@@ -1,4 +1,5 @@
 export { default as TextInput } from './textInput/TextInput'
+export { default as TextInputTwo } from './textInputTwo/TextInputTwo'
 export { default as NavBar } from './navBar/Navbar'
 export { default as TopBar } from './topBar/TopBar'
 export { default as Footer } from './footer/Footer'

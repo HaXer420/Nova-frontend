@@ -11,6 +11,11 @@ const Navigation = () => {
       <Route path="/forgotpassword" element={<Pages.ForgotPassword />} />
       <Route path="/otpverification" element={<Pages.OtpVerification />} />
       <Route path="/updatepassword" element={<Pages.UpdatePassword />} />
+      <Route path="/aboutus" element={<Pages.AboutUs />} />
+      <Route path="/locationpage" element={<Pages.LocationPage />} />
+      <Route path="/services" element={<Pages.Services />} />
+      <Route path="/specials" element={<Pages.Specials />} />
+      <Route path="/contactpage" element={<Pages.ContactPage />} />
 
     </Routes>
   );

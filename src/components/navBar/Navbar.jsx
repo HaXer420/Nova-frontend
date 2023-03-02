@@ -12,25 +12,25 @@ const Navbar = () => {
                 <h1 onClick={() => navigate('/')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/' ? 'solid' : 'none', }} >Home</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 onClick={() => navigate('/poster')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/poster' ? 'solid' : 'none' }}>About Us</h1>
+                <h1 onClick={() => navigate('/aboutus')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/aboutus' ? 'solid' : 'none' }}>About Us</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/mug' ? 'solid' : 'none' }}>Locations</h1>
+                <h1 onClick={() => navigate('/locationpage')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/locationpage' ? 'solid' : 'none' }}>Locations</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/giftidea' ? 'solid' : 'none' }}>Services</h1>
+                <h1 onClick={() => navigate('/services')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/services' ? 'solid' : 'none' }}>Services</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 onClick={() => navigate('/aboutus')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/aboutus' ? 'solid' : 'none' }}>Specials</h1>
+                <h1 onClick={() => navigate('/specials')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/specials' ? 'solid' : 'none' }}>Specials</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 onClick={() => navigate('/contactus')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/contactus' ? 'solid' : 'none' }}>Reviews</h1>
+                <h1 onClick={() => navigate('/reviews')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/reviews' ? 'solid' : 'none' }}>Reviews</h1>
             </div>
             <div className='nova__navbar-links_book_now_button'>
-                <h2 onClick={() => navigate('/contactus')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/contactus' ? 'solid' : 'none' }}>Book Now</h2>
+                <h2 onClick={() => navigate('/bookingpage')}>Book Now</h2>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 onClick={() => navigate('/contactus')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/contactus' ? 'solid' : 'none' }}>Contact Us</h1>
+                <h1 onClick={() => navigate('/contactpage')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/contactpage' ? 'solid' : 'none' }}>Contact Us</h1>
             </div>
         </>
     )

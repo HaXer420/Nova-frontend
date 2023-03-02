@@ -1,30 +1,35 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { logo } from '../../assets'
 import './footer.css'
 
 export default function Footer() {
+    const navigate = useNavigate()
     return (
         <div className='nova-footer_top_view'>
-            <div className='nova-footer_contact_us-top_view'>
-                <div className='nova-footer_contact_us_view'>
-                    <h1>Contact Us</h1>
-                    <h2>Did you got confused at anything?</h2>
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis. adipiscing ipsum loreym.</h3>
-                </div>
-                <div className='nova-footer_contact_us_form_top_view'>
-                    <input placeholder='Enter your full name' />
-                    <input placeholder='Enter your e-mail address' />
-                    <input placeholder='Enter your phone number' />
-                    <textarea placeholder='Enter your message' />
-                    <div className='nova-footer_contact_us_form_button_top_view'>
-                        <div className='nova-footer_contact_us_form_button_border_view' />
-                        <div className='nova-footer_contact_us_form_button_main_view'>
-                            <h3>Send Message</h3>
-                        </div>
+            {window.location.href === 'http://localhost:3000/' &&
+                <div className='nova-footer_contact_us-top_view'>
+                    <div className='nova-footer_contact_us_view'>
+                        <h1>Contact Us</h1>
+                        <h2>Did you got confused at anything?</h2>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis. adipiscing ipsum loreym.</h3>
+                    </div>
+                    <div className='nova-footer_contact_us_form_top_view'>
+                        <input placeholder='Enter your full name' />
+                        <input placeholder='Enter your e-mail address' />
+                        <input placeholder='Enter your phone number' />
+                        <textarea placeholder='Enter your message' />
+                        <div className='nova-footer_contact_us_form_button_top_view'>
+                            <div className='nova-footer_contact_us_form_button_border_view' />
+                            <div className='nova-footer_contact_us_form_button_main_view'>
+                                <h3>Send Message</h3>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
+
             <div className='nova-footer_detail_top_view'>
                 <div className="nova-footer_detail_logo_top_view">
                     <img alt='' src={logo} />
@@ -33,11 +38,11 @@ export default function Footer() {
                 </div>
                 <div className="nova-footer_detail_links_top_view">
                     <h1>Quick Links</h1>
-                    <h2>Home</h2>
-                    <h2>Services</h2>
-                    <h2>Specials</h2>
-                    <h2>About</h2>
-                    <h2>Contact</h2>
+                    <h2 onClick={() => navigate('/')}>Home</h2>
+                    <h2 onClick={() => navigate('/services')}>Services</h2>
+                    <h2 onClick={() => navigate('/specials')}>Specials</h2>
+                    <h2 onClick={() => navigate('/aboutus')}>About</h2>
+                    <h2 onClick={() => navigate('/contactpage')}>Contact</h2>
                 </div>
                 <div className="nova-footer_detail_socials_top_view">
                     <h1>Social</h1>

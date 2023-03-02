@@ -1,0 +1,71 @@
+.nova-input_two_container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.4rem;
+}
+
+.nova-input_two_container p {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #171D1C;
+}
+
+.nova-input_two_container_input {
+  margin-top: 0.6rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 2px solid #EE509C;
+  padding: 1.4rem 1rem 0.9rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nova-input_two_container_input input {
+  width: 100% !important;
+  display: flex;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #3F3F3F;
+}
+
+.nova-input_two_container_input textarea {
+  width: 100% !important;
+  display: flex;
+  resize: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #3F3F3F;
+  height: 15.3rem;
+}
+
+
+.nova-input_two_container_input textarea::-webkit-input-placeholder,
+.nova-input_two_container_input input::-webkit-input-placeholder {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #c5c5c5;
+}
+
+@media screen and (max-width:470px) {
+  .nova-input_two_container p {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+}

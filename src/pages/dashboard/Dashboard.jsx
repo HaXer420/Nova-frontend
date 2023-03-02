@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { aboutMe, faqDummy, homePageBanner, memberOne, memberThree, memberTwo, minus, plus, reviewDummy, sugaring, threading, threadingSpecial, waxing, waxingCombo } from "../../assets";
+import { aboutMe, facial, faqDummy, homePageBanner, memberOne, memberThree, memberTwo, minus, plus, reviewDummy, sugaring, threading, threadingSpecial, waxing, waxingCombo } from "../../assets";
 import { Footer, NavBar, ServiceView, TopBar } from "../../components";
 import './dashboard.css'
 import GoogleMapReact from 'google-map-react';
@@ -54,7 +54,7 @@ export default function Dashboard() {
       title: 'Facials',
       des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Read more',
       price: '$150',
-      image: waxing
+      image: facial
     },
   ]
   const ourSpecialsArray = [
@@ -84,7 +84,7 @@ export default function Dashboard() {
       title: 'Facials',
       des: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Read more',
       price: '$150',
-      image: waxing
+      image: facial
     },
   ]
   const reviewArray = [

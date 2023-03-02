@@ -4,3 +4,8 @@ export { default as Signup } from "./signup/Signup";
 export { default as ForgotPassword } from "./forgotPassword/ForgotPassword";
 export { default as OtpVerification } from "./otpVerification/OtpVerification";
 export { default as UpdatePassword } from "./updatePassword/UpdatePassword";
+export { default as AboutUs } from "./aboutUs/AboutUs";
+export { default as LocationPage } from "./locationPage/LocationPage";
+export { default as Services } from "./services/Services";
+export { default as Specials } from "./specials/Specials";
+export { default as ContactPage } from "./contactPage/ContactPage";
