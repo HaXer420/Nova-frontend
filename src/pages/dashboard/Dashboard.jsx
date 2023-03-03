@@ -3,8 +3,10 @@ import { aboutMe, facial, faqDummy, homePageBanner, memberOne, memberThree, memb
 import { Footer, NavBar, ServiceView, TopBar } from "../../components";
 import './dashboard.css'
 import GoogleMapReact from 'google-map-react';
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate()
   const novaDiffArray = [
     {
       id: 1,
@@ -192,7 +194,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="nova-dashboard-banner_image_view">
-            <img src={homePageBanner} />
+            <img alt='' src={homePageBanner} />
           </div>
         </div>
         <div className="nova-dashboard-our_services_and_specials_top_view">
@@ -201,7 +203,7 @@ export default function Dashboard() {
             <div className="nova-dashboard-our_services_view">
               {ourServicesArray.map((item) => {
                 return (
-                  <ServiceView item={item} />
+                  <ServiceView onClick={() => navigate('/Sservicedetail')} item={item} />
                 )
               })}
             </div>
@@ -209,7 +211,7 @@ export default function Dashboard() {
             <div className="nova-dashboard-our_services_view">
               {ourSpecialsArray.map((item) => {
                 return (
-                  <ServiceView item={item} />
+                  <ServiceView onClick={() => navigate('/Sservicedetail')} item={item} />
                 )
               })}
             </div>
@@ -249,7 +251,7 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="nova-dashboard-about_me_image_view">
-            <img src={aboutMe} />
+            <img alt='' src={aboutMe} />
           </div>
         </div>
         <div className="nova-dashboard-reviews_top_view">
@@ -258,7 +260,7 @@ export default function Dashboard() {
             {reviewArray.map((item) => {
               return (
                 <div key={item.id} className="nova-dashboard-single_review">
-                  <img src={item.image} />
+                  <img alt='' src={item.image} />
                   <p>{item.title}<span style={{ color: '#F088B8', cursor: 'pointer' }}> Read More . . .</span></p>
                 </div>
               )
@@ -273,7 +275,7 @@ export default function Dashboard() {
                 <div key={item.id} className="nova-dashboard-single_question_view">
                   <div className="nova-dashboard-single_question_title_view">
                     <h3>{item.question}</h3>
-                    <img onClick={() => viewQuestion(index)} src={item.open ? minus : plus} />
+                    <img alt='' onClick={() => viewQuestion(index)} src={item.open ? minus : plus} />
                   </div>
                   {item.open &&
                     <h4>{item.ans}</h4>
@@ -284,7 +286,7 @@ export default function Dashboard() {
             })}
           </div>
           <div className="nova-dashboard-questions_image_view">
-            <img src={faqDummy} />
+            <img alt='' src={faqDummy} />
           </div>
         </div>
         <div className="nova-dashboard-team_members_top_view">
@@ -293,7 +295,7 @@ export default function Dashboard() {
             {teamMembers.map((item) => {
               return (
                 <div key={item.id} className="nova-dashboard-single_member_view">
-                  <img src={item.image} />
+                  <img alt='' src={item.image} />
                   <div className="nova-dashboard-single_member_detail_view">
                     <div className="nova-dashboard-single_member_detail_view_divider" />
                     <div className="">

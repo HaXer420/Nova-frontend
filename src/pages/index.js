@@ -9,3 +9,5 @@ export { default as LocationPage } from "./locationPage/LocationPage";
 export { default as Services } from "./services/Services";
 export { default as Specials } from "./specials/Specials";
 export { default as ContactPage } from "./contactPage/ContactPage";
+export { default as ReviewsPage } from "./reviewsPage/ReviewsPage";
+export { default as ServiceDetail } from "./serviceDetail/ServiceDetail";

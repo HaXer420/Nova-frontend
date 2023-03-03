@@ -30,3 +30,7 @@ export { default as dummyService } from "./dummyService.png";
 export { default as facial } from "./facial.png";
 export { default as tattos } from "./tattos.png";
 export { default as tinting } from "./tinting.png";
+export { default as serviceDetailOne } from "./serviceDetailOne.png";
+export { default as serviceDetailTwo } from "./serviceDetailTwo.png";
+export { default as reviewBanner } from "./reviewBanner.png";
+export { default as waxingDark } from "./waxingDark.png";

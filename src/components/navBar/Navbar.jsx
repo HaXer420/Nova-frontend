@@ -24,7 +24,7 @@ const Navbar = () => {
                 <h1 onClick={() => navigate('/specials')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/specials' ? 'solid' : 'none' }}>Specials</h1>
             </div>
             <div className='nova__navbar-links_text_view'>
-                <h1 onClick={() => navigate('/reviews')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/reviews' ? 'solid' : 'none' }}>Reviews</h1>
+                <h1 onClick={() => navigate('/reviewspage')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/reviewspage' ? 'solid' : 'none' }}>Reviews</h1>
             </div>
             <div className='nova__navbar-links_book_now_button'>
                 <h2 onClick={() => navigate('/bookingpage')}>Book Now</h2>

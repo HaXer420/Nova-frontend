@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { dummyService, facial, sugaring, tattos, threading, tinting, waxing } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
 import './services.css'
 
 export default function Services() {
+  const navigate = useNavigate()
   const servicesArray = [
     {
       id: 1,
@@ -67,12 +69,12 @@ export default function Services() {
             {servicesArray.map((item) => {
               return (
                 <div key={item.id} className="nova-services-single_service_view">
-                  <img alt='' src={item.image} />
-                  <div className="nova-services-single_service_title_view">
+                  <img onClick={() => navigate('/Sservicedetail')} alt='' src={item.image} />
+                  <div onClick={() => navigate('/Sservicedetail')} className="nova-services-single_service_title_view">
                     <h2>{item.title}</h2>
                     <h3>{item.price}</h3>
                   </div>
-                  <h4>{item.des}</h4>
+                  <h4 onClick={() => navigate('/Sservicedetail')} >{item.des}</h4>
                   <h3 style={{ paddingLeft: 10, cursor: 'pointer' }}>Book Now</h3>
                   <div className="nova-services-single_service_border_view" />
                 </div>

@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { sugaring, threadingSpecial, waxingCombo } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
 import './specials.css'
 
 export default function Specials() {
+  const navigate = useNavigate()
   const specialsArray = [
     {
       id: 1,
@@ -40,12 +42,12 @@ export default function Specials() {
             {specialsArray.map((item) => {
               return (
                 <div key={item.id} className="nova-services-single_service_view">
-                  <img alt='' src={item.image} />
-                  <div className="nova-services-single_service_title_view">
+                  <img onClick={() => navigate('/Sservicedetail')} alt='' src={item.image} />
+                  <div onClick={() => navigate('/Sservicedetail')} className="nova-services-single_service_title_view">
                     <h2>{item.title}</h2>
                     <h3>{item.price}</h3>
                   </div>
-                  <h4>{item.des}</h4>
+                  <h4 onClick={() => navigate('/Sservicedetail')} >{item.des}</h4>
                   <h3 style={{ paddingLeft: 10, cursor: 'pointer' }}>Book Now</h3>
                   <div className="nova-services-single_service_border_view" />
                 </div>

@@ -16,6 +16,8 @@ const Navigation = () => {
       <Route path="/services" element={<Pages.Services />} />
       <Route path="/specials" element={<Pages.Specials />} />
       <Route path="/contactpage" element={<Pages.ContactPage />} />
+      <Route path="/reviewspage" element={<Pages.ReviewsPage />} />
+      <Route path="/Sservicedetail" element={<Pages.ServiceDetail />} />
 
     </Routes>
   );
