@@ -1,0 +1,205 @@
+.nova-booking-my_info_comp_top_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-booking-my_info_comp_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  padding: 3.6rem 3.5rem 1.6rem 3.5rem;
+  color: #171D1C;
+}
+
+.nova-booking-my_info_comp_inputs_top_view {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3.8rem;
+  padding-right: 3.2rem;
+  margin-bottom: 5rem;
+}
+
+.nova-booking-my_info_comp_first_name_input_top_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nova-booking-my_info_comp_first_name_input_view {
+  display: flex;
+  flex-direction: column;
+  width: 65.1rem;
+  margin-bottom: 3.6rem;
+}
+
+.nova-booking-my_info_comp_address_input_view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 3.6rem;
+}
+
+.nova-booking-my_info_comp_input_view {
+  display: flex;
+  width: 100%;
+  border: 1px solid #EE509C;
+  border-radius: 8px;
+  align-items: center;
+  padding: 0.7rem 1.7rem 0.8rem 1.7rem;
+}
+
+.nova-booking-my_info_comp_input_view input {
+  border: none;
+  outline: none;
+  font-family: 'Poppins';
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  background-color: transparent;
+  color: #A5A5A5;
+}
+
+.nova-booking-my_info_comp_input_view textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  height: 8.6rem;
+  font-family: 'Poppins';
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  background-color: transparent;
+  color: #A5A5A5;
+}
+
+.nova-booking-my_info_comp_inputs_top_view h5 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #EE509C;
+  margin-bottom: 0.3rem;
+}
+
+.nova-booking-my_info_comp_input_view textarea::-webkit-input-placeholder,
+.nova-booking-my_info_comp_input_view input::-webkit-input-placeholder {
+  font-family: 'Poppins';
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  background-color: transparent;
+  color: #A5A5A5;
+}
+
+.nova-booking-my_info_comp_radia_button_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: -0.8rem;
+  cursor: pointer;
+  padding-bottom: 4rem;
+}
+
+.nova-booking-my_info_comp_radia_button_view div {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: #D7D7D7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2.2rem;
+}
+
+
+.nova-booking-my_info_comp_radia_button_view img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.nova-booking-my_info_comp_radia_button_view h4 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #3D3D3D;
+}
+
+@media screen and (max-width:1710px) {
+  .nova-booking-my_info_comp_first_name_input_view {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width:1440px) {
+  .nova-booking-my_info_comp_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-booking-my_info_comp_inputs_top_view h5 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+}
+
+@media screen and (max-width:850px) {
+  .nova-booking-my_info_comp_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-booking-my_info_comp_inputs_top_view h5 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-my_info_comp_radia_button_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .nova-booking-my_info_comp_radia_button_view h4 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+
+}
+
+@media screen and (max-width:500px) {
+  .nova-booking-my_info_comp_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    text-align: center;
+  }
+
+  .nova-booking-my_info_comp_inputs_top_view h5 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-my_info_comp_radia_button_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+}
+
+@media screen and (max-width:425px) {
+  .nova-booking-my_info_comp_top_view h1 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-my_info_comp_radia_button_view img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+}

@@ -34,3 +34,17 @@ export { default as serviceDetailOne } from "./serviceDetailOne.png";
 export { default as serviceDetailTwo } from "./serviceDetailTwo.png";
 export { default as reviewBanner } from "./reviewBanner.png";
 export { default as waxingDark } from "./waxingDark.png";
+export { default as back } from "./back.png";
+export { default as next } from "./next.png";
+export { default as bookingBanner } from "./bookingBanner.png";
+export { default as calenderTwo } from "./calenderTwo.png";
+export { default as circleClose } from "./circleClose.png";
+export { default as clock } from "./clock.png";
+export { default as editGrey } from "./editGrey.png";
+export { default as location } from "./location.png";
+export { default as roundTick } from "./roundTick.png";
+export { default as squareTick } from "./squareTick.png";
+export { default as tick } from "./tick.png";
+export { default as cross } from "./cross.png";
+export { default as reward } from "./reward.png";
+

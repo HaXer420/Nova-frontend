@@ -26,8 +26,8 @@ const Navbar = () => {
             <div className='nova__navbar-links_text_view'>
                 <h1 onClick={() => navigate('/reviewspage')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/reviewspage' ? 'solid' : 'none' }}>Reviews</h1>
             </div>
-            <div className='nova__navbar-links_book_now_button'>
-                <h2 onClick={() => navigate('/bookingpage')}>Book Now</h2>
+            <div style={{ backgroundColor: window.location.href === 'http://localhost:3000/bookingpage' ? '#ffffff' : '#292929' }} className='nova__navbar-links_book_now_button'>
+                <h2 style={{ color: window.location.href === 'http://localhost:3000/bookingpage' ? '#EE509C' : '#ffffff' }} onClick={() => navigate('/bookingpage')}>Book Now</h2>
             </div>
             <div className='nova__navbar-links_text_view'>
                 <h1 onClick={() => navigate('/contactpage')} style={{ borderBottomStyle: window.location.href === 'http://localhost:3000/contactpage' ? 'solid' : 'none' }}>Contact Us</h1>

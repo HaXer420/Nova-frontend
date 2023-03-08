@@ -1,0 +1,147 @@
+.nova-congrates_model_top_view {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  overflow: scroll;
+  padding-top: 2rem;
+  width: 100vw;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nova-congrates_model_view {
+  display: flex;
+  width: 63.8rem;
+  background: #FFFFFF;
+  padding-bottom: 3rem;
+  border-radius: 2.4rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nova-congrates_model_close_view {
+  display: flex;
+  padding: 1.4rem 1.5rem 0rem 1.5rem;
+  align-self: end;
+}
+
+.nova-congrates_model_close_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+  cursor: pointer;
+
+}
+
+.nova-congrates_model_detail_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nova-congrates_model_detail_view img {
+  width: 7.4rem;
+  height: 7.4rem;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+}
+
+.nova-congrates_model_detail_view h1 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  color: #3D3D3D;
+}
+
+.nova-congrates_model_detail_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #292929;
+}
+
+.nova-congrates_model_detail_view h3 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 7.2rem;
+  color: #EE509C;
+}
+
+@media screen and (max-width:1440px) {
+  .nova-congrates_model_view {
+    width: 53.8rem;
+  }
+
+}
+
+@media screen and (max-width:768px) {
+  .nova-congrates_model_view {
+    width: 43.8rem;
+  }
+
+  .nova-congrates_model_close_view img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nova-congrates_model_detail_view img {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+
+  .nova-congrates_model_detail_view h1 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-congrates_model_detail_view h2 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-congrates_model_detail_view h3 {
+    font-size: 3.8rem;
+    line-height: 6.2rem;
+    color: #EE509C;
+  }
+
+}
+
+@media screen and (max-width:550px) {
+  .nova-congrates_model_view {
+    width: 33.8rem;
+  }
+
+  .nova-congrates_model_detail_view img {
+    width: 5.4rem;
+    height: 5.4rem;
+  }
+
+  .nova-congrates_model_detail_view h1 {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-congrates_model_detail_view h2 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-congrates_model_detail_view h3 {
+    font-size: 2.8rem;
+    line-height: 5.2rem;
+    color: #EE509C;
+  }
+
+}
+
+@media screen and (max-width:375px) {
+  .nova-congrates_model_view {
+    width: 28rem;
+  }
+}

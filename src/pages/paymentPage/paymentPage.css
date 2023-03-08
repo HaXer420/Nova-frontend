@@ -1,0 +1,209 @@
+.nova-payment-main_container {
+    display: flex;
+    flex-direction: column;
+    padding: 2.8rem 16.6rem 9.8rem 16.6rem;
+}
+
+.nova-payment-main_container h1 {
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 4rem;
+    color: #171D1C;
+    padding-bottom: 5.4rem;
+}
+
+.nova-payment_container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.nova-payment_payment_methods_view {
+    display: flex;
+    flex-direction: column;
+}
+
+.nova-payment_payment_methods_view h2 {
+    font-family: 'Comfortaa';
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+    color: #171D1C;
+    padding-bottom: 3.9rem;
+}
+
+.nova-payment_payment_single_method_view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 3.8rem;
+}
+
+.nova-payment_payment_single_method_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+    object-fit: contain;
+}
+
+.nova-payment_payment_single_method_view div {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 1rem;
+    background-color: #A5A5A5;
+}
+
+.nova-payment_payment_single_method_view h5 {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: #3F3F3F;
+    padding-left: 2.9rem;
+}
+
+.nova-payment_inputs_top_view {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: row;
+}
+
+.nova-payment_inputs_divider_view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nova-payment_inputs_divider_arrow_view {
+    display: flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 1rem;
+    background-color: #EE509C;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-payment_inputs_divider_arrow_view img {
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.nova-payment_inputs_divider_one {
+    display: flex;
+    height: 80%;
+    border-right: 1px solid #A5A5A5;
+}
+
+.nova-payment_inputs_divider_two {
+    display: flex;
+    height: 20%;
+    border-right: 1px solid #A5A5A5;
+}
+
+.nova-payment_inputs_view {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 13rem;
+}
+
+.nova-payment_small_inputs_top_view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.nova-payment_small_inputs_view {
+    width: 45%;
+}
+
+@media screen and (max-width:1440px) {
+    .nova-payment-main_container {
+        padding: 2.8rem 10.6rem 9.8rem 10.6rem;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .nova-payment_inputs_divider_view {
+        display: none;
+    }
+
+    .nova-payment_inputs_view {
+        margin-left: 0rem;
+    }
+
+    .nova-payment-main_container h1 {
+        font-size: 3rem;
+        line-height: 3.4rem;
+    }
+
+    .nova-payment_payment_methods_view h2 {
+        font-size: 2rem;
+        line-height: 2.3rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .nova-payment-main_container {
+        padding: 2.8rem 5.6rem 9.8rem 5.6rem;
+    }
+
+    .nova-payment_container {
+        flex-direction: column;
+    }
+
+    .nova-payment_inputs_top_view {
+        width: 100%;
+        height: 100%;
+    }
+
+    .nova-payment_inputs_view {
+        display: flex;
+        width: 100%;
+        flex: 1;
+    }
+
+    .nova-payment_small_inputs_top_view {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        margin-bottom: 5rem;
+    }
+
+    .nova-payment_small_inputs_view {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:510px) {
+    .nova-payment-main_container h1 {
+        font-size: 2.6rem;
+        line-height: 3rem;
+        text-align: center;
+    }
+
+    .nova-payment_payment_methods_view h2 {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .nova-payment-main_container h1 {
+        font-size: 2.2rem;
+        line-height: 2.6rem;
+    }
+
+    .nova-payment_payment_methods_view h2 {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+}
