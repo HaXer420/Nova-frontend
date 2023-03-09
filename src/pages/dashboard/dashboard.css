@@ -28,7 +28,7 @@
 }
 
 .nova-dashboard-banner_detail_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.4rem;
@@ -37,7 +37,7 @@
 }
 
 .nova-dashboard-banner_detail_view h5 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
@@ -46,11 +46,11 @@
 }
 
 .nova-dashboard-banner_detail_view h3 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
-  color: #EE509C;
+  color: #ee509c;
   padding-bottom: 2.3rem;
 }
 
@@ -68,7 +68,7 @@
 }
 
 .nova-dashboard-banner_percantages_view h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.8rem;
@@ -77,7 +77,7 @@
 }
 
 .nova-dashboard-banner_percantages_view h4 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 109.5%;
@@ -108,7 +108,7 @@
   flex-direction: column;
   padding-top: 5rem;
   padding-left: 16.6rem;
-  background-color: #EE509C;
+  background-color: #ee509c;
 }
 
 .nova-dashboard-our_services_top_view {
@@ -117,11 +117,11 @@
 }
 
 .nova-dashboard-our_services_and_specials_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-bottom: 2.4rem;
 }
 
@@ -162,7 +162,7 @@
 }
 
 .nova-dashboard-about_me_know_text h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 8rem;
   line-height: 8.9rem;
@@ -175,7 +175,7 @@
 }
 
 .nova-dashboard-about_me_dont_find_text h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 6.4rem;
   line-height: 7.1rem;
@@ -190,11 +190,11 @@
 }
 
 .nova-dashboard-about_me_detail_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
-  color: #3D3D3D;
+  color: #3d3d3d;
   width: 90%;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .nova-dashboard-about_me_clients_top_view h4 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 6rem;
   line-height: 146.47%;
@@ -220,7 +220,7 @@
 }
 
 .nova-dashboard-about_me_clients_top_view h5 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 400;
   font-size: 2.3rem;
   line-height: 3.3rem;
@@ -245,7 +245,7 @@
 }
 
 .nova-dashboard-reviews_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.4rem;
@@ -270,7 +270,6 @@
   margin-right: 6.4rem;
 }
 
-
 .nova-dashboard-single_review img {
   width: 15.3rem;
   height: 15.3rem;
@@ -280,7 +279,7 @@
 }
 
 .nova-dashboard-single_review p {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 2.7rem;
@@ -303,7 +302,7 @@
 }
 
 .nova-dashboard-questions_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
@@ -325,7 +324,7 @@
 }
 
 .nova-dashboard-single_question_title_view h3 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 2.7rem;
@@ -342,16 +341,16 @@
 
 .nova-dashboard-single_question_divider {
   display: flex;
-  border: 1px solid #3D3D3D;
+  border: 1px solid #3d3d3d;
   margin-bottom: 4rem;
 }
 
 .nova-dashboard-single_question_view h4 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
-  color: #3D3D3D;
+  color: #3d3d3d;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1.5rem;
@@ -378,11 +377,11 @@
 }
 
 .nova-dashboard-team_members_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
-  color: #171D1C;
+  color: #171d1c;
   padding-bottom: 3.8rem;
 }
 
@@ -424,7 +423,7 @@
 }
 
 .nova-dashboard-single_member_detail_view h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
@@ -433,14 +432,14 @@
 }
 
 .nova-dashboard-single_member_detail_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
   color: #686161;
 }
 
-@media screen and (max-width:1440px) {
+@media screen and (max-width: 1440px) {
   .nova-dashboard-banner_top_view {
     padding: 0rem 12.6rem 4.1rem 12.6rem;
   }
@@ -644,7 +643,6 @@
     margin-bottom: 3.5rem;
   }
 
-
   .nova-dashboard-single_member_detail_view_divider {
     margin-right: 2rem;
   }
@@ -661,7 +659,7 @@
   }
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width: 1200px) {
   .nova-dashboard-banner_detail_view {
     padding-top: 10.8rem;
   }
@@ -776,7 +774,6 @@
     width: 24.8rem;
   }
 
-
   .nova-dashboard-questions_view h1 {
     font-size: 2.4rem;
     line-height: 2.8rem;
@@ -844,7 +841,7 @@
   }
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
   .nova-dashboard-banner_top_view {
     padding: 0rem 8.6rem 3.1rem 8.6rem;
   }
@@ -861,7 +858,6 @@
     padding: 0rem 8.6rem 3.4rem 8.6rem;
   }
 
-
   .nova-dashboard-reviews_top_view {
     padding: 0rem 0rem 3.4rem 8.6rem;
   }
@@ -873,10 +869,9 @@
   .nova-dashboard-team_members_top_view {
     padding-left: 8.6rem;
   }
-
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width: 900px) {
   .nova-dashboard-banner_top_view {
     flex-direction: column;
     justify-content: center;
@@ -935,7 +930,7 @@
   }
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width: 550px) {
   .nova-dashboard-banner_top_view {
     padding: 0rem 3.6rem 3.1rem 3.6rem;
   }
@@ -952,7 +947,6 @@
     padding: 0rem 3.6rem 3.4rem 3.6rem;
   }
 
-
   .nova-dashboard-reviews_top_view {
     padding: 0rem 0rem 3.4rem 3.6rem;
   }
@@ -964,11 +958,9 @@
   .nova-dashboard-team_members_top_view {
     padding-left: 3.6rem;
   }
-
 }
 
-@media screen and (max-width:470px) {
-
+@media screen and (max-width: 470px) {
   .nova-dashboard-banner_detail_view h1 {
     font-size: 3rem;
     line-height: 4rem;
@@ -1046,7 +1038,6 @@
   .nova-dashboard-about_me_clients_top_view div {
     margin-right: 2rem;
     margin-bottom: 2rem;
-
   }
 
   .nova-dashboard-about_me_clients_top_view h4 {
@@ -1085,7 +1076,6 @@
     height: 9.2rem;
     width: 22.8rem;
   }
-
 
   .nova-dashboard-questions_view h1 {
     font-size: 2rem;

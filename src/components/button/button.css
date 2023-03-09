@@ -2,13 +2,15 @@
   display: flex;
   position: relative;
   justify-content: center;
+  /* outline: none; */
+  border: none;
 }
 
 .nova-button_border_view {
   position: relative;
   width: 17.2rem;
   height: 5.9rem;
-  border: 1px solid #EE509C;
+  border: 1px solid #ee509c;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   transform: rotate(162deg);
 }
@@ -20,26 +22,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #EE509C;
+  background-color: #ee509c;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   cursor: pointer;
 }
 
 .nova-button_main_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
   color: #ffffff;
 }
 
-@media screen and (max-width:470px) {
-
-
+@media screen and (max-width: 470px) {
   .nova-button_border_view {
     width: 14.2rem;
     height: 4.9rem;
-    border: 1px solid #EE509C;
+    border: 1px solid #ee509c;
     border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
     transform: rotate(162deg);
   }

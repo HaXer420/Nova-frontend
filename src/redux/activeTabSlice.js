@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
-  value: '',
-}
+  value: "",
+};
 
-export const acirveTabSlice = createSlice({
-  name: 'shop',
+export const activeTabSlice = createSlice({
+  name: "shop",
   initialState,
   reducers: {
     activeTab: (state, action) => {
       state.value = action.payload;
     },
   },
-})
+});
 
-export const { activeTab } = acirveTabSlice.actions
+export const { activeTab } = activeTabSlice.actions;
 
-export default acirveTabSlice.reducer
+export default activeTabSlice.reducer;

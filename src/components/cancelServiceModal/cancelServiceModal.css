@@ -1,0 +1,72 @@
+.nova-my-profile-cancel-service-modal-main-container {
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  overflow: scroll;
+  padding-top: 2rem;
+  width: 100vw;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nova-my-profile-cancel-service-modal-container {
+  width: 63.8rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2.4rem;
+  position: relative;
+}
+
+.nova-my-profile-cancel-service-modal-container img {
+  width: 9.3rem;
+  height: 9.3rem;
+  object-fit: contain;
+  margin-top: 3.3rem;
+}
+.nova-my-profile-cancel-service-modal-container p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  margin-top: 2rem;
+}
+
+.nova-my-profile-cancel-service-modal-main-clos-icon {
+  position: absolute;
+  right: 1rem;
+  top: -2.5rem;
+}
+.nova-my-profile-cancel-service-modal-main-clos-icon img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nova-my-profile-cancel-service-select-option-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.nova-my-profile-cancel-service-select-option p {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #a5a5a5;
+  cursor: pointer;
+}
+.nova-my-profile-cancel-service-vertical-line {
+  height: 4.6rem;
+  border-left: 1px solid #a5a5a5;
+}

@@ -34,3 +34,14 @@ export { default as serviceDetailOne } from "./serviceDetailOne.png";
 export { default as serviceDetailTwo } from "./serviceDetailTwo.png";
 export { default as reviewBanner } from "./reviewBanner.png";
 export { default as waxingDark } from "./waxingDark.png";
+
+// --------------Profile-------------------//
+
+export { default as profileBackground } from "./profile-background.png";
+export { default as camIcon } from "./cam-icon.png";
+export { default as profileImage } from "./profile-image.png";
+export { default as calenderIcon } from "./calender-icon.png";
+export { default as clockIcon } from "./clock-icon.png";
+export { default as crossIcon } from "./cross-icon.png";
+export { default as crossIcon2 } from "./cross-icon2.png";
+export { default as closIcon } from "./closs-icon.png";

@@ -1,0 +1,116 @@
+.nova-profile-upcoming_card-main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1.4rem;
+}
+.nova-profile-upcoming_car-container {
+  /* min-width: 127rem; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nova-profile-upcoming_card-img-container img {
+  width: 6.4rem;
+  height: 6.4rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.nova-profile-upcoming_card-sub-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-my-profile-upcoming_card-detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.4rem;
+}
+
+.nova-my-profile-upcoming_card-type-text p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #292929;
+}
+
+.nova-my-profile-upcoming_card-detail-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+.nova-my-profile-upcoming_card-calender-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-my-profile-upcoming_card-calender-icon-container img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.nova-my-profile-upcoming_card-calender-icon-container p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 30px;
+  color: #3d3d3d;
+  margin-left: 1.6rem;
+}
+.nova-my-profile-upcoming_card-time-icon-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 6.4rem;
+}
+
+.nova-profile-upcoming_card-bottom-line {
+  width: 100%;
+  border: 1px solid #d7d7d7;
+  margin-top: 2.9rem;
+}
+
+.nova-my-profile-upcoming_card-cancel-main-container {
+  display: flex;
+  flex-direction: column;
+}
+.nova-my-profile-upcoming_card-cancel-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 12rem;
+  height: 3.8rem;
+  border-radius: 8px;
+  background: #ffc9e3;
+  flex-direction: row;
+  padding: 0 1.1rem;
+  cursor: pointer;
+}
+.nova-my-profile-upcoming_card-cancel-btn-container img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+.nova-my-profile-upcoming_card-cancel-btn-container p {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #ee509c;
+}
+.nova-my-profile-upcoming_card-cancel-main-container h2 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #292929;
+  margin-top: 2rem;
+  align-self: flex-end;
+}

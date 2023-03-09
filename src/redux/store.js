@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { activeTabSlice } from './'
+import activeTabSlice from "./activeTabSlice";
+import showModal from "./showModalSlice";
 
 import {
   persistReducer,
@@ -16,10 +17,13 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage: localStorage,
+  blacklist: ["modal", "shop"],
 };
 const reducer = combineReducers({
-  activeTab: activeTabSlice
-})
+  activeTab: activeTabSlice,
+  showModal: showModal,
+});
+
 const persistedReducer = persistReducer(persistConfig, reducer);
 const configureAppStore = () => {
   return configureStore({

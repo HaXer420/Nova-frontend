@@ -1,0 +1,80 @@
+.nova-my-profile-my_rewards-main-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-my_profile-circle-progress-bar-container {
+  align-self: center;
+  width: 28rem;
+  height: 28rem;
+  margin-top: 5rem;
+}
+
+.nova-progress-bar-circular-text-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.nova-progress-bar-circular-text-container h2 {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 7.3rem;
+  color: black;
+}
+
+.nova-progress-bar-circular-text-container p {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #000000;
+}
+.nova-my_profile-payment-card-details {
+  width: 30rem;
+  height: 11.7rem;
+  border: 1px solid #ee509c;
+  border-radius: 1.6rem;
+  align-self: center;
+  margin-top: 2rem;
+}
+.nova-my_profile-card-details-payment-main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.2rem;
+}
+
+.nova-my_profile-card-details-payment-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nova-my_profile-card-details-payment-container h1 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 2rem;
+  color: #000000;
+}
+
+.nova-my_profile-card-details-payment-container h2 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ee509c;
+}
+
+.nova-payment-card-previous-rewards-title h2 {
+  font-family: "poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: #000000;
+  margin-left: 4.7rem;
+}
+
+.nova-my-rewards-point-details-main-container {
+  display: flex;
+}

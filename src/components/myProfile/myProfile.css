@@ -1,0 +1,9 @@
+.nova-comp-my_profile-main-container {
+  width: 100%;
+  background: #ffeff7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6.5rem;
+  padding-bottom: 2.1rem;
+}
