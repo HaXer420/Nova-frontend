@@ -12,3 +12,5 @@ export { default as ContactPage } from "./contactPage/ContactPage";
 export { default as ReviewsPage } from "./reviewsPage/ReviewsPage";
 export { default as ServiceDetail } from "./serviceDetail/ServiceDetail";
 export { default as Profile } from "./profile/Profile";
+export { default as BookingPage } from "./bookingPage/BookingPage";
+export { default as PaymentPage } from "./paymentPage/PaymentPage";

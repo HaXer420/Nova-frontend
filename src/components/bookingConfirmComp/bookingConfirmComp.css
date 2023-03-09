@@ -1,0 +1,363 @@
+.nova-booking-confirm_comp_top_view {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+}
+
+.nova-booking-confirm_comp_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.7rem;
+  color: #292929;
+  padding: 3.6rem 3.5rem 1.8rem 3.5rem;
+  color: #171D1C;
+}
+
+.nova-booking-confirm_comp_service_top_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0rem 7.4rem 3rem 5.4rem;
+}
+
+.nova-booking-confirm_comp_service_image_view img {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 1rem;
+  margin-right: 2.4rem;
+}
+
+.nova-booking-confirm_comp_service_detail_view {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nova-booking-confirm_comp_service_title_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-booking-confirm_comp_service_title_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #292929;
+  padding-bottom: 1rem;
+}
+
+.nova-booking-confirm_comp_service_date_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.nova-booking-confirm_comp_service_date_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #3D3D3D;
+  padding-right: 6.8rem;
+}
+
+.nova-booking-confirm_comp_service_date_view h4 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #3D3D3D;
+}
+
+.nova-booking-confirm_comp_service_date_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  margin-right: 1.3rem;
+}
+
+.nova-booking-confirm_comp_service_price_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-booking-confirm_comp_service_price_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  margin-right: 3rem;
+}
+
+.nova-booking-confirm_comp_service_price_view h5 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  color: #292929;
+}
+
+.nova-booking-confirm_comp_service_detail_divider {
+  display: flex;
+  border: 1px solid #D7D7D7;
+  margin: 0rem 3.5rem 2rem 3.5rem;
+}
+
+.nova-booking-confirm_comp_tip_top_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 7rem;
+  padding-left: 5.4rem;
+  padding-bottom: 1.7rem;
+}
+
+.nova-booking-confirm_comp_tip_top_view h2 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.7rem;
+  color: #292929;
+}
+
+.nova-booking-confirm_comp_tip_top_view h3 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  color: #292929;
+}
+
+.nova-booking-confirm_comp_tip_top_view h4 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #A5A5A5;
+}
+
+@media screen and (max-width:1440px) {
+  .nova-booking-confirm_comp_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+
+  .nova-booking-confirm_comp_service_image_view img {
+    width: 5.4rem;
+    height: 5.4rem;
+    border-radius: 0.8rem;
+    margin-right: 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_title_view h2 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    padding-right: 4.8rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h4 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view h5 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h2 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h3 {
+    font-size: 2rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h4 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .nova-booking-confirm_comp_top_view h1 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_image_view img {
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 0.6rem;
+    margin-right: 1rem;
+  }
+
+  .nova-booking-confirm_comp_service_title_view h2 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h3 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    padding-right: 3.8rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h4 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-right: 1rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view h5 {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h2 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h3 {
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+  }
+
+}
+
+@media screen and (max-width:575px) {
+  .nova-booking-confirm_comp_tip_top_view {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+  }
+
+  .nova-booking-confirm_comp_service_detail_divider {
+    margin: 0rem 2rem 1rem 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_top_view {
+    padding: 0rem 3.4rem 1rem 2rem;
+  }
+
+  .nova-booking-confirm_comp_top_view h1 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 2rem 2rem 1rem 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_image_view img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .nova-booking-confirm_comp_service_title_view h2 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h3 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding-right: 1.8rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view h4 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-confirm_comp_service_date_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view h5 {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h2 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h3 {
+    font-size: 1.4rem;
+    line-height: 2.6rem;
+  }
+
+}
+
+@media screen and (max-width:425px) {
+  .nova-booking-confirm_comp_service_date_view img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .nova-booking-confirm_comp_service_price_view h5 {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h2 {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  .nova-booking-confirm_comp_tip_top_view h3 {
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-confirm_comp_service_top_view {
+    align-items: flex-start;
+  }
+}

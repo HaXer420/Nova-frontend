@@ -19,6 +19,8 @@ const Navigation = () => {
       <Route path="/reviewspage" element={<Pages.ReviewsPage />} />
       <Route path="/Sservicedetail" element={<Pages.ServiceDetail />} />
       <Route path="/profile" element={<Pages.Profile />} />
+      <Route path="/bookingpage" element={<Pages.BookingPage />} />
+      <Route path="/paymentpage" element={<Pages.PaymentPage />} />
     </Routes>
   );
 };

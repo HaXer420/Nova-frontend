@@ -1,0 +1,161 @@
+.nova-booking-start_comp_top_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-booking-start_comp_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  padding: 3.6rem 3.5rem 2.4rem 3.5rem;
+  color: #171D1C;
+}
+
+.nova-booking-start_comp_item_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0rem 2.9rem 1.6rem 2.9rem;
+  padding: 1.2rem 3rem 1.2rem 2.8rem;
+  background: #FFFFFF;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.nova-booking-start_comp_item_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #292929;
+}
+
+.nova-booking-start_comp_item_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+}
+
+.nova-booking-start_comp_next_button_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 2rem 2.1rem;
+  cursor: pointer;
+}
+
+.nova-booking-start_comp_next_button_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 2.9rem;
+  color: #3D3D3D;
+  padding-right: 0.5rem;
+}
+
+.nova-booking-start_comp_next_button_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+@media screen and (max-width:1440px) {
+  .nova-booking-start_comp_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-booking-start_comp_item_view h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-start_comp_item_view img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nova-booking-start_comp_next_button_view h3 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .nova-booking-start_comp_next_button_view img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .nova-booking-start_comp_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-booking-start_comp_item_view h2 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+
+  .nova-booking-start_comp_item_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .nova-booking-start_comp_next_button_view h3 {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+
+  .nova-booking-start_comp_next_button_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .nova-booking-start_comp_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-start_comp_item_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .nova-booking-start_comp_next_button_view h3 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+
+  .nova-booking-start_comp_next_button_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .nova-booking-start_comp_top_view h1 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+
+  .nova-booking-start_comp_item_view img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .nova-booking-start_comp_next_button_view h3 {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+
+  .nova-booking-start_comp_next_button_view img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}

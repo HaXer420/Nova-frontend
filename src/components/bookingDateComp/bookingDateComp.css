@@ -1,0 +1,346 @@
+.nova-booking-date_comp_top_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-booking-date_comp_top_view h1 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  padding: 3.6rem 3.5rem 2.4rem 3.5rem;
+  color: #171D1C;
+}
+
+.nova-booking-date_comp_date_top_view {
+  display: flex;
+  flex-direction: row;
+  margin: 0rem 8.8rem 1.6rem 8.8rem;
+}
+
+.nova-booking-date_comp_date_view {
+  display: flex;
+  flex-direction: column;
+  width: 32.8rem;
+  height: 51.6rem;
+  border: 1px solid #EE509C;
+  border-radius: 1.6rem;
+}
+
+.nova-booking-date_comp_date_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  color: #49454F;
+  padding: 1.6rem 2.4rem;
+}
+
+.nova-booking-date_comp_date_view h3 {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  color: #292929;
+  padding: 2rem 2.4rem 1.2rem 2.4rem;
+}
+
+.nova-booking-date_comp_divider {
+  display: flex;
+  border: 1px solid #cac4d0;
+}
+
+.nova-booking-date_comp_cancel_ok_button_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin: -1rem 0rem 2.1rem 2.4rem;
+
+}
+
+.nova-booking-date_comp_cancel_ok_button_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #EE509C;
+  padding-left: 2.8rem;
+  cursor: pointer;
+}
+
+.nova-booking-date_comp_slots_top_view {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6.4rem;
+  width: 100%;
+}
+
+.nova-booking-date_comp_selected_date_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem;
+  border: 1px solid #EE509C;
+  border-radius: 16px;
+  margin-bottom: 1.6rem;
+}
+
+.nova-booking-date_comp_selected_date_view h2 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #292929;
+}
+
+.nova-booking-date_comp_selected_date_view img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: cover;
+}
+
+.nova-booking-date_comp_slots_view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 45.5rem;
+  border: 1px solid #EE509C;
+  border-radius: 16px;
+  padding: 2.5rem 4.6rem;
+}
+
+.nova-booking-date_comp_slots_title_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.9rem;
+}
+
+.nova-booking-date_comp_slots_title_view h2 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.7rem;
+  color: #171D1C;
+}
+
+.nova-booking-date_comp_single_slot_top_view {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: scroll;
+  justify-content: space-between;
+}
+
+.nova-booking-date_comp_single_slot_top_view::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+
+.nova-booking-date_comp_single_slot_view {
+  display: flex;
+  flex-direction: column;
+}
+
+.nova-booking-date_comp_single_slot_view div {
+  width: 10.8rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFC9E3;
+  border-radius: 8px;
+  margin-bottom: 1.6rem;
+  cursor: pointer;
+  border-style: solid;
+  border-color: #EE509C;
+}
+
+
+.nova-booking-date_comp_single_slot_view h3 {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  color: #292929;
+}
+
+.nova-booking-date_comp_text_input_view {
+  display: none;
+  width: 100%;
+}
+
+.nova-booking-date_comp_text_input_view div {
+  width: 100%;
+}
+
+@media screen and (max-width:1440px) {
+  .nova-booking-date_comp_date_top_view {
+    margin: 0rem 5.8rem 1.6rem 5.8rem;
+  }
+
+  .nova-booking-date_comp_top_view h1 {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    text-align: center;
+  }
+
+  .nova-booking-date_comp_date_view h3 {
+    font-size: 2.8rem;
+    line-height: 3.6rem;
+  }
+
+  .nova-booking-date_comp_cancel_ok_button_view h2 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+
+  .nova-booking-date_comp_slots_top_view {
+    margin-left: 2.4rem;
+  }
+
+  .nova-booking-date_comp_selected_date_view h2 {
+    font-size: 1.4rem;
+    line-height: 2rem;
+  }
+
+  .nova-booking-date_comp_selected_date_view img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .nova-booking-date_comp_slots_title_view h2 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+
+  .nova-booking-date_comp_single_slot_view h3 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+  }
+}
+
+@media screen and (max-width:1115px) {
+  .nova-booking-date_comp_date_top_view {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nova-booking-date_comp_slots_top_view {
+    margin-left: 0rem;
+  }
+
+  .nova-booking-date_comp_date_view {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .nova-booking-date_comp_date_top_view {
+    margin: 0rem 4.8rem 1.6rem 4.8rem;
+  }
+
+  .nova-booking-date_comp_top_view h1 {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-booking-date_comp_date_view h3 {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+
+  .nova-booking-date_comp_selected_date_view h2 {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  .nova-booking-date_comp_selected_date_view img {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .nova-booking-date_comp_slots_title_view h2 {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width:600px) {
+
+  .nova-booking-date_comp_slots_view {
+    padding: 2rem 2rem;
+  }
+
+  .nova-booking-date_comp_date_top_view {
+    margin: 0rem 2rem 1.6rem 2rem;
+  }
+
+  .nova-booking-date_comp_top_view h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  .nova-booking-date_comp_date_view h3 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+  }
+
+  .nova-booking-date_comp_selected_date_view img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .nova-booking-date_comp_slots_title_view h2 {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nova-booking-date_comp_single_slot_view div {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .nova-booking-date_comp_date_view {
+    display: none;
+  }
+
+  .nova-booking-date_comp_text_input_view {
+    display: flex;
+  }
+
+  .nova-booking-date_comp_slots_title_view h2 {
+    font-size: 1rem;
+    line-height: 1.2rem;
+  }
+
+  .nova-booking-date_comp_single_slot_view div {
+    margin-right: 0.5rem;
+    width: 7.8rem;
+    height: 2.6rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .nova-booking-date_comp_single_slot_view h3 {
+    font-size: 1rem;
+    line-height: 1.7rem;
+  }
+}
+
+@media screen and (max-width:375px) {
+  .nova-booking-date_comp_slots_title_view {
+    display: none
+  }
+
+  .nova-booking-date_comp_slots_view {
+    height: 37rem;
+  }
+}
