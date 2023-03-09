@@ -149,7 +149,7 @@
   color: #EE509C;
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1260px) {
   .nova__navbar-links_book_now_button {
     margin-bottom: 1rem;
   }

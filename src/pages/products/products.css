@@ -1,0 +1,65 @@
+.nova-products-single_product_price_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2.3rem;
+}
+
+.nova-products-single_product_cross_price_view {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+.nova-products-single_product_cross_price_view img {
+  width: 9.3rem;
+  height: 3.5rem;
+  object-fit: contain;
+  position: absolute;
+}
+
+.nova-products-single_product_price_view h5 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.6rem;
+  color: #051014;
+}
+
+@media screen and (max-width:1724px) {
+  .nova-products-single_product_cross_price_view img {
+    width: 8.7rem;
+    height: 3.2rem;
+  }
+
+  .nova-products-single_product_price_view h5 {
+    font-size: 2.2rem;
+    line-height: 2.4rem;
+  }
+}
+
+@media screen and (max-width:650px) {
+  .nova-products-single_product_cross_price_view img {
+    width: 8.7rem;
+    height: 2.5rem;
+  }
+
+  .nova-products-single_product_price_view h5 {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .nova-products-single_product_cross_price_view img {
+    width: 6.7rem;
+    height: 2.2rem;
+  }
+
+  .nova-products-single_product_price_view h5 {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+}

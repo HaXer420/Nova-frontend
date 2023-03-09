@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sugaring, threadingSpecial, waxingCombo } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
@@ -45,11 +45,8 @@ export default function Specials() {
                   <img onClick={() => navigate('/Sservicedetail')} alt='' src={item.image} />
                   <div onClick={() => navigate('/Sservicedetail')} className="nova-services-single_service_title_view">
                     <h2>{item.title}</h2>
-                    <h3>{item.price}</h3>
                   </div>
-                  <h4 onClick={() => navigate('/Sservicedetail')} >{item.des}</h4>
-                  <h3 style={{ paddingLeft: 10, cursor: 'pointer' }}>Book Now</h3>
-                  <div className="nova-services-single_service_border_view" />
+                  <h4 onClick={() => navigate('/Sservicedetail')} >{item.des}<span style={{ color: '#EE509C', fontWeight: 'bold' }}> Read more</span></h4>
                 </div>
               )
             })}

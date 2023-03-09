@@ -112,29 +112,34 @@ export default function Dashboard() {
   const reviewArray = [
     {
       id: 1,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi. Lorem ultrices blandit",
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
       image: reviewDummy,
+      type: '(Sugaring)',
+      reviewBy: 'Sarah Smith'
     },
     {
       id: 2,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi. Lorem ultrices blandit",
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
       image: reviewDummy,
-    },
-    {
+      type: '(Facials)',
+      reviewBy: 'Naomi Turner'
+
+    }, {
       id: 3,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi. Lorem ultrices blandit",
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
       image: reviewDummy,
+      type: '(Waxing)',
+      reviewBy: 'James Vegas'
     },
     {
       id: 4,
-      title:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi. Lorem ultrices blandit",
+      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
       image: reviewDummy,
-    },
-  ];
+      type: '(Waxing)',
+      reviewBy: 'James Vegas'
+
+    }
+  ]
   const teamMembers = [
     {
       id: 1,
@@ -261,6 +266,9 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+        <div className="nova-dashboard-location_text_view">
+          <h6>Location</h6>
+        </div>
         <div className="nova-dashboard-map_top_view">
           <div>
             <GoogleMapReact
@@ -316,14 +324,11 @@ export default function Dashboard() {
             {reviewArray.map((item) => {
               return (
                 <div key={item.id} className="nova-dashboard-single_review">
-                  <img alt="" src={item.image} />
-                  <p>
-                    {item.title}
-                    <span style={{ color: "#F088B8", cursor: "pointer" }}>
-                      {" "}
-                      Read More . . .
-                    </span>
-                  </p>
+                  <img alt='' src={item.image} />
+                  <div>
+                    <p>{item.title}<span style={{ color: '#F088B8', cursor: 'pointer' }}> Read More</span></p>
+                    <p style={{ marginTop: 10 }}>{item.reviewBy} <span style={{ color: '#F088B8', fontWeight: 'bold', }}> {item.type}</span></p>
+                  </div>
                 </div>
               );
             })}

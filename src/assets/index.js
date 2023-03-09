@@ -59,4 +59,8 @@ export { default as squareTick } from "./squareTick.png";
 export { default as tick } from "./tick.png";
 export { default as cross } from "./cross.png";
 export { default as reward } from "./reward.png";
+export { default as productOne } from "./productOne.png";
+export { default as productTwo } from "./productTwo.png";
+export { default as productThree } from "./productThree.png";
+export { default as deleteProduct } from "./deleteProduct.png";
 

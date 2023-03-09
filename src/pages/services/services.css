@@ -10,7 +10,35 @@
   font-size: 3.6rem;
   line-height: 4rem;
   color: #171D1C;
-  padding-bottom: 3.6rem;
+  padding-bottom: 2rem;
+}
+
+.nova-services-gender_view {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-services-single_gender_view {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3.8rem;
+  cursor: pointer;
+}
+
+.nova-services-single_gender_view h2 {
+  font-family: 'Comfortaa';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.7rem;
+  color: #171D1C;
+}
+
+.nova-services-single_gender_divider {
+  display: flex;
+  border: 2px solid #EE509C;
+  margin-top: 0.3rem;
+  margin-bottom: 2.4rem;
 }
 
 .nova-services-top_view {
@@ -24,7 +52,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 9.8rem;
-  margin-bottom: 7.5rem;
+  margin-bottom: 3.5rem;
   width: 39.9rem;
 }
 
@@ -55,13 +83,14 @@
 }
 
 .nova-services-single_service_view h3 {
-  font-family: 'Comfortaa';
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 2.9rem;
-  color: #171D1C;
-
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #292929;
 }
+
+
 
 .nova-services-single_service_view h4 {
   font-family: 'Poppins';
@@ -69,17 +98,11 @@
   font-size: 2rem;
   line-height: 3rem;
   color: #3D3D3D;
-  padding-bottom: 3.5rem;
   cursor: pointer;
 
 }
 
-.nova-services-single_service_border_view {
-  display: flex;
-  width: 14.9rem;
-  margin-top: -0.5rem;
-  border: 5px solid #EE509C;
-}
+
 
 @media screen and (max-width:1724px) {
   .nova-services-main_view {
@@ -89,6 +112,11 @@
   .nova-services-main_view h1 {
     font-size: 3.2rem;
     line-height: 3.6rem;
+  }
+
+  .nova-services-single_gender_view h2 {
+    font-size: 2rem;
+    line-height: 2.3rem;
   }
 
   .nova-services-single_service_view {
@@ -113,21 +141,15 @@
   }
 
   .nova-services-single_service_view h3 {
-    font-size: 2rem;
-    line-height: 2.5rem;
-
+    font-size: 1.6rem;
+    line-height: 2.6rem;
   }
 
   .nova-services-single_service_view h4 {
     font-size: 1.6rem;
     line-height: 2.6rem;
-    padding-bottom: 3rem;
   }
 
-  .nova-services-single_service_border_view {
-    width: 12.9rem;
-    border: 3px solid #EE509C;
-  }
 }
 
 @media screen and (max-width:650px) {
@@ -138,6 +160,11 @@
   .nova-services-main_view h1 {
     font-size: 2.8rem;
     line-height: 3.2rem;
+  }
+
+  .nova-services-single_gender_view h2 {
+    font-size: 1.8rem;
+    line-height: 2rem;
   }
 
   .nova-services-single_service_view {
@@ -156,20 +183,15 @@
   }
 
   .nova-services-single_service_view h3 {
-    font-size: 1.6rem;
-    line-height: 2rem;
-
+    font-size: 1.4rem;
+    line-height: 2.4rem;
   }
 
   .nova-services-single_service_view h4 {
     font-size: 1.4rem;
     line-height: 2.2rem;
-    padding-bottom: 2rem;
   }
 
-  .nova-services-single_service_border_view {
-    width: 10rem;
-  }
 }
 
 @media screen and (max-width:425px) {
@@ -180,6 +202,11 @@
   .nova-services-main_view h1 {
     font-size: 2.4rem;
     line-height: 2.8rem;
+  }
+
+  .nova-services-single_gender_view h2 {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
   }
 
   .nova-services-single_service_view {
@@ -199,18 +226,14 @@
   }
 
   .nova-services-single_service_view h3 {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
-
+    font-size: 1.2rem;
+    line-height: 2rem;
   }
+
 
   .nova-services-single_service_view h4 {
     font-size: 1.2rem;
     line-height: 2rem;
-    padding-bottom: 2rem;
   }
 
-  .nova-services-single_service_border_view {
-    width: 9rem;
-  }
 }

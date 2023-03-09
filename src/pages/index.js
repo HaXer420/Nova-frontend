@@ -14,3 +14,4 @@ export { default as ServiceDetail } from "./serviceDetail/ServiceDetail";
 export { default as Profile } from "./profile/Profile";
 export { default as BookingPage } from "./bookingPage/BookingPage";
 export { default as PaymentPage } from "./paymentPage/PaymentPage";
+export { default as Products } from "./products/Products";
