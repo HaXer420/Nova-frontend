@@ -114,3 +114,43 @@
   margin-top: 2rem;
   align-self: flex-end;
 }
+
+/* -------------Media Query----------------- */
+@media screen and (max-width: 850px) {
+  .nova-profile-upcoming_car-container {
+    flex-wrap: wrap;
+
+    flex-direction: column;
+    align-items: center;
+  }
+  .nova-my-profile-upcoming_card-cancel-main-container {
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nova-my-profile-upcoming_card-cancel-main-container h2 {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .nova-my-profile-upcoming_card-cancel-main-container {
+    width: 65%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .nova-my-profile-upcoming_card-type-text p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
+  .nova-my-profile-upcoming_card-detail-container {
+    margin-left: 0.2rem;
+  }
+  .nova-my-profile-upcoming_card-calender-icon-container p {
+    margin-left: 0;
+    line-height: 1.4rem;
+  }
+}

@@ -33,3 +33,24 @@
 .nova-my_profile-my_reward-select-border {
   border-bottom: 4px solid #ee509c;
 }
+
+/* ----------Media Query------------ */
+
+@media screen and (max-width: 900px) {
+  .nova-my_profile-my_reward-select-container {
+    width: 95%;
+  }
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .nova-my_profile-my_reward-select-view p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 1.6rem;
+  }
+}

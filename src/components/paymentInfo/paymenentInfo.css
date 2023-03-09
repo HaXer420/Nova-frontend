@@ -1,0 +1,78 @@
+.nova-payment-info-main-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.nova-payment-info-title h1 {
+  font-family: "poppins";
+  font-weight: 700;
+  font-size: 3.2rem;
+  color: #3d3d3d;
+  margin-left: 6.2rem;
+  margin-top: 3.6rem;
+}
+
+.nova-payment-info-card-details-main-container {
+  width: 100%;
+  padding: 4.7rem 17rem 15rem 18rem;
+  display: flex;
+  flex-direction: column;
+}
+.nova-payment-info-card-details-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+.nova-payment-info-card-details-bottom-border {
+  border-bottom: 1px solid #000000;
+  opacity: 0.2;
+}
+.nova-payment-info-card-name-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 11rem;
+}
+
+.nova-payment-info-card-name-container h3 {
+  font-family: "poppins";
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #3d3d3d;
+}
+
+.nova-payment-info-card-name-edit-name p {
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #ee509c;
+  cursor: pointer;
+}
+.nova-payment-info-card-card-type-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.nova-payment-info-card-card-type-container img {
+  width: 6.4rem;
+  height: 5rem;
+  object-fit: contain;
+}
+
+.nova-payment-info-card-card-type-container p {
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #3d3d3d;
+  margin-left: 4.8rem;
+}
+
+/* -------------Media Query---------------- */
+
+@media screen and (max-width: 850px) {
+  .nova-payment-info-card-details-main-container {
+    padding: 4.7rem 5rem 5rem 5rem;
+  }
+}

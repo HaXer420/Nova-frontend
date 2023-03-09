@@ -45,6 +45,12 @@ export { default as clockIcon } from "./clock-icon.png";
 export { default as crossIcon } from "./cross-icon.png";
 export { default as crossIcon2 } from "./cross-icon2.png";
 export { default as closIcon } from "./closs-icon.png";
+export { default as dollarIcon } from "./dollar-icon.png";
+export { default as rewardIcon } from "./reward-icon.png";
+export { default as visaLogo } from "./visa.png";
+export { default as masterLogo } from "./master-card.png";
+export { default as payPalLogo } from "./paypal.png";
+
 // -----------------------------------------------------
 export { default as back } from "./back.png";
 export { default as next } from "./next.png";
@@ -63,4 +69,3 @@ export { default as productOne } from "./productOne.png";
 export { default as productTwo } from "./productTwo.png";
 export { default as productThree } from "./productThree.png";
 export { default as deleteProduct } from "./deleteProduct.png";
-

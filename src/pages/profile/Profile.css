@@ -22,7 +22,7 @@
   justify-content: center;
   background-color: rgb(255, 255, 255, 0.5);
   position: absolute;
-  top: 26rem;
+  top: 22rem;
   right: 2rem;
   border-radius: 12px;
   cursor: pointer;
@@ -31,6 +31,7 @@
 .nova-profile-back_ground-image .nova-profile-update-profile-image img {
   width: 2rem;
   height: 1.8rem;
+  /* cursor: pointer; */
 }
 .nova-profile-picture-main-container {
   display: flex;
@@ -142,4 +143,84 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 27px;
+}
+
+/* -----------------------Media Query------------------- */
+
+@media screen and (max-width: 1200px) {
+  .nova-profile-container {
+    padding: 3.2rem 4rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nova-profile-profile_name-container {
+    margin: 0.5rem;
+  }
+  .nova-profile-profile_name-container h1 {
+    font-size: 2.4rem;
+  }
+  .nova-profile-profile_name-container p {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  .nova-profile-message-btn p {
+    font-size: 1.6rem;
+  }
+  .nova-profile-pink-box-btn p {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nova-profile-image-container img {
+    width: 12rem;
+    height: 12rem;
+  }
+  .nova-profile-back_ground-image img {
+    height: 11rem;
+  }
+  .nova-profile-update-profile-image {
+    top: 6rem;
+    right: 1rem;
+  }
+  .nova-profile-picture-main-container {
+    top: 8rem;
+  }
+  .nova-profile-profile_name-container h1 {
+    font-size: 1.8rem;
+  }
+  .nova-profile-profile_name-container p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+  }
+  .nova-profile-message-btn {
+    width: 10rem;
+    height: 3.8rem;
+  }
+  .nova-profile-message-btn p {
+    font-size: 1.4rem;
+  }
+  .nova-profile-message-count {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .nova-profile-message-btn p {
+    font-size: 1rem;
+  }
+  .nova-profile-container {
+    padding: 3.2rem 2rem;
+  }
+  .nova-profile-pink-main-container {
+    margin-top: 13rem;
+  }
+  .nova-profile-pink-box-btn p {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .nova-profile-container {
+    padding: 2rem 0.2rem;
+  }
 }

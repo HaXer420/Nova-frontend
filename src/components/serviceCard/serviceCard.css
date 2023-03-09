@@ -67,3 +67,11 @@
   color: #3d3d3d;
   margin-left: 2rem;
 }
+
+/* -------------Media Query--------------- */
+
+@media screen and (max-width: 1200px) {
+  .nova-my-profile-service-card-main_container {
+    margin-top: 2rem;
+  }
+}

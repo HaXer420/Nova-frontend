@@ -77,4 +77,62 @@
 
 .nova-my-rewards-point-details-main-container {
   display: flex;
+  flex-direction: column;
+  padding: 3rem 5rem;
+}
+.nova-my-rewards-point-details-bottom-border {
+  border-bottom: 1px solid #a5a5a5;
+}
+.nova-my-rewards-point-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.nova-my-rewards-point-details-date-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-my-rewards-point-details-date-container img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.nova-my-rewards-point-details-date-container p {
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: #3d3d3d;
+  margin-left: 1.9rem;
+}
+
+.nova-my-rewards-point-details-payment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-my-rewards-point-details-payment-container img {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+}
+
+.nova-my-rewards-point-details-payment-container p {
+  font-family: "poppins";
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #3d3d3d;
+  margin-left: 1.9rem;
+}
+
+@media screen and (max-width: 850px) {
+  .nova-payment-card-previous-rewards-title h2 {
+    margin-top: 2rem;
+  }
 }

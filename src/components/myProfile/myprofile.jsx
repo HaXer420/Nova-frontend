@@ -23,69 +23,71 @@ const Myprofile = () => {
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <div className="nova-comp-my_profile-main-container">
-        <TextInputProfile
-          title={"Profile Name"}
-          type={"text"}
-          id="profileName"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.profileName}
-        />
-        <TextInputProfile
-          title={"First Name"}
-          type={"text"}
-          id="firstName"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.firstName}
-        />
-        <TextInputProfile
-          title={"Last Name"}
-          type={"text"}
-          id="lastName"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        <TextInputProfile
-          title={"Email"}
-          type={"email"}
-          id="email"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.email}
-        />
-        <TextInputProfile
-          title={"Phone Number"}
-          type={"number"}
-          id="phoneNumber"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.phoneNumber}
-        />
-        <TextInputProfile
-          title={"Password"}
-          type={"password"}
-          id="password"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-        />
-        <TextInputProfile
-          title={"Date of Birth"}
-          type={"date"}
-          id="date"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.date}
-        />
-        <div style={{ marginTop: "4rem" }}>
-          <Button>Update</Button>
+    <div className="nova-comp-my_profile-main-main-container">
+      <form onSubmit={formik.handleSubmit}>
+        <div className="nova-comp-my_profile-main-container">
+          <TextInputProfile
+            title={"Profile Name"}
+            type={"text"}
+            id="profileName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.profileName}
+          />
+          <TextInputProfile
+            title={"First Name"}
+            type={"text"}
+            id="firstName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          <TextInputProfile
+            title={"Last Name"}
+            type={"text"}
+            id="lastName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          <TextInputProfile
+            title={"Email"}
+            type={"email"}
+            id="email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          <TextInputProfile
+            title={"Phone Number"}
+            type={"number"}
+            id="phoneNumber"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.phoneNumber}
+          />
+          <TextInputProfile
+            title={"Password"}
+            type={"password"}
+            id="password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+          />
+          <TextInputProfile
+            title={"Date of Birth"}
+            type={"date"}
+            id="date"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.date}
+          />
+          <div style={{ marginTop: "4rem" }}>
+            <Button>Update</Button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 

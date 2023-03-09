@@ -70,3 +70,23 @@
   height: 4.6rem;
   border-left: 1px solid #a5a5a5;
 }
+/* -----------Media Query------------ */
+@media screen and (max-width: 660px) {
+  .nova-my-profile-cancel-service-modal-container {
+    width: 100%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  .nova-my-profile-cancel-service-modal-container p {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .nova-my-profile-cancel-service-modal-container p {
+    margin-left: 2rem;
+    text-align: center;
+    margin-right: 2rem;
+  }
+}

@@ -6,6 +6,7 @@ import CancelServiceModal from "../../components/cancelServiceModal/cancelServic
 import Myprofile from "../../components/myProfile/myprofile";
 import MyReward from "../../components/myReward/myReward";
 import MyServices from "../../components/myServices/myServices";
+import PaymentInfo from "../../components/paymentInfo/paymentInfo";
 import "./Profile.css";
 
 const btnArr = [
@@ -91,8 +92,10 @@ const Profile = () => {
               <Myprofile />
             ) : select.id == 2 ? (
               <MyServices />
-            ) : (
+            ) : select.id == 3 ? (
               <MyReward />
+            ) : (
+              <PaymentInfo />
             )}
           </div>
         </div>

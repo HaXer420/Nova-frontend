@@ -44,3 +44,33 @@ input::-webkit-inner-spin-button {
   height: 2.5rem;
   content: url(../../assets/calender-icon.png);
 }
+
+/* ------------------Media Query-------------------- */
+@media screen and (max-width: 1440px) {
+  .nova-text_input-container input {
+    width: 50rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nova-text_input-profile {
+    width: 94%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nova-text_input-container input {
+    width: 40rem;
+  }
+  .nova-text_input-profile p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .nova-text_input-profile {
+    flex-direction: column;
+    /* align-self: flex-start; */
+    align-items: normal;
+  }
+}
