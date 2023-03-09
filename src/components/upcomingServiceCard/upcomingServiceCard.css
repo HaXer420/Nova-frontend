@@ -141,6 +141,13 @@
   }
 }
 
+@media screen and (max-width: 480px) {
+  .nova-my-profile-upcoming_card-cancel-btn-container p {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+}
+
 @media screen and (max-width: 440px) {
   .nova-my-profile-upcoming_card-type-text p {
     font-size: 1.4rem;

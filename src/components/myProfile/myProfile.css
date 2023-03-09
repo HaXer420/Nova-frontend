@@ -11,5 +11,12 @@
 .nova-comp-my_profile-main-main-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  width: 100%;
+}
+
+@media screen and (max-width: 750px) {
+  .nova-comp-my_profile-main-main-container {
+    align-items: center;
+  }
 }

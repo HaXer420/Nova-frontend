@@ -71,8 +71,33 @@
 
 /* -------------Media Query---------------- */
 
+@media screen and (max-width: 1440px) {
+  .nova-payment-info-card-name-container h3 {
+    font-size: 2rem;
+  }
+  .nova-payment-info-card-card-type-container p {
+    font-size: 2rem;
+  }
+  .nova-payment-info-card-card-type-container img {
+    width: 5.8rem;
+    height: 4.6rem;
+  }
+}
+
 @media screen and (max-width: 850px) {
   .nova-payment-info-card-details-main-container {
     padding: 4.7rem 5rem 5rem 5rem;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .nova-payment-info-card-name-container {
+    padding-left: 0;
+  }
+  .nova-payment-info-card-name-edit-name p {
+    font-size: 2rem;
+  }
+  .nova-payment-info-card-name-container h3 {
+    font-size: 2rem;
   }
 }

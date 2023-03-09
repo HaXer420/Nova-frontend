@@ -35,6 +35,11 @@
 }
 
 /* ----------Media Query------------ */
+@media screen and (max-width: 1440px) {
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 2rem;
+  }
+}
 
 @media screen and (max-width: 900px) {
   .nova-my_profile-my_reward-select-container {

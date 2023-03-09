@@ -74,3 +74,12 @@ input::-webkit-inner-spin-button {
     align-items: normal;
   }
 }
+
+@media screen and (max-width: 750px) {
+  .nova-text_input-container input {
+    width: 30rem;
+  }
+  .nova-text_input-container input {
+    font-size: 1.4rem;
+  }
+}

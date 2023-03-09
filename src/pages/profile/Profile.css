@@ -146,6 +146,26 @@
 }
 
 /* -----------------------Media Query------------------- */
+@media screen and (max-width: 1440px) {
+  .nova-profile-container {
+    padding: 3rem 17rem;
+  }
+  .nova-profile-profile_name-container h1 {
+    font-size: 2.8rem;
+  }
+  .nova-profile-profile_name-container p {
+    font-size: 1.8rem;
+  }
+  .nova-profile-message-btn p {
+    font-size: 2rem;
+  }
+  .nova-profile-message-btn p {
+    font-size: 1.8rem;
+  }
+  .nova-profile-pink-box-btn p {
+    font-size: 2rem;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .nova-profile-container {
@@ -222,5 +242,15 @@
 @media screen and (max-width: 550px) {
   .nova-profile-container {
     padding: 2rem 0.2rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .nova-profile-message-count {
+    margin-right: 0.2rem;
+  }
+  .nova-profile-pink-box-btn p {
+    line-height: 2rem;
+    text-align: center;
   }
 }
