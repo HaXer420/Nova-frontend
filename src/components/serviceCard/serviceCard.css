@@ -1,6 +1,7 @@
 .nova-my-profile-service-card-main_container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .nov-my-profile-service-card-img-container img {
@@ -66,6 +67,14 @@
   align-items: center;
   color: #3d3d3d;
   margin-left: 2rem;
+}
+
+/* ---------Card 0n Hover------------- */
+.nova-my-profile-service-card-hover-card-container {
+  position: absolute;
+  background-color: #ffeff7;
+  z-index: 10;
+  width: 30rem;
 }
 
 /* -------------Media Query--------------- */

@@ -4,11 +4,11 @@
 }
 
 .nova-locations_main_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.6rem;
   line-height: 4rem;
-  color: #171D1C;
+  color: #171d1c;
   padding: 2.4rem 2.4rem 3.6rem 16.6rem;
 }
 
@@ -26,7 +26,7 @@
   align-items: center;
   width: 30.3rem;
   height: 44.3rem;
-  background: #EE509C;
+  background: #ee509c;
   border-radius: 1.7rem;
   margin-right: 3.6rem;
   margin-bottom: 3.6rem;
@@ -42,21 +42,21 @@
 }
 
 .nova-locations_single_location_view h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 2.7rem;
   padding-bottom: 0.7rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova-locations_single_location_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-bottom: 2rem;
 }
 
@@ -70,7 +70,7 @@
   position: relative;
   width: 13.5rem;
   height: 4.6rem;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   transform: rotate(162deg);
 }
@@ -82,24 +82,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   cursor: pointer;
 }
 
 .nova-location_button_main_view h5 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: #EE509C;
+  color: #ee509c;
 }
 
-@media screen and (max-width:1727px) {
+@media screen and (max-width: 1727px) {
   .nova-locations_main_view h1 {
     font-size: 3.2rem;
     line-height: 3.6rem;
-    padding: 2.4rem 2.4rem 3.6rem 12.6rem;
+    padding: 2.8rem 2.4rem 3.6rem 12.6rem;
   }
 
   .nova-locations_data_top_view {
@@ -150,7 +150,7 @@
   }
 }
 
-@media screen and (max-width:1162px) {
+@media screen and (max-width: 1162px) {
   .nova-locations_main_view h1 {
     font-size: 2.8rem;
     line-height: 3.2rem;
@@ -162,7 +162,7 @@
   }
 }
 
-@media screen and (max-width:776px) {
+@media screen and (max-width: 776px) {
   .nova-locations_main_view h1 {
     font-size: 2.4rem;
     line-height: 2.8rem;
@@ -174,7 +174,7 @@
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
   .nova-locations_main_view h1 {
     padding: 2.4rem 2.4rem 2.4rem 2.4rem;
   }
@@ -182,10 +182,9 @@
   .nova-locations_data_top_view {
     justify-content: center;
   }
-
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width: 375px) {
   .nova-locations_main_view h1 {
     font-size: 2rem;
     line-height: 2.4rem;
@@ -216,7 +215,4 @@
     line-height: 2.4rem;
     padding-bottom: 3rem;
   }
-
-
-
 }

@@ -21,14 +21,15 @@
 }
 
 .nova-products-single_product_price_view h5 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 2.6rem;
   color: #051014;
+  margin-top: 0.5rem;
 }
 
-@media screen and (max-width:1724px) {
+@media screen and (max-width: 1724px) {
   .nova-products-single_product_cross_price_view img {
     width: 8.7rem;
     height: 3.2rem;
@@ -40,7 +41,7 @@
   }
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width: 650px) {
   .nova-products-single_product_cross_price_view img {
     width: 8.7rem;
     height: 2.5rem;
@@ -52,7 +53,7 @@
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
   .nova-products-single_product_cross_price_view img {
     width: 6.7rem;
     height: 2.2rem;

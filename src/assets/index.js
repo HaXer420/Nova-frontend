@@ -50,6 +50,7 @@ export { default as rewardIcon } from "./reward-icon.png";
 export { default as visaLogo } from "./visa.png";
 export { default as masterLogo } from "./master-card.png";
 export { default as payPalLogo } from "./paypal.png";
+export { default as dropDown } from "./drop-down.png";
 
 // -----------------------------------------------------
 export { default as back } from "./back.png";

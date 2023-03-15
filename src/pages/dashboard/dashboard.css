@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   width: 40%;
-  padding-top: 15.8rem;
+  padding-top: 8.8rem;
 }
 
 .nova-dashboard-banner_detail_view h1 {
@@ -138,18 +138,18 @@
 .nova-dashboard-map_top_view {
   display: flex;
   background-color: white;
-  padding: 1rem 16.6rem;
+  padding: 0rem 16.6rem;
   padding-bottom: 3rem;
 }
 
 .nova-dashboard-location_text_view {
   display: flex;
   background-color: white;
-  padding: 2rem 16.6rem;
+  padding: 2.4rem 16.6rem 1.6rem 16.6rem;
 }
 
 .nova-dashboard-location_text_view h6 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.4rem;
@@ -291,7 +291,6 @@
   width: 30rem;
 }
 
-
 .nova-dashboard-single_review img {
   width: 15.3rem;
   height: 15.3rem;
@@ -301,12 +300,11 @@
 }
 
 .nova-dashboard-single_review p {
-  font-family: "Comfortaa";
-  font-weight: 700;
+  font-family: "poppins";
+  font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
   color: #383838;
-
 }
 
 .nova-dashboard-questions_top_view {
@@ -358,15 +356,29 @@
   height: 3.4rem;
   object-fit: contain;
   cursor: pointer;
+
+  transition-duration: 0.8s;
+  transition-property: transform;
+  /* overflow: hidden; */
 }
 
+.nova-dashboard-single_question_title_view img:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
 .nova-dashboard-single_question_divider {
   display: flex;
   border: 1px solid #3d3d3d;
   margin-bottom: 4rem;
 }
 
-.nova-dashboard-single_question_view h4 {
+.nova-dashboard-single_question_view-h4 {
+  animation: growDon 3s ease-in forwards;
+  transition-duration: 3s;
+  transition-timing-function: linear;
+  width: 70%;
+}
+.nova-dashboard-single_question_view-h4 h4 {
   font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
@@ -375,8 +387,22 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1.5rem;
-  width: 70%;
+  animation: growDown 600ms ease-out both;
 }
+@keyframes growDown {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* .nova-dashboard-single_question_view h4:hover {
+  background-color: red;
+} */
 
 .nova-dashboard-questions_image_view {
   display: flex;
@@ -525,7 +551,6 @@
   .nova-dashboard-map_top_view {
     padding: 1rem 12.6rem;
     padding-bottom: 3rem;
-
   }
 
   .nova-dashboard-location_text_view {
@@ -988,7 +1013,6 @@
   .nova-dashboard-map_top_view {
     padding: 1rem 3.6rem;
     padding-bottom: 2rem;
-
   }
 
   .nova-dashboard-location_text_view {

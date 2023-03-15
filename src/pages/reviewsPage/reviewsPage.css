@@ -17,11 +17,11 @@
 }
 
 .nova-reviews-banner_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 8rem;
   line-height: 8.9rem;
-  color: #EE509C;
+  color: #ee509c;
 }
 
 .nova-reviews-reviews_list_top_view {
@@ -37,7 +37,7 @@
 }
 
 .nova-reviews-single_review_item h1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -48,24 +48,23 @@
 .nova-reviews-single_review_item div {
   display: flex;
   padding: 1.2rem 2rem 1.5rem 1.5rem;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   border-radius: 1.6rem;
   margin-left: 2rem;
   margin-right: 2rem;
-
 }
 
 .nova-reviews-single_review_item h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
 .nova-reviews-divider {
   display: flex;
-  border: 1px solid #9e9e9e;
+  border-bottom: 1px solid #9e9e9e;
   margin-right: 15rem;
   margin-left: 15rem;
   margin-bottom: 2.4rem;
@@ -78,11 +77,11 @@
 }
 
 .nova-reviews-write_review_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 2.7rem;
-  color: #171D1C;
+  color: #171d1c;
   padding-bottom: 2rem;
 }
 
@@ -90,7 +89,7 @@
   display: flex;
   padding: 1.2rem 2.2rem;
   width: 100%;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 16px;
   margin-bottom: 5rem;
 }
@@ -98,13 +97,13 @@
 .nova-reviews-input_view input {
   border: none;
   outline: none;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   background-color: transparent;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
   width: 100%;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
 .nova-reviews-input_view input::-webkit-input-placeholder {
@@ -112,7 +111,7 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   width: 100%;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
 .nova-reviews-textarea_view {
@@ -120,7 +119,7 @@
   padding: 1.2rem 2.2rem;
   height: 10.4rem;
   width: 100%;
-  background: #EFEFEF;
+  background: #efefef;
   border-radius: 16px;
   margin-bottom: 5rem;
 }
@@ -129,13 +128,13 @@
   border: none;
   outline: none;
   resize: none;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   background-color: transparent;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
   width: 100%;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
 .nova-reviews-textarea_view textarea::-webkit-input-placeholder {
@@ -143,10 +142,10 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   width: 100%;
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
-@media screen and (max-width:1440px) {
+@media screen and (max-width: 1440px) {
   .nova-reviews-banner_view div {
     height: 39.1rem;
     padding-left: 12.6rem;
@@ -172,7 +171,7 @@
   }
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width: 900px) {
   .nova-reviews-banner_view div {
     height: 29.1rem;
     padding-left: 8.6rem;
@@ -198,7 +197,7 @@
   }
 }
 
-@media screen and (max-width:650px) {
+@media screen and (max-width: 650px) {
   .nova-reviews-banner_view div {
     height: 19.1rem;
     padding-left: 5.6rem;
@@ -228,7 +227,7 @@
   }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .nova-reviews-banner_view div {
     height: 12.1rem;
     padding-left: 3.6rem;
@@ -247,7 +246,6 @@
     font-size: 1.4rem;
     line-height: 2.2rem;
   }
-
 
   .nova-reviews-single_review_item h2 {
     font-size: 1.4rem;
@@ -289,7 +287,7 @@
   }
 }
 
-@media screen and (max-width:350px) {
+@media screen and (max-width: 350px) {
   .nova-reviews-banner_view div {
     height: 10.1rem;
     padding-left: 2.6rem;

@@ -112,34 +112,37 @@ export default function Dashboard() {
   const reviewArray = [
     {
       id: 1,
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.",
       image: reviewDummy,
-      type: '(Sugaring)',
-      reviewBy: 'Sarah Smith'
+      type: "(Sugaring)",
+      reviewBy: "Sarah Smith",
     },
     {
       id: 2,
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.",
       image: reviewDummy,
-      type: '(Facials)',
-      reviewBy: 'Naomi Turner'
-
-    }, {
+      type: "(Facials)",
+      reviewBy: "Naomi Turner",
+    },
+    {
       id: 3,
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.",
       image: reviewDummy,
-      type: '(Waxing)',
-      reviewBy: 'James Vegas'
+      type: "(Waxing)",
+      reviewBy: "James Vegas",
     },
     {
       id: 4,
-      title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.',
+      title:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu ut facilisis rhoncus morbi.",
       image: reviewDummy,
-      type: '(Waxing)',
-      reviewBy: 'James Vegas'
-
-    }
-  ]
+      type: "(Waxing)",
+      reviewBy: "James Vegas",
+    },
+  ];
   const teamMembers = [
     {
       id: 1,
@@ -324,10 +327,28 @@ export default function Dashboard() {
             {reviewArray.map((item) => {
               return (
                 <div key={item.id} className="nova-dashboard-single_review">
-                  <img alt='' src={item.image} />
+                  <img alt="" src={item.image} />
                   <div>
-                    <p>{item.title}<span style={{ color: '#F088B8', cursor: 'pointer' }}> Read More</span></p>
-                    <p style={{ marginTop: 10 }}>{item.reviewBy} <span style={{ color: '#F088B8', fontWeight: 'bold', }}> {item.type}</span></p>
+                    <p>
+                      {item.title}
+                      <span
+                        style={{
+                          color: "#F088B8",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Read More
+                      </span>
+                    </p>
+                    <p style={{ marginTop: 10 }}>
+                      {item.reviewBy}{" "}
+                      <span style={{ color: "#F088B8", fontWeight: "bold" }}>
+                        {" "}
+                        {item.type}
+                      </span>
+                    </p>
                   </div>
                 </div>
               );
@@ -351,7 +372,14 @@ export default function Dashboard() {
                       src={item.open ? minus : plus}
                     />
                   </div>
-                  {item.open && <h4>{item.ans}</h4>}
+                  <div
+                    className={
+                      item.open && "nova-dashboard-single_question_view-h4"
+                    }
+                  >
+                    {item.open && <h4>{item.ans}</h4>}
+                  </div>
+
                   <div className="nova-dashboard-single_question_divider" />
                 </div>
               );
