@@ -31,6 +31,8 @@ export default function Dashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide2, setActiveSlide2] = useState(0);
+  const [activeSlide3, setActiveSlide3] = useState(0);
   const novaDiffArray = [
     {
       id: 1,
@@ -278,9 +280,9 @@ export default function Dashboard() {
             <h1>Specials</h1>
             <div className="nova-dashboard-our_services_view">
               <Carousel
-                activeSlideIndex={activeSlide}
+                activeSlideIndex={activeSlide2}
                 infinite={false}
-                onRequestChange={setActiveSlide}
+                onRequestChange={setActiveSlide2}
                 innerProps={{
                   style: {
                     maxWidth: "100%",
@@ -359,9 +361,9 @@ export default function Dashboard() {
           <h1>Reviews</h1>
           <div className="nova-dashboard-reviews_view">
             <Carousel
-              activeSlideIndex={activeSlide}
+              activeSlideIndex={activeSlide3}
               infinite={false}
-              onRequestChange={setActiveSlide}
+              onRequestChange={setActiveSlide3}
               innerProps={{
                 style: {
                   maxWidth: "100%",
