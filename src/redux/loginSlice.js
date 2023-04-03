@@ -2,6 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 const initialState = {
   login: false,
+  
 };
 
 export const loginSlice = createSlice({

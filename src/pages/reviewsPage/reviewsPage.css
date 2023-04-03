@@ -91,7 +91,7 @@
   width: 100%;
   background: #efefef;
   border-radius: 16px;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
 }
 
 .nova-reviews-input_view input {
@@ -121,7 +121,7 @@
   width: 100%;
   background: #efefef;
   border-radius: 16px;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
 }
 
 .nova-reviews-textarea_view textarea {

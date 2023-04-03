@@ -5,11 +5,11 @@
 }
 
 .nova-input_container p {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 2rem;
   line-height: 3rem;
-  color: #EE509C;
+  color: #ee509c;
 }
 
 .nova-input_container_input {
@@ -18,11 +18,27 @@
   height: 4.4rem;
   background-color: white;
   border-radius: 0.5rem;
-  border: 2px solid #A5A5A5;
+  border: 2px solid #a5a5a5;
   padding: 0rem 1rem 0rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.nova-input-error-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-input-error-container img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.nova-input-error-container h5 {
+  font-size: 1.2rem;
+  color: #ff0000;
+  margin-left: 0.5rem;
 }
 
 .nova-input_container_input input {
@@ -31,7 +47,7 @@
   background-color: rgb(255, 255, 255);
   outline: none;
   border: none;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -45,7 +61,8 @@
   object-fit: contain;
 }
 
-.nova-input_container_input input[type="date"]::-webkit-calendar-picker-indicator {
+.nova-input_container_input
+  input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 1;
   background: none no-repeat;
   width: 2.5rem;
@@ -54,14 +71,14 @@
 }
 
 .nova-input_container_input input::-webkit-input-placeholder {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
   color: #949494;
 }
 
-@media screen and (max-width:470px) {
+@media screen and (max-width: 470px) {
   .nova-input_container p {
     font-size: 1.6rem;
     line-height: 2.6rem;

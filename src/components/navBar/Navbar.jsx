@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
-  const showProfile = useSelector((data) => data.loginSlice.login);
+  const showProfile = useSelector((data) => data.userDataSlice.userData);
+  //console.log("showProfile", showProfile);
   const Menu = () => (
     <>
       <div className="nova__navbar-links_text_view">

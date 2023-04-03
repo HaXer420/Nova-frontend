@@ -26,13 +26,20 @@ import GoogleMapReact from "google-map-react";
 import { useNavigate } from "react-router-dom";
 import { showModal } from "../../redux";
 import { showModalValue } from "../../redux/showModalSlice";
+import { callApi } from "../../api/apiCaller";
+import routes from "../../api/routes";
+import Loader from "../../components/loader/loader";
+import { setParam } from "../../api/params";
 
 export default function Dashboard() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isloading, setIsLoading] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [activeSlide3, setActiveSlide3] = useState(0);
+  const [services, setServices] = useState([]);
+
   const novaDiffArray = [
     {
       id: 1,
@@ -212,13 +219,35 @@ export default function Dashboard() {
     arr[index]["open"] = !arr[index]["open"];
     setQuestionArray(arr);
   };
-
+  const getQuestion = () => {
+    let getRes = (res) => {
+      setQuestionArray(res?.data?.data);
+    };
+    callApi("GET", routes.getFAQ, null, setIsLoading, getRes, (error) => {});
+  };
+  const getServices = () => {
+    let getRes = (res) => {
+      setServices(res?.data?.data);
+    };
+    callApi(
+      "GET",
+      routes.getallServices,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
   useEffect(() => {
-    dispatch(showModalValue(false));
-  });
+    getQuestion();
+    getServices();
+    // dispatch(showModalValue(false));
+  }, []);
 
   return (
+    // console.log("question", questionsArray),
     <div className="nova-dashboard-main_container">
+      <Loader loading={isloading} />
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
@@ -267,14 +296,22 @@ export default function Dashboard() {
               itemsToShow={3}
               speed={400}
             >
-              {ourServicesArray.map((item) => {
-                return (
-                  <ServiceView
-                    onClick={() => navigate("/Sservicedetail")}
-                    item={item}
-                  />
-                );
-              })}
+              {services
+                ?.filter((item) => item?.special == false)
+                .map((item) => {
+                  return (
+                    <ServiceView
+                      onClick={() =>
+                        navigate(
+                          `/Sservicedetail?${setParam({
+                            product: JSON.stringify(item),
+                          })}`
+                        )
+                      }
+                      item={item}
+                    />
+                  );
+                })}
             </Carousel>
 
             <h1>Specials</h1>
@@ -293,14 +330,22 @@ export default function Dashboard() {
                 itemsToShow={3}
                 speed={400}
               >
-                {ourSpecialsArray.map((item) => {
-                  return (
-                    <ServiceView
-                      onClick={() => navigate("/Sservicedetail")}
-                      item={item}
-                    />
-                  );
-                })}
+                {services
+                  ?.filter((item) => item?.special == true)
+                  .map((item) => {
+                    return (
+                      <ServiceView
+                        onClick={() =>
+                          navigate(
+                            `/Sservicedetail?${setParam({
+                              product: JSON.stringify(item),
+                            })}`
+                          )
+                        }
+                        item={item}
+                      />
+                    );
+                  })}
               </Carousel>
             </div>
           </div>
@@ -309,15 +354,13 @@ export default function Dashboard() {
           <h6>Location</h6>
         </div>
         <div className="nova-dashboard-map_top_view">
-          <div>
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: "AIzaSyDN7lHPbUtmCz0cO3Ln0Ync6uKPokXGe5E",
-              }}
-              defaultCenter={defaultProps.center}
-              zoom={11}
-            />
-          </div>
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: "AIzaSyDN7lHPbUtmCz0cO3Ln0Ync6uKPokXGe5E",
+            }}
+            defaultCenter={defaultProps.center}
+            zoom={11}
+          />
         </div>
         <div className="nova-dashboard-about_me_top_view">
           <div className="nova-dashboard-about_me_detail_view">
@@ -409,7 +452,7 @@ export default function Dashboard() {
         <div className="nova-dashboard-questions_top_view">
           <div className="nova-dashboard-questions_view">
             <h1>Got Questions?</h1>
-            {questionsArray.map((item, index) => {
+            {questionsArray?.map((item, index) => {
               return (
                 <div
                   key={item.id}
@@ -428,7 +471,7 @@ export default function Dashboard() {
                       item.open && "nova-dashboard-single_question_view-h4"
                     }
                   >
-                    {item.open && <h4>{item.ans}</h4>}
+                    {item.open && <h4>{item.answer}</h4>}
                   </div>
 
                   <div className="nova-dashboard-single_question_divider" />
@@ -462,7 +505,7 @@ export default function Dashboard() {
             })}
           </div>
         </div>
-        <Footer />
+        <Footer setIsLoading={setIsLoading} />
       </div>
     </div>
   );

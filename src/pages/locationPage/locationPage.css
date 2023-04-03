@@ -17,6 +17,7 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
   padding: 0rem 16.8rem 4rem 20.4rem;
 }
 

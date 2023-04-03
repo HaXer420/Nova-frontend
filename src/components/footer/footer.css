@@ -1,5 +1,5 @@
 .nova-footer_top_view {
-  background-color: #EE509C;
+  background-color: #ee509c;
   padding: 6.5rem 17.5rem 3rem 16.6rem;
 }
 
@@ -18,32 +18,30 @@
 }
 
 .nova-footer_contact_us_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.4rem;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-bottom: 7.1rem;
-
 }
 
 .nova-footer_contact_us_view h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 4.8rem;
   line-height: 5.4rem;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   padding-bottom: 3.6rem;
-
 }
 
 .nova-footer_contact_us_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova-footer_contact_us_form_top_view {
@@ -58,23 +56,23 @@
   border: none;
   outline: none;
   resize: none;
-  background-color: #EE509C;
+  background-color: #ee509c;
   padding-bottom: 1.2rem;
   border-bottom: 1px solid #f284ba;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   margin-bottom: 4.5rem;
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 2.9rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 ::-webkit-input-placeholder {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 300;
   font-size: 2.4rem;
   line-height: 2.9rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova-footer_contact_us_form_button_top_view {
@@ -102,10 +100,11 @@
   background-color: white;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   cursor: pointer;
+  border: none;
 }
 
 .nova-footer_contact_us_form_button_main_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
@@ -122,7 +121,6 @@
   display: flex;
   flex-direction: column;
   width: 30%;
-
 }
 
 .nova-footer_detail_logo_top_view img {
@@ -133,22 +131,20 @@
 }
 
 .nova-footer_detail_logo_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 2.7rem;
-
 }
 
-
 .nova-footer_detail_logo_top_view h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova-footer_detail_links_top_view {
@@ -160,10 +156,10 @@
 .nova-footer_detail_contacts_top_view h1,
 .nova-footer_detail_socials_top_view h1,
 .nova-footer_detail_links_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.5rem;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 105.47%;
   padding-bottom: 3.2rem;
 }
@@ -171,21 +167,21 @@
 .nova-footer_detail_contacts_top_view h2,
 .nova-footer_detail_socials_top_view h2,
 .nova-footer_detail_links_top_view h2 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 146.47%;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   padding-bottom: 0.8rem;
 }
 
 .nova-footer_detail_contacts_top_view span {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 500;
   font-size: 2.3rem;
   line-height: 146.47%;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova-footer_detail_socials_top_view {
@@ -193,7 +189,6 @@
   flex-direction: column;
   margin-left: 8rem;
   margin-right: 12.1rem;
-
 }
 
 .nova-footer_detail_contacts_top_view {
@@ -217,11 +212,11 @@
 }
 
 .nova-footer_bottom_view p {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 300;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
 }
 
@@ -284,13 +279,13 @@
 
   .nova-footer_detail_logo_top_view h1 {
     font-size: 2.8rem;
-    line-height: 3.2rem
+    line-height: 3.2rem;
   }
 
   .nova-footer_detail_logo_top_view h2 {
     font-size: 1.6rem;
     line-height: 2.6rem;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .nova-footer_detail_contacts_top_view h1,
@@ -338,7 +333,6 @@
     flex-direction: column;
     width: 100%;
     margin-top: 5rem;
-
   }
 }
 
@@ -423,13 +417,13 @@
 
   .nova-footer_detail_logo_top_view h1 {
     font-size: 2.4rem;
-    line-height: 2.8rem
+    line-height: 2.8rem;
   }
 
   .nova-footer_detail_logo_top_view h2 {
     font-size: 1.4rem;
     line-height: 2.4rem;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .nova-footer_detail_contacts_top_view h1,
@@ -455,7 +449,6 @@
     font-size: 1.2rem;
     line-height: 2.2rem;
   }
-
 }
 
 @media screen and (max-width: 525px) {
@@ -475,10 +468,8 @@
 
   .nova-footer_detail_socials_top_view {
     margin-right: 5.1rem;
-
   }
 }
-
 
 @media screen and (max-width: 400px) {
   .nova-footer_top_view {

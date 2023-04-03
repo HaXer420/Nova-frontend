@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import * as Pages from "../pages";
+import PrivateRoute from "./protected-route";
 
 const Navigation = () => {
   return (
@@ -18,11 +19,19 @@ const Navigation = () => {
       <Route path="/contactpage" element={<Pages.ContactPage />} />
       <Route path="/reviewspage" element={<Pages.ReviewsPage />} />
       <Route path="/Sservicedetail" element={<Pages.ServiceDetail />} />
-      <Route path="/profile" element={<Pages.Profile />} />
+
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <Pages.Profile />
+          </PrivateRoute>
+        }
+      />
+
       <Route path="/bookingpage" element={<Pages.BookingPage />} />
       <Route path="/paymentpage" element={<Pages.PaymentPage />} />
       <Route path="/products" element={<Pages.Products />} />
-
     </Routes>
   );
 };

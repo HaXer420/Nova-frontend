@@ -4,14 +4,16 @@ import { logoTheme } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginState } from "../../redux/loginSlice";
+import { userData } from "../../redux/userDataSlice";
 
 const TopBar = () => {
-  const showlogOut = useSelector((data) => data.loginSlice.login);
+  const showlogOut = useSelector((data) => data.userDataSlice.userData);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const logOut = () => {
-    dispatch(loginState(false));
+    dispatch(userData(null));
   };
   return (
     <div className="nova-top_bar-main_view">
