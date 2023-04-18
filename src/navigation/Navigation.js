@@ -32,6 +32,8 @@ const Navigation = () => {
       <Route path="/bookingpage" element={<Pages.BookingPage />} />
       <Route path="/paymentpage" element={<Pages.PaymentPage />} />
       <Route path="/products" element={<Pages.Products />} />
+      <Route path="/product" element={<Pages.Product />} />
+      <Route path="/checkout" element={<Pages.Checkout />} />
     </Routes>
   );
 };

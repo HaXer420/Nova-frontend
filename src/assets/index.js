@@ -52,6 +52,9 @@ export { default as masterLogo } from "./master-card.png";
 export { default as payPalLogo } from "./paypal.png";
 export { default as dropDown } from "./drop-down.png";
 export { default as errorIcon } from "./error.png";
+export { default as shoppingCart } from "./shopping-cart.png";
+export { default as crossPrice } from "./cross-price.png";
+export { default as boxSearch } from "./box-search.png";
 
 // -----------------------------------------------------
 export { default as back } from "./back.png";

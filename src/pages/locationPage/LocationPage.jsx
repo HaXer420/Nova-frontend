@@ -99,11 +99,12 @@ export default function LocationPage() {
 
   const getStoreLocation = () => {
     let getRes = (res) => {
+      console.log("res of location", res);
       setStoreLocation(res?.data?.data);
     };
     callApi(
       "GET",
-      `${routes.getStoreLocation}9`,
+      `${routes.getStoreLocation}100`,
       null,
       setIsLoading,
       getRes,
@@ -133,7 +134,7 @@ export default function LocationPage() {
                       key: "AIzaSyDN7lHPbUtmCz0cO3Ln0Ync6uKPokXGe5E",
                     }}
                     // defaultCenter={item?.location?.address?.coordinates}
-                    defaultCenter={defaultProps.center}
+                    defaultCenter={item?.location?.center}
                     zoom={11}
                   />
                   <h2>{item?.name}</h2>

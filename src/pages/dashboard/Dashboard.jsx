@@ -39,6 +39,7 @@ export default function Dashboard() {
   const [activeSlide2, setActiveSlide2] = useState(0);
   const [activeSlide3, setActiveSlide3] = useState(0);
   const [services, setServices] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   const novaDiffArray = [
     {
@@ -238,14 +239,29 @@ export default function Dashboard() {
       (error) => {}
     );
   };
+
+  const getReviews = () => {
+    let getRes = (res) => {
+      console.log("res of review", res);
+      setReviews(res?.data?.data);
+    };
+    callApi(
+      "GET",
+      routes.getallReviews,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
   useEffect(() => {
     getQuestion();
     getServices();
+    getReviews();
     // dispatch(showModalValue(false));
   }, []);
 
   return (
-    // console.log("question", questionsArray),
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
       <TopBar />
@@ -417,14 +433,14 @@ export default function Dashboard() {
               itemsToShow={3}
               speed={400}
             >
-              {reviewArray.map((item) => {
+              {reviews?.map((item) => {
                 return (
                   <div key={item.id} className="nova-dashboard-single_review">
-                    <img alt="" src={item.image} />
+                    <img alt="" src={item?.creator?.image} />
                     <div>
                       <p>
-                        {item.title}
-                        <span
+                        {item?.review}
+                        {/* <span
                           style={{
                             color: "#F088B8",
                             cursor: "pointer",
@@ -433,14 +449,14 @@ export default function Dashboard() {
                         >
                           {" "}
                           Read More
-                        </span>
+                        </span> */}
                       </p>
                       <p style={{ marginTop: 10 }}>
-                        {item.reviewBy}{" "}
-                        <span style={{ color: "#F088B8", fontWeight: "bold" }}>
+                        {item?.name}
+                        {/* <span style={{ color: "#F088B8", fontWeight: "bold" }}>
                           {" "}
                           {item.type}
-                        </span>
+                        </span> */}
                       </p>
                     </div>
                   </div>

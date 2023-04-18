@@ -1,0 +1,97 @@
+.nova-after-confirm-modal-mainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 100;
+}
+.nova-after-confirm-modal-container {
+  width: 88.8rem;
+  /* height: 39.6rem; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 3.6rem;
+}
+
+.nova-after-confirm-modal-container img {
+  width: 10.4rem;
+  height: 10.4rem;
+  margin-top: 4.8rem;
+}
+.nova-after-confirm-modal-container p {
+  margin-top: 3.4rem;
+  font-size: 3.6rem;
+  color: #292929;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+}
+
+.nova-after-proceed-to-check-out-container {
+  display: flex;
+  padding: 5.1rem 3%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.nova-after-proceed-to-check-out-container h5 {
+  font-size: 2.4rem;
+  color: #292929;
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* -----------------------Media Query------------------- */
+@media screen and (max-width: 1440px) {
+  .nova-after-confirm-modal-container {
+    width: 56rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .nova-after-confirm-modal-container img {
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+
+  .nova-after-confirm-modal-container p {
+    font-size: 3.2rem;
+  }
+  .nova-after-proceed-to-check-out-container h5 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  .nova-after-proceed-to-check-out-container {
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .nova-after-confirm-modal-container {
+    width: 36rem;
+  }
+  .nova-after-confirm-modal-container p {
+    font-size: 2rem;
+  }
+  .nova-after-proceed-to-check-out-container h5 {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .nova-after-confirm-modal-container {
+    width: 32rem;
+  }
+}

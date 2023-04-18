@@ -1,25 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../button/Button";
 import TextInputProfile from "../textInputProfile/textInputProfile";
 import "./myProfile.css";
-//PK93ABPA0010045931390016
-const Myprofile = () => {
+import routes from "../../api/routes";
+import { callApi } from "../../api/apiCaller";
+import Loader from "../loader/loader";
+import { GreenNotify } from "../../helper/utility";
+import { userData } from "../../redux/userDataSlice";
+import moment from "moment";
+
+const Myprofile = ({ setIsLoading }) => {
+  const dispatch = useDispatch();
+  const userDataGet = useSelector((data) => data.userDataSlice.userData);
+  console.log("dob", moment(userDataGet?.dob).format("yyyy-mm-dd"));
+  const upDateApi = (firstName, lastName, profileName, mobileNumber, dob) => {
+    let body = {
+      firstname: firstName,
+      lastname: lastName,
+      username: profileName,
+      dob: dob,
+      number: mobileNumber,
+    };
+    let getData = (res) => {
+      console.log("res of update data", res?.data?.data);
+      if (res.status == 200) {
+        GreenNotify("Profile is updated successfully");
+        dispatch(dispatch(userData(res?.data?.data)));
+      }
+    };
+    callApi(
+      "PATCH",
+      `${routes.updateUser}/${userDataGet?._id}`,
+      body,
+      setIsLoading,
+      getData,
+      (error) => {}
+    );
+  };
+
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      profileName: "Olivia Stephen",
-      firstName: "Olivia",
-      lastName: "Stephen",
-      email: "olivia321@gmail.com",
-      phoneNumber: +1687259259,
+      profileName: userDataGet?.username,
+      firstName: userDataGet?.firstname,
+      lastName: userDataGet?.lastname,
+      email: userDataGet?.email,
+      phoneNumber: userDataGet?.number,
       password: "********",
-      date: "2023-03-10",
+      date: moment(userDataGet?.dob).format("yyyy-MM-DD"),
+      // date: "2023-12-05",
     },
 
     onSubmit: (val) => {
-      console.log(val);
+      upDateApi(
+        val.firstName,
+        val.lastName,
+        val.profileName,
+        val.phoneNumber,
+        val.date
+      );
     },
   });
   return (
@@ -57,6 +99,7 @@ const Myprofile = () => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
+            disabled={true}
           />
           <TextInputProfile
             title={"Phone Number"}
@@ -66,14 +109,15 @@ const Myprofile = () => {
             onBlur={formik.handleBlur}
             value={formik.values.phoneNumber}
           />
-          <TextInputProfile
+          {/* <TextInputProfile
+            
             title={"Password"}
             type={"password"}
             id="password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
-          />
+          /> */}
           <TextInputProfile
             title={"Date of Birth"}
             type={"date"}

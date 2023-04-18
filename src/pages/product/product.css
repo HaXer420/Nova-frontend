@@ -1,0 +1,149 @@
+.nova-product-main-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nova-product-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova-product-main-img-container img {
+  width: 50rem;
+  height: 50rem;
+  object-fit: contain;
+}
+.nova-product-details-main-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6.2rem;
+}
+.nova-product-name-main-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 40rem;
+}
+.nova-product-nam-container p {
+  font-family: "Comfortaa";
+  font-style: normal;
+  font-size: 24px;
+  color: #051014;
+  font-weight: 700;
+}
+.nova-product-off-container p {
+  font-family: "poppins";
+  font-style: normal;
+  font-size: 24px;
+  color: #051014;
+  font-weight: 400;
+}
+
+.nova-product-description p {
+  font-family: "poppins";
+  font-size: 2rem;
+  color: #292929;
+  font-weight: 400;
+  width: 50rem;
+}
+
+.nova-product-price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.nova-product-cross-price-container {
+  position: relative;
+}
+
+.nova-product-cross-price-container img {
+  width: 8.8rem;
+  height: 2.7rem;
+  position: absolute;
+}
+
+.nova-product-cross-price-container p {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #051014;
+}
+
+.nova-product-price-product p {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #051014;
+  margin-left: 2rem;
+}
+
+.nova-product-qty-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2.3rem;
+  margin-left: 1rem;
+}
+
+.nova-product-qty-count-container {
+  width: 5.1rem;
+  height: 5.1rem;
+  border-radius: 50%;
+  background-color: #ee509c;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.nova-product-qty-count-container p {
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #fff;
+}
+
+.nova-product-qty-container {
+  width: 7.6rem;
+  height: 5.1rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.nova-product-qty-container p {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #000;
+}
+
+.nova-product-add_to_cart-btn {
+  width: 20.1rem;
+  height: 4.8rem;
+  border-radius: 8px;
+  background: #ee509c;
+  margin-top: 3.2rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.nova-product-add_to_cart-btn {
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #fff;
+}

@@ -29,6 +29,25 @@
   margin-top: 0.5rem;
 }
 
+.add_to-cart-btn {
+  width: 14.9rem;
+  height: 3.6rem;
+  border-radius: 8px;
+  background-color: #ee509c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.add_to-cart-btn p {
+  font-family: "poppins";
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  color: #fff;
+}
 @media screen and (max-width: 1724px) {
   .nova-products-single_product_cross_price_view img {
     width: 8.7rem;

@@ -8,6 +8,7 @@ import MyReward from "../../components/myReward/myReward";
 import MyServices from "../../components/myServices/myServices";
 import PaymentInfo from "../../components/paymentInfo/paymentInfo";
 import "./Profile.css";
+import Loader from "../../components/loader/loader";
 
 const btnArr = [
   {
@@ -29,14 +30,17 @@ const btnArr = [
 ];
 
 const Profile = () => {
+  const [isloading, setIsLoading] = useState(false);
   const modal = useSelector((data) => data.showModal.showModal);
-  console.log("modal", modal);
+
+  //console.log("userData", userData);
   const [select, setSelected] = useState({
     id: 1,
     text: "My Profile",
   });
   return (
     <div className="nova-dashboard-main_container">
+      <Loader loading={isloading} />
       <TopBar />
       <NavBar />
       {modal && <CancelServiceModal />}
@@ -59,12 +63,12 @@ const Profile = () => {
                   <p>Update our photo and personal details</p>
                 </div>
               </div>
-              <div className="nova-profile-message-btn">
+              {/* <div className="nova-profile-message-btn">
                 <div className="nova-profile-message-count">
                   <p>3</p>
                 </div>
                 <p>Messages</p>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="nova-profile-pink-main-container">
@@ -89,7 +93,7 @@ const Profile = () => {
               ))}
             </div>
             {select.id == 1 ? (
-              <Myprofile />
+              <Myprofile setIsLoading={setIsLoading} />
             ) : select.id == 2 ? (
               <MyServices />
             ) : select.id == 3 ? (

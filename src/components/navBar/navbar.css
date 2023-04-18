@@ -4,7 +4,7 @@
   align-items: center;
   padding: 0rem 5rem;
   height: 5.3rem;
-  background: #EE509C;
+  background: #ee509c;
 }
 
 .nova__navbar-links {
@@ -38,19 +38,19 @@
 }
 
 .nova__navbar-links_book_now_button h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .nova__navbar-links_text_view h1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   border-bottom-width: 4px;
   padding-bottom: 1.2rem;
@@ -100,7 +100,7 @@
   flex-direction: column;
   z-index: 100;
   text-align: start;
-  background-color: #EE509C;
+  background-color: #ee509c;
   padding: 3.2rem;
   position: absolute;
   top: 2.8rem;
@@ -113,7 +113,7 @@
 
 .nova__navbar-menu_container h5 {
   display: flex;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -135,18 +135,61 @@
   justify-content: center;
   width: 13.2rem;
   height: 3.6rem;
-  background: #FFC9E3;
+  background: #ffc9e3;
   border-radius: 8px;
   margin-bottom: 2rem;
   cursor: pointer;
 }
 
 .nova-navBar_button h6 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.6rem;
-  color: #EE509C;
+  color: #ee509c;
+}
+
+.nova_navbar-Profile-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.nova_navbar-cart-container {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-left: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+}
+.nova_navbar-cart-container img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.nova_navbar-cart-item {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  bottom: 2.5rem;
+  left: 2.5rem;
+}
+.nova_navbar-cart-item p {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-family: "Poppins";
+  font-weight: 400;
 }
 
 @media screen and (max-width: 1260px) {
@@ -223,7 +266,6 @@
 }
 
 @media screen and (max-width: 400px) {
-
   .nova_navbar-logo_view {
     display: none;
   }

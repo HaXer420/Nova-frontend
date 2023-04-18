@@ -1,0 +1,26 @@
+.nova-bucket-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5.6rem 4.5rem 0 4.5rem;
+}
+
+.nova-bucket-total-cart {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.nova-bucket-total-cart h1 {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 36px;
+  color: #171d1c;
+}
+
+.nova-bucket-total-cart p {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 24px;
+  color: #292929;
+}

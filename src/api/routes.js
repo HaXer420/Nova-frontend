@@ -10,7 +10,7 @@ export default {
   resetPassword: BASE_URL + "/user/resetPassword",
   verifyOTPresetPassword: BASE_URL + "/user/verifyOTPResetPassword",
   logOut: BASE_URL + "/user/logout",
-  updateUser: BASE_URL + "/user/updateMe",
+  updateUser: BASE_URL + "/user",
 
   // -----------Dashboard--------------//
   contactUs: BASE_URL + "/contactus/create",

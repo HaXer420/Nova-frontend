@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { close, menu, logo, profileIcon } from "../../assets";
+import { close, menu, logo, profileIcon, shoppingCart } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import DrawerCart from "../DrawerCart/DrawerCart";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
   //console.log("showProfile", showProfile);
   const Menu = () => (
@@ -141,16 +143,28 @@ const Navbar = () => {
 
   return (
     <div className="nova__navbar">
+      <DrawerCart open={open} setOpen={setOpen} />
       <div className="nova__navbar-links">
         <div className="nova_navbar-links_container">
           <Menu />
         </div>
         {showProfile && (
-          <div
-            onClick={() => navigate("/profile")}
-            className="nova_navbar-profile_view"
-          >
-            <img alt="" src={profileIcon} />
+          <div className="nova_navbar-Profile-main-container">
+            <div
+              onClick={() => navigate("/profile")}
+              className="nova_navbar-profile_view"
+            >
+              <img alt="" src={profileIcon} />
+            </div>
+            <div
+              onClick={() => setOpen(true)}
+              className="nova_navbar-cart-container"
+            >
+              <img src={shoppingCart} alt="icon" />
+              <div className="nova_navbar-cart-item">
+                <p>3</p>
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -192,8 +206,23 @@ const Navbar = () => {
         <div className="nova_navbar-logo_view">
           <img alt="" src={logo} />
         </div>
-        <div className="nova_navbar-profile_view">
-          <img alt="" src={profileIcon} />
+        <div className="nova_navbar-Profile-main-container">
+          {showProfile && (
+            <>
+              <div
+                onClick={() => navigate("/profile")}
+                className="nova_navbar-profile_view"
+              >
+                <img alt="" src={profileIcon} />
+              </div>
+              <div className="nova_navbar-cart-container">
+                <img src={shoppingCart} alt="icon" />
+                <div className="nova_navbar-cart-item">
+                  <p>3</p>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
