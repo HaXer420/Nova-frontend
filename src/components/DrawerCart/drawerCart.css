@@ -24,3 +24,11 @@
   font-size: 24px;
   color: #292929;
 }
+
+.nova-checkout-btn-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}

@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  Drawer,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Button,
-} from "@material-ui/core";
+import { Drawer } from "@material-ui/core";
 import "./drawerCart.css";
 import ProductInCart from "../productInCart/productInCart";
 import { productOne, productTwo } from "../../assets";
+import Button from "../button/Button";
 
 function DrawerCart({ open, setOpen }) {
   const [productArr, setProductArr] = useState([
@@ -54,7 +49,7 @@ function DrawerCart({ open, setOpen }) {
         />
       ))}
       <div className="nova-checkout-btn-container">
-        <Button>Checkout</Button>
+        <Button>CheckOut</Button>
       </div>
     </div>
   );

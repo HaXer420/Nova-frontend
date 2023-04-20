@@ -1,4 +1,4 @@
-export const BASE_URL = "https://nova.herokuapp.com/api/v1";
+export const BASE_URL = "http://ec2-3-82-22-202.compute-1.amazonaws.com/api/v1";
 
 export default {
   // -----AUTH------//

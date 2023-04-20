@@ -3,7 +3,7 @@ import configureAppStore from "../redux/store";
 
 import { accessToken } from "../redux/userDataSlice";
 
-const BASE_URL = "https://nova.herokuapp.com/api/v1/";
+const BASE_URL = "http://ec2-3-82-22-202.compute-1.amazonaws.com/api/v1/";
 export const Method = {
   GET: "GET",
   POST: "POST",
@@ -88,7 +88,7 @@ export const callApi = async (
       await fetch(`${BASE_URL}user/refresh/${refreshToken}`, fetchObject)
         .then(async (res) => {
           let resJson = await res.json();
-          console.log("Fetch refreshResponse ==>  ", resJson);
+          //console.log("Fetch refreshResponse ==>  ", resJson);
           configureAppStore.dispatch(accessToken(resJson.data.accessToken));
           callApi(
             method,
