@@ -242,7 +242,7 @@ export default function Dashboard() {
 
   const getReviews = () => {
     let getRes = (res) => {
-      console.log("res of review", res);
+      //console.log("res of review", res);
       setReviews(res?.data?.data);
     };
     callApi(

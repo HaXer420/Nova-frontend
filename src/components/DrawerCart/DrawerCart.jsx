@@ -4,8 +4,10 @@ import "./drawerCart.css";
 import ProductInCart from "../productInCart/productInCart";
 import { productOne, productTwo } from "../../assets";
 import Button from "../button/Button";
+import { useNavigate } from "react-router-dom";
 
 function DrawerCart({ open, setOpen }) {
+  const navigate = useNavigate();
   const [productArr, setProductArr] = useState([
     {
       image: productOne,
@@ -49,7 +51,7 @@ function DrawerCart({ open, setOpen }) {
         />
       ))}
       <div className="nova-checkout-btn-container">
-        <Button>CheckOut</Button>
+        <Button onClick={() => navigate("/checkout")}>CheckOut</Button>
       </div>
     </div>
   );
