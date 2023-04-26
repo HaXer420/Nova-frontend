@@ -3,7 +3,7 @@ import configureAppStore from "../redux/store";
 
 import { accessToken } from "../redux/userDataSlice";
 
-const BASE_URL = "https://hmmxg26mva.us-east-1.awsapprunner.com/api/v1/";
+const BASE_URL = "https://nova.herokuapp.com/api/v1/";
 export const Method = {
   GET: "GET",
   POST: "POST",
