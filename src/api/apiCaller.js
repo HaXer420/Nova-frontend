@@ -3,7 +3,7 @@ import configureAppStore from "../redux/store";
 
 import { accessToken } from "../redux/userDataSlice";
 
-const BASE_URL = "http://ec2-3-82-22-202.compute-1.amazonaws.com/api/v1/";
+const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
 export const Method = {
   GET: "GET",
   POST: "POST",
