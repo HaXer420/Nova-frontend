@@ -4,16 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { boxSearch } from "../../assets";
 import Button from "../button/Button";
 
-const AfterConfirmModal = ({ modal, setModal }) => {
+const AfterConfirmModal = ({ addProduct, checkOut }) => {
   const navigate = useNavigate();
-  const addProduct = () => {
-    navigate("/products");
-    setModal(false);
-  };
-  const checkOut = () => {
-    navigate("/checkout");
-    setModal(false);
-  };
+
   return (
     <div className="nova-after-confirm-modal-mainContainer">
       <div className="nova-after-confirm-modal-container">

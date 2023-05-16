@@ -4,28 +4,29 @@
 }
 
 .nova-booking-start_comp_top_view h1 {
-  font-family: 'Comfortaa';
+  font-family: "Comfortaa";
   font-weight: 700;
   font-size: 3.2rem;
   line-height: 3.6rem;
   padding: 3.6rem 3.5rem 2.4rem 3.5rem;
-  color: #171D1C;
+  color: #171d1c;
 }
 
 .nova-booking-start_comp_item_view {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin: 0rem 2.9rem 1.6rem 2.9rem;
-  padding: 1.2rem 3rem 1.2rem 2.8rem;
-  background: #FFFFFF;
+  margin: 0rem 0rem 1.6rem 0rem;
+  padding: 1.2rem 3rem 1.2rem 1rem;
+  background: #ffffff;
   border-radius: 16px;
   cursor: pointer;
 }
 
 .nova-booking-start_comp_item_view h2 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -48,11 +49,11 @@
 }
 
 .nova-booking-start_comp_next_button_view h3 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 2.9rem;
-  color: #3D3D3D;
+  color: #3d3d3d;
   padding-right: 0.5rem;
 }
 
@@ -61,7 +62,38 @@
   height: 2.4rem;
 }
 
-@media screen and (max-width:1440px) {
+.accordion-main-container {
+  /* background-color: red; */
+  margin: 1rem 2.9rem 1rem 2.9rem;
+  /* height: 4.8rem; */
+  border-radius: 1.6rem !important;
+}
+
+.accordion-detail-container {
+  /* margin: 0rem 2.9rem 1.6rem 2.9rem; */
+  border-radius: 1.6rem !important;
+  background-color: #ffffff !important;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded {
+  margin: 0px 3rem !important;
+}
+.css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+  min-height: 0px !important;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:before {
+  height: 0px !important;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+  box-shadow: none !important;
+}
+
+.accordion-main-container h5 {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 18px;
+  color: #292929;
+}
+@media screen and (max-width: 1440px) {
   .nova-booking-start_comp_top_view h1 {
     font-size: 2.8rem;
     line-height: 3.2rem;
@@ -88,7 +120,7 @@
   }
 }
 
-@media screen and (max-width:850px) {
+@media screen and (max-width: 850px) {
   .nova-booking-start_comp_top_view h1 {
     font-size: 2.4rem;
     line-height: 2.8rem;
@@ -115,7 +147,7 @@
   }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
   .nova-booking-start_comp_top_view h1 {
     font-size: 2rem;
     line-height: 2.4rem;
@@ -137,7 +169,7 @@
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
   .nova-booking-start_comp_top_view h1 {
     font-size: 1.6rem;
     line-height: 2rem;

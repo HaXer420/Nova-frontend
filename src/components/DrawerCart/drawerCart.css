@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 5.6rem 4.5rem 0 4.5rem;
+  width: 67rem;
 }
 
 .nova-bucket-total-cart {
@@ -31,4 +32,42 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+}
+
+.cart-product-information-heading h2 {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 24px;
+  color: #292929;
+  margin-top: 2rem;
+}
+
+.close-icon-drawer {
+  display: none;
+}
+
+.close-icon-drawer img {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 740px) {
+  .nova-bucket-container {
+    width: 50rem;
+  }
+  .close-icon-drawer {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .nova-bucket-container {
+    width: 40rem;
+    padding: 2.6rem 2.5rem 0 2.5rem;
+  }
+  .close-icon-drawer {
+    display: flex;
+  }
 }

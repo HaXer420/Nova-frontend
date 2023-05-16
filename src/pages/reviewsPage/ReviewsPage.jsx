@@ -8,10 +8,14 @@ import Loader from "../../components/loader/loader";
 import "./reviewsPage.css";
 import { errorIcon } from "../../assets";
 import { GreenNotify, RedNotify } from "../../helper/utility";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function ReviewsPage() {
   const [isloading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
+  const auth = useSelector((data) => data.userDataSlice.userData);
   const [reviewValue, setReviewValue] = useState("");
   const reviewArray = [
     {
@@ -67,6 +71,7 @@ export default function ReviewsPage() {
   };
 
   const reviewSubmit = (name) => {
+    if (!auth) return navigate("/login");
     if (reviewValue == "") {
       return RedNotify("Write your review");
     }
@@ -137,6 +142,7 @@ export default function ReviewsPage() {
           })}
         </div>
         <div className="nova-reviews-divider" />
+
         <form onSubmit={formik.handleSubmit}>
           <div className="nova-reviews-write_review_view">
             <h1>Write Review</h1>
