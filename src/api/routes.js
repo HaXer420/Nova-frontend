@@ -28,4 +28,5 @@ export default {
   createCart: BASE_URL + "/cart/create",
   getProducts: BASE_URL + "/product/getAll?limit=",
   myCart: BASE_URL + "/cart/mycart",
+  updateCart: BASE_URL + "/cart/update",
 };

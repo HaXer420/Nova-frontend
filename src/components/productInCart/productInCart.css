@@ -66,4 +66,7 @@
   .nova-cart-product-info-container h3 {
     font-size: 1.4rem;
   }
+  .nova-cart-product-info-container {
+    margin-left: 0rem;
+  }
 }

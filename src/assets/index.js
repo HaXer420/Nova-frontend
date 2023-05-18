@@ -76,3 +76,4 @@ export { default as productThree } from "./productThree.png";
 export { default as deleteProduct } from "./deleteProduct.png";
 export { default as uncheck } from "./uncheck.png";
 export { default as closeIconPink } from "./closs-icon-pink.png";
+export { default as addIcon } from "./add-icon.png";

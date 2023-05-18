@@ -53,12 +53,30 @@
   cursor: pointer;
 }
 
+.empty-data-message {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-data-message h2 {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 24px;
+  color: #691717;
+  margin-top: 2rem;
+}
+
 @media screen and (max-width: 740px) {
   .nova-bucket-container {
     width: 50rem;
   }
   .close-icon-drawer {
     display: flex;
+  }
+  .empty-data-message h2 {
+    font-size: 1.8rem;
   }
 }
 
@@ -69,5 +87,8 @@
   }
   .close-icon-drawer {
     display: flex;
+  }
+  .empty-data-message h2 {
+    font-size: 1.6rem;
   }
 }

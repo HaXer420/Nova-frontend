@@ -10,6 +10,7 @@ import { callApi } from "../../api/apiCaller";
 import ServiceInCart from "../serviceInCart/serviceInCart";
 import { useDispatch } from "react-redux";
 import { productInCart } from "../../redux/userDataSlice";
+import Loader from "../loader/loader";
 
 function DrawerCart({ open, setOpen }) {
   const navigate = useNavigate();
@@ -17,11 +18,13 @@ function DrawerCart({ open, setOpen }) {
   const dispatch = useDispatch();
   const [amount, setAmount] = useState("");
   const [productArr, setProductArr] = useState([]);
+  const [deleteProduct, setDeleteProduct] = useState([]);
+  const [deleteService, setDeleteService] = useState([]);
   const [services, setServices] = useState([]);
 
   const selectProduct = (item, index) => {
     let arr = [...productArr];
-    // console.log("item", item);
+
     arr[index].select = !arr[index].select;
     setProductArr(arr);
     if (arr[index].select) {
@@ -29,6 +32,11 @@ function DrawerCart({ open, setOpen }) {
     } else {
       setAmount(amount - item?.amount);
     }
+    setDeleteProduct((val) =>
+      val.includes(item?._id)
+        ? val.filter((val) => val !== item?._id)
+        : [item?._id, ...deleteProduct]
+    );
   };
 
   const selectService = (item, index) => {
@@ -41,36 +49,26 @@ function DrawerCart({ open, setOpen }) {
     } else {
       setAmount(amount - item?.amount);
     }
+    setDeleteService((val) =>
+      val.includes(item?._id)
+        ? val.filter((val) => val !== item?._id)
+        : [item?._id, ...deleteService]
+    );
   };
 
   const updateCart = () => {
-    let finalService = services
-      .filter((item) => item.select == true)
-      .map((item) => {
-        return { ...item, select: undefined };
-      });
-    let finalProduct = productArr
-      .filter((item) => item.select == true)
-      .map((item) => {
-        return { ...item, select: undefined };
-      });
-    console.log("final cart", finalService, finalProduct);
-    navigate("/checkout");
-    // let body = {
-    //   services: finalService,
-    //   products: finalProduct,
-    // };
-    // let getRes = (res) => {
-    //   console.log("res of update cart", res);
-    // };
-    // callApi(
-    //   "POST",
-    //   routes.createCart,
-    //   body,
-    //   setIsLoading,
-    //   getRes,
-    //   (error) => {}
-    // );
+    console.log("final cart", deleteProduct, deleteService);
+    // navigate("/checkout");
+    let body = {
+      services: deleteService,
+      products: deleteProduct,
+    };
+    let getRes = (res) => {
+      console.log("res of update cart", res);
+    };
+    callApi("POST", routes.updateCart, body, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
   };
 
   const getMyCart = () => {
@@ -128,18 +126,26 @@ function DrawerCart({ open, setOpen }) {
           />
         ))
       ) : (
-        <h2 style={{ color: "red" }}>No item Available</h2>
+        <div className="empty-data-message">
+          <h2>No Product add to cart </h2>
+        </div>
       )}
       <div className="cart-product-information-heading">
         <h2>Service Information</h2>
       </div>
-      {services?.map((item, index) => (
-        <ServiceInCart
-          index={index}
-          item={item}
-          onSelect={() => selectService(item, index)}
-        />
-      ))}
+      {services?.length !== 0 ? (
+        services?.map((item, index) => (
+          <ServiceInCart
+            index={index}
+            item={item}
+            onSelect={() => selectService(item, index)}
+          />
+        ))
+      ) : (
+        <div className="empty-data-message">
+          <h2>No Service is selected </h2>
+        </div>
+      )}
       <div className="nova-checkout-btn-container">
         <Button onClick={() => updateCart()}>CheckOut</Button>
       </div>
@@ -148,6 +154,14 @@ function DrawerCart({ open, setOpen }) {
   return (
     <div>
       <Drawer open={open} onClose={() => setOpen(false)} anchor={"right"}>
+        <Loader
+          mainContainer={{
+            minHeight: "100%",
+            position: "fixed",
+            width: "100vh",
+          }}
+          loading={isloading}
+        />
         {getList()}
       </Drawer>
     </div>

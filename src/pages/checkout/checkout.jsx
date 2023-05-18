@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./checkout.css";
 import { Button, Footer, NavBar, TopBar } from "../../components";
 import {
+  addIcon,
   calenderTwo,
   clock,
   productOne,
@@ -16,16 +17,17 @@ import { useNavigate } from "react-router-dom";
 import ServiceInCart from "../../components/serviceInCart/serviceInCart";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
+import Loader from "../../components/loader/loader";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [services, setServices] = useState([]);
+  const [customTip, setCustomTip] = useState("");
 
   const [productArr, setProductArr] = useState([]);
-
-  const tipArr = [
+  const [tipArr, setTipArr] = useState([
     {
       id: 1,
       value: 10,
@@ -41,7 +43,7 @@ const Checkout = () => {
       value: 20,
       label: "30%",
     },
-  ];
+  ]);
 
   const [tipSelect, setTipSelect] = useState({
     id: 1,
@@ -71,9 +73,27 @@ const Checkout = () => {
     }
   };
 
+  const customTipAdd = () => {
+    let arr = [
+      ...tipArr,
+      { id: tipArr.length + 1, value: customTip, label: `$${customTip}` },
+    ];
+    setTipArr(arr);
+    setCustomTip("");
+    // let newArr = arr.map((item) => {
+    //   return {
+    //     ...item,
+    //     id: item.id + 1,
+    //     value: customTip,
+    //     label: `$${customTip}`,
+    //   };
+    // });
+    console.log("tiparr", arr);
+  };
+
   const getMyCart = () => {
     let getRes = (res) => {
-      // console.log("res of my cart", res);
+      //console.log("res of my cart", res);
       setProductArr(
         res?.data?.mycart?.products?.map((item) => {
           return { ...item, select: true };
@@ -95,6 +115,7 @@ const Checkout = () => {
 
   return (
     <div className="nova-dashboard-main_container">
+      <Loader loading={isloading} />
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
@@ -137,11 +158,23 @@ const Checkout = () => {
                 Tip <span style={{ fontSize: "1.6rem" }}>(For Service)</span>{" "}
               </h2>
               {/* <h3>10%</h3> */}
-              <TipDropDown
-                options={tipArr}
-                selected={tipSelect}
-                setSelected={setTipSelect}
-              />
+              <div className="nova-booking-confirm-drop-down-container">
+                <div className="nova-booking-add-custom-tip-container">
+                  <input
+                    value={customTip}
+                    onChange={(e) => setCustomTip(e.target.value)}
+                    placeholder="Custom tip"
+                    type="number"
+                  />
+                  <img onClick={customTipAdd} src={addIcon} alt="add-icon" />
+                </div>
+
+                <TipDropDown
+                  options={tipArr}
+                  selected={tipSelect}
+                  setSelected={setTipSelect}
+                />
+              </div>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
 

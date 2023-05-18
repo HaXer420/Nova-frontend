@@ -2,11 +2,14 @@ import React from "react";
 import "./loader.css";
 import { Puff } from "react-loader-spinner";
 
-const Loader = ({ loading }) => {
+const Loader = ({ loading, mainContainer }) => {
   return (
     <>
       {loading && (
-        <div className="nova-loader-main-container">
+        <div
+          style={{ ...mainContainer }}
+          className="nova-loader-main-container"
+        >
           <Puff
             height="80"
             width="80"
