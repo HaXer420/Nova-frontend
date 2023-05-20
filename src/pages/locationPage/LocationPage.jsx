@@ -87,8 +87,8 @@ export default function LocationPage() {
       image: dummyMap,
     },
   ];
-  const navigateTo = () => {
-    Navigate("/bookingpage");
+  const navigateTo = (item) => {
+    Navigate("/bookingpage", { state: { item: item } });
   };
   const defaultProps = {
     center: {
@@ -99,7 +99,6 @@ export default function LocationPage() {
 
   const getStoreLocation = () => {
     let getRes = (res) => {
-      console.log("res of location", res);
       setStoreLocation(res?.data?.data);
     };
     callApi(
@@ -142,7 +141,7 @@ export default function LocationPage() {
                   <div className="nova-location_button_top_view">
                     <div className="nova-location_button_border_view" />
                     <div
-                      onClick={() => navigateTo()}
+                      onClick={() => navigateTo(item)}
                       className="nova-location_button_main_view"
                     >
                       <h5>Book Now</h5>

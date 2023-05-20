@@ -4,9 +4,11 @@ import { serviceDetailOne, serviceDetailTwo } from "../../assets";
 import { Button, Footer, NavBar, TopBar } from "../../components";
 import Loader from "../../components/loader/loader";
 import "./serviceDetail.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ServiceDetail() {
   const { product } = getAllParams();
+  const navigate = useNavigate();
   let item = JSON.parse(product);
   const itemArray = [
     {
@@ -174,7 +176,7 @@ export default function ServiceDetail() {
               );
             })}
           </div>
-          <Button>Book Now</Button>
+          <Button onClick={() => navigate("/locationpage")}>Book Now</Button>
         </div>
         <Footer />
       </div>

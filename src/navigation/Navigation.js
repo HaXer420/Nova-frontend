@@ -29,11 +29,32 @@ const Navigation = () => {
         }
       />
 
-      <Route path="/bookingpage" element={<Pages.BookingPage />} />
-      <Route path="/paymentpage" element={<Pages.PaymentPage />} />
+      <Route
+        path="/bookingpage"
+        element={
+          <PrivateRoute>
+            <Pages.BookingPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/paymentpage"
+        element={
+          <PrivateRoute>
+            <Pages.PaymentPage />
+          </PrivateRoute>
+        }
+      />
       <Route path="/products" element={<Pages.Products />} />
       <Route path="/product" element={<Pages.Product />} />
-      <Route path="/checkout" element={<Pages.Checkout />} />
+      <Route
+        path="/checkout"
+        element={
+          <PrivateRoute>
+            <Pages.Checkout />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   );
 };

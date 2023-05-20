@@ -4,6 +4,8 @@ const initialState = {
   userData: null,
   token: "",
   refreshToken: "",
+  myInfo: null,
+  cart: 0,
 };
 
 export const userDataSlice = createSlice({
@@ -19,9 +21,16 @@ export const userDataSlice = createSlice({
     refreshToken: (state, action) => {
       state.refreshToken = action.payload;
     },
+    myInfo: (state, action) => {
+      state.myInfo = action.payload;
+    },
+    productInCart: (state, action) => {
+      state.cart = action.payload;
+    },
   },
 });
 
-export const { userData, accessToken, refreshToken } = userDataSlice.actions;
+export const { userData, accessToken, refreshToken, myInfo, productInCart } =
+  userDataSlice.actions;
 
 export default userDataSlice.reducer;

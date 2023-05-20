@@ -27,7 +27,7 @@
   font-weight: 300;
   font-size: 16px;
   color: #292929;
-  width: 50rem;
+  /* width: 50rem; */
 }
 
 .nova-product_in-cart-main-container {
@@ -57,4 +57,16 @@
 .nova-cart-product-name-container {
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 560px) {
+  .nova-cart-product-info-container p {
+    font-size: 1.6rem;
+  }
+  .nova-cart-product-info-container h3 {
+    font-size: 1.4rem;
+  }
+  .nova-cart-product-info-container {
+    margin-left: 0rem;
+  }
 }

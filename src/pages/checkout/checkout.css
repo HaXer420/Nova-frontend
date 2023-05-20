@@ -38,3 +38,56 @@
   cursor: pointer;
   margin-right: 3rem;
 }
+
+.nova-booking-confirm-drop-down-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nova-booking-add-custom-tip-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: rgb(255, 255, 255);
+  width: 10rem;
+  border-radius: 5px;
+  border: 0.5px solid #ff4195;
+  justify-content: space-between;
+}
+
+.nova-booking-add-custom-tip-container img {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.nova-booking-add-custom-tip-container input {
+  width: 7rem !important;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  border: none;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #949494;
+}
+
+.nova-booking-add-custom-tip-container input::placeholder {
+  color: #171d1c;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 760px) {
+  .nova-checkout-main-container {
+    padding: 0 2rem 5rem 2rem;
+  }
+  .nova-checkout-pink-main-container {
+    padding: 0 0 0 0;
+  }
+}

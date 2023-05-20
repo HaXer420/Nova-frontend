@@ -7,6 +7,8 @@ import DrawerCart from "../DrawerCart/DrawerCart";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
+
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
@@ -120,7 +122,7 @@ const Navbar = () => {
                 ? "#EE509C"
                 : "#ffffff",
           }}
-          onClick={() => navigate("/bookingpage")}
+          onClick={() => navigate("/locationpage")}
         >
           Book Now
         </h2>
@@ -162,7 +164,7 @@ const Navbar = () => {
             >
               <img src={shoppingCart} alt="icon" />
               <div className="nova_navbar-cart-item">
-                <p>3</p>
+                <p>{productsInCart}</p>
               </div>
             </div>
           </div>
@@ -215,10 +217,13 @@ const Navbar = () => {
               >
                 <img alt="" src={profileIcon} />
               </div>
-              <div className="nova_navbar-cart-container">
+              <div
+                onClick={() => setOpen(true)}
+                className="nova_navbar-cart-container"
+              >
                 <img src={shoppingCart} alt="icon" />
                 <div className="nova_navbar-cart-item">
-                  <p>3</p>
+                  <p>{productsInCart}</p>
                 </div>
               </div>
             </>

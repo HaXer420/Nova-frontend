@@ -24,4 +24,9 @@ export default {
   // -------------services--------------//
   postReview: BASE_URL + "/globalReviews/create",
   getallReviews: BASE_URL + "/globalReviews/getall?limit=1000&sort=-createdAt",
+  // -------------create-cart----------------//
+  createCart: BASE_URL + "/cart/create",
+  getProducts: BASE_URL + "/product/getAll?limit=",
+  myCart: BASE_URL + "/cart/mycart",
+  updateCart: BASE_URL + "/cart/update",
 };
