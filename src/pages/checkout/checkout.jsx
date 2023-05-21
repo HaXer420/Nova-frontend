@@ -18,30 +18,51 @@ import ServiceInCart from "../../components/serviceInCart/serviceInCart";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import Loader from "../../components/loader/loader";
+import { RedNotify } from "../../helper/utility";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
-  const [amount, setAmount] = useState("");
+  const [productAmount, setProductAmount] = useState(0);
+  const [serviceAmount, setServiceAmount] = useState(0);
+  const [selectRedeemPoint, setSelectRedeemPoint] = useState(false);
   const [services, setServices] = useState([]);
   const [customTip, setCustomTip] = useState("");
-
+  const [customRedeem, setCustomRedeem] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [availableAward, setAvailableAward] = useState(0);
+  const [fixedAvailableAward, setFixedAvailableAward] = useState(0);
   const [productArr, setProductArr] = useState([]);
   const [tipArr, setTipArr] = useState([
     {
       id: 1,
       value: 10,
       label: "10%",
+      per: true,
     },
     {
       id: 2,
-      value: 20,
-      label: "20%",
+      value: 15,
+      label: "15%",
+      per: true,
     },
     {
       id: 3,
       value: 20,
+      label: "20%",
+      per: true,
+    },
+    {
+      id: 4,
+      value: 25,
+      label: "25%",
+      per: true,
+    },
+    {
+      id: 5,
+      value: 30,
       label: "30%",
+      per: true,
     },
   ]);
 
@@ -49,6 +70,7 @@ const Checkout = () => {
     id: 1,
     value: 10,
     label: "10%",
+    per: true,
   });
 
   const selectService = (item, index) => {
@@ -73,33 +95,41 @@ const Checkout = () => {
     }
   };
 
+  const customAddRedeem = () => {
+    if (customRedeem > fixedAvailableAward)
+      return RedNotify("Select value under your available redeem points");
+    setCustomRedeem("");
+    setAvailableAward(customRedeem);
+  };
+
   const customTipAdd = () => {
+    if (customTip == "") return RedNotify("Enter custom tip");
     let arr = [
       ...tipArr,
-      { id: tipArr.length + 1, value: customTip, label: `$${customTip}` },
+      {
+        id: tipArr.length + 1,
+        value: customTip,
+        label: `$${customTip}`,
+        per: false,
+      },
     ];
     setTipArr(arr);
     setCustomTip("");
-    // let newArr = arr.map((item) => {
-    //   return {
-    //     ...item,
-    //     id: item.id + 1,
-    //     value: customTip,
-    //     label: `$${customTip}`,
-    //   };
-    // });
-    console.log("tiparr", arr);
   };
 
   const getMyCart = () => {
     let getRes = (res) => {
-      //console.log("res of my cart", res);
+      // console.log("res of my cart", res);
       setProductArr(
         res?.data?.mycart?.products?.map((item) => {
           return { ...item, select: true };
         })
       );
-      setAmount(res?.data?.mycart?.amount);
+      setProductAmount(res?.data?.mycart?.productsamount);
+      setServiceAmount(res?.data?.mycart?.servicesamount);
+      setAmount(
+        res?.data?.mycart?.productsamount + res?.data?.mycart?.servicesamount
+      );
       setServices(
         res?.data?.mycart?.services?.map((item) => {
           return { ...item, select: true };
@@ -109,7 +139,52 @@ const Checkout = () => {
     callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
   };
 
+  const getMyRewards = () => {
+    let getRes = (res) => {
+      setAvailableAward(res?.credits?.availablecredit);
+      setFixedAvailableAward(res?.credits?.availablecredit);
+      console.log("res of reward", res);
+    };
+    callApi("GET", routes.myRewards, null, setIsLoading, getRes, (error) => {});
+  };
+
+  let tip = tipSelect.per
+    ? serviceAmount * (tipSelect.value / 100)
+    : parseInt(tipSelect.value);
+  let serviceTax =
+    selectRedeemPoint && serviceAmount != 0
+      ? (serviceAmount - availableAward) * 0.1
+      : serviceAmount * 0.1;
+  let productTax =
+    selectRedeemPoint && productAmount != 0
+      ? (productAmount - availableAward) * 0.1
+      : productAmount * 0.1;
+  let discount = 10;
+  let myAwards = (serviceAmount + productAmount) * 0.05;
+  // console.log("serviceTax", serviceTax.toFixed(2));
+  let totalServiceAmount = serviceAmount + serviceTax + tip;
+  let totalProductsAmount = productAmount + productTax;
+
+  let finalAmount = selectRedeemPoint
+    ? totalProductsAmount + totalServiceAmount - availableAward
+    : totalProductsAmount + totalServiceAmount;
+
+  const confirmPay = () => {
+    navigate("/paymentpage", {
+      state: {
+        productArr: productArr,
+        services: services,
+        tip: tip,
+        subtotal: amount,
+        discount: myAwards,
+        redeempoints: myAwards * 20,
+        amount: finalAmount,
+      },
+    });
+  };
+
   useEffect(() => {
+    getMyRewards();
     getMyCart();
   }, []);
 
@@ -180,27 +255,55 @@ const Checkout = () => {
 
             <div className="nova-booking-confirm_comp_tip_top_view">
               <h2>Service Tax</h2>
-              <h3>10%($0.80) </h3>
+              <h3>{`10% ($${serviceTax.toFixed(2)})`}</h3>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
             <div className="nova-booking-confirm_comp_tip_top_view">
               <h2>Product Tax</h2>
-              <h3>10%($0.80) </h3>
+              <h3>{`10% ($${productTax.toFixed(2)})`} </h3>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
             <div className="nova-booking-confirm_comp_tip_top_view">
-              <h2>Redeem Points</h2>
+              <h2>
+                Redeem Points{" "}
+                <span style={{ fontSize: "1.6rem" }}>
+                  (${fixedAvailableAward})
+                </span>{" "}
+              </h2>
               <div className="nova-booking-confirm_comp_service_price_view">
-                <img src={squareTick} />
-                <h5>{"$13.5"}</h5>
+                <div
+                  style={{ marginRight: "2rem" }}
+                  className="nova-booking-add-custom-tip-container"
+                >
+                  <input
+                    value={customRedeem}
+                    onChange={(e) => setCustomRedeem(e.target.value)}
+                    placeholder="Redeem "
+                    type="number"
+                    id="839"
+                  />
+                  <img onClick={customAddRedeem} src={addIcon} alt="add-icon" />
+                </div>
+                {selectRedeemPoint ? (
+                  <img
+                    onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
+                    src={squareTick}
+                  />
+                ) : (
+                  <img
+                    onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
+                    src={uncheck}
+                  />
+                )}
+                <h5>${availableAward}</h5>
               </div>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
             <div className="nova-booking-confirm_comp_tip_top_view">
               <h2>Final</h2>
-              <h3>$28.00</h3>
+              <h3>${finalAmount}</h3>
             </div>
-            <Button onClick={() => navigate("/paymentpage")}>Confirm</Button>
+            <Button onClick={confirmPay}>Confirm</Button>
           </div>
         </div>
         <Footer />

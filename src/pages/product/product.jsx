@@ -13,18 +13,23 @@ import { productInCart } from "../../redux/userDataSlice";
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {
+  const { product } = getAllParams();
+  let item = JSON.parse(product);
+
+  let setPrice = item?.salePrice ? item?.salePrice : item?.price;
   const [count, setCount] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(setPrice);
   const auth = useSelector((data) => data.userDataSlice.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
-  const { product } = getAllParams();
-  let item = JSON.parse(product);
 
   const handleCountChange = (change) => {
     const newCount = count + change;
     if (newCount >= 1 && newCount <= 20) {
       setCount(newCount);
+
+      //setTotalPrice(newCount * setPrice);
     }
   };
 
@@ -34,7 +39,7 @@ const Product = () => {
     let product = {
       product: item?._id,
       quantity: count,
-      price: item?.salePrice ? item?.salePrice : item?.price,
+      price: totalPrice,
     };
     arr.push(product);
 
@@ -44,13 +49,24 @@ const Product = () => {
 
     let getRes = (res) => {
       if (res?.status == 201) {
-        //console.log("res of product", res?.data?.updatedcart?.products?.length);
+        console.log("res of product", res?.data);
         GreenNotify("Your Product is add to Cart");
-        dispatch(productInCart(res?.data?.updatedcart?.products?.length));
+        if (res?.data?.updatedcart?.services?.length !== 0) {
+          console.log("kk");
+          dispatch(
+            productInCart(
+              res?.data?.updatedcart?.products?.length +
+                res?.data?.updatedcart?.services?.length
+            )
+          );
+        } else {
+          console.log("ffff");
+          dispatch(productInCart(res?.data?.updatedcart?.products?.length));
+        }
       } else {
         RedNotify(res?.message);
       }
-      //console.log("res of create cart", res);
+      //console.log("res of create cart", es);
     };
     callApi(
       "POST",
@@ -95,7 +111,7 @@ const Product = () => {
                     </div>
                   )}
                   <div className="nova-product-price-product">
-                    <p>${item?.salePrice ? item?.salePrice : item?.price}</p>
+                    <p>${totalPrice}</p>
                   </div>
                 </div>
                 <div className="nova-product-qty-main-container">

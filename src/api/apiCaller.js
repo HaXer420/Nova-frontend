@@ -40,7 +40,7 @@ export const callApi = async (
     configureAppStore.getState().userDataSlice.refreshToken ?? false;
   console.log("token=>>  ", token);
   console.log("refreshToken=>>  ", refreshToken);
-  //console.log("Url ==>>   ", Url);
+  console.log("Url ==>>   ", Url);
   //console.log("BodyParams ==>>   ", JSON.stringify(bodyParams));
   if (multipart) {
     defaultHeaders["Content-Type"] = "multipart/form-data";

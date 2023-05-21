@@ -4,8 +4,11 @@ import { useDispatch } from "react-redux";
 import CancelServiceModal from "../cancelServiceModal/cancelServiceModal";
 import "./upcomingServiceCard.css";
 import { showModalValue } from "../../redux/showModalSlice";
+import dayjs from "dayjs";
+import { callApi } from "../../api/apiCaller";
+import routes from "../../api/routes";
 
-const UpcomingServiceCard = ({ item }) => {
+const UpcomingServiceCard = ({ item, cancelBooking }) => {
   const dispatch = useDispatch();
 
   const setValue = () => {
@@ -21,24 +24,29 @@ const UpcomingServiceCard = ({ item }) => {
           </div>
           <div className="nova-my-profile-upcoming_card-detail-container">
             <div className="nova-my-profile-upcoming_card-type-text">
-              <p>{item.title} | Full Body | 20mins</p>
+              {item?.options?.map((subItem) => (
+                <p>
+                  {item?.service?.title} | {subItem?.name} | ${subItem?.price} |
+                  20mins
+                </p>
+              ))}
             </div>
             <div className="nova-my-profile-upcoming_card-detail-icon-container">
               <div className="nova-my-profile-upcoming_card-calender-icon-container">
                 <img src={calenderIcon} alt="calender-icon" />
-                <p>Mon, Feb, 25, 2023</p>
+                <p>{dayjs(item?.starttime).format("ddd, MMM, DD, YYYY")}</p>
               </div>
               <div className="nova-my-profile-upcoming_card-time-icon-container">
                 <div className="nova-my-profile-upcoming_card-calender-icon-container">
                   <img src={clockIcon} alt="calender-icon" />
-                  <p>6:30 PM</p>
+                  <p>{dayjs(item?.starttime).format("hh:mm A")}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div
-          onClick={() => setValue()}
+          onClick={() => cancelBooking(item?.order?._id, item?._id)}
           className="nova-my-profile-upcoming_card-cancel-main-container"
         >
           <div className="nova-my-profile-upcoming_card-cancel-btn-container">

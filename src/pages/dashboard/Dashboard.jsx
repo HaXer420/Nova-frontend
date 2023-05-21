@@ -500,9 +500,15 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="nova-dashboard-team_members_top_view">
-          <h1>Meet Our Team Members</h1>
+          <h1>Our Teams </h1>
           <div className="nova-dashboard-team_members_view">
-            {teamMembers.map((item) => {
+            <h1 style={{ fontSize: "2.2rem" }}>
+              At Nova, we have a great team of experienced beauticians who are
+              not only deliver excellent quality of services but also excellent
+              customer care. Our beauticians are passionate about and love what
+              they do
+            </h1>
+            {/* {teamMembers.map((item) => {
               return (
                 <div
                   key={item.id}
@@ -518,7 +524,7 @@ export default function Dashboard() {
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
         <Footer setIsLoading={setIsLoading} />

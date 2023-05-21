@@ -11,6 +11,7 @@ import ServiceInCart from "../serviceInCart/serviceInCart";
 import { useDispatch } from "react-redux";
 import { productInCart } from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
+import { RedNotify } from "../../helper/utility";
 
 function DrawerCart({ open, setOpen }) {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ function DrawerCart({ open, setOpen }) {
 
   const selectProduct = (item, index) => {
     let arr = [...productArr];
-
+    console.log("item", item);
     arr[index].select = !arr[index].select;
     setProductArr(arr);
     if (arr[index].select) {
@@ -35,13 +36,13 @@ function DrawerCart({ open, setOpen }) {
     setDeleteProduct((val) =>
       val.includes(item?._id)
         ? val.filter((val) => val !== item?._id)
-        : [item?._id, ...deleteProduct]
+        : [item._id, ...deleteProduct]
     );
   };
 
   const selectService = (item, index) => {
     let arr = [...services];
-    // console.log("item", item);
+    console.log("item", item);
     arr[index].select = !arr[index].select;
     setServices(arr);
     if (arr[index].select) {
@@ -57,23 +58,25 @@ function DrawerCart({ open, setOpen }) {
   };
 
   const updateCart = () => {
-    console.log("final cart", deleteProduct, deleteService);
-    // navigate("/checkout");
+    //console.log("final cart", deleteProduct, deleteService);
+    if (services == undefined && productArr == undefined)
+      return RedNotify("You can not checkout , your cart is empty");
     let body = {
       services: deleteService,
       products: deleteProduct,
     };
     let getRes = (res) => {
+      navigate("/checkout");
       console.log("res of update cart", res);
     };
-    callApi("POST", routes.updateCart, body, setIsLoading, getRes, (error) => {
+    callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
       console.log("error", error);
     });
   };
 
   const getMyCart = () => {
     let getRes = (res) => {
-      // console.log("res of my cart", res);
+      console.log("res of my cart", res);
       setProductArr(
         res?.data?.mycart?.products?.map((item) => {
           return { ...item, select: true };
@@ -97,7 +100,8 @@ function DrawerCart({ open, setOpen }) {
 
   useEffect(() => {
     getMyCart();
-  }, []);
+    console.log("click here");
+  }, [open]);
 
   const getList = () => (
     <div
@@ -118,6 +122,7 @@ function DrawerCart({ open, setOpen }) {
       {productArr?.length != 0 ? (
         productArr?.map((item, index) => (
           <ProductInCart
+            check={true}
             qty={true}
             mainStyle={{ padding: 0 }}
             textWidth={{ width: "25rem" }}
@@ -136,6 +141,7 @@ function DrawerCart({ open, setOpen }) {
       {services?.length !== 0 ? (
         services?.map((item, index) => (
           <ServiceInCart
+            check={true}
             index={index}
             item={item}
             onSelect={() => selectService(item, index)}

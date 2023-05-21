@@ -93,6 +93,7 @@
   height: 2.4rem;
   object-fit: contain;
   margin-right: 3rem;
+  cursor: pointer;
 }
 
 .nova-booking-confirm_comp_service_price_view h5 {

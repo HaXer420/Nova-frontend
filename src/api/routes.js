@@ -29,4 +29,10 @@ export default {
   getProducts: BASE_URL + "/product/getAll?limit=",
   myCart: BASE_URL + "/cart/mycart",
   updateCart: BASE_URL + "/cart/update",
+  // ------------booking-create-----------
+  booking: BASE_URL + "/booking/create",
+  myServices: BASE_URL + "/booking/myservices",
+  bookingRefund: BASE_URL + "/booking/refund",
+  // --------------my-rewards--------------
+  myRewards: BASE_URL + "/user/myrewards",
 };
