@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { camIcon, profileBackground, profileImage } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
@@ -9,6 +9,10 @@ import MyServices from "../../components/myServices/myServices";
 import PaymentInfo from "../../components/paymentInfo/paymentInfo";
 import "./Profile.css";
 import Loader from "../../components/loader/loader";
+import { callApi } from "../../api/apiCaller";
+import routes from "../../api/routes";
+import { Navigate } from "react-router-dom";
+import { GreenNotify } from "../../helper/utility";
 
 const btnArr = [
   {
@@ -32,12 +36,53 @@ const btnArr = [
 const Profile = () => {
   const [isloading, setIsLoading] = useState(false);
   const modal = useSelector((data) => data.showModal.showModal);
-
-  //console.log("userData", userData);
+  const [pastServices, setPastServices] = useState([]);
+  const [cancelServices, setCancelServices] = useState([]);
+  const [upcomingServices, setUpcomingServices] = useState([]);
   const [select, setSelected] = useState({
     id: 1,
     text: "My Profile",
   });
+  const getMyServices = () => {
+    let getRes = (res) => {
+      console.log("res of my get Services", res);
+      setPastServices(res?.mypastservices);
+      setCancelServices(res?.myupcanceledservices);
+      setUpcomingServices(res?.myupcomonigservices);
+    };
+    callApi(
+      "GET",
+      routes.myServices,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
+
+  const cancelBooking = (id1, id2) => {
+    let getRes = (res) => {
+      console.log("res of my deleService", res);
+      GreenNotify("You have successfully canceled service");
+      Navigate("/");
+    };
+    callApi(
+      "PATCH",
+      `${routes.bookingRefund}/${id1}/${id2}`,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {
+        console.log("error", error);
+      }
+    );
+  };
+
+  //console.log("userData", userData);
+
+  useEffect(() => {
+    getMyServices();
+  }, []);
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
@@ -95,7 +140,13 @@ const Profile = () => {
             {select.id == 1 ? (
               <Myprofile setIsLoading={setIsLoading} />
             ) : select.id == 2 ? (
-              <MyServices />
+              <MyServices
+                pastServices={pastServices}
+                cancelServices={cancelServices}
+                upcomingServices={upcomingServices}
+                setIsLoading={setIsLoading}
+                cancelBooking={cancelBooking}
+              />
             ) : select.id == 3 ? (
               <MyReward />
             ) : (

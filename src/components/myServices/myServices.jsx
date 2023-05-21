@@ -20,7 +20,13 @@ const serviceArr = [
   },
 ];
 
-const MyServices = () => {
+const MyServices = ({
+  pastServices,
+  cancelServices,
+  upcomingServices,
+  setIsLoading,
+  cancelBooking,
+}) => {
   const [select, setselect] = useState({
     id: 1,
     text: "Past Services",
@@ -44,11 +50,15 @@ const MyServices = () => {
         ))}
       </div>
       {select.id == 1 ? (
-        <PosstService />
+        <PosstService pastServices={pastServices} />
       ) : select.id == 2 ? (
-        <CanceledService />
+        <CanceledService cancelServices={cancelServices} />
       ) : (
-        <UpcomingServices />
+        <UpcomingServices
+          setIsLoading={setIsLoading}
+          upcomingServices={upcomingServices}
+          cancelBooking={cancelBooking}
+        />
       )}
     </div>
   );

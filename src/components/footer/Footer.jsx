@@ -62,10 +62,7 @@ export default function Footer({ setIsLoading }) {
             <div className="nova-footer_contact_us_view">
               <h1>Contact Us</h1>
               <h2>Did you got confused at anything?</h2>
-              <h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eget eu
-                ut facilisis. adipiscing ipsum loreym.
-              </h3>
+              <h3>If you have any confusion, you can contact us</h3>
             </div>
             <div className="nova-footer_contact_us_form_top_view">
               <input placeholder="Enter your full name" />
@@ -126,14 +123,14 @@ export default function Footer({ setIsLoading }) {
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>
           <h2>
-            <span>E-mail:</span> hello@NOVA.com
+            <span>E-mail:</span> info@novawaxing.com
           </h2>
-          <h2>
+          {/* <h2>
             <span>Phone :</span> +1 (456) 123 4567
-          </h2>
+          </h2> */}
           <h2>
-            <span>Address :</span> No 25/134 Mainlande, Winstom, 14450,
-            California, USA.
+            <span>Address :</span> 875 Lawrenceville-Suwanee Rd, Auburn GA 30011
+            {/* California, USA. */}
           </h2>
         </div>
       </div>

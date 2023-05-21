@@ -18,19 +18,21 @@ import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
 import moment from "moment";
 import { useDispatch } from "react-redux";
-import { myInfo } from "../../redux/userDataSlice";
+import { myInfo, storId } from "../../redux/userDataSlice";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 import Loader from "../../components/loader/loader";
+import ServiceSelectModal from "../../components/serviceSelectModal/serviceSelectModal";
 
 export default function BookingPage() {
   const navigate = useNavigate();
   const getLocation = useLocation();
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const [servicesModal, setServiceModal] = useState(false);
   const [terms, setTerms] = useState(true);
   const [isloading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  // console.log("store id", location.state.item);
+  //console.log("store id", getLocation.state.item?._id);
   const currentTime = moment().unix() * 1000;
   const [headerItems, setHeaderItems] = useState([
     {
@@ -133,7 +135,8 @@ export default function BookingPage() {
     setModal(false);
   };
   const checkOut = () => {
-    navigate("/checkout");
+    setServiceModal(true);
+    // navigate("/checkout");
     setModal(false);
   };
 
@@ -155,10 +158,11 @@ export default function BookingPage() {
         comment: Comments,
       })
     );
+
     let time = moment(selectedDate).format("YYYY-MM-DD");
     let concatStartTime =
       moment(time + " " + selectTimeSlot, "YYYY-MM-DD hh:mm a").unix() * 1000;
-    console.log("time", concatStartTime);
+    //console.log("time", concatStartTime);
 
     let serviceArr = Object.entries(selectServices).map(
       ([service, options]) => {
@@ -241,6 +245,7 @@ export default function BookingPage() {
 
   useEffect(() => {
     getallServices();
+    dispatch(storId(getLocation.state.item?._id));
   }, []);
 
   const selectValue = (parentItem, childItem, mainIndex) => {
@@ -303,6 +308,9 @@ export default function BookingPage() {
           checkOut={checkOut}
           setModal={setModal}
         />
+      )}
+      {servicesModal && (
+        <ServiceSelectModal setServiceModal={setServiceModal} />
       )}
       <div className="nova-dashboard-container">
         <div className="nova-booking-banner_view">

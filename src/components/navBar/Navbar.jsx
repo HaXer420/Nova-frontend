@@ -12,7 +12,7 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
-  //console.log("showProfile", showProfile);
+  //console.log("productsInCart", productsInCart);
   const Menu = () => (
     <>
       <div className="nova__navbar-links_text_view">
@@ -164,7 +164,7 @@ const Navbar = () => {
             >
               <img src={shoppingCart} alt="icon" />
               <div className="nova_navbar-cart-item">
-                <p>{productsInCart}</p>
+                <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
               </div>
             </div>
           </div>
@@ -223,7 +223,7 @@ const Navbar = () => {
               >
                 <img src={shoppingCart} alt="icon" />
                 <div className="nova_navbar-cart-item">
-                  <p>{productsInCart}</p>
+                  <p>{isNaN(productsInCart) ? 0 : productsInCart}</p>
                 </div>
               </div>
             </>

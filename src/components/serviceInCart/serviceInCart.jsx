@@ -2,7 +2,7 @@ import React from "react";
 import { calenderTwo, clock, squareTick, uncheck, waxing } from "../../assets";
 import dayjs from "dayjs";
 
-const ServiceInCart = ({ item, index, onSelect }) => {
+const ServiceInCart = ({ item, index, onSelect, check }) => {
   return (
     <>
       <div className="nova-booking-confirm_comp_service_top_view">
@@ -24,15 +24,20 @@ const ServiceInCart = ({ item, index, onSelect }) => {
             </div>
           </div>
           <div className="nova-booking-confirm_comp_service_price_view">
-            {item.select == false ? (
-              <img onClick={onSelect} src={uncheck} alt="uncheck-icon" />
-            ) : (
-              <img
-                onClick={onSelect}
-                style={{ cursor: "pointer" }}
-                src={squareTick}
-              />
+            {check && (
+              <div>
+                {item.select == false ? (
+                  <img onClick={onSelect} src={uncheck} alt="uncheck-icon" />
+                ) : (
+                  <img
+                    onClick={onSelect}
+                    style={{ cursor: "pointer" }}
+                    src={squareTick}
+                  />
+                )}
+              </div>
             )}
+
             <h5>${item.amount}</h5>
           </div>
         </div>

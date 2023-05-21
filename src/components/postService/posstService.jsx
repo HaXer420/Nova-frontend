@@ -30,13 +30,17 @@ const serviceCardData = [
   },
 ];
 
-const PosstService = () => {
+const PosstService = ({ pastServices }) => {
   return (
     <div className="nova-my-profile-my_services-post_services-main-container">
       <div className="nova-my-profile-my_services-post_services-card-container">
-        {serviceCardData.map((item) => (
-          <ServiceCard item={item} />
-        ))}
+        {pastServices?.length != 0 ? (
+          pastServices?.map((item) => <ServiceCard item={item} />)
+        ) : (
+          <div className="cart-product-information-heading">
+            <h2>No past services available</h2>
+          </div>
+        )}
       </div>
       <div style={{ marginTop: "6.7rem", marginBottom: "6rem" }}>
         <Button> Load more</Button>

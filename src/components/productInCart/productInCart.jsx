@@ -2,7 +2,14 @@ import React from "react";
 import "./productInCart.css";
 import { productOne, squareTick, uncheck } from "../../assets";
 
-const ProductInCart = ({ onSelect, item, mainStyle, textWidth, qty }) => {
+const ProductInCart = ({
+  onSelect,
+  item,
+  mainStyle,
+  textWidth,
+  qty,
+  check,
+}) => {
   return (
     <>
       <div
@@ -27,15 +34,20 @@ const ProductInCart = ({ onSelect, item, mainStyle, textWidth, qty }) => {
           </div>
           <div className="nova-product_in-cart-main-container">
             <div className="nova-booking-confirm_comp_service_price_view">
-              {item.select !== true ? (
-                <img onClick={onSelect} src={uncheck} alt="uncheck" />
-              ) : (
-                <img
-                  onClick={onSelect}
-                  style={{ cursor: "pointer" }}
-                  src={squareTick}
-                />
+              {check && (
+                <div>
+                  {item.select !== true && check ? (
+                    <img onClick={onSelect} src={uncheck} alt="uncheck" />
+                  ) : (
+                    <img
+                      onClick={onSelect}
+                      style={{ cursor: "pointer" }}
+                      src={squareTick}
+                    />
+                  )}
+                </div>
               )}
+
               <h5>${item?.price}</h5>
             </div>
             {/* <div className="nova-product_in_cart-per-container">

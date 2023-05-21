@@ -29,13 +29,17 @@ const serviceCardData = [
   },
 ];
 
-const CanceledService = () => {
+const CanceledService = ({ cancelServices }) => {
   return (
     <div className="nova-my-profile-my_services-post_services-main-container">
       <div className="nova-my-profile-my_services-post_services-card-container">
-        {serviceCardData.map((item) => (
-          <ServiceCard item={item} />
-        ))}
+        {cancelServices?.length != 0 ? (
+          cancelServices?.map((item) => <ServiceCard item={item} />)
+        ) : (
+          <div className="cart-product-information-heading">
+            <h2> There is no cancel services </h2>
+          </div>
+        )}
       </div>
       <div style={{ marginTop: "6.7rem", marginBottom: "6rem" }}>
         <Button> Load more</Button>

@@ -20,12 +20,26 @@ const upcomingService = [
     image: facial,
   },
 ];
-const UpcomingServices = () => {
+const UpcomingServices = ({
+  upcomingServices,
+  setIsLoading,
+  cancelBooking,
+}) => {
   return (
     <div className="nova-my-profile-my_service-upcoming-service-main-container">
-      {upcomingService.map((item) => (
-        <UpcomingServiceCard item={item} />
-      ))}
+      {upcomingService?.length != 0 ? (
+        upcomingServices.map((item) => (
+          <UpcomingServiceCard
+            setIsLoading={setIsLoading}
+            item={item}
+            cancelBooking={cancelBooking}
+          />
+        ))
+      ) : (
+        <div className="cart-product-information-heading">
+          <h2>There is no coming services</h2>
+        </div>
+      )}
     </div>
   );
 };
