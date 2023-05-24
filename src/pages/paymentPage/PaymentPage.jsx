@@ -57,14 +57,14 @@ export default function PaymentPage() {
       title: "Pay at Store",
     },
   ];
-  // console.log("location", location.state);
+  console.log("location", userData.storeId);
 
   const confirmToPay = (firstName, lastName, cvc, cardNumber, expryDate) => {
     if (expvalue == "") return RedNotify("Enter expiry date");
     console.log("jjsd", firstName, lastName, cardNumber, cvc, expryDate);
     // setShowModel(true);
     let body = {
-      store: userData.storeId,
+      store: "6468aef24b84762f11bdc623",
       products: location?.state?.productArr,
       services: location?.state?.services,
       client: userData.myInfo ? userData.myInfo : {},
@@ -198,10 +198,10 @@ export default function PaymentPage() {
                     id="firstname"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.lastname}
+                    value={formik.values.firstname}
                     error={
-                      formik.touched.lastname && formik.errors.lastname
-                        ? formik.errors.lastname
+                      formik.touched.firstname && formik.errors.firstname
+                        ? formik.errors.firstname
                         : null
                     }
                     style={{ borderColor: "#EE509C" }}

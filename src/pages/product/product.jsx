@@ -51,18 +51,7 @@ const Product = () => {
       if (res?.status == 201) {
         console.log("res of product", res?.data);
         GreenNotify("Your Product is add to Cart");
-        if (res?.data?.updatedcart?.services?.length !== 0) {
-          console.log("kk");
-          dispatch(
-            productInCart(
-              res?.data?.updatedcart?.products?.length +
-                res?.data?.updatedcart?.services?.length
-            )
-          );
-        } else {
-          console.log("ffff");
-          dispatch(productInCart(res?.data?.updatedcart?.products?.length));
-        }
+        dispatch(productInCart(res?.size));
       } else {
         RedNotify(res?.message);
       }
