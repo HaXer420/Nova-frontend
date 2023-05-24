@@ -124,6 +124,7 @@ export default function BookingPage() {
     title: "Male",
     value: "male",
   });
+  const [storeLocation, setStoreLocation] = useState([]);
   const [selectedDate, setSelectedDate] = useState(currentTime);
   const [morningTimeSlots, setMorningTimeSlots] = useState({ id: 0 });
   const [afternoonTimeSlots, setAfternoonTimeSlots] = useState({ id: 0 });
@@ -140,20 +141,9 @@ export default function BookingPage() {
     setModal(false);
   };
 
-  const bioInfo = (
-    firstName,
-    lastName,
-    email,
-    mobileNumber,
-    address,
-    Comments
-  ) => {
+  const bioInfo = (address, Comments) => {
     dispatch(
       myInfo({
-        firstName: firstName,
-        lastName: lastName,
-        mobileno: mobileNumber,
-        email: email,
         address: address,
         comment: Comments,
       })
@@ -203,6 +193,21 @@ export default function BookingPage() {
 
     console.log("services", newArr, selectServices.entries);
   };
+
+  const getStoreLocation = () => {
+    let getRes = (res) => {
+      setStoreLocation(res?.data?.data);
+      dispatch(storId(res?.data?.data[0]?._id));
+    };
+    callApi(
+      "GET",
+      `${routes.getStoreLocation}100`,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
   const updateSlot = (item, index) => {
     setSelectTimeSlot(item.time);
     if (item.type == "morning") {
@@ -218,14 +223,6 @@ export default function BookingPage() {
       setMorningTimeSlots({});
       setEveningTimeSlots(item);
     }
-
-    // const arr = [...array];
-    // arr[index].selected = !arr[index].selected;
-    // array === morningTimeSlots
-    //   ? setMorningTimeSlots(arr)
-    //   : array === afternoonTimeSlots
-    //   ? setAfternoonTimeSlots(arr)
-    //   : setEveningTimeSlots(arr);
   };
 
   const getallServices = () => {
@@ -245,7 +242,7 @@ export default function BookingPage() {
 
   useEffect(() => {
     getallServices();
-    dispatch(storId(getLocation.state.item?._id));
+    getStoreLocation();
   }, []);
 
   const selectValue = (parentItem, childItem, mainIndex) => {
@@ -315,10 +312,10 @@ export default function BookingPage() {
       <div className="nova-dashboard-container">
         <div className="nova-booking-banner_view">
           <div className="nova-booking-banner_image_view">
-            <h1>{getLocation.state.item?.name}</h1>
+            <h1>{storeLocation[0]?.name}</h1>
             <div>
               <img src={location} />
-              <h2>{getLocation.state.item?.location?.address}</h2>
+              <h2>{storeLocation[0]?.location?.address}</h2>
             </div>
           </div>
         </div>

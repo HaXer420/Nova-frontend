@@ -38,9 +38,9 @@ export const callApi = async (
   //   let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWJmZDdhMGQ4YzRjODhiMzc0MDQ3YyIsImlhdCI6MTY3OTU1NjEwNn0.2j-EGacy-8AKMS6ukSlwl_irW0h7PPNWha52TTWTM54";
   let refreshToken =
     configureAppStore.getState().userDataSlice.refreshToken ?? false;
-  console.log("token=>>  ", token);
-  console.log("refreshToken=>>  ", refreshToken);
-  console.log("Url ==>>   ", Url);
+  //console.log("token=>>  ", token);
+  //console.log("refreshToken=>>  ", refreshToken);
+  //console.log("Url ==>>   ", Url);
   //console.log("BodyParams ==>>   ", JSON.stringify(bodyParams));
   if (multipart) {
     defaultHeaders["Content-Type"] = "multipart/form-data";
