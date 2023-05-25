@@ -133,9 +133,9 @@ export default function Signup() {
         .typeError("Confirm password is not matched."),
       dateOfBirth: Yup.string()
         .nullable()
-        .test("dateOfBirth", "You must be 18 years or older", function (value) {
-          return moment().diff(moment(value, "YYYY-MM-DD"), "years") >= 18;
-        })
+        // .test("dateOfBirth", "You must be 18 years or older", function (value) {
+        //   return moment().diff(moment(value, "YYYY-MM-DD"), "years") >= 18;
+        // })
         .required("Please enter your age"),
     }),
     onSubmit: (val) => {
