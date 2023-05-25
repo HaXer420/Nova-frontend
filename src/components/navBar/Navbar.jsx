@@ -122,7 +122,7 @@ const Navbar = () => {
                 ? "#EE509C"
                 : "#ffffff",
           }}
-          onClick={() => navigate("/locationpage")}
+          onClick={() => navigate("/bookingpage")}
         >
           Book Now
         </h2>

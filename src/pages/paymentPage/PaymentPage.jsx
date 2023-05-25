@@ -57,7 +57,13 @@ export default function PaymentPage() {
       title: "Pay at Store",
     },
   ];
-  console.log("location", userData.storeId);
+
+  console.log(
+    "info",
+    userData?.userData?.firstname,
+    userData?.userData?.lastname,
+    userData?.userData?.email
+  );
 
   const confirmToPay = (firstName, lastName, cvc, cardNumber, expryDate) => {
     if (expvalue == "") return RedNotify("Enter expiry date");
@@ -67,7 +73,14 @@ export default function PaymentPage() {
       store: "6468aef24b84762f11bdc623",
       products: location?.state?.productArr,
       services: location?.state?.services,
-      client: userData.myInfo ? userData.myInfo : {},
+      client: {
+        firstname: userData?.userData?.firstname,
+        lastname: userData?.userData?.lastname,
+        mobileno: userData?.userData?.number,
+        email: userData?.userData?.email,
+        address: userData?.myInfo?.address ? userData?.myInfo?.address : "",
+        comment: userData?.myInfo?.comment ? userData?.myInfo?.comment : "",
+      },
       tip: location?.state?.tip,
       subtotal: location?.state?.subtotal,
       discount: location?.state?.discount,
