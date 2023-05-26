@@ -29,9 +29,10 @@ export default function BookingPage() {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [servicesModal, setServiceModal] = useState(false);
-  const [terms, setTerms] = useState(true);
+  const [terms, setTerms] = useState(false);
   const [isloading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [storeId, setStoreId] = useState("");
   //console.log("store id", getLocation.state.item?._id);
   const currentTime = moment().unix() * 1000;
   const [headerItems, setHeaderItems] = useState([
@@ -149,6 +150,8 @@ export default function BookingPage() {
       })
     );
 
+    if (!terms) return RedNotify("Tick on Terms and conditions");
+
     let time = moment(selectedDate).format("YYYY-MM-DD");
     let concatStartTime =
       moment(time + " " + selectTimeSlot, "YYYY-MM-DD hh:mm a").unix() * 1000;
@@ -163,9 +166,9 @@ export default function BookingPage() {
       return {
         ...item,
         staff: selectedGender.value,
-        starttime: concatStartTime + i * 30 * 60 * 60 * 1000,
+        starttime: concatStartTime + i * 30 * 60 * 1000,
         BookedTime: time,
-        store: getLocation.state.item?._id,
+        store: storeId,
       };
     });
 
@@ -196,6 +199,7 @@ export default function BookingPage() {
 
   const getStoreLocation = () => {
     let getRes = (res) => {
+      setStoreId(res?.data?.data[0]?._id);
       setStoreLocation(res?.data?.data);
       dispatch(storId(res?.data?.data[0]?._id));
     };

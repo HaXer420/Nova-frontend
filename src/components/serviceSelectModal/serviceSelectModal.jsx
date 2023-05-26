@@ -8,6 +8,7 @@ import { productInCart } from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
+import { RedNotify } from "../../helper/utility";
 
 const ServiceSelectModal = ({ setServiceModal }) => {
   const [isloading, setIsLoading] = useState(false);
@@ -35,6 +36,8 @@ const ServiceSelectModal = ({ setServiceModal }) => {
   };
 
   const updateCart = () => {
+    if (deleteService.length == services.length)
+      return RedNotify("Select services for checkout");
     let body = {
       services: deleteService,
       products: [],

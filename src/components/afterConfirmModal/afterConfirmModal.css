@@ -41,7 +41,13 @@
   width: 70%;
 }
 
-.nova-after-proceed-to-check-out-container h5 {
+.nova-after-proceed-to-check-out {
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ff4195ff;
+}
+
+.nova-after-proceed-to-check-out h5 {
   font-size: 2.4rem;
   color: #292929;
   font-family: "Comfortaa";
@@ -68,7 +74,7 @@
   }
   .nova-after-proceed-to-check-out-container h5 {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
   }
   .nova-after-proceed-to-check-out-container {
     flex-wrap: wrap;
@@ -86,7 +92,10 @@
   }
   .nova-after-proceed-to-check-out-container h5 {
     font-size: 1.4rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
+  }
+  .nova-after-proceed-to-check-out {
+    margin-bottom: 3rem;
   }
 }
 

@@ -188,6 +188,12 @@
   }
 }
 
+@media screen and (max-width: 465px) {
+  .nova-services-top_view {
+    justify-content: center;
+  }
+}
+
 @media screen and (max-width: 425px) {
   .nova-services-main_view {
     padding: 2.8rem 3rem 0rem 3rem;

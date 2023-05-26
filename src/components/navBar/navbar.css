@@ -69,8 +69,8 @@
 }
 
 .nova_navbar-profile_view img {
-  width: 1.5rem;
-  height: 1.6rem;
+  width: 3.2rem;
+  height: 3.2rem;
   object-fit: cover;
 }
 
@@ -104,7 +104,7 @@
   padding: 3.2rem;
   position: absolute;
   top: 2.8rem;
-  left: -0.5rem;
+  left: -6.5rem;
   margin-top: 2.4rem;
   min-width: 30rem;
   border-radius: 5px;
@@ -239,6 +239,9 @@
 }
 
 @media screen and (max-width: 550px) {
+  .nova__navbar-menu_container {
+    left: -4.5rem;
+  }
   .nova__navbar {
     padding: 0rem 3rem;
     padding-top: 3rem;

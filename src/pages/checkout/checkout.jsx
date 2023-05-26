@@ -177,7 +177,7 @@ const Checkout = () => {
         tip: tip,
         subtotal: amount,
         discount: myAwards,
-        redeempoints: myAwards * 20,
+        redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
         amount: finalAmount,
       },
     });
@@ -202,24 +202,36 @@ const Checkout = () => {
             <div className="nova-checkout-pink-heading">
               <p>Service Information</p>
             </div>
-            {services?.map((item, index) => {
-              return (
-                <ServiceInCart
-                  item={item}
-                  index={index}
-                  onSelect={() => selectService(item, index)}
-                />
-              );
-            })}
+            {services.length !== 0 ? (
+              services?.map((item, index) => {
+                return (
+                  <ServiceInCart
+                    item={item}
+                    index={index}
+                    onSelect={() => selectService(item, index)}
+                  />
+                );
+              })
+            ) : (
+              <div className="empty-data-message">
+                <h2 style={{ marginTop: 0 }}>No Service is selected </h2>
+              </div>
+            )}
             <div className="nova-checkout-pink-heading">
               <p>Product Information</p>
             </div>
-            {productArr?.map((item, index) => (
-              <ProductInCart
-                item={item}
-                onSelect={() => selectProduct(item, index)}
-              />
-            ))}
+            {productArr.length !== 0 ? (
+              productArr?.map((item, index) => (
+                <ProductInCart
+                  item={item}
+                  onSelect={() => selectProduct(item, index)}
+                />
+              ))
+            ) : (
+              <div className="empty-data-message">
+                <h2 style={{ marginTop: 0 }}>No Product is selected </h2>
+              </div>
+            )}
             <div className="nova-booking-confirm_comp_tip_top_view">
               <div>
                 <h2>Sub Total</h2>
@@ -228,41 +240,59 @@ const Checkout = () => {
               <h3>${amount}</h3>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
-            <div className="nova-booking-confirm_comp_tip_top_view">
-              <h2>
-                Tip <span style={{ fontSize: "1.6rem" }}>(For Service)</span>{" "}
-              </h2>
-              {/* <h3>10%</h3> */}
-              <div className="nova-booking-confirm-drop-down-container">
-                <div className="nova-booking-add-custom-tip-container">
-                  <input
-                    value={customTip}
-                    onChange={(e) => setCustomTip(e.target.value)}
-                    placeholder="Custom tip"
-                    type="number"
-                  />
-                  <img onClick={customTipAdd} src={addIcon} alt="add-icon" />
+
+            {services.length != 0 && (
+              <>
+                <div className="nova-booking-confirm_comp_tip_top_view">
+                  <h2>
+                    Tip{" "}
+                    <span style={{ fontSize: "1.6rem" }}>(For Service)</span>{" "}
+                  </h2>
+
+                  <div className="nova-booking-confirm-drop-down-container">
+                    <div className="nova-booking-add-custom-tip-container">
+                      <input
+                        value={customTip}
+                        onChange={(e) => setCustomTip(e.target.value)}
+                        placeholder="Custom tip"
+                        type="number"
+                      />
+                      <img
+                        onClick={customTipAdd}
+                        src={addIcon}
+                        alt="add-icon"
+                      />
+                    </div>
+
+                    <TipDropDown
+                      options={tipArr}
+                      selected={tipSelect}
+                      setSelected={setTipSelect}
+                    />
+                  </div>
                 </div>
+                <div className="nova-booking-confirm_comp_service_detail_divider" />
+              </>
+            )}
 
-                <TipDropDown
-                  options={tipArr}
-                  selected={tipSelect}
-                  setSelected={setTipSelect}
-                />
-              </div>
-            </div>
-            <div className="nova-booking-confirm_comp_service_detail_divider" />
-
-            <div className="nova-booking-confirm_comp_tip_top_view">
-              <h2>Service Tax</h2>
-              <h3>{`10% ($${serviceTax.toFixed(2)})`}</h3>
-            </div>
-            <div className="nova-booking-confirm_comp_service_detail_divider" />
-            <div className="nova-booking-confirm_comp_tip_top_view">
-              <h2>Product Tax</h2>
-              <h3>{`10% ($${productTax.toFixed(2)})`} </h3>
-            </div>
-            <div className="nova-booking-confirm_comp_service_detail_divider" />
+            {services.length !== 0 && (
+              <>
+                <div className="nova-booking-confirm_comp_tip_top_view">
+                  <h2>Service Tax</h2>
+                  <h3>{`10% ($${serviceTax.toFixed(2)})`}</h3>
+                </div>
+                <div className="nova-booking-confirm_comp_service_detail_divider" />
+              </>
+            )}
+            {productArr.length !== 0 && (
+              <>
+                <div className="nova-booking-confirm_comp_tip_top_view">
+                  <h2>Product Tax</h2>
+                  <h3>{`10% ($${productTax.toFixed(2)})`} </h3>
+                </div>
+                <div className="nova-booking-confirm_comp_service_detail_divider" />
+              </>
+            )}
             <div className="nova-booking-confirm_comp_tip_top_view">
               <h2>
                 Redeem Points{" "}

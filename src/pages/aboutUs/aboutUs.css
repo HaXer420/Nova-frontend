@@ -251,7 +251,7 @@
   }
 
   .nova-about-us_detail_view {
-    padding: 2.5rem 5.7rem 0rem 8.4rem;
+    padding: 2.5rem 5.7rem 0rem 5.7rem;
   }
 
   .nova-about-us_main_view h1 {
@@ -286,8 +286,8 @@
   }
 
   .nova-about-us_single_item_top_view h4 {
-    font-size: 1.2rem;
-    line-height: 2.2rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
   }
 }
 

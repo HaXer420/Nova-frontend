@@ -10,148 +10,147 @@ import TextInputTwo from "../textInputTwo/TextInputTwo";
 import dayjs from "dayjs";
 import moment from "moment/moment";
 
-const morningSlot = [
-  {
-    id: 1,
-    time: "10:00 AM",
-    selected: false,
-    type: "morning",
-  },
-  {
-    id: 2,
-    time: "10:30 AM",
-    selected: false,
-    type: "morning",
-  },
-  {
-    id: 3,
-    time: "11:00 AM",
-    selected: false,
-    type: "morning",
-  },
-  {
-    id: 4,
-    time: "11:30 AM",
-    selected: false,
-    type: "morning",
-  },
-  {
-    id: 5,
-    time: "11:30 AM",
-    selected: false,
-    type: "morning",
-  },
-];
-
-const afternoonSlot = [
-  {
-    id: 1,
-    time: "12:00 PM",
-    selected: false,
-    type: "afternoon",
-  },
-  {
-    id: 2,
-    time: "12:30 PM",
-    selected: false,
-    type: "afternoon",
-  },
-  {
-    id: 3,
-    time: "01:00 PM",
-    selected: false,
-    type: "afternoon",
-  },
-  {
-    id: 4,
-    time: "01:30 PM",
-    selected: false,
-    type: "afternoon",
-  },
-  {
-    id: 5,
-    time: "02:00 PM",
-    selected: false,
-    type: "afternoon",
-  },
-  {
-    id: 6,
-    time: "02:30 PM",
-    selected: false,
-    type: "afternoon",
-  },
-];
-
-const eveningSlot = [
-  {
-    id: 1,
-    time: "03:00 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 2,
-    time: "03:30 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 3,
-    time: "04:30 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 4,
-    time: "05:00 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 5,
-    time: "06:00 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 6,
-    time: "06:30 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 7,
-    time: "07:00 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 8,
-    time: "07:30 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 9,
-    time: "08:00 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 9,
-    time: "08:30 PM",
-    selected: false,
-    type: "evening",
-  },
-  {
-    id: 9,
-    time: "09:00 PM",
-    selected: false,
-    type: "evening",
-  },
-];
-
 const BookingDateComp = (props) => {
+  const afternoonSlot = [
+    {
+      id: 1,
+      time: "12:00 PM",
+      selected: false,
+      type: "afternoon",
+    },
+    {
+      id: 2,
+      time: "12:30 PM",
+      selected: false,
+      type: "afternoon",
+    },
+    {
+      id: 3,
+      time: "01:00 PM",
+      selected: false,
+      type: "afternoon",
+    },
+    {
+      id: 4,
+      time: "01:30 PM",
+      selected: false,
+      type: "afternoon",
+    },
+    {
+      id: 5,
+      time: "02:00 PM",
+      selected: false,
+      type: "afternoon",
+    },
+    {
+      id: 6,
+      time: "02:30 PM",
+      selected: false,
+      type: "afternoon",
+    },
+  ];
+
+  const eveningSlot = [
+    {
+      id: 1,
+      time: "03:00 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 2,
+      time: "03:30 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 3,
+      time: "04:00 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 4,
+      time: "04:30 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 5,
+      time: "05:00 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 6,
+      time: "06:00 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 7,
+      time: "06:30 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 8,
+      time: "07:00 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 9,
+      time: "07:30 PM",
+      selected: false,
+      type: "evening",
+    },
+    {
+      id: 10,
+      time: "08:00 PM",
+      selected: false,
+      type: "evening",
+    },
+  ]?.filter((obj) => {
+    if (moment(props.selectedDate).day() == 0 && obj?.id >= 7) {
+      return false;
+    } else return true;
+  });
+
+  const morningSlot = [
+    {
+      id: 1,
+      time: "10:00 AM",
+      selected: false,
+      type: "morning",
+    },
+    {
+      id: 2,
+      time: "10:30 AM",
+      selected: false,
+      type: "morning",
+    },
+    {
+      id: 3,
+      time: "11:00 AM",
+      selected: false,
+      type: "morning",
+    },
+    {
+      id: 4,
+      time: "11:30 AM",
+      selected: false,
+      type: "morning",
+    },
+  ]?.filter((obj) => {
+    if (
+      (moment(props.selectedDate).day() == 0 && obj?.id == 1) ||
+      obj?.id == 2
+    ) {
+      return false;
+    } else return true;
+  });
+
   return (
     <div className="nova-booking-date_comp_top_view">
       <h1>Select Date</h1>

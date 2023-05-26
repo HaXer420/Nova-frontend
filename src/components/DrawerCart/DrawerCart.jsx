@@ -59,6 +59,11 @@ function DrawerCart({ open, setOpen }) {
 
   const updateCart = () => {
     //console.log("final cart", deleteProduct, deleteService);
+    if (
+      services.length == deleteService.length &&
+      productArr.length == deleteProduct.length
+    )
+      return RedNotify("For Checkout select atleast one product or services. ");
     if (services == undefined && productArr == undefined)
       return RedNotify("You can not checkout , your cart is empty");
     let body = {

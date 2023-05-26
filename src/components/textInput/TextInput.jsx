@@ -20,6 +20,10 @@ const TextInput = (props) => {
           value={props.value}
           type={props.type}
           placeholder={props.placeholder}
+          max={props.max}
+          min={props.min}
+          onKeyDown={props.onKeyDown}
+          maxLength={props.maxLength}
         />
         {props.eye && (
           <img onClick={props.onClickEye} src={props.eyeValue ? hide : show} />

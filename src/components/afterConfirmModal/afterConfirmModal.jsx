@@ -13,7 +13,10 @@ const AfterConfirmModal = ({ addProduct, checkOut }) => {
         <img src={boxSearch} alt="box-icon" />
         <p>Want to add Products</p>
         <div className="nova-after-proceed-to-check-out-container">
-          <h5 onClick={checkOut}>Proceed to CheckOut</h5>
+          <div className="nova-after-proceed-to-check-out">
+            <h5 onClick={checkOut}>Proceed to CheckOut</h5>
+          </div>
+
           <Button onClick={addProduct}>Add Products</Button>
         </div>
       </div>
