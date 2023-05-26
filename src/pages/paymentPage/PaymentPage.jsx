@@ -151,7 +151,7 @@ export default function PaymentPage() {
         .required("Card number is required.")
         .positive()
         .integer()
-        .max(9999999999999999, "Phone Number limit is 16")
+        .max(9999999999999999, "Card Number limit is 16")
         .typeError("Card number must be a number."),
     }),
     onSubmit: (val) => {

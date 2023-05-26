@@ -71,6 +71,7 @@
 .nova_navbar-profile_view img {
   width: 3.2rem;
   height: 3.2rem;
+  border-radius: 2rem;
   object-fit: cover;
 }
 
