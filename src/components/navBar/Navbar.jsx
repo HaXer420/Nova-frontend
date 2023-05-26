@@ -2,16 +2,24 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { close, menu, logo, profileIcon, shoppingCart } from "../../assets";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DrawerCart from "../DrawerCart/DrawerCart";
+import { storId, userData } from "../../redux/userDataSlice";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
 
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
+
+  const logOut = () => {
+    dispatch(userData(null));
+    dispatch(productsInCart(0));
+    dispatch(storId(""));
+  };
   //console.log("productsInCart", productsInCart);
   const Menu = () => (
     <>
@@ -156,7 +164,7 @@ const Navbar = () => {
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"
             >
-              <img alt="" src={profileIcon} />
+              <img alt="" src={showProfile?.image} />
             </div>
             <div
               onClick={() => setOpen(true)}
@@ -194,12 +202,20 @@ const Navbar = () => {
             <h5>Mon - Sat 10 Am to 8 Pm</h5>
             <h5>Sun 11 Am to 6 Pm</h5>
             <h5>+1 5654 4658 23</h5>
-            <div
-              onClick={() => navigate("/login")}
-              className="nova-navBar_button"
-            >
-              <h6>Login</h6>
-            </div>
+
+            {showProfile ? (
+              <div onClick={() => logOut()} className="nova-navBar_button">
+                <h6>LogOut</h6>
+              </div>
+            ) : (
+              <div
+                onClick={() => navigate("/login")}
+                className="nova-navBar_button"
+              >
+                <h6>Login</h6>
+              </div>
+            )}
+
             <div className="nova-navBar_button">
               <h6>Sign Up</h6>
             </div>
@@ -215,7 +231,7 @@ const Navbar = () => {
                 onClick={() => navigate("/profile")}
                 className="nova_navbar-profile_view"
               >
-                <img alt="" src={profileIcon} />
+                <img alt="" src={showProfile?.image} />
               </div>
               <div
                 onClick={() => setOpen(true)}

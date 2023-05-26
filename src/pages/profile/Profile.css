@@ -9,6 +9,7 @@
   height: 31rem;
   object-fit: cover;
   border-radius: 114px 0px 0px 0px;
+  cursor: pointer;
 }
 
 .nova-profile-back_ground-image {
@@ -31,7 +32,7 @@
 .nova-profile-back_ground-image .nova-profile-update-profile-image img {
   width: 2rem;
   height: 1.8rem;
-  /* cursor: pointer; */
+  cursor: pointer;
 }
 .nova-profile-picture-main-container {
   display: flex;
@@ -53,6 +54,7 @@
   height: 23rem;
   object-fit: cover;
   border-radius: 50%;
+  cursor: pointer;
 }
 .nova-profile-profile_name-container {
   margin-left: 3.2rem;

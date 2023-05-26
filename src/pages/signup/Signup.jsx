@@ -5,14 +5,14 @@ import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { edit, faqDummy } from "../../assets";
+import { edit } from "../../assets";
 import { Button, TextInput } from "../../components";
 import "./signup.css";
 import moment from "moment/moment";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import Loader from "../../components/loader/loader";
-import { GreenNotify, notify, RedNotify } from "../../helper/utility";
+import { GreenNotify, notify, RedNotify, upload } from "../../helper/utility";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -20,6 +20,9 @@ export default function Signup() {
   const [isloading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  let faqDummy =
+    "https://www.postendekker.nl/wp-content/uploads/2021/10/dummy-profile.jpg";
 
   const uploadImage = () => {
     document.getElementById("selectFile").click();
@@ -48,8 +51,7 @@ export default function Signup() {
       username: profileName,
       email: email,
       dob: dateOfBirth,
-      image:
-        "https://www.postendekker.nl/wp-content/uploads/2021/10/dummy-profile.jpg",
+      image: image,
       number: mobileNumber,
       password: password,
     };
@@ -133,9 +135,7 @@ export default function Signup() {
         .typeError("Confirm password is not matched."),
       dateOfBirth: Yup.string()
         .nullable()
-        // .test("dateOfBirth", "You must be 18 years or older", function (value) {
-        //   return moment().diff(moment(value, "YYYY-MM-DD"), "years") >= 18;
-        // })
+        //
         .required("Please enter your age"),
     }),
     onSubmit: (val) => {
@@ -171,7 +171,7 @@ export default function Signup() {
               <img src={edit} className={"nova-signup_profile_edit_icon"} />
             </div>
             <input
-              onChange={(e) => onChange(e.target.files[0])}
+              onChange={upload((url) => setImage(url), setIsLoading)}
               id="selectFile"
               type={"file"}
               style={{ display: "none" }}

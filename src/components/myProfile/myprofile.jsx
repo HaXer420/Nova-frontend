@@ -15,7 +15,7 @@ import moment from "moment";
 const Myprofile = ({ setIsLoading }) => {
   const dispatch = useDispatch();
   const userDataGet = useSelector((data) => data.userDataSlice.userData);
-  console.log("dob", moment(userDataGet?.dob).format("yyyy-mm-dd"));
+
   const upDateApi = (firstName, lastName, profileName, mobileNumber, dob) => {
     let body = {
       firstname: firstName,
@@ -25,10 +25,10 @@ const Myprofile = ({ setIsLoading }) => {
       number: mobileNumber,
     };
     let getData = (res) => {
-      console.log("res of update data", res?.data?.data);
+      console.log("res of update data", res);
       if (res.status == 200) {
         GreenNotify("Profile is updated successfully");
-        dispatch(dispatch(userData(res?.data?.data)));
+        dispatch(userData(res?.data?.data));
       }
     };
     callApi(
@@ -37,7 +37,9 @@ const Myprofile = ({ setIsLoading }) => {
       body,
       setIsLoading,
       getData,
-      (error) => {}
+      (error) => {
+        console.log("error", error);
+      }
     );
   };
 
@@ -52,6 +54,16 @@ const Myprofile = ({ setIsLoading }) => {
       password: "********",
       date: moment(userDataGet?.dob).format("yyyy-MM-DD"),
       // date: "2023-12-05",
+    },
+    validate: (values) => {
+      const errors = {};
+      const maxLength = 10;
+
+      if (values.phoneNumber.length >= maxLength) {
+        errors.phoneNumber = `Maximum length is ${maxLength}`;
+      }
+
+      return errors;
     },
 
     onSubmit: (val) => {
@@ -109,6 +121,10 @@ const Myprofile = ({ setIsLoading }) => {
             onBlur={formik.handleBlur}
             value={formik.values.phoneNumber}
           />
+
+          {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+            <div>{formik.errors.phoneNumber}</div>
+          )}
           {/* <TextInputProfile
             
             title={"Password"}
