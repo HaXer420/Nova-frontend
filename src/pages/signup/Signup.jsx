@@ -22,7 +22,7 @@ export default function Signup() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   let faqDummy =
-    "https://www.postendekker.nl/wp-content/uploads/2021/10/dummy-profile.jpg";
+    "https://novathreadbucket.s3.amazonaws.com/nova-app-1685176470232-dummy.PNG";
 
   const uploadImage = () => {
     document.getElementById("selectFile").click();

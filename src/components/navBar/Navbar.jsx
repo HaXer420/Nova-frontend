@@ -14,13 +14,14 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
+  // console.log("kkk", showProfile);
 
   const logOut = () => {
     dispatch(userData(null));
     dispatch(productsInCart(0));
     dispatch(storId(""));
   };
-  //console.log("productsInCart", productsInCart);
+  // console.log("productsInCart", productsInCart);
   const Menu = () => (
     <>
       <div className="nova__navbar-links_text_view">
