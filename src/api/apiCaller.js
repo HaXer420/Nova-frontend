@@ -71,9 +71,9 @@ export const callApi = async (
   try {
     setloading(true);
     let response = await fetch(Url, fetchObject);
-    //console.log('Response  ==>>   ', response);
+    console.log("Response  ==>>   ", response);
     let responseJson = await response.json();
-    //console.log("Fetch Response ==>>   ", JSON.stringify(responseJson));
+    console.log("Fetch Response ==>>   ", JSON.stringify(responseJson));
     if (responseJson?.message == "jwt expired" && count < 2 && refreshToken) {
       let fetchObject = {
         method: "POST",

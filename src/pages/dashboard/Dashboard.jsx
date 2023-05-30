@@ -502,12 +502,12 @@ export default function Dashboard() {
         <div className="nova-dashboard-team_members_top_view">
           <h1>Our Teams </h1>
           <div className="nova-dashboard-team_members_view">
-            <h1 style={{ fontSize: "2.2rem" }}>
+            <p>
               At Nova, we have a great team of experienced beauticians who are
               not only deliver excellent quality of services but also excellent
               customer care. Our beauticians are passionate about and love what
               they do
-            </h1>
+            </p>
             {/* {teamMembers.map((item) => {
               return (
                 <div
