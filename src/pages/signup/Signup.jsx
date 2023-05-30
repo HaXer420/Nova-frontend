@@ -51,7 +51,7 @@ export default function Signup() {
       username: profileName,
       email: email,
       dob: dateOfBirth,
-//       image: image,
+      image: image,
       number: mobileNumber,
       password: password,
     };
