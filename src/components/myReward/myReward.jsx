@@ -40,7 +40,7 @@ const MyReward = () => {
 
   const getMyRewards = () => {
     let getRes = (res) => {
-      console.log("res of my get rewrds", res);
+      //console.log("res of my get rewrds", res);
       setAvailableCredit(res?.credits?.availablecredit);
       setTotalCredit(res?.credits?.totalcredit);
       setUsedCredit(res?.credits?.usedcredit);

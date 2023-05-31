@@ -158,7 +158,7 @@ export default function Services() {
                         )
                       }
                     >
-                      <img alt="" src={item?.photos[1]} />
+                      <img alt="" src={item?.photos[0]} />
                       <div className="nova-services-single_service_title_view">
                         <h2>{item?.title}</h2>
                       </div>
@@ -177,6 +177,7 @@ export default function Services() {
               {services
                 ?.filter((item) => item?.type == "male")
                 ?.map((item) => {
+                  console.log("item", item);
                   return (
                     <div
                       key={item._id}
@@ -189,7 +190,7 @@ export default function Services() {
                         )
                       }
                     >
-                      <img alt="" src={item?.photos[1]} />
+                      <img alt="" src={item?.photos[0]} />
                       <div className="nova-services-single_service_title_view">
                         <h2>{item.title}</h2>
                       </div>

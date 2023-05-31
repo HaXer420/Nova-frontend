@@ -83,10 +83,10 @@ const Product = () => {
               <div className="nova-product-details-main-container">
                 <div className="nova-product-name-main-container">
                   <div className="nova-product-nam-container">
-                    <p>Product Name</p>
+                    <p>{item?.title}</p>
                   </div>
                   <div className="nova-product-off-container">
-                    <p>50% OFF</p>
+                    <p>{item?.salepercentage.toFixed(2)}% OFF</p>
                   </div>
                 </div>
                 <div className="nova-product-description">

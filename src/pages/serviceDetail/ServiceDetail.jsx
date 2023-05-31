@@ -10,6 +10,7 @@ export default function ServiceDetail() {
   const { product } = getAllParams();
   const navigate = useNavigate();
   let item = JSON.parse(product);
+
   const itemArray = [
     {
       id: 1,
@@ -131,12 +132,22 @@ export default function ServiceDetail() {
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
-        <div className="nova-service_detail-banner_view">
+        <div
+          style={{
+            backgroundImage: `url(${item.backgroundphoto})`,
+            objectFit: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+          className="nova-service_detail-banner_view"
+        >
           <div>
-            <h1>{item.title}</h1>
+            <h1 style={{ color: "#000" }}>{item.title}</h1>
           </div>
         </div>
-        <div className="nova-service_detail-detail_view">
+        <div
+          style={{ marginTop: "2rem" }}
+          className="nova-service_detail-detail_view"
+        >
           <h1>{item?.description[0]?.title}</h1>
           <div className="nova-service_detail-images_top_view">
             <h2>{item?.description[0]?.decription}</h2>
@@ -144,15 +155,17 @@ export default function ServiceDetail() {
               <img src={item?.photos[0]} />
             </div>
           </div>
-          <div className="nova-service_detail-images_top_view_two">
-            <div className="nova-service_detail-images_top_view_two_image">
-              <img src={item?.photos[1]} />
+          {item?.photos?.length == 2 && (
+            <div className="nova-service_detail-images_top_view_two">
+              <div className="nova-service_detail-images_top_view_two_image">
+                <img src={item?.photos[1]} />
+              </div>
+              <div className="nova-service_detail-images_top_view_two_text">
+                <h3>{item?.description[1]?.title}</h3>
+                <h4>{item?.description[1]?.decription}</h4>
+              </div>
             </div>
-            <div className="nova-service_detail-images_top_view_two_text">
-              <h3>{item?.description[1]?.title}</h3>
-              <h4>{item?.description[1]?.decription}</h4>
-            </div>
-          </div>
+          )}
           <div className="nova-service_detail-items_top_view">
             {item?.options?.map((item, index) => {
               return (

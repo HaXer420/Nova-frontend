@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 6.2rem;
+  margin-bottom: 2rem;
 }
 .nova-product-name-main-container {
   display: flex;
@@ -43,6 +44,10 @@
   font-size: 24px;
   color: #051014;
   font-weight: 400;
+}
+
+.nova-product-description {
+  width: 60rem;
 }
 
 .nova-product-description p {
@@ -160,6 +165,12 @@
   }
 }
 
+@media screen and (max-width: 640px) {
+  .nova-product-description {
+    width: 50rem;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .nova-product-main-img-container img {
     width: 40rem;
@@ -167,6 +178,10 @@
   }
   .nova-product-name-main-container {
     width: 33rem;
+  }
+
+  .nova-product-description {
+    width: 40rem;
   }
 }
 @media screen and (max-width: 480px) {
@@ -178,6 +193,9 @@
   }
   .nova-product-description p {
     font-size: 1.6rem;
+  }
+  .nova-product-description {
+    width: 30rem;
   }
 }
 
