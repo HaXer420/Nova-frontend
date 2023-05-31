@@ -16,6 +16,7 @@ import { RedNotify } from "../../helper/utility";
 function DrawerCart({ open, setOpen }) {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
+  const [updateMyCart, setUpdateMyCart] = useState(false);
   const dispatch = useDispatch();
   const [amount, setAmount] = useState("");
   const [productArr, setProductArr] = useState([]);
@@ -24,64 +25,95 @@ function DrawerCart({ open, setOpen }) {
   const [services, setServices] = useState([]);
 
   const selectProduct = (item, index) => {
-    let arr = [...productArr];
-    console.log("item", item);
-    arr[index].select = !arr[index].select;
-    setProductArr(arr);
-    if (arr[index].select) {
-      setAmount(amount + item?.amount);
-    } else {
-      setAmount(amount - item?.amount);
-    }
-    setDeleteProduct((val) =>
-      val.includes(item?._id)
-        ? val.filter((val) => val !== item?._id)
-        : [item._id, ...deleteProduct]
-    );
-  };
-
-  const selectService = (item, index) => {
-    let arr = [...services];
-    console.log("item", item);
-    arr[index].select = !arr[index].select;
-    setServices(arr);
-    if (arr[index].select) {
-      setAmount(amount + item?.amount);
-    } else {
-      setAmount(amount - item?.amount);
-    }
-    setDeleteService((val) =>
-      val.includes(item?._id)
-        ? val.filter((val) => val !== item?._id)
-        : [item?._id, ...deleteService]
-    );
-  };
-
-  const updateCart = () => {
-    //console.log("final cart", deleteProduct, deleteService);
-    if (
-      services.length == deleteService.length &&
-      productArr.length == deleteProduct.length
-    )
-      return RedNotify("For Checkout select atleast one product or services. ");
-    if (services == undefined && productArr == undefined)
-      return RedNotify("You can not checkout , your cart is empty");
+    setUpdateMyCart(false);
     let body = {
-      services: deleteService,
-      products: deleteProduct,
+      services: [],
+      products: [item?._id],
     };
     let getRes = (res) => {
-      navigate("/checkout");
+      setUpdateMyCart(true);
+
       console.log("res of update cart", res);
     };
+
     callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
       console.log("error", error);
     });
+
+    // let arr = [...productArr];
+    // console.log("item", item);
+    // arr[index].select = !arr[index].select;
+    // setProductArr(arr);
+    // if (arr[index].select) {
+    //   setAmount(amount + item?.amount);
+    // } else {
+    //   setAmount(amount - item?.amount);
+    // }
+    // setDeleteProduct((val) =>
+    //   val.includes(item?._id)
+    //     ? val.filter((val) => val !== item?._id)
+    //     : [item._id, ...deleteProduct]
+    // );
+  };
+
+  const selectService = (item, index) => {
+    setUpdateMyCart(false);
+    let body = {
+      services: [item?._id],
+      products: [],
+    };
+    let getRes = (res) => {
+      setUpdateMyCart(true);
+
+      console.log("res of update cart", res);
+    };
+
+    callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
+
+    // let arr = [...services];
+    // console.log("item", item);
+    // arr[index].select = !arr[index].select;
+    // setServices(arr);
+    // if (arr[index].select) {
+    //   setAmount(amount + item?.amount);
+    // } else {
+    //   setAmount(amount - item?.amount);
+    // }
+    // setDeleteService((val) =>
+    //   val.includes(item?._id)
+    //     ? val.filter((val) => val !== item?._id)
+    //     : [item?._id, ...deleteService]
+    // );
+  };
+
+  const updateCart = () => {
+    navigate("/checkout");
+    //console.log("final cart", deleteProduct, deleteService);
+    // if (
+    //   services.length == deleteService.length &&
+    //   productArr.length == deleteProduct.length
+    // )
+    //   return RedNotify("For Checkout select atleast one product or services. ");
+    // if (services == undefined && productArr == undefined)
+    //   return RedNotify("You can not checkout , your cart is empty");
+    // let body = {
+    //   services: deleteService,
+    //   products: deleteProduct,
+    // };
+    // let getRes = (res) => {
+    //   navigate("/checkout");
+    //   console.log("res of update cart", res);
+    // };
+    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
+    //   console.log("error", error);
+    // });
   };
 
   const getMyCart = () => {
     let getRes = (res) => {
-      console.log("res of my cart", res);
+      //console.log("res of my cart", res);
       setProductArr(
         res?.data?.mycart?.products?.map((item) => {
           return { ...item, select: true };
@@ -105,8 +137,7 @@ function DrawerCart({ open, setOpen }) {
 
   useEffect(() => {
     getMyCart();
-    console.log("click here");
-  }, [open]);
+  }, [open, updateMyCart]);
 
   const getList = () => (
     <div

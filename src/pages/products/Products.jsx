@@ -17,66 +17,10 @@ export default function Products() {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
   const [products, setProducts] = useState([]);
-  const productArray = [
-    {
-      id: 1,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productOne,
-    },
-    {
-      id: 2,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productTwo,
-    },
-    {
-      id: 3,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productThree,
-    },
-    {
-      id: 4,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productThree,
-    },
-    {
-      id: 5,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productTwo,
-    },
-    {
-      id: 6,
-      title: "Product Name",
-      offValue: "50%OFF",
-      des: "Waxing is a method of hair removal that involves applying hot.",
-      oldPrice: "$50.00",
-      price: "$25.00",
-      image: productOne,
-    },
-  ];
 
   const getAllProducts = () => {
     let getRes = (res) => {
-      console.log("res of get product", res);
+      //console.log("res of get product", res);
       setProducts(res?.data);
     };
     callApi(
@@ -114,8 +58,19 @@ export default function Products() {
                     <h3>{item.offValue}</h3>
                   </div>
                   <h4>
-                    {item?.description}
-                    <span style={{ color: "#EE509C", fontWeight: "bold" }}>
+                    {item?.description.length > 70
+                      ? item?.description.substring(0, 70) + "..."
+                      : item?.description}{" "}
+                    <span
+                      onClick={() =>
+                        navigate(
+                          `/product?${setParam({
+                            product: JSON.stringify(item),
+                          })}`
+                        )
+                      }
+                      style={{ color: "#EE509C", fontWeight: "bold" }}
+                    >
                       Read more
                     </span>
                   </h4>
