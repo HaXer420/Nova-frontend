@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { DeviceUUID } from "device-uuid";
 
 import { Button, TextInput } from "../../components";
 import "./otpVerification.css";
@@ -45,10 +46,16 @@ export default function OtpVerification() {
         (error) => {}
       );
     } else {
+      let deviceId = localStorage.getItem("deviceId");
+      if (!deviceId) {
+        let id = new DeviceUUID().get();
+        localStorage.setItem("deviceId", id);
+        deviceId = id;
+      }
       let body = {
         email: state?.email,
         otp: otp,
-        device: { id: "nova-web", deviceToken: "angg" },
+        device: { id: deviceId, deviceToken: "angg" },
       };
       let getRes = (res) => {
         if (res.status == 200) {

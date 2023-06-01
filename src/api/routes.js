@@ -8,7 +8,7 @@ export default {
   verifyOTP: BASE_URL + "/user/verify",
   forgotPassword: BASE_URL + "/user/forgotPassword",
   resetPassword: BASE_URL + "/user/resetPassword",
-  verifyOTPresetPassword: BASE_URL + "/user/verifyOTPResetPassword",
+  verifyOTPresetPassword: BASE_URL + "/user/updateMyPassword",
   logOut: BASE_URL + "/user/logout",
   updateUser: BASE_URL + "/user",
 
