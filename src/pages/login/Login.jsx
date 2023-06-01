@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextInput } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
+import { DeviceUUID } from "device-uuid";
 import "./login.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -20,6 +21,12 @@ export default function Login() {
   const auth = useSelector((data) => data.userDataSlice.userData);
 
   const signInHit = (email, password) => {
+    let deviceId = localStorage.getItem("deviceId");
+    if (!deviceId) {
+      let id = new DeviceUUID().get();
+      localStorage.setItem("deviceId", id);
+      deviceId = id;
+    }
     let getRes = (res) => {
       if (res.status == 200) {
         dispatch(userData(res?.data?.user));
@@ -34,7 +41,7 @@ export default function Login() {
     let body = {
       email: email,
       password: password,
-      device: { id: "nova-web", deviceToken: "angg" },
+      device: { id: deviceId, deviceToken: "angg" },
     };
     callApi("POST", routes.signIn, body, setIsLoading, getRes, (error) => {});
   };

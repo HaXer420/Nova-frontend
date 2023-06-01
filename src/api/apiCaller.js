@@ -1,5 +1,6 @@
 import { RedNotify } from "../helper/utility";
 import configureAppStore from "../redux/store";
+import { DeviceUUID } from "device-uuid";
 
 import { accessToken } from "../redux/userDataSlice";
 
@@ -34,6 +35,12 @@ export const callApi = async (
   count = 0,
   multipart
 ) => {
+  let deviceId = localStorage.getItem("deviceId");
+  if (!deviceId) {
+    let id = new DeviceUUID().get();
+    localStorage.setItem("deviceId", id);
+    deviceId = id;
+  }
   let token = configureAppStore.getState().userDataSlice.token ?? false;
   //   let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWJmZDdhMGQ4YzRjODhiMzc0MDQ3YyIsImlhdCI6MTY3OTU1NjEwNn0.2j-EGacy-8AKMS6ukSlwl_irW0h7PPNWha52TTWTM54";
   let refreshToken =
@@ -75,12 +82,14 @@ export const callApi = async (
     let responseJson = await response.json();
     //console.log("Fetch Response ==>>   ", JSON.stringify(responseJson));
     if (responseJson?.message == "jwt expired" && count < 2 && refreshToken) {
+      setloading(false);
+      // RedNotify(response.message);  11707980390103
       let fetchObject = {
         method: "POST",
         headers: defaultHeaders,
         body: JSON.stringify({
           device: {
-            id: "nova-web",
+            id: deviceId,
           },
         }),
       };
