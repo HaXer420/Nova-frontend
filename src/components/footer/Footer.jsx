@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -116,14 +116,34 @@ export default function Footer({ setIsLoading }) {
         </div>
         <div className="nova-footer_detail_socials_top_view">
           <h1>Social</h1>
-          <h2>Instagram</h2>
-          <h2>Facebook</h2>
-          <h2>Twitter</h2>
+          <h2>
+            <a
+              href="https://www.instagram.com/nova.parlor2022/"
+              target="_blank"
+            >
+              Instagram
+            </a>
+          </h2>
+
+          <h2>
+            <a
+              href="https://www.facebook.com/profile.php?id=100092507547391&mibextid=ZbWKwL"
+              target="_blank"
+            >
+              Facebook
+            </a>
+          </h2>
+
+          <h2>
+            <a href="https://twitter.com/Nova_Thread_Wax" target="_blank">
+              Twitter
+            </a>
+          </h2>
         </div>
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>
           <h2>
-            <span>E-mail:</span> info@novawaxing.com
+            <span>E-mail:</span> nova.parlor2022@gmail.com
           </h2>
           {/* <h2>
             <span>Phone :</span> +1 (456) 123 4567
