@@ -16,7 +16,9 @@ import {
   waxing,
   waxingCombo,
 } from "../../assets";
-import Carousel from "react-simply-carousel";
+// import Carousel from "react-simply-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useDispatch } from "react-redux";
 
 import { Footer, NavBar, ServiceView, TopBar } from "../../components";
@@ -261,6 +263,21 @@ export default function Dashboard() {
     // dispatch(showModalValue(false));
   }, []);
 
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 564, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
@@ -299,18 +316,9 @@ export default function Dashboard() {
             <h1>Our Services</h1>
 
             <Carousel
-              activeSlideIndex={activeSlide}
-              infinite={false}
-              onRequestChange={setActiveSlide}
-              innerProps={{
-                style: {
-                  maxWidth: "100%",
-                  minWidth: "100%",
-                  // marginBottom: "12rem",
-                },
-              }}
-              itemsToShow={3}
-              speed={400}
+              containerClass="custom-carousel-container"
+              responsive={responsive}
+              // customRightArrow={<button>ht</button>}
             >
               {services
                 ?.filter((item) => item?.special == false)
@@ -329,41 +337,54 @@ export default function Dashboard() {
                   );
                 })}
             </Carousel>
+            {/* <Carousel
+              containerClass="custom-carousel-container"
+              responsive={responsive}
+              // customRightArrow={<button>ht</button>}
+            >
+              {services
+                ?.filter((item) => item?.special == false)
+                .map((item) => {
+                  return (
+                    <ServiceView
+                      onClick={() =>
+                        navigate(
+                          `/Sservicedetail?${setParam({
+                            product: JSON.stringify(item),
+                          })}`
+                        )
+                      }
+                      item={item}
+                    />
+                  );
+                })}
+            </Carousel> */}
 
             <h1>Specials</h1>
-            <div className="nova-dashboard-our_services_view">
-              <Carousel
-                activeSlideIndex={activeSlide2}
-                infinite={false}
-                onRequestChange={setActiveSlide2}
-                innerProps={{
-                  style: {
-                    maxWidth: "100%",
-                    minWidth: "100%",
-                    // marginBottom: "12rem",
-                  },
-                }}
-                itemsToShow={3}
-                speed={400}
-              >
-                {services
-                  ?.filter((item) => item?.special == true)
-                  .map((item) => {
-                    return (
-                      <ServiceView
-                        onClick={() =>
-                          navigate(
-                            `/Sservicedetail?${setParam({
-                              product: JSON.stringify(item),
-                            })}`
-                          )
-                        }
-                        item={item}
-                      />
-                    );
-                  })}
-              </Carousel>
-            </div>
+            {/* <div className="nova-dashboard-our_services_view"> */}
+            <Carousel
+              containerClass="custom-carousel-container"
+              responsive={responsive}
+              // customRightArrow={<button>ht</button>}
+            >
+              {services
+                ?.filter((item) => item?.special == true)
+                .map((item) => {
+                  return (
+                    <ServiceView
+                      onClick={() =>
+                        navigate(
+                          `/Sservicedetail?${setParam({
+                            product: JSON.stringify(item),
+                          })}`
+                        )
+                      }
+                      item={item}
+                    />
+                  );
+                })}
+            </Carousel>
+            {/* </div> */}
           </div>
         </div>
         <div className="nova-dashboard-location_text_view">
@@ -418,29 +439,20 @@ export default function Dashboard() {
         </div>
         <div className="nova-dashboard-reviews_top_view">
           <h1>Reviews</h1>
-          <div className="nova-dashboard-reviews_view">
-            <Carousel
-              activeSlideIndex={activeSlide3}
-              infinite={false}
-              onRequestChange={setActiveSlide3}
-              innerProps={{
-                style: {
-                  maxWidth: "100%",
-                  minWidth: "100%",
-                  // marginBottom: "12rem",
-                },
-              }}
-              itemsToShow={3}
-              speed={400}
-            >
-              {reviews?.map((item) => {
-                return (
-                  <div key={item.id} className="nova-dashboard-single_review">
-                    <img alt="" src={item?.creator?.image} />
-                    <div>
-                      <p>
-                        {item?.review}
-                        {/* <span
+          {/* <div className="nova-dashboard-reviews_view"> */}
+          <Carousel
+            containerClass="custom-carousel-container"
+            responsive={responsive}
+            // customRightArrow={<button>ht</button>}
+          >
+            {reviews?.map((item) => {
+              return (
+                <div key={item.id} className="nova-dashboard-single_review">
+                  <img alt="" src={item?.creator?.image} />
+                  <div>
+                    <p>
+                      {item?.review}
+                      {/* <span
                           style={{
                             color: "#F088B8",
                             cursor: "pointer",
@@ -450,20 +462,20 @@ export default function Dashboard() {
                           {" "}
                           Read More
                         </span> */}
-                      </p>
-                      <p style={{ marginTop: 10 }}>
-                        {item?.name}
-                        {/* <span style={{ color: "#F088B8", fontWeight: "bold" }}>
+                    </p>
+                    <p style={{ marginTop: 10 }}>
+                      {item?.name}
+                      {/* <span style={{ color: "#F088B8", fontWeight: "bold" }}>
                           {" "}
                           {item.type}
                         </span> */}
-                      </p>
-                    </div>
+                    </p>
                   </div>
-                );
-              })}
-            </Carousel>
-          </div>
+                </div>
+              );
+            })}
+          </Carousel>
+          {/* </div> */}
         </div>
         <div className="nova-dashboard-questions_top_view">
           <div className="nova-dashboard-questions_view">
