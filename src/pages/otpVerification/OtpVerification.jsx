@@ -21,10 +21,16 @@ export default function OtpVerification() {
 
   const OTPHit = (otp) => {
     if (state.type == "emailVerify") {
+      let deviceId = localStorage.getItem("deviceId");
+      if (!deviceId) {
+        let id = new DeviceUUID().get();
+        localStorage.setItem("deviceId", id);
+        deviceId = id;
+      }
       let body = {
         email: state?.email,
         otp: otp,
-        device: { id: "nova-web", deviceToken: "angg" },
+        device: { id: deviceId, deviceToken: "angg" },
       };
       let getRes = (res) => {
         if (res.status == 200) {
