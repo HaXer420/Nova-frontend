@@ -17,7 +17,7 @@ const TopBar = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
-    localStorage.clear();
+    // localStorage.clear();
     let getRes = (res) => {
       if (res.status == 200) {
         GreenNotify(res?.message);
@@ -64,7 +64,7 @@ const TopBar = () => {
                 className="nova-top_bar-signup_button"
               >
                 <h3>Sign Up</h3>
-              </div>{" "}
+              </div>
             </>
           ) : (
             <div

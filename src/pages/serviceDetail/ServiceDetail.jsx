@@ -11,7 +11,7 @@ export default function ServiceDetail() {
   const navigate = useNavigate();
   let item = JSON.parse(product);
 
-  console.log("item", item);
+  //console.log("item", item);
 
   const itemArray = [
     {
