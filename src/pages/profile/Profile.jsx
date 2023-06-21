@@ -48,7 +48,6 @@ const Profile = () => {
     id: 1,
     text: "My Profile",
   });
-
   const uploadImage = () => {
     document.getElementById("selectFile").click();
   };

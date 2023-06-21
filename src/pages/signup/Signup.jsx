@@ -16,7 +16,9 @@ import { GreenNotify, notify, RedNotify, upload } from "../../helper/utility";
 
 export default function Signup() {
   const navigate = useNavigate();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(
+    "https://novathreadbucket.s3.amazonaws.com/nova-app-1685176470232-dummy.PNG"
+  );
   const [isloading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);

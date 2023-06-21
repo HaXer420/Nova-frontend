@@ -45,8 +45,8 @@ export const callApi = async (
   //   let token ="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MWJmZDdhMGQ4YzRjODhiMzc0MDQ3YyIsImlhdCI6MTY3OTU1NjEwNn0.2j-EGacy-8AKMS6ukSlwl_irW0h7PPNWha52TTWTM54";
   let refreshToken =
     configureAppStore.getState().userDataSlice.refreshToken ?? false;
-  //console.log("token=>>  ", token);
-  //console.log("refreshToken=>>  ", refreshToken);
+  console.log("token=>>  ", token);
+  console.log("refreshToken=>>  ", refreshToken);
   //console.log("Url ==>>   ", Url);
   //console.log("BodyParams ==>>   ", JSON.stringify(bodyParams));
   if (multipart) {
@@ -80,10 +80,10 @@ export const callApi = async (
     let response = await fetch(Url, fetchObject);
     //console.log("Response  ==>>   ", response);
     let responseJson = await response.json();
-    //console.log("Fetch Response ==>>   ", JSON.stringify(responseJson));
+    console.log("Fetch Response ==>>   ", JSON.stringify(responseJson));
     if (responseJson?.message == "jwt expired" && count < 2 && refreshToken) {
       setloading(false);
-      // RedNotify(response.message);  11707980390103
+      // RedNotify(response.message);
       let fetchObject = {
         method: "POST",
         headers: defaultHeaders,
@@ -97,7 +97,7 @@ export const callApi = async (
       await fetch(`${BASE_URL}user/refresh/${refreshToken}`, fetchObject)
         .then(async (res) => {
           let resJson = await res.json();
-          //console.log("Fetch refreshResponse ==>  ", resJson);
+          console.log("Fetch refreshResponse ==>  ", resJson);
           configureAppStore.dispatch(accessToken(resJson.data.accessToken));
           callApi(
             method,
