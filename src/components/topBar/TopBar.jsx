@@ -17,6 +17,7 @@ const TopBar = () => {
   const navigate = useNavigate();
 
   const logOut = () => {
+    localStorage.clear();
     let getRes = (res) => {
       if (res.status == 200) {
         GreenNotify(res?.message);

@@ -1,5 +1,6 @@
 import React from "react";
 import "./textInputProfile.css";
+import { errorIcon } from "../../assets";
 
 const TextInputProfile = ({
   type,
@@ -9,6 +10,7 @@ const TextInputProfile = ({
   onBlur,
   value,
   disabled,
+  error,
 }) => {
   return (
     <div className="nova-text_input-profile">
@@ -22,6 +24,12 @@ const TextInputProfile = ({
           value={value}
           type={type}
         />
+        {error && (
+          <div className="nova-input-error-container">
+            <img src={errorIcon} alt="error" />
+            <h5>{error}</h5>
+          </div>
+        )}
       </div>
     </div>
   );

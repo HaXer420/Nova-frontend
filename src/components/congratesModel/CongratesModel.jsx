@@ -14,7 +14,7 @@ export default function CongratesModel(props) {
           <h1>Congratulations</h1>
           <h2>You have earned</h2>
           <h3>{props.redeempoints} Points</h3>
-          <h2>Do you want to see our products?</h2>
+          {/* <h2>Do you want to see our products?</h2> */}
         </div>
       </div>
     </div>

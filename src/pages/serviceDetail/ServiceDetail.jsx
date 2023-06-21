@@ -11,6 +11,8 @@ export default function ServiceDetail() {
   const navigate = useNavigate();
   let item = JSON.parse(product);
 
+  console.log("item", item);
+
   const itemArray = [
     {
       id: 1,
@@ -135,8 +137,9 @@ export default function ServiceDetail() {
         <div
           style={{
             backgroundImage: `url(${item.backgroundphoto})`,
-            objectFit: "cover",
+            backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
+            width: "100%",
           }}
           className="nova-service_detail-banner_view"
         >

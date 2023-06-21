@@ -58,8 +58,8 @@ export default function Products() {
                     <h3>{item.offValue}</h3>
                   </div>
                   <h4>
-                    {item?.description.length > 70
-                      ? item?.description.substring(0, 70) + "..."
+                    {item?.description.length > 30
+                      ? item?.description.substring(0, 30) + "..."
                       : item?.description}{" "}
                     <span
                       onClick={() =>
@@ -92,7 +92,7 @@ export default function Products() {
                       }
                       className="add_to-cart-btn"
                     >
-                      <p>Add to Cart</p>
+                      <p>Details</p>
                     </div>
                   </div>
                 </div>

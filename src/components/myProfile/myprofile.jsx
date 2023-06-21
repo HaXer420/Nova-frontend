@@ -120,11 +120,18 @@ const Myprofile = ({ setIsLoading }) => {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.phoneNumber}
+            error={
+              formik.touched.phoneNumber && formik.errors.phoneNumber
+                ? formik.errors.phoneNumber
+                : null
+            }
           />
 
-          {formik.touched.phoneNumber && formik.errors.phoneNumber && (
-            <div>{formik.errors.phoneNumber}</div>
-          )}
+          {/* {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+            <div className="nova-input-error-container">
+              <h5>{formik.errors.phoneNumber}</h5>
+            </div>
+          )} */}
           {/* <TextInputProfile
             
             title={"Password"}

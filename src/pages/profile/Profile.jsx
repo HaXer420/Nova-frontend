@@ -28,10 +28,10 @@ const btnArr = [
     id: 3,
     text: "Rewards",
   },
-  {
-    id: 4,
-    text: "Payment Info",
-  },
+  // {
+  //   id: 4,
+  //   text: "Payment Info",
+  // },
 ];
 
 const Profile = () => {
@@ -48,7 +48,6 @@ const Profile = () => {
     id: 1,
     text: "My Profile",
   });
-
   const uploadImage = () => {
     document.getElementById("selectFile").click();
   };
@@ -226,21 +225,27 @@ const Profile = () => {
                 </div>
               ))}
             </div>
-            {select.id == 1 ? (
-              <Myprofile setIsLoading={setIsLoading} />
-            ) : select.id == 2 ? (
-              <MyServices
-                pastServices={pastServices}
-                cancelServices={cancelServices}
-                upcomingServices={upcomingServices}
-                setIsLoading={setIsLoading}
-                cancelBooking={cancelBooking}
-              />
-            ) : select.id == 3 ? (
-              <MyReward />
-            ) : (
-              <PaymentInfo />
-            )}
+            {
+              select.id == 1 ? (
+                <Myprofile setIsLoading={setIsLoading} />
+              ) : select.id == 2 ? (
+                <MyServices
+                  pastServices={pastServices}
+                  cancelServices={cancelServices}
+                  upcomingServices={upcomingServices}
+                  setIsLoading={setIsLoading}
+                  cancelBooking={cancelBooking}
+                />
+              ) : (
+                <MyReward />
+              )
+              // select.id == 3 ? (
+              //   <MyReward />
+              // )
+              // : (
+              //   <PaymentInfo />
+              // )
+            }
           </div>
         </div>
         <Footer />
