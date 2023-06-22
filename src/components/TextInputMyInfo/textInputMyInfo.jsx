@@ -7,6 +7,7 @@ const TextInputMyInfo = (props) => {
       <h5>{props.title}</h5>
       <div className="nova-booking-my_info_comp_input_view">
         <input
+          disabled={props.disabled}
           id={props.id}
           placeholder={props.placeholder}
           onChange={props.onChange}
