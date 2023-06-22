@@ -28,10 +28,10 @@ const btnArr = [
     id: 3,
     text: "Rewards",
   },
-  {
-    id: 4,
-    text: "Payment Info",
-  },
+  // {
+  //   id: 4,
+  //   text: "Payment Info",
+  // },
 ];
 
 const Profile = () => {

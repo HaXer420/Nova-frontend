@@ -20,7 +20,7 @@ export default function UpdatePassword() {
     let getRes = (res) => {
       console.log("res of update password", res);
       if (res.status == 200) {
-        GreenNotify(res.message);
+        GreenNotify("Password is reset successfully");
         navigate("/login");
       } else {
         RedNotify(res.message);
@@ -34,7 +34,7 @@ export default function UpdatePassword() {
     };
     callApi(
       "PATCH",
-      routes.verifyOTPresetPassword,
+      routes.resetPassword,
       body,
       setIsLoading,
       getRes,

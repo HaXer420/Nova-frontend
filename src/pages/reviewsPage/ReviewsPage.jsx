@@ -15,6 +15,7 @@ export default function ReviewsPage() {
   const [isloading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const [reviews, setReviews] = useState([]);
+  const [reviewUpdate, setReviewUpdate] = useState(false);
   const auth = useSelector((data) => data.userDataSlice.userData);
   const [reviewValue, setReviewValue] = useState("");
   const reviewArray = [
@@ -75,7 +76,9 @@ export default function ReviewsPage() {
     if (reviewValue == "") {
       return RedNotify("Write your review");
     }
+    setReviewUpdate(false);
     let getRes = (res) => {
+      setReviewUpdate(true);
       if (res?.status == 201) {
         setReviewValue("");
         GreenNotify("Review is Submitted successfully");
@@ -98,7 +101,7 @@ export default function ReviewsPage() {
 
   useEffect(() => {
     getServices();
-  }, []);
+  }, [reviewUpdate]);
 
   const formik = useFormik({
     initialValues: {

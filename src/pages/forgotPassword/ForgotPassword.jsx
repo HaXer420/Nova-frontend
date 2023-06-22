@@ -30,7 +30,7 @@ export default function ForgotPassword() {
     };
     callApi(
       "POST",
-      routes.sendOTP,
+      routes.forgotPassword,
       { email: email },
       setIsLoading,
       getRes,
