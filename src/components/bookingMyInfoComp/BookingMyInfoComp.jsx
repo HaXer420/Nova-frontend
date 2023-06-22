@@ -6,8 +6,11 @@ import Button from "../button/Button";
 import "./bookingMyInfoComp.css";
 import TextInput from "../textInput/TextInput";
 import TextInputMyInfo from "../TextInputMyInfo/textInputMyInfo";
+import { RedNotify } from "../../helper/utility";
+import { useSelector } from "react-redux";
 
 const BookingMyInfoComp = (props) => {
+  const userDataGet = useSelector((data) => data.userDataSlice.userData);
   const formik = useFormik({
     initialValues: {
       address: "",
@@ -15,6 +18,7 @@ const BookingMyInfoComp = (props) => {
     },
 
     onSubmit: (val) => {
+      if (val.address == "") return RedNotify("Address is not entered");
       props.bioInfo(val.address, val.Comments);
     },
   });
@@ -24,6 +28,30 @@ const BookingMyInfoComp = (props) => {
         <h1>Enter Your Information</h1>
         <div className="nova-booking-my_info_comp_inputs_top_view">
           <div className="nova-booking-my_info_comp_first_name_input_top_view">
+            <TextInputMyInfo
+              title={"First Name"}
+              disabled={true}
+              id={"First Name"}
+              value={userDataGet?.firstname}
+            />
+            <TextInputMyInfo
+              title={"Last Name"}
+              disabled={true}
+              id={"Last Name"}
+              value={userDataGet?.lastname}
+            />
+            <TextInputMyInfo
+              id={"mobileNumber"}
+              disabled={true}
+              value={userDataGet?.number}
+              title={"Mobile Number"}
+            />
+            <TextInputMyInfo
+              disabled={true}
+              id={"email"}
+              value={userDataGet?.email}
+              title={"Email"}
+            />
             <TextInputMyInfo
               id={"address"}
               onChange={formik.handleChange}

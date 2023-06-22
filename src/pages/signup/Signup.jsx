@@ -61,6 +61,7 @@ export default function Signup() {
     let getData = (res) => {
       if (res.status == 200) {
         let getRes = (res) => {
+          console.log("res of send otp", res);
           if (res.status == 200) {
             GreenNotify("OTP send successfully");
             navigate("/otpverification", {
