@@ -32,7 +32,7 @@ const TopBar = () => {
     let body = {
       device: {
         id: localStorage.getItem("deviceId"),
-        deviceToken: "xyz",
+        deviceToken: "angg",
       },
     };
 

@@ -61,7 +61,6 @@ export default function OtpVerification() {
       let body = {
         email: state?.email,
         otp: otp,
-        device: { id: deviceId, deviceToken: "angg" },
       };
       let getRes = (res) => {
         if (res.status == 200) {
@@ -78,7 +77,7 @@ export default function OtpVerification() {
       };
       callApi(
         "POST",
-        routes.verifyOTP,
+        routes.verifyOTPresetPassword,
         body,
         setIsLoading,
         getRes,

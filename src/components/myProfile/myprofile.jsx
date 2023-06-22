@@ -56,10 +56,11 @@ const Myprofile = ({ setIsLoading }) => {
       // date: "2023-12-05",
     },
     validate: (values) => {
+      console.log("values", values.phoneNumber.length);
       const errors = {};
-      const maxLength = 10;
+      const maxLength = 11;
 
-      if (values.phoneNumber.length >= maxLength) {
+      if (values.phoneNumber.length > maxLength) {
         errors.phoneNumber = `Maximum length is ${maxLength}`;
       }
 
