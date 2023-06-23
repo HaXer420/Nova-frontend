@@ -11,7 +11,7 @@ import Loader from "../../components/loader/loader";
 
 export default function ContactPage() {
   const [isloading, setIsLoading] = useState(false);
-  const contactUsApi = (email, message) => {
+  const contactUsApi = (email, message, phone) => {
     let getRes = (res) => {
       console.log("res of contact us", res);
       if (res.status == 201) {
@@ -21,7 +21,7 @@ export default function ContactPage() {
     callApi(
       "POST",
       routes.contactUs,
-      { mail: email, message: message },
+      { mail: email, message: message, phone: phone },
       setIsLoading,
       getRes,
       (error) => {}
@@ -32,6 +32,7 @@ export default function ContactPage() {
     initialValues: {
       email: "",
       message: "",
+      phone: "",
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -56,7 +57,7 @@ export default function ContactPage() {
             <h1>Contact</h1>
             <div className="nova-contact_page_inputs_top_view">
               <TextInputTwo
-                title={"Phone/Email"}
+                title={"Email"}
                 placeholder={"Your email"}
                 id="email"
                 onChange={formik.handleChange}
@@ -67,6 +68,15 @@ export default function ContactPage() {
                     ? formik.errors.email
                     : null
                 }
+              />
+              <TextInputTwo
+                type="number"
+                title={"Phone(Optional)"}
+                placeholder={"Your Phone number"}
+                id="phone"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.phone}
               />
               <TextInputTwo
                 textarea
