@@ -23,6 +23,7 @@ function DrawerCart({ open, setOpen }) {
   const [deleteProduct, setDeleteProduct] = useState([]);
   const [deleteService, setDeleteService] = useState([]);
   const [services, setServices] = useState([]);
+  const [response, setResponse] = useState(null);
 
   const selectProduct = (item, index) => {
     setUpdateMyCart(false);
@@ -89,6 +90,8 @@ function DrawerCart({ open, setOpen }) {
   };
 
   const updateCart = () => {
+    if (response?.message == "Empty Cart")
+      return RedNotify("Your Cart is empty");
     navigate("/checkout");
     //console.log("final cart", deleteProduct, deleteService);
     // if (
@@ -113,7 +116,8 @@ function DrawerCart({ open, setOpen }) {
 
   const getMyCart = () => {
     let getRes = (res) => {
-      //console.log("res of my cart", res);
+      console.log("res of my cart", res);
+      setResponse(res);
       setProductArr(
         res?.data?.mycart?.products?.map((item) => {
           return { ...item, select: true };
@@ -155,7 +159,11 @@ function DrawerCart({ open, setOpen }) {
       <div className="cart-product-information-heading">
         <h2>Product Information</h2>
       </div>
-      {productArr?.length != 0 ? (
+      {productArr?.length == 0 || response?.message == "Empty Cart" ? (
+        <div className="empty-data-message">
+          <h2>No Product add to cart </h2>
+        </div>
+      ) : (
         productArr?.map((item, index) => (
           <ProductInCart
             check={true}
@@ -166,15 +174,15 @@ function DrawerCart({ open, setOpen }) {
             onSelect={() => selectProduct(item, index)}
           />
         ))
-      ) : (
-        <div className="empty-data-message">
-          <h2>No Product add to cart </h2>
-        </div>
       )}
       <div className="cart-product-information-heading">
         <h2>Service Information</h2>
       </div>
-      {services?.length !== 0 ? (
+      {services?.length == 0 || response?.message == "Empty Cart" ? (
+        <div className="empty-data-message">
+          <h2>No Service is selected </h2>
+        </div>
+      ) : (
         services?.map((item, index) => (
           <ServiceInCart
             check={true}
@@ -183,10 +191,6 @@ function DrawerCart({ open, setOpen }) {
             onSelect={() => selectService(item, index)}
           />
         ))
-      ) : (
-        <div className="empty-data-message">
-          <h2>No Service is selected </h2>
-        </div>
       )}
       <div className="nova-checkout-btn-container">
         <Button onClick={() => updateCart()}>CheckOut</Button>
