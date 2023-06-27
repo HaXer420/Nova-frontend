@@ -21,7 +21,7 @@ export default {
   getStoreLocation: BASE_URL + "/store/getAll?limit=",
   // -------------services--------------//
   getallServices: BASE_URL + "/service/getall",
-  // -------------services--------------//
+  // -------------Reviews--------------//
   postReview: BASE_URL + "/globalReviews/create",
   getallReviews: BASE_URL + "/globalReviews/getall?limit=1000&sort=-createdAt",
   // -------------create-cart----------------//
@@ -35,4 +35,7 @@ export default {
   bookingRefund: BASE_URL + "/booking/refund",
   // --------------my-rewards--------------
   myRewards: BASE_URL + "/user/myrewards",
+  // -------------get-card----------
+  getMyCards: BASE_URL + "/card/mycards",
+  deleteCard: BASE_URL + "/card/delete",
 };

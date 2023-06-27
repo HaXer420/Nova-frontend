@@ -1,6 +1,6 @@
 import React from "react";
 import "./productInCart.css";
-import { productOne, squareTick, uncheck } from "../../assets";
+import { productOne, removeIcon, squareTick, uncheck } from "../../assets";
 
 const ProductInCart = ({
   onSelect,
@@ -37,12 +37,12 @@ const ProductInCart = ({
               {check && (
                 <div>
                   {item.select !== true && check ? (
-                    <img onClick={onSelect} src={uncheck} alt="uncheck" />
+                    <img onClick={removeIcon} src={uncheck} alt="uncheck" />
                   ) : (
                     <img
                       onClick={onSelect}
                       style={{ cursor: "pointer" }}
-                      src={squareTick}
+                      src={removeIcon}
                     />
                   )}
                 </div>

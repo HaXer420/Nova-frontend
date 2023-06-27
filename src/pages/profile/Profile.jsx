@@ -28,10 +28,10 @@ const btnArr = [
     id: 3,
     text: "Rewards",
   },
-  // {
-  //   id: 4,
-  //   text: "Payment Info",
-  // },
+  {
+    id: 4,
+    text: "Payment Info",
+  },
 ];
 
 const Profile = () => {
@@ -238,7 +238,7 @@ const Profile = () => {
             ) : select.id == 3 ? (
               <MyReward />
             ) : (
-              <PaymentInfo />
+              <PaymentInfo setIsLoading={setIsLoading} />
             )}
           </div>
         </div>

@@ -12,6 +12,7 @@ import Loader from "../../components/loader/loader";
 export default function ContactPage() {
   const [isloading, setIsLoading] = useState(false);
   const contactUsApi = (email, message, phone) => {
+    // console.log("data", email, message, phone);
     let getRes = (res) => {
       console.log("res of contact us", res);
       if (res.status == 201) {
@@ -43,7 +44,7 @@ export default function ContactPage() {
         .required("First name is required."),
     }),
     onSubmit: (val) => {
-      contactUsApi(val.email, val.message);
+      contactUsApi(val.email, val.message, val.phone);
     },
   });
   return (

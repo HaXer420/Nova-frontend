@@ -8,49 +8,71 @@ import { productInCart } from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
-import { RedNotify } from "../../helper/utility";
+import { GreenNotify, RedNotify } from "../../helper/utility";
 
 const ServiceSelectModal = ({ setServiceModal }) => {
   const [isloading, setIsLoading] = useState(false);
+  const [updateMyCart, setUpdateMyCart] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [services, setServices] = useState([]);
   const [serviceAmount, setServiceAmount] = useState(0);
   const [deleteService, setDeleteService] = useState([]);
 
-  const selectService = (item, index) => {
-    let arr = [...services];
-    //console.log("item", item);
-    arr[index].select = !arr[index].select;
-    setServices(arr);
-    if (arr[index].select) {
-      setServiceAmount(serviceAmount + item?.amount);
-    } else {
-      setServiceAmount(serviceAmount - item?.amount);
-    }
-    setDeleteService((val) =>
-      val.includes(item?._id)
-        ? val.filter((val) => val !== item?._id)
-        : [item?._id, ...deleteService]
-    );
-  };
+  // const selectService = (item, index) => {
+  //   let arr = [...services];
+  //   //console.log("item", item);
+  //   arr[index].select = !arr[index].select;
+  //   setServices(arr);
+  //   if (arr[index].select) {
+  //     setServiceAmount(serviceAmount + item?.amount);
+  //   } else {
+  //     setServiceAmount(serviceAmount - item?.amount);
+  //   }
+  //   setDeleteService((val) =>
+  //     val.includes(item?._id)
+  //       ? val.filter((val) => val !== item?._id)
+  //       : [item?._id, ...deleteService]
+  //   );
+  // };
 
-  const updateCart = () => {
-    if (deleteService.length == services.length)
-      return RedNotify("Select services for checkout");
+  const selectService = (item, index) => {
+    if (services.length == 1)
+      return RedNotify("At least one service require for checkout");
+    setUpdateMyCart(false);
     let body = {
-      services: deleteService,
+      services: [item?._id],
       products: [],
     };
-
     let getRes = (res) => {
+      setUpdateMyCart(true);
+
       console.log("res of update cart", res);
-      setServiceModal(false);
-      navigate("/checkout");
     };
+
     callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
       console.log("error", error);
     });
+  };
+
+  const updateCart = () => {
+    setServiceModal(false);
+    navigate("/checkout");
+    // if (deleteService.length == services.length)
+    //   return RedNotify("Select services for checkout");
+    // let body = {
+    //   services: deleteService,
+    //   products: [],
+    // };
+
+    // let getRes = (res) => {
+    //   console.log("res of update cart", res);
+    //   setServiceModal(false);
+    //   navigate("/checkout");
+    // };
+    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
+    //   console.log("error", error);
+    // });
   };
 
   const getMyCart = () => {
@@ -76,7 +98,7 @@ const ServiceSelectModal = ({ setServiceModal }) => {
 
   useEffect(() => {
     getMyCart();
-  }, []);
+  }, [updateMyCart]);
 
   return (
     <div className="nova-after-confirm-modal-mainContainer">
