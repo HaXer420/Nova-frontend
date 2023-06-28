@@ -163,7 +163,10 @@ export default function OtpVerification() {
               Confirm
             </Button>
           </div>
-          <div className="nova-forgot_dont_have_account_text_view">
+          <div
+            onClick={() => navigate("/signup")}
+            className="nova-forgot_dont_have_account_text_view"
+          >
             <h3>
               Don’t have an account?
               <span style={{ fontWeight: 700 }}> Sign Up</span>

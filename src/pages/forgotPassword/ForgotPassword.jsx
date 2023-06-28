@@ -20,7 +20,7 @@ export default function ForgotPassword() {
         GreenNotify("OTP send successfully");
         navigate("/otpverification", {
           state: {
-            email: email,
+            email: email.toLowerCase(),
             type: "passwordRest",
           },
         });
@@ -31,7 +31,7 @@ export default function ForgotPassword() {
     callApi(
       "POST",
       routes.forgotPassword,
-      { email: email },
+      { email: email.toLowerCase() },
       setIsLoading,
       getRes,
       (error) => {}

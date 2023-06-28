@@ -141,7 +141,7 @@ export default function PaymentPage() {
       if (res?.status == 201) {
         dispatch(productInCart(0));
         GreenNotify("Your Booking is created successfully");
-        setShowModel(true);
+        navigate("/");
       } else {
         RedNotify(res?.message);
       }

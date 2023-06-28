@@ -11,6 +11,7 @@ export default {
   verifyOTPresetPassword: BASE_URL + "/user/verifyOTPResetPassword",
   logOut: BASE_URL + "/user/logout",
   updateUser: BASE_URL + "/user",
+  guestUser: BASE_URL + "/user/guest",
 
   // -----------Dashboard--------------//
   contactUs: BASE_URL + "/contactus/create",

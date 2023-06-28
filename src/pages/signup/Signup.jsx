@@ -59,6 +59,7 @@ export default function Signup() {
     };
 
     let getData = (res) => {
+      console.log("sign up res", res);
       if (res.status == 200) {
         let getRes = (res) => {
           console.log("res of send otp", res);
