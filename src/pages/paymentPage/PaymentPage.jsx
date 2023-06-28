@@ -91,7 +91,7 @@ export default function PaymentPage() {
       // expmonth: 11,
       // expyear: 2024,
       cvc: cvc,
-      type: selected.title !== "Pay at Store" ? "card" : "at-work",
+      type: "card",
     };
     console.log("body", body);
     let getRes = (res) => {
@@ -134,14 +134,14 @@ export default function PaymentPage() {
       // expmonth: 11,
       // expyear: 2024,
       cvc: "",
-      type: selected.title !== "Pay at Store" ? "card" : "at-store",
+      type: "at-store",
     };
     console.log("body", body);
     let getRes = (res) => {
       if (res?.status == 201) {
         dispatch(productInCart(0));
         GreenNotify("Your Booking is created successfully");
-        setShowModel(true);
+        navigate("/");
       } else {
         RedNotify(res?.message);
       }

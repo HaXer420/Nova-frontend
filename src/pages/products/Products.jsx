@@ -52,7 +52,18 @@ export default function Products() {
                   key={item.id}
                   className="nova-services-single_service_view"
                 >
-                  <img alt="" src={item.image} />
+                  <img
+                    onClick={() =>
+                      navigate(
+                        `/product?${setParam({
+                          product: JSON.stringify(item),
+                        })}`
+                      )
+                    }
+                    alt=""
+                    src={item.image}
+                  />
+
                   <div className="nova-services-single_service_title_view">
                     <h2>{item.title}</h2>
                     <h3>{item.offValue}</h3>

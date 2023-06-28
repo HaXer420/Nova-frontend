@@ -39,11 +39,25 @@ export default function Login() {
       }
     };
     let body = {
-      email: email,
+      email: email.toLowerCase(),
       password: password,
       device: { id: deviceId, deviceToken: "angg" },
     };
     callApi("POST", routes.signIn, body, setIsLoading, getRes, (error) => {});
+  };
+
+  const loginAsguest = () => {
+    let getRes = (res) => {
+      console.log("res of guestUser", res);
+    };
+    callApi(
+      "POST",
+      routes.guestUser,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
   };
 
   useEffect(() => {
@@ -110,6 +124,7 @@ export default function Login() {
             }
           />
           <div className="nova-login_forgot_password_text_view">
+            <h2 onClick={() => navigate("/")}>Go to Home?</h2>
             <h2 onClick={() => navigate("/forgotpassword")}>
               Forget Password?
             </h2>
