@@ -110,6 +110,7 @@ export default function Login() {
             }
           />
           <div className="nova-login_forgot_password_text_view">
+            <h2 onClick={() => navigate("/")}>Go to Home?</h2>
             <h2 onClick={() => navigate("/forgotpassword")}>
               Forget Password?
             </h2>
