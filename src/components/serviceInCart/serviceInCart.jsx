@@ -1,5 +1,12 @@
 import React from "react";
-import { calenderTwo, clock, squareTick, uncheck, waxing } from "../../assets";
+import {
+  calenderTwo,
+  clock,
+  removeIcon,
+  squareTick,
+  uncheck,
+  waxing,
+} from "../../assets";
 import dayjs from "dayjs";
 
 const ServiceInCart = ({ item, index, onSelect, check }) => {
@@ -27,12 +34,12 @@ const ServiceInCart = ({ item, index, onSelect, check }) => {
             {check && (
               <div>
                 {item.select == false ? (
-                  <img onClick={onSelect} src={uncheck} alt="uncheck-icon" />
+                  <img onClick={onSelect} src={removeIcon} alt="uncheck-icon" />
                 ) : (
                   <img
                     onClick={onSelect}
                     style={{ cursor: "pointer" }}
-                    src={squareTick}
+                    src={removeIcon}
                   />
                 )}
               </div>

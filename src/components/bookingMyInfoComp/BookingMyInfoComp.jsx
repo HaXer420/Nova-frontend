@@ -18,7 +18,7 @@ const BookingMyInfoComp = (props) => {
     },
 
     onSubmit: (val) => {
-      if (val.address == "") return RedNotify("Address is not entered");
+      // if (val.address == "") return RedNotify("Address is not entered");
       props.bioInfo(val.address, val.Comments);
     },
   });
@@ -58,7 +58,7 @@ const BookingMyInfoComp = (props) => {
               onBlur={formik.handleBlur}
               value={formik.values.address}
               placeholder={"Address"}
-              title={"Address*"}
+              title={"Address"}
             />
 
             <div className="nova-booking-my_info_comp_address_input_view">

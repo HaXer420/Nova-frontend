@@ -25,7 +25,7 @@ export default function PaymentPage() {
   const dispatch = useDispatch();
   const [isloading, setIsLoading] = useState(false);
   const [showModel, setShowModel] = useState(false);
-  const [selected, setSelected] = useState({ id: 4 });
+  const [selected, setSelected] = useState({ id: 4, title: "Debit Card" });
   const [expvalue, setExpValue] = useState("");
   const paymentMethodArray = [
     // {
@@ -52,10 +52,10 @@ export default function PaymentPage() {
     //   id: 6,
     //   title: "Zelle",
     // },
-    // {
-    //   id: 7,
-    //   title: "Pay at Store",
-    // },
+    {
+      id: 7,
+      title: "Pay at Store",
+    },
   ];
 
   // console.log(
@@ -66,7 +66,7 @@ export default function PaymentPage() {
 
   const confirmToPay = (firstName, lastName, cvc, cardNumber, expryDate) => {
     if (expvalue == "") return RedNotify("Enter expiry date");
-    console.log("jjsd", firstName, lastName, cardNumber, cvc, expryDate);
+    // console.log("jjsd", firstName, lastName, cardNumber, cvc, expryDate);
     // setShowModel(true);
     let body = {
       store: "6468aef24b84762f11bdc623",
@@ -91,6 +91,7 @@ export default function PaymentPage() {
       // expmonth: 11,
       // expyear: 2024,
       cvc: cvc,
+      type: selected.title !== "Pay at Store" ? "card" : "at-work",
     };
     console.log("body", body);
     let getRes = (res) => {
@@ -105,7 +106,50 @@ export default function PaymentPage() {
     };
     callApi("POST", routes.booking, body, setIsLoading, getRes, (error) => {
       console.log("eror", error);
-      RedNotify(error);
+      RedNotify("Payment failed");
+    });
+  };
+
+  const confirmToPayAtStore = () => {
+    let body = {
+      store: "6468aef24b84762f11bdc623",
+      products: location?.state?.productArr,
+      services: location?.state?.services,
+      client: {
+        firstname: userData?.userData?.firstname,
+        lastname: userData?.userData?.lastname,
+        mobileno: userData?.userData?.number,
+        email: userData?.userData?.email,
+        address: userData?.myInfo?.address ? userData?.myInfo?.address : "",
+        comment: userData?.myInfo?.comment ? userData?.myInfo?.comment : "",
+      },
+      tip: location?.state?.tip,
+      subtotal: location?.state?.subtotal,
+      discount: location?.state?.discount,
+      redeempoints: location?.state?.redeempoints,
+      amount: location?.state?.amount,
+      // cardnumber: "",
+      // expmonth: "",
+      // expyear: "",
+      // expmonth: 11,
+      // expyear: 2024,
+      cvc: "",
+      type: selected.title !== "Pay at Store" ? "card" : "at-store",
+    };
+    console.log("body", body);
+    let getRes = (res) => {
+      if (res?.status == 201) {
+        dispatch(productInCart(0));
+        GreenNotify("Your Booking is created successfully");
+        setShowModel(true);
+      } else {
+        RedNotify(res?.message);
+      }
+      console.log("get res of booking", res);
+    };
+    callApi("POST", routes.booking, body, setIsLoading, getRes, (error) => {
+      console.log("eror", error);
+      RedNotify("Payment failed");
     });
   };
 
@@ -165,53 +209,48 @@ export default function PaymentPage() {
     },
   });
   return (
-    console.log(
-      "date",
-      typeof parseInt(expvalue.split("/")[0]),
-      expvalue.split("/")[1]
-    ),
-    (
-      <form onSubmit={formik.handleSubmit}>
-        <div className="nova-dashboard-main_container">
-          <TopBar />
-          <NavBar />
-          <Loader loading={isloading} />
-          {showModel && (
-            <CongratesModel
-              redeempoints={location?.state?.amount}
-              onClick={() => navigate("/", { replace: true })}
-            />
-          )}
-          <div className="nova-dashboard-container">
-            <div className="nova-payment-main_container">
-              <h1>Choose Payment Method</h1>
-              <div className="nova-payment_container">
-                <div className="nova-payment_payment_methods_view">
-                  <h2>Select Payment Method</h2>
-                  {paymentMethodArray.map((item) => {
-                    return (
-                      <div
-                        onClick={() => setSelected(item)}
-                        className="nova-payment_payment_single_method_view"
-                      >
-                        {item.id === selected.id ? (
-                          <img src={roundTick} />
-                        ) : (
-                          <div />
-                        )}
-                        <h5>{item.title}</h5>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="nova-payment_inputs_top_view">
-                  <div className="nova-payment_inputs_divider_view">
-                    <div className="nova-payment_inputs_divider_one" />
-                    <div className="nova-payment_inputs_divider_arrow_view">
-                      <img src={next} />
-                    </div>
-                    <div className="nova-payment_inputs_divider_two" />
+    <div className="nova-dashboard-main_container">
+      <TopBar />
+      <NavBar />
+      <Loader loading={isloading} />
+      {showModel && (
+        <CongratesModel
+          redeempoints={location?.state?.amount}
+          onClick={() => navigate("/", { replace: true })}
+        />
+      )}
+      <div className="nova-dashboard-container">
+        <div className="nova-payment-main_container">
+          <h1>Choose Payment Method</h1>
+          <div className="nova-payment_container">
+            <div className="nova-payment_payment_methods_view">
+              <h2>Select Payment Method</h2>
+              {paymentMethodArray.map((item) => {
+                return (
+                  <div
+                    onClick={() => setSelected(item)}
+                    className="nova-payment_payment_single_method_view"
+                  >
+                    {item.id === selected.id ? (
+                      <img src={roundTick} />
+                    ) : (
+                      <div />
+                    )}
+                    <h5>{item.title}</h5>
                   </div>
+                );
+              })}
+            </div>
+            <div className="nova-payment_inputs_top_view">
+              <div className="nova-payment_inputs_divider_view">
+                <div className="nova-payment_inputs_divider_one" />
+                <div className="nova-payment_inputs_divider_arrow_view">
+                  <img src={next} />
+                </div>
+                <div className="nova-payment_inputs_divider_two" />
+              </div>
+              {selected.title !== "Pay at Store" ? (
+                <form onSubmit={formik.handleSubmit}>
                   <div className="nova-payment_inputs_view">
                     <TextInput
                       id="firstname"
@@ -282,13 +321,17 @@ export default function PaymentPage() {
                     </div>
                     <Button>Pay Now</Button>
                   </div>
+                </form>
+              ) : (
+                <div className="payment-confirm">
+                  <Button onClick={confirmToPayAtStore}>Confirm</Button>
                 </div>
-              </div>
+              )}
             </div>
-            <Footer />
           </div>
         </div>
-      </form>
-    )
+        <Footer />
+      </div>
+    </div>
   );
 }
