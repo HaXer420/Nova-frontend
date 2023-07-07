@@ -9,16 +9,17 @@ import { storId, userData } from "../../redux/userDataSlice";
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
-
+  //const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
+  const productsStore = useSelector((data) => data.userDataSlice.products);
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
   // console.log("kkk", showProfile);
-
+  let productsInCart = productsStore.length + serviceStore.length;
   const logOut = () => {
     dispatch(userData(null));
-    dispatch(productsInCart(0));
+    // dispatch(productsInCart(0));
     dispatch(storId(""));
   };
   // console.log("productsInCart", productsInCart);

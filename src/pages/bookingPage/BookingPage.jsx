@@ -17,14 +17,15 @@ import AfterConfirmModal from "../../components/afterConfirmModal/afterConfirmMo
 import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
 import moment from "moment";
-import { useDispatch } from "react-redux";
-import { myInfo, storId } from "../../redux/userDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { cartServices, myInfo, storId } from "../../redux/userDataSlice";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 import Loader from "../../components/loader/loader";
 import ServiceSelectModal from "../../components/serviceSelectModal/serviceSelectModal";
 
 export default function BookingPage() {
   const navigate = useNavigate();
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const getLocation = useLocation();
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -33,7 +34,7 @@ export default function BookingPage() {
   const [isloading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [storeId, setStoreId] = useState("");
-  //console.log("store id", getLocation.state.item?._id);
+  console.log("serviceStore", serviceStore);
   const currentTime = moment().unix() * 1000;
   const [headerItems, setHeaderItems] = useState([
     {
@@ -131,6 +132,7 @@ export default function BookingPage() {
   const [afternoonTimeSlots, setAfternoonTimeSlots] = useState({ id: 0 });
   const [eveningTimeSlots, setEveningTimeSlots] = useState({ id: 0 });
   const [selectTimeSlot, setSelectTimeSlot] = useState("");
+  const [services, setServices] = useState({});
 
   const addProduct = () => {
     navigate("/products");
@@ -165,36 +167,46 @@ export default function BookingPage() {
     let newArr = serviceArr.map((item, i) => {
       return {
         ...item,
+        amount: item.options.map((a) => a.price).reduce((a, b) => a + b, 0),
         staff: selectedGender.value,
         starttime: concatStartTime + i * 30 * 60 * 1000,
         BookedTime: time,
         store: storeId,
+        service: services[item.service],
       };
     });
 
-    let body = {
-      services: newArr,
-    };
+    console.log("newArr", newArr);
 
-    let getRes = (res) => {
-      if (res?.status == 201) {
-        GreenNotify("Your selected Services is add to Cart");
-        setModal(true);
-      } else {
-        RedNotify(res?.message);
-      }
-      console.log("res of create cart", res);
-    };
-    callApi(
-      "POST",
-      routes.createCart,
-      body,
-      setIsLoading,
-      getRes,
-      (error) => {}
-    );
+    let ServicesArr = [...serviceStore, ...newArr];
+    // ServicesArr.push(newArr);
+    dispatch(cartServices(ServicesArr));
+    GreenNotify("Your selected Services is add to Cart");
+    setModal(true);
 
-    console.log("services", newArr, selectServices.entries);
+    // let body = {
+    //   services: newArr,
+    // };
+
+    // let getRes = (res) => {
+    //   if (res?.status == 201) {
+    //     GreenNotify("Your selected Services is add to Cart");
+    //     setModal(true);
+    //   } else {
+    //     RedNotify(res?.message);
+    //   }
+    //   console.log("res of create cart", res);
+    // };
+    // callApi(
+    //   "POST",
+    //   routes.createCart,
+    //   body,
+    //   setIsLoading,
+    //   getRes,
+    //   (error) => {}
+    // );
+
+    // console.log("services", newArr, selectServices.entries);
   };
 
   const getStoreLocation = () => {
@@ -244,7 +256,24 @@ export default function BookingPage() {
     );
   };
 
+  const getServices = () => {
+    let getRes = (res) => {
+      setServices(
+        Object.fromEntries(res?.data?.data?.map((obj) => [obj._id, obj]))
+      );
+    };
+    callApi(
+      "GET",
+      routes.getallServices,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
+
   useEffect(() => {
+    getServices();
     getallServices();
     getStoreLocation();
   }, []);

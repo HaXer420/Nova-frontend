@@ -8,13 +8,19 @@ import { useNavigate } from "react-router-dom";
 import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
 import ServiceInCart from "../serviceInCart/serviceInCart";
-import { useDispatch } from "react-redux";
-import { productInCart } from "../../redux/userDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  cartProducts,
+  cartServices,
+  productInCart,
+} from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
 import { RedNotify } from "../../helper/utility";
 
 function DrawerCart({ open, setOpen }) {
   const navigate = useNavigate();
+  const productsStore = useSelector((data) => data.userDataSlice.products);
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [isloading, setIsLoading] = useState(false);
   const [updateMyCart, setUpdateMyCart] = useState(false);
   const dispatch = useDispatch();
@@ -25,21 +31,34 @@ function DrawerCart({ open, setOpen }) {
   const [services, setServices] = useState([]);
   const [response, setResponse] = useState(null);
 
+  let productTotalPrice = productsStore
+    ?.map((ob) => ob.price)
+    ?.reduce((a, b) => a + b, 0);
+  let servicesTotalPrice = serviceStore
+    ?.map((obj) => obj.amount)
+    ?.reduce((a, b) => a + b, 0);
+
+  let totalPrice = productTotalPrice + servicesTotalPrice;
+  console.log("serviceStore", serviceStore);
+
   const selectProduct = (item, index) => {
-    setUpdateMyCart(false);
-    let body = {
-      services: [],
-      products: [item?._id],
-    };
-    let getRes = (res) => {
-      setUpdateMyCart(true);
+    let newArr = productsStore.filter((obj, i) => i !== index);
 
-      console.log("res of update cart", res);
-    };
+    dispatch(cartProducts(newArr));
+    // setUpdateMyCart(false);
+    // let body = {
+    //   services: [],
+    //   products: [item?._id],
+    // };
+    // let getRes = (res) => {
+    //   setUpdateMyCart(true);
 
-    callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-      console.log("error", error);
-    });
+    //   // console.log("res of update cart", res);
+    // };
+
+    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
+    //   console.log("error", error);
+    // });
 
     // let arr = [...productArr];
     // console.log("item", item);
@@ -58,21 +77,21 @@ function DrawerCart({ open, setOpen }) {
   };
 
   const selectService = (item, index) => {
-    setUpdateMyCart(false);
-    let body = {
-      services: [item?._id],
-      products: [],
-    };
-    let getRes = (res) => {
-      setUpdateMyCart(true);
+    let newArr = serviceStore.filter((obj, i) => i !== index);
 
-      console.log("res of update cart", res);
-    };
-
-    callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-      console.log("error", error);
-    });
-
+    dispatch(cartServices(newArr));
+    // setUpdateMyCart(false);
+    // let body = {
+    //   services: [item?._id],
+    //   products: [],
+    // };
+    // let getRes = (res) => {
+    //   setUpdateMyCart(true);
+    //   console.log("res of update cart", res);
+    // };
+    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
+    //   console.log("error", error);
+    // });
     // let arr = [...services];
     // console.log("item", item);
     // arr[index].select = !arr[index].select;
@@ -90,8 +109,9 @@ function DrawerCart({ open, setOpen }) {
   };
 
   const updateCart = () => {
-    if (response?.message == "Empty Cart")
+    if (serviceStore?.length == 0 && productsStore?.length == 0)
       return RedNotify("Your Cart is empty");
+
     navigate("/checkout");
     //console.log("final cart", deleteProduct, deleteService);
     // if (
@@ -114,33 +134,33 @@ function DrawerCart({ open, setOpen }) {
     // });
   };
 
-  const getMyCart = () => {
-    let getRes = (res) => {
-      console.log("res of my cart", res);
-      setResponse(res);
-      setProductArr(
-        res?.data?.mycart?.products?.map((item) => {
-          return { ...item, select: true };
-        })
-      );
-      dispatch(
-        productInCart(
-          res?.data?.mycart?.products?.length +
-            res?.data?.mycart?.services?.length
-        )
-      );
-      setAmount(res?.data?.mycart?.amount);
-      setServices(
-        res?.data?.mycart?.services?.map((item) => {
-          return { ...item, select: true };
-        })
-      );
-    };
-    callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
-  };
+  // const getMyCart = () => {
+  //   let getRes = (res) => {
+  //     console.log("res of my cart", res);
+  //     setResponse(res);
+  //     setProductArr(
+  //       res?.data?.mycart?.products?.map((item) => {
+  //         return { ...item, select: true };
+  //       })
+  //     );
+  //     dispatch(
+  //       productInCart(
+  //         res?.data?.mycart?.products?.length +
+  //           res?.data?.mycart?.services?.length
+  //       )
+  //     );
+  //     setAmount(res?.data?.mycart?.amount);
+  //     setServices(
+  //       res?.data?.mycart?.services?.map((item) => {
+  //         return { ...item, select: true };
+  //       })
+  //     );
+  //   };
+  //   callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
+  // };
 
   useEffect(() => {
-    getMyCart();
+    // getMyCart();
   }, [open, updateMyCart]);
 
   const getList = () => (
@@ -154,17 +174,17 @@ function DrawerCart({ open, setOpen }) {
       </div>
       <div className="nova-bucket-total-cart">
         <h1>Your Cart</h1>
-        <p>${amount}</p>
+        <p>${totalPrice}</p>
       </div>
       <div className="cart-product-information-heading">
         <h2>Product Information</h2>
       </div>
-      {productArr?.length == 0 || response?.message == "Empty Cart" ? (
+      {productsStore?.length == 0 ? (
         <div className="empty-data-message">
           <h2>No Product add to cart </h2>
         </div>
       ) : (
-        productArr?.map((item, index) => (
+        productsStore?.map((item, index) => (
           <ProductInCart
             check={true}
             qty={true}
@@ -178,12 +198,12 @@ function DrawerCart({ open, setOpen }) {
       <div className="cart-product-information-heading">
         <h2>Service Information</h2>
       </div>
-      {services?.length == 0 || response?.message == "Empty Cart" ? (
+      {serviceStore?.length == 0 ? (
         <div className="empty-data-message">
           <h2>No Service is selected </h2>
         </div>
       ) : (
-        services?.map((item, index) => (
+        serviceStore?.map((item, index) => (
           <ServiceInCart
             check={true}
             index={index}

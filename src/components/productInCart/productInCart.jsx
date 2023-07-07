@@ -37,7 +37,7 @@ const ProductInCart = ({
               {check && (
                 <div>
                   {item.select !== true && check ? (
-                    <img onClick={removeIcon} src={uncheck} alt="uncheck" />
+                    <img onClick={onSelect} src={removeIcon} alt="uncheck" />
                   ) : (
                     <img
                       onClick={onSelect}

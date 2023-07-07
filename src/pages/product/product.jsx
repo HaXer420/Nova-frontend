@@ -9,8 +9,8 @@ import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/loader/loader";
-import { productInCart } from "../../redux/userDataSlice";
-import { useNavigate } from "react-router-dom";
+import { cartProducts, productInCart } from "../../redux/userDataSlice";
+import { json, useNavigate } from "react-router-dom";
 
 const Product = () => {
   const { product } = getAllParams();
@@ -20,6 +20,7 @@ const Product = () => {
   const [count, setCount] = useState(1);
   const [totalPrice, setTotalPrice] = useState(setPrice);
   const auth = useSelector((data) => data.userDataSlice.userData);
+  const productsStore = useSelector((data) => data.userDataSlice.products);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
@@ -29,42 +30,65 @@ const Product = () => {
     if (newCount >= 1 && newCount <= 20) {
       setCount(newCount);
 
-      //setTotalPrice(newCount * setPrice);
+      setTotalPrice(newCount * setPrice);
     }
   };
 
   const addToCartProduct = () => {
-    if (!auth) return navigate("/login");
-    let arr = [];
+    let arr = JSON.parse(JSON.stringify([...productsStore]));
+
     let product = {
-      product: item?._id,
+      product: item,
       quantity: count,
       price: totalPrice,
     };
-    arr.push(product);
+    // arr.push(product);
+    let p = arr.find((p) => {
+      return p.product.title == item.title;
+    });
+    if (p) {
+      p.quantity = count == 1 ? p.quantity + 1 : p.quantity + count;
+      p.price = !p?.product?.isSale
+        ? p.product.price * p.quantity
+        : p.product.salePrice * p.quantity;
+      GreenNotify("Product quantity is update in Cart");
+    } else {
+      arr.push(product);
+      GreenNotify("Product is added to Cart");
+    }
 
-    let body = {
-      products: arr,
-    };
+    // console.log("product arr", arr);
+    dispatch(cartProducts(arr));
 
-    let getRes = (res) => {
-      if (res?.status == 201) {
-        console.log("res of product", res?.data);
-        GreenNotify("Your Product is add to Cart");
-        dispatch(productInCart(res?.size));
-      } else {
-        RedNotify(res?.message);
-      }
-      //console.log("res of create cart", es);
-    };
-    callApi(
-      "POST",
-      routes.createCart,
-      body,
-      setIsLoading,
-      getRes,
-      (error) => {}
-    );
+    // if (!auth) return navigate("/login");
+    // let arr = [];
+    // let product = {
+    //   product: item?._id,
+    //   quantity: count,
+    //   price: totalPrice,
+    // };
+    // arr.push(product);
+    // let body = {
+    //   products: arr,
+    // };
+    // let getRes = (res) => {
+    //   if (res?.status == 201) {
+    //     console.log("res of product", res?.data);
+    //     GreenNotify("Your Product is add to Cart");
+    //     dispatch(productInCart(res?.size));
+    //   } else {
+    //     RedNotify(res?.message);
+    //   }
+    //   //console.log("res of create cart", es);
+    // };
+    // callApi(
+    //   "POST",
+    //   routes.createCart,
+    //   body,
+    //   setIsLoading,
+    //   getRes,
+    //   (error) => {}
+    // );
   };
 
   return (
@@ -86,7 +110,7 @@ const Product = () => {
                     <p>{item?.title}</p>
                   </div>
                   <div className="nova-product-off-container">
-                    <p>{item?.salepercentage.toFixed(2)}% OFF</p>
+                    <p>{item?.salepercentage?.toFixed(2)}% OFF</p>
                   </div>
                 </div>
                 <div className="nova-product-description">

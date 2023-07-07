@@ -10,6 +10,7 @@ import {
 import dayjs from "dayjs";
 
 const ServiceInCart = ({ item, index, onSelect, check }) => {
+  // console.log("item", item);
   return (
     <>
       <div className="nova-booking-confirm_comp_service_top_view">

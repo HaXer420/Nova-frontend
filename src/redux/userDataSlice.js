@@ -7,6 +7,8 @@ const initialState = {
   myInfo: null,
   cart: 0,
   storeId: "",
+  products: [],
+  services: [],
 };
 
 export const userDataSlice = createSlice({
@@ -31,6 +33,12 @@ export const userDataSlice = createSlice({
     storId: (state, action) => {
       state.storeId = action.payload;
     },
+    cartProducts: (state, action) => {
+      state.products = action.payload;
+    },
+    cartServices: (state, action) => {
+      state.services = action.payload;
+    },
   },
 });
 
@@ -41,6 +49,8 @@ export const {
   myInfo,
   productInCart,
   storId,
+  cartProducts,
+  cartServices,
 } = userDataSlice.actions;
 
 export default userDataSlice.reducer;

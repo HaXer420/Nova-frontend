@@ -16,10 +16,15 @@ import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { GreenNotify, RedNotify } from "../../helper/utility";
-import { productInCart } from "../../redux/userDataSlice";
+import {
+  cartProducts,
+  cartServices,
+  productInCart,
+} from "../../redux/userDataSlice";
 import Loader from "../../components/loader/loader";
 export default function PaymentPage() {
   const navigate = useNavigate();
+
   const location = useLocation();
   const userData = useSelector((data) => data.userDataSlice);
   const dispatch = useDispatch();
@@ -96,7 +101,8 @@ export default function PaymentPage() {
     console.log("body", body);
     let getRes = (res) => {
       if (res?.status == 201) {
-        dispatch(productInCart(0));
+        dispatch(cartProducts([]));
+        dispatch(cartServices([]));
         GreenNotify("Your Booking is created successfully");
         setShowModel(true);
       } else {

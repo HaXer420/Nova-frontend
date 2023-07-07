@@ -15,6 +15,7 @@ import ProductInCart from "../../components/productInCart/productInCart";
 import TipDropDown from "../../components/tipDropDown/tipDropDown";
 import { useNavigate } from "react-router-dom";
 import ServiceInCart from "../../components/serviceInCart/serviceInCart";
+import { useSelector, useDispatch } from "react-redux";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import Loader from "../../components/loader/loader";
@@ -25,6 +26,8 @@ const Checkout = () => {
   const [isloading, setIsLoading] = useState(false);
   const [productAmount, setProductAmount] = useState(0);
   const [serviceAmount, setServiceAmount] = useState(0);
+  const productsStore = useSelector((data) => data.userDataSlice.products);
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [selectRedeemPoint, setSelectRedeemPoint] = useState(false);
   const [services, setServices] = useState([]);
   const [customTip, setCustomTip] = useState("");
@@ -73,27 +76,14 @@ const Checkout = () => {
     per: true,
   });
 
-  const selectService = (item, index) => {
-    let arr = [...services];
-    arr[index].select = !arr[index].select;
-    setServices(arr);
-    if (arr[index].select) {
-      setAmount(amount + item?.amount);
-    } else {
-      setAmount(amount - item?.amount);
-    }
-  };
+  let productTotalPrice = productsStore
+    ?.map((ob) => ob.price)
+    ?.reduce((a, b) => a + b, 0);
+  let servicesTotalPrice = serviceStore
+    ?.map((obj) => obj.amount)
+    ?.reduce((a, b) => a + b, 0);
 
-  const selectProduct = (item, index) => {
-    let arr = [...productArr];
-    arr[index].select = !arr[index].select;
-    setProductArr(arr);
-    if (arr[index].select) {
-      setAmount(amount + item?.amount);
-    } else {
-      setAmount(amount - item?.amount);
-    }
-  };
+  let totalPrice = productTotalPrice + servicesTotalPrice;
 
   const customAddRedeem = () => {
     if (customRedeem > fixedAvailableAward)
@@ -117,27 +107,27 @@ const Checkout = () => {
     setCustomTip("");
   };
 
-  const getMyCart = () => {
-    let getRes = (res) => {
-      // console.log("res of my cart", res);
-      setProductArr(
-        res?.data?.mycart?.products?.map((item) => {
-          return { ...item, select: true };
-        })
-      );
-      setProductAmount(res?.data?.mycart?.productsamount);
-      setServiceAmount(res?.data?.mycart?.servicesamount);
-      setAmount(
-        res?.data?.mycart?.productsamount + res?.data?.mycart?.servicesamount
-      );
-      setServices(
-        res?.data?.mycart?.services?.map((item) => {
-          return { ...item, select: true };
-        })
-      );
-    };
-    callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
-  };
+  // const getMyCart = () => {
+  //   let getRes = (res) => {
+  //     // console.log("res of my cart", res);
+  //     setProductArr(
+  //       res?.data?.mycart?.products?.map((item) => {
+  //         return { ...item, select: true };
+  //       })
+  //     );
+  //     setProductAmount(res?.data?.mycart?.productsamount);
+  //     setServiceAmount(res?.data?.mycart?.servicesamount);
+  //     setAmount(
+  //       res?.data?.mycart?.productsamount + res?.data?.mycart?.servicesamount
+  //     );
+  //     setServices(
+  //       res?.data?.mycart?.services?.map((item) => {
+  //         return { ...item, select: true };
+  //       })
+  //     );
+  //   };
+  //   callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
+  // };
 
   const getMyRewards = () => {
     let getRes = (res) => {
@@ -149,21 +139,21 @@ const Checkout = () => {
   };
 
   let tip = tipSelect.per
-    ? serviceAmount * (tipSelect.value / 100)
+    ? servicesTotalPrice * (tipSelect.value / 100)
     : parseInt(tipSelect.value);
   let serviceTax =
-    selectRedeemPoint && serviceAmount != 0
-      ? (serviceAmount - availableAward) * 0.1
-      : serviceAmount * 0.1;
+    selectRedeemPoint && servicesTotalPrice != 0
+      ? (servicesTotalPrice - availableAward) * 0.1
+      : servicesTotalPrice * 0.1;
   let productTax =
-    selectRedeemPoint && productAmount != 0
-      ? (productAmount - availableAward) * 0.1
-      : productAmount * 0.1;
+    selectRedeemPoint && productTotalPrice != 0
+      ? (productTotalPrice - availableAward) * 0.1
+      : productTotalPrice * 0.1;
   let discount = 10;
-  let myAwards = (serviceAmount + productAmount) * 0.05;
+  let myAwards = (servicesTotalPrice + productTotalPrice) * 0.05;
   // console.log("serviceTax", serviceTax.toFixed(2));
-  let totalServiceAmount = serviceAmount + serviceTax + tip;
-  let totalProductsAmount = productAmount + productTax;
+  let totalServiceAmount = servicesTotalPrice + serviceTax + tip;
+  let totalProductsAmount = productTotalPrice + productTax;
 
   let finalAmount = selectRedeemPoint
     ? totalProductsAmount + totalServiceAmount - availableAward
@@ -172,10 +162,10 @@ const Checkout = () => {
   const confirmPay = () => {
     navigate("/paymentpage", {
       state: {
-        productArr: productArr,
-        services: services,
+        productArr: productsStore,
+        services: serviceStore,
         tip: tip,
-        subtotal: amount,
+        subtotal: totalPrice,
         discount: myAwards,
         redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
         amount: finalAmount,
@@ -185,7 +175,7 @@ const Checkout = () => {
 
   useEffect(() => {
     getMyRewards();
-    getMyCart();
+    // getMyCart();
   }, []);
 
   return (
@@ -202,15 +192,9 @@ const Checkout = () => {
             <div className="nova-checkout-pink-heading">
               <p>Service Information</p>
             </div>
-            {services.length !== 0 ? (
-              services?.map((item, index) => {
-                return (
-                  <ServiceInCart
-                    item={item}
-                    index={index}
-                    onSelect={() => selectService(item, index)}
-                  />
-                );
+            {serviceStore.length !== 0 ? (
+              serviceStore?.map((item, index) => {
+                return <ServiceInCart item={item} index={index} />;
               })
             ) : (
               <div className="empty-data-message">
@@ -220,13 +204,8 @@ const Checkout = () => {
             <div className="nova-checkout-pink-heading">
               <p>Product Information</p>
             </div>
-            {productArr.length !== 0 ? (
-              productArr?.map((item, index) => (
-                <ProductInCart
-                  item={item}
-                  onSelect={() => selectProduct(item, index)}
-                />
-              ))
+            {productsStore.length !== 0 ? (
+              productsStore?.map((item, index) => <ProductInCart item={item} />)
             ) : (
               <div className="empty-data-message">
                 <h2 style={{ marginTop: 0 }}>No Product is selected </h2>
@@ -237,11 +216,11 @@ const Checkout = () => {
                 <h2>Sub Total</h2>
                 <h4>You can pay for one or multiple services at a time.</h4>
               </div>
-              <h3>${amount}</h3>
+              <h3>${totalPrice}</h3>
             </div>
             <div className="nova-booking-confirm_comp_service_detail_divider" />
 
-            {services.length != 0 && (
+            {serviceStore.length != 0 && (
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>
@@ -275,7 +254,7 @@ const Checkout = () => {
               </>
             )}
 
-            {services.length !== 0 && (
+            {serviceStore.length !== 0 && (
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Service Tax</h2>
@@ -284,7 +263,7 @@ const Checkout = () => {
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
             )}
-            {productArr.length !== 0 && (
+            {productsStore.length !== 0 && (
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Product Tax</h2>
