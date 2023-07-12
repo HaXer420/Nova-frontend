@@ -20,15 +20,25 @@ import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import Loader from "../../components/loader/loader";
 import { RedNotify } from "../../helper/utility";
+import GuestModal from "../../components/guestModal/guestModal";
+import GuestForm from "../../components/guestForm/guestForm";
+import { accessToken, refreshToken, userData } from "../../redux/userDataSlice";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
   const [productAmount, setProductAmount] = useState(0);
   const [serviceAmount, setServiceAmount] = useState(0);
+  const [openM, setOpenM] = React.useState(false);
+  const [openF, setOpenF] = React.useState(false);
+
+  const auth = useSelector((data) => data.userDataSlice.userData);
+  const myInfo = useSelector((data) => data.userDataSlice.myInfo);
+
   const productsStore = useSelector((data) => data.userDataSlice.products);
   const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [selectRedeemPoint, setSelectRedeemPoint] = useState(false);
+  const dispatch = useDispatch();
   const [services, setServices] = useState([]);
   const [customTip, setCustomTip] = useState("");
   const [customRedeem, setCustomRedeem] = useState("");
@@ -39,30 +49,36 @@ const Checkout = () => {
   const [tipArr, setTipArr] = useState([
     {
       id: 1,
+      value: 0,
+      label: "0%",
+      per: true,
+    },
+    {
+      id: 2,
       value: 10,
       label: "10%",
       per: true,
     },
     {
-      id: 2,
+      id: 3,
       value: 15,
       label: "15%",
       per: true,
     },
     {
-      id: 3,
+      id: 4,
       value: 20,
       label: "20%",
       per: true,
     },
     {
-      id: 4,
+      id: 5,
       value: 25,
       label: "25%",
       per: true,
     },
     {
-      id: 5,
+      id: 6,
       value: 30,
       label: "30%",
       per: true,
@@ -71,8 +87,8 @@ const Checkout = () => {
 
   const [tipSelect, setTipSelect] = useState({
     id: 1,
-    value: 10,
-    label: "10%",
+    value: 0,
+    label: "0%",
     per: true,
   });
 
@@ -99,10 +115,11 @@ const Checkout = () => {
       {
         id: tipArr.length + 1,
         value: customTip,
-        label: `$${customTip}`,
-        per: false,
+        label: `${customTip}%`,
+        per: true,
       },
     ];
+    arr.sort((a, b) => a.value - b.value);
     setTipArr(arr);
     setCustomTip("");
   };
@@ -173,6 +190,52 @@ const Checkout = () => {
     });
   };
 
+  const asGuest = () => {
+    let getRes = (res) => {
+      setOpenM(false);
+      setOpenF(true);
+      if (res.status == 200) {
+        dispatch(userData(res?.data?.user));
+        dispatch(accessToken(res?.token));
+        dispatch(refreshToken(""));
+      }
+      console.log("res", res);
+    };
+    callApi(
+      "POST",
+      routes.guestUser,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
+
+  const updateCart = () => {
+    if (serviceStore?.length == 0 && productsStore?.length == 0)
+      return RedNotify("Your Cart is empty");
+    if (auth?.isTemp == false) {
+      confirmPay();
+    } else if (auth?.isTemp && myInfo !== null) {
+      confirmPay();
+    } else if (auth?.isTemp && myInfo == null) {
+      setOpenF(true);
+    } else {
+      setOpenM(true);
+    }
+  };
+
+  const handleClose = () => setOpenM(false);
+
+  const login = () => {
+    handleClose();
+    navigate("/login", {
+      state: {
+        loginForCheckOut: true,
+      },
+    });
+  };
+
   useEffect(() => {
     getMyRewards();
     // getMyCart();
@@ -183,6 +246,13 @@ const Checkout = () => {
       <Loader loading={isloading} />
       <TopBar />
       <NavBar />
+      <GuestModal
+        open={openM}
+        login={login}
+        handleClose={handleClose}
+        asGuest={asGuest}
+      />
+      <GuestForm open={openF} handleClose={() => setOpenF(false)} />
       <div className="nova-dashboard-container">
         <div className="nova-checkout-main-container">
           <div className="nova-checkout-main-heading">
@@ -205,7 +275,9 @@ const Checkout = () => {
               <p>Product Information</p>
             </div>
             {productsStore.length !== 0 ? (
-              productsStore?.map((item, index) => <ProductInCart item={item} />)
+              productsStore?.map((item, index) => (
+                <ProductInCart qty={true} item={item} />
+              ))
             ) : (
               <div className="empty-data-message">
                 <h2 style={{ marginTop: 0 }}>No Product is selected </h2>
@@ -224,8 +296,8 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>
-                    Tip{" "}
-                    <span style={{ fontSize: "1.6rem" }}>(For Service)</span>{" "}
+                    Tip
+                    <span style={{ fontSize: "1.6rem" }}>(For Service)</span>
                   </h2>
 
                   <div className="nova-booking-confirm-drop-down-container">
@@ -236,6 +308,7 @@ const Checkout = () => {
                         placeholder="Custom tip"
                         type="number"
                       />
+
                       <img
                         onClick={customTipAdd}
                         src={addIcon}
@@ -272,47 +345,55 @@ const Checkout = () => {
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
             )}
-            <div className="nova-booking-confirm_comp_tip_top_view">
-              <h2>
-                Redeem Points{" "}
-                <span style={{ fontSize: "1.6rem" }}>
-                  (${fixedAvailableAward})
-                </span>{" "}
-              </h2>
-              <div className="nova-booking-confirm_comp_service_price_view">
-                <div
-                  style={{ marginRight: "2rem" }}
-                  className="nova-booking-add-custom-tip-container"
-                >
-                  <input
-                    value={customRedeem}
-                    onChange={(e) => setCustomRedeem(e.target.value)}
-                    placeholder="Redeem "
-                    type="number"
-                    id="839"
-                  />
-                  <img onClick={customAddRedeem} src={addIcon} alt="add-icon" />
+            {auth && (
+              <>
+                <div className="nova-booking-confirm_comp_tip_top_view">
+                  <h2>
+                    Redeem Points
+                    <span style={{ fontSize: "1.6rem" }}>
+                      (${fixedAvailableAward})
+                    </span>
+                  </h2>
+                  <div className="nova-booking-confirm_comp_service_price_view">
+                    <div
+                      style={{ marginRight: "2rem" }}
+                      className="nova-booking-add-custom-tip-container"
+                    >
+                      <input
+                        value={customRedeem}
+                        onChange={(e) => setCustomRedeem(e.target.value)}
+                        placeholder="Redeem "
+                        type="number"
+                        id="839"
+                      />
+                      <img
+                        onClick={customAddRedeem}
+                        src={addIcon}
+                        alt="add-icon"
+                      />
+                    </div>
+                    {selectRedeemPoint ? (
+                      <img
+                        onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
+                        src={squareTick}
+                      />
+                    ) : (
+                      <img
+                        onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
+                        src={uncheck}
+                      />
+                    )}
+                    <h5>${availableAward}</h5>
+                  </div>
                 </div>
-                {selectRedeemPoint ? (
-                  <img
-                    onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
-                    src={squareTick}
-                  />
-                ) : (
-                  <img
-                    onClick={() => setSelectRedeemPoint(!selectRedeemPoint)}
-                    src={uncheck}
-                  />
-                )}
-                <h5>${availableAward}</h5>
-              </div>
-            </div>
-            <div className="nova-booking-confirm_comp_service_detail_divider" />
+                <div className="nova-booking-confirm_comp_service_detail_divider" />
+              </>
+            )}
             <div className="nova-booking-confirm_comp_tip_top_view">
               <h2>Final</h2>
               <h3>${finalAmount}</h3>
             </div>
-            <Button onClick={confirmPay}>Confirm</Button>
+            <Button onClick={updateCart}>Confirm</Button>
           </div>
         </div>
         <Footer />

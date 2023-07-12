@@ -18,14 +18,23 @@ import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import { cartServices, myInfo, storId } from "../../redux/userDataSlice";
+import {
+  accessToken,
+  cartServices,
+  myInfo,
+  refreshToken,
+  storId,
+  userData,
+} from "../../redux/userDataSlice";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 import Loader from "../../components/loader/loader";
 import ServiceSelectModal from "../../components/serviceSelectModal/serviceSelectModal";
+import GuestModal from "../../components/guestModal/guestModal";
 
 export default function BookingPage() {
   const navigate = useNavigate();
   const serviceStore = useSelector((data) => data.userDataSlice.services);
+  const auth = useSelector((data) => data.userDataSlice.userData);
   const getLocation = useLocation();
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
@@ -34,7 +43,7 @@ export default function BookingPage() {
   const [isloading, setIsLoading] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [storeId, setStoreId] = useState("");
-  console.log("serviceStore", serviceStore);
+
   const currentTime = moment().unix() * 1000;
   const [headerItems, setHeaderItems] = useState([
     {
@@ -68,6 +77,7 @@ export default function BookingPage() {
       active: false,
     },
   ]);
+  const [openM, setOpenM] = React.useState(false);
   const [appointmentItems, setAppointmentItems] = useState([
     {
       id: 1,
@@ -144,11 +154,15 @@ export default function BookingPage() {
     setModal(false);
   };
 
-  const bioInfo = (address, Comments) => {
+  const bioInfo = (firstName, lastName, email, mobileno, address, comment) => {
     dispatch(
       myInfo({
+        firstName: firstName,
+        lastName: lastName,
+        mobileno: mobileno,
+        email: email,
         address: address,
-        comment: Comments,
+        comment: comment,
       })
     );
 
@@ -175,8 +189,6 @@ export default function BookingPage() {
         service: services[item.service],
       };
     });
-
-    console.log("newArr", newArr);
 
     let ServicesArr = [...serviceStore, ...newArr];
     // ServicesArr.push(newArr);
@@ -207,6 +219,36 @@ export default function BookingPage() {
     // );
 
     // console.log("services", newArr, selectServices.entries);
+  };
+  const asGuest = () => {
+    let getRes = (res) => {
+      setOpenM(false);
+
+      if (res.status == 200) {
+        dispatch(userData(res?.data?.user));
+        dispatch(accessToken(res?.token));
+        dispatch(refreshToken(""));
+        navigate("/checkout");
+      }
+      console.log("res", res);
+    };
+    callApi(
+      "POST",
+      routes.guestUser,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
+  const handleClose = () => setOpenM(false);
+  const login = () => {
+    handleClose();
+    navigate("/login", {
+      state: {
+        loginForCheckOut: true,
+      },
+    });
   };
 
   const getStoreLocation = () => {
@@ -299,7 +341,7 @@ export default function BookingPage() {
     if (currentIndex == 2 && selectTimeSlot == "") {
       return RedNotify("You have not select time slot");
     }
-    console.log("current index", currentIndex);
+    // console.log("current index", currentIndex);
     const body = document.querySelector("#header");
     body.scrollIntoView(
       {
@@ -326,11 +368,27 @@ export default function BookingPage() {
     }
   };
 
+  const updateCart = () => {
+    if (auth) {
+      setServiceModal(false);
+      navigate("/checkout");
+    } else {
+      setOpenM(true);
+      setServiceModal(false);
+    }
+  };
+
   return (
     <div className="nova-dashboard-main_container">
       <TopBar />
       <NavBar />
       <Loader loading={isloading} />
+      <GuestModal
+        open={openM}
+        login={login}
+        handleClose={handleClose}
+        asGuest={asGuest}
+      />
       {modal && (
         <AfterConfirmModal
           modal={modal}
@@ -340,7 +398,10 @@ export default function BookingPage() {
         />
       )}
       {servicesModal && (
-        <ServiceSelectModal setServiceModal={setServiceModal} />
+        <ServiceSelectModal
+          updateCart={updateCart}
+          setServiceModal={setServiceModal}
+        />
       )}
       <div className="nova-dashboard-container">
         <div className="nova-booking-banner_view">

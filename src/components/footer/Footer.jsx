@@ -117,10 +117,7 @@ export default function Footer({ setIsLoading }) {
         <div className="nova-footer_detail_socials_top_view">
           <h1>Social</h1>
           <h2>
-            <a
-              href="https://www.instagram.com/nova.parlor2022/"
-              target="_blank"
-            >
+            <a href="https://www.instagram.com/novawaxing1/" target="_blank">
               Instagram
             </a>
           </h2>
@@ -135,15 +132,20 @@ export default function Footer({ setIsLoading }) {
           </h2>
 
           <h2>
-            <a href="https://twitter.com/Nova_Thread_Wax" target="_blank">
+            <a href="https://twitter.com/novawaxing1" target="_blank">
               Twitter
+            </a>
+          </h2>
+          <h2>
+            <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+              TikTok
             </a>
           </h2>
         </div>
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>
           <h2>
-            <span>E-mail:</span> nova.parlor2022@gmail.com
+            <span>E-mail:</span> novawaxing1@gmail.com
           </h2>
           {/* <h2>
             <span>Phone :</span> +1 (456) 123 4567

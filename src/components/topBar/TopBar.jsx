@@ -4,7 +4,16 @@ import { logoTheme } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginState } from "../../redux/loginSlice";
-import { productInCart, storId, userData } from "../../redux/userDataSlice";
+import {
+  accessToken,
+  cartProducts,
+  cartServices,
+  myInfo,
+  productInCart,
+  refreshToken,
+  storId,
+  userData,
+} from "../../redux/userDataSlice";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import { GreenNotify, RedNotify } from "../../helper/utility";
@@ -21,9 +30,13 @@ const TopBar = () => {
     let getRes = (res) => {
       if (res.status == 200) {
         GreenNotify(res?.message);
+        dispatch(cartProducts([]));
+        dispatch(cartServices([]));
         dispatch(userData(null));
-        dispatch(productInCart(0));
+        dispatch(accessToken(""));
+        dispatch(refreshToken(""));
         dispatch(storId(""));
+        dispatch(myInfo(null));
       } else {
         RedNotify(res?.message);
       }

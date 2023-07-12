@@ -10,7 +10,7 @@ import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 
-const ServiceSelectModal = ({ setServiceModal }) => {
+const ServiceSelectModal = ({ setServiceModal, updateCart }) => {
   const [isloading, setIsLoading] = useState(false);
   const [updateMyCart, setUpdateMyCart] = useState(false);
   const serviceStore = useSelector((data) => data.userDataSlice.services);
@@ -58,26 +58,6 @@ const ServiceSelectModal = ({ setServiceModal }) => {
     //   console.log("res of update cart", res);
     // };
 
-    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-    //   console.log("error", error);
-    // });
-  };
-
-  const updateCart = () => {
-    setServiceModal(false);
-    navigate("/checkout");
-    // if (deleteService.length == services.length)
-    //   return RedNotify("Select services for checkout");
-    // let body = {
-    //   services: deleteService,
-    //   products: [],
-    // };
-
-    // let getRes = (res) => {
-    //   console.log("res of update cart", res);
-    //   setServiceModal(false);
-    //   navigate("/checkout");
-    // };
     // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
     //   console.log("error", error);
     // });

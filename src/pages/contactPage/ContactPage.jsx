@@ -36,9 +36,8 @@ export default function ContactPage() {
       phone: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required."),
+      email: Yup.string().email("Invalid email address"),
+      phone: Yup.string().required("Phone number is required"),
       message: Yup.string()
         .min(5, "Should not accept less than 5 characters")
         .required("First name is required."),
@@ -58,26 +57,26 @@ export default function ContactPage() {
             <h1>Contact</h1>
             <div className="nova-contact_page_inputs_top_view">
               <TextInputTwo
-                title={"Email"}
-                placeholder={"Your email"}
-                id="email"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
-                error={
-                  formik.touched.email && formik.errors.email
-                    ? formik.errors.email
-                    : null
-                }
-              />
-              <TextInputTwo
                 type="number"
-                title={"Phone(Optional)"}
+                title={"Phone"}
                 placeholder={"Your Phone number"}
                 id="phone"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.phone}
+                error={
+                  formik.touched.phone && formik.errors.phone
+                    ? formik.errors.phone
+                    : null
+                }
+              />
+              <TextInputTwo
+                title={"Email(Optional)"}
+                placeholder={"Your email"}
+                id="email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
               />
               <TextInputTwo
                 textarea

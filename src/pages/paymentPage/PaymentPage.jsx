@@ -27,6 +27,7 @@ export default function PaymentPage() {
 
   const location = useLocation();
   const userData = useSelector((data) => data.userDataSlice);
+
   const dispatch = useDispatch();
   const [isloading, setIsLoading] = useState(false);
   const [showModel, setShowModel] = useState(false);
@@ -78,10 +79,18 @@ export default function PaymentPage() {
       products: location?.state?.productArr,
       services: location?.state?.services,
       client: {
-        firstname: userData?.userData?.firstname,
-        lastname: userData?.userData?.lastname,
-        mobileno: userData?.userData?.number,
-        email: userData?.userData?.email,
+        firstname: userData.userData.isTemp
+          ? userData?.myInfo?.firstName
+          : userData?.userData?.firstname,
+        lastname: userData.userData.isTemp
+          ? userData?.myInfo?.lastName
+          : userData?.userData?.lastname,
+        mobileno: userData.userData.isTemp
+          ? userData?.myInfo?.mobileno
+          : userData?.userData?.number,
+        email: userData.userData.isTemp
+          ? userData?.myInfo?.email
+          : userData?.userData?.email,
         address: userData?.myInfo?.address ? userData?.myInfo?.address : "",
         comment: userData?.myInfo?.comment ? userData?.myInfo?.comment : "",
       },
@@ -98,13 +107,14 @@ export default function PaymentPage() {
       cvc: cvc,
       type: "card",
     };
-    console.log("body", body);
+
     let getRes = (res) => {
       if (res?.status == 201) {
         dispatch(cartProducts([]));
         dispatch(cartServices([]));
         GreenNotify("Your Booking is created successfully");
-        setShowModel(true);
+        userData.userData.isTemp ? setShowModel(false) : setShowModel(true);
+        navigate("/");
       } else {
         RedNotify(res?.message);
       }
@@ -122,10 +132,18 @@ export default function PaymentPage() {
       products: location?.state?.productArr,
       services: location?.state?.services,
       client: {
-        firstname: userData?.userData?.firstname,
-        lastname: userData?.userData?.lastname,
-        mobileno: userData?.userData?.number,
-        email: userData?.userData?.email,
+        firstname: userData.userData.isTemp
+          ? userData?.myInfo?.firstName
+          : userData?.userData?.firstname,
+        lastname: userData.userData.isTemp
+          ? userData?.myInfo?.lastName
+          : userData?.userData?.lastname,
+        mobileno: userData.userData.isTemp
+          ? userData?.myInfo?.mobileno
+          : userData?.userData?.number,
+        email: userData.userData.isTemp
+          ? userData?.myInfo?.email
+          : userData?.userData?.email,
         address: userData?.myInfo?.address ? userData?.myInfo?.address : "",
         comment: userData?.myInfo?.comment ? userData?.myInfo?.comment : "",
       },
@@ -139,13 +157,14 @@ export default function PaymentPage() {
       // expyear: "",
       // expmonth: 11,
       // expyear: 2024,
-      cvc: "",
+      // cvc: "",
       type: "at-store",
     };
-    console.log("body", body);
+    // console.log("body", body);
     let getRes = (res) => {
       if (res?.status == 201) {
-        dispatch(productInCart(0));
+        dispatch(cartProducts([]));
+        dispatch(cartServices([]));
         GreenNotify("Your Booking is created successfully");
         navigate("/");
       } else {

@@ -20,7 +20,7 @@ const UpcomingServiceCard = ({ item, cancelBooking }) => {
       <div className="nova-profile-upcoming_car-container">
         <div className="nova-profile-upcoming_card-sub-container">
           <div className="nova-profile-upcoming_card-img-container">
-            <img src={item.image} alt="image" />
+            <img src={item?.service?.photos[0]} alt="image" />
           </div>
           <div className="nova-my-profile-upcoming_card-detail-container">
             <div className="nova-my-profile-upcoming_card-type-text">
@@ -53,7 +53,7 @@ const UpcomingServiceCard = ({ item, cancelBooking }) => {
             <img src={crossIcon} alt="" />
             <p>Cancel</p>
           </div>
-          <h2>$25</h2>
+          <h2>${item?.amount}</h2>
         </div>
       </div>
       <div className="nova-profile-upcoming_card-bottom-line"></div>

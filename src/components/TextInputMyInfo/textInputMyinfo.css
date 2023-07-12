@@ -1,0 +1,49 @@
+.nova-booking-my_info_comp_address_input_view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 3.6rem;
+}
+
+.nova-booking-my_info_comp_input_view {
+  display: flex;
+  width: 100%;
+  border: 1px solid #ee509c;
+  border-radius: 8px;
+  align-items: center;
+  padding: 0.7rem 1.7rem 0.8rem 1.7rem;
+}
+
+.nova-booking-my_info_comp_input_view input {
+  border: none;
+  outline: none;
+  font-family: "Poppins";
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  background-color: transparent;
+  color: #a5a5a5;
+}
+
+.nova-booking-my_info_comp_input_view textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  height: 8.6rem;
+  font-family: "Poppins";
+  font-weight: 400;
+  width: 100%;
+  font-size: 1.4rem;
+  line-height: 2.1rem;
+  background-color: transparent;
+  color: #a5a5a5;
+}
+.nova-booking-my_info_comp_first_name_input_top_view h5 {
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+  color: #ee509c;
+  margin-bottom: 0.3rem;
+}

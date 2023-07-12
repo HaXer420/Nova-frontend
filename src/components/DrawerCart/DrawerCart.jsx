@@ -16,11 +16,16 @@ import {
 } from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
 import { RedNotify } from "../../helper/utility";
+import GuestModal from "../guestModal/guestModal";
 
 function DrawerCart({ open, setOpen }) {
   const navigate = useNavigate();
   const productsStore = useSelector((data) => data.userDataSlice.products);
   const serviceStore = useSelector((data) => data.userDataSlice.services);
+  const [showModal, setShowModal] = useState(false);
+  const [openM, setOpenM] = React.useState(false);
+
+  const auth = useSelector((data) => data.userDataSlice.userData);
   const [isloading, setIsLoading] = useState(false);
   const [updateMyCart, setUpdateMyCart] = useState(false);
   const dispatch = useDispatch();
@@ -39,73 +44,35 @@ function DrawerCart({ open, setOpen }) {
     ?.reduce((a, b) => a + b, 0);
 
   let totalPrice = productTotalPrice + servicesTotalPrice;
-  console.log("serviceStore", serviceStore);
+  // console.log("serviceStore", serviceStore);
 
   const selectProduct = (item, index) => {
     let newArr = productsStore.filter((obj, i) => i !== index);
 
     dispatch(cartProducts(newArr));
-    // setUpdateMyCart(false);
-    // let body = {
-    //   services: [],
-    //   products: [item?._id],
-    // };
-    // let getRes = (res) => {
-    //   setUpdateMyCart(true);
-
-    //   // console.log("res of update cart", res);
-    // };
-
-    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-    //   console.log("error", error);
-    // });
-
-    // let arr = [...productArr];
-    // console.log("item", item);
-    // arr[index].select = !arr[index].select;
-    // setProductArr(arr);
-    // if (arr[index].select) {
-    //   setAmount(amount + item?.amount);
-    // } else {
-    //   setAmount(amount - item?.amount);
-    // }
-    // setDeleteProduct((val) =>
-    //   val.includes(item?._id)
-    //     ? val.filter((val) => val !== item?._id)
-    //     : [item._id, ...deleteProduct]
-    // );
   };
 
   const selectService = (item, index) => {
     let newArr = serviceStore.filter((obj, i) => i !== index);
 
     dispatch(cartServices(newArr));
-    // setUpdateMyCart(false);
-    // let body = {
-    //   services: [item?._id],
-    //   products: [],
-    // };
-    // let getRes = (res) => {
-    //   setUpdateMyCart(true);
-    //   console.log("res of update cart", res);
-    // };
-    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-    //   console.log("error", error);
-    // });
-    // let arr = [...services];
-    // console.log("item", item);
-    // arr[index].select = !arr[index].select;
-    // setServices(arr);
-    // if (arr[index].select) {
-    //   setAmount(amount + item?.amount);
-    // } else {
-    //   setAmount(amount - item?.amount);
-    // }
-    // setDeleteService((val) =>
-    //   val.includes(item?._id)
-    //     ? val.filter((val) => val !== item?._id)
-    //     : [item?._id, ...deleteService]
-    // );
+  };
+
+  const asGuest = () => {
+    let getRes = (res) => {
+      setOpenM(false);
+      setOpen(false);
+      navigate("/checkout");
+      // console.log("res", res);
+    };
+    callApi(
+      "POST",
+      routes.guestUser,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
   };
 
   const updateCart = () => {
@@ -113,55 +80,24 @@ function DrawerCart({ open, setOpen }) {
       return RedNotify("Your Cart is empty");
 
     navigate("/checkout");
-    //console.log("final cart", deleteProduct, deleteService);
-    // if (
-    //   services.length == deleteService.length &&
-    //   productArr.length == deleteProduct.length
-    // )
-    //   return RedNotify("For Checkout select atleast one product or services. ");
-    // if (services == undefined && productArr == undefined)
-    //   return RedNotify("You can not checkout , your cart is empty");
-    // let body = {
-    //   services: deleteService,
-    //   products: deleteProduct,
-    // };
-    // let getRes = (res) => {
-    //   navigate("/checkout");
-    //   console.log("res of update cart", res);
-    // };
-    // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-    //   console.log("error", error);
-    // });
+    setOpen(false);
   };
+  const handleOpen = () => {
+    setOpenM(true);
+    // setOpen(false);
+  };
+  const handleClose = () => setOpenM(false);
 
-  // const getMyCart = () => {
-  //   let getRes = (res) => {
-  //     console.log("res of my cart", res);
-  //     setResponse(res);
-  //     setProductArr(
-  //       res?.data?.mycart?.products?.map((item) => {
-  //         return { ...item, select: true };
-  //       })
-  //     );
-  //     dispatch(
-  //       productInCart(
-  //         res?.data?.mycart?.products?.length +
-  //           res?.data?.mycart?.services?.length
-  //       )
-  //     );
-  //     setAmount(res?.data?.mycart?.amount);
-  //     setServices(
-  //       res?.data?.mycart?.services?.map((item) => {
-  //         return { ...item, select: true };
-  //       })
-  //     );
-  //   };
-  //   callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
-  // };
+  let loginForCheckOut = true;
 
-  useEffect(() => {
-    // getMyCart();
-  }, [open, updateMyCart]);
+  const login = () => {
+    handleClose();
+    navigate("/login", {
+      state: {
+        loginForCheckOut: true,
+      },
+    });
+  };
 
   const getList = () => (
     <div
@@ -169,6 +105,12 @@ function DrawerCart({ open, setOpen }) {
       className="nova-bucket-container"
       // style={{ width: 670 }}
     >
+      <GuestModal
+        open={openM}
+        login={login}
+        handleClose={handleClose}
+        asGuest={asGuest}
+      />
       <div onClick={() => setOpen(false)} className="close-icon-drawer">
         <img src={closeIconPink} alt="close-icon-pink" />
       </div>
