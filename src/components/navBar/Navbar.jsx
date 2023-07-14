@@ -4,22 +4,56 @@ import { close, menu, logo, profileIcon, shoppingCart } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DrawerCart from "../DrawerCart/DrawerCart";
-import { storId, userData } from "../../redux/userDataSlice";
+import {
+  accessToken,
+  cartProducts,
+  cartServices,
+  refreshToken,
+  storId,
+  userData,
+} from "../../redux/userDataSlice";
+import { callApi } from "../../api/apiCaller";
+import routes from "../../api/routes";
+import { GreenNotify, RedNotify } from "../../helper/utility";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
-
+  //const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
+  const productsStore = useSelector((data) => data.userDataSlice.products);
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
   // console.log("kkk", showProfile);
-
+  let productsInCart = productsStore?.length + serviceStore?.length;
   const logOut = () => {
-    dispatch(userData(null));
-    dispatch(productsInCart(0));
-    dispatch(storId(""));
+    // localStorage.clear();
+    let getRes = (res) => {
+      if (res.status == 200) {
+        GreenNotify(res?.message);
+        dispatch(cartProducts([]));
+        dispatch(cartServices([]));
+        dispatch(userData(null));
+        dispatch(refreshToken(""));
+        dispatch(accessToken(""));
+        dispatch(storId(""));
+      } else {
+        RedNotify(res?.message);
+      }
+    };
+
+    let body = {
+      device: {
+        id: localStorage.getItem("deviceId"),
+        deviceToken: "angg",
+      },
+    };
+
+    callApi("POST", routes.logOut, body, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
   };
   // console.log("productsInCart", productsInCart);
   const Menu = () => (
@@ -159,25 +193,26 @@ const Navbar = () => {
         <div className="nova_navbar-links_container">
           <Menu />
         </div>
-        {showProfile && (
-          <div className="nova_navbar-Profile-main-container">
+
+        <div className="nova_navbar-Profile-main-container">
+          {showProfile && (
             <div
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"
             >
               <img alt="" src={showProfile?.image} />
             </div>
-            <div
-              onClick={() => setOpen(true)}
-              className="nova_navbar-cart-container"
-            >
-              <img src={shoppingCart} alt="icon" />
-              <div className="nova_navbar-cart-item">
-                <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
-              </div>
+          )}
+          <div
+            onClick={() => setOpen(true)}
+            className="nova_navbar-cart-container"
+          >
+            <img src={shoppingCart} alt="icon" />
+            <div className="nova_navbar-cart-item">
+              <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
             </div>
           </div>
-        )}
+        </div>
       </div>
       <div className="nova__navbar-menu">
         {toggleMenu ? (
@@ -227,24 +262,22 @@ const Navbar = () => {
         </div>
         <div className="nova_navbar-Profile-main-container">
           {showProfile && (
-            <>
-              <div
-                onClick={() => navigate("/profile")}
-                className="nova_navbar-profile_view"
-              >
-                <img alt="" src={showProfile?.image} />
-              </div>
-              <div
-                onClick={() => setOpen(true)}
-                className="nova_navbar-cart-container"
-              >
-                <img src={shoppingCart} alt="icon" />
-                <div className="nova_navbar-cart-item">
-                  <p>{isNaN(productsInCart) ? 0 : productsInCart}</p>
-                </div>
-              </div>
-            </>
+            <div
+              onClick={() => navigate("/profile")}
+              className="nova_navbar-profile_view"
+            >
+              <img alt="" src={showProfile?.image} />
+            </div>
           )}
+          <div
+            onClick={() => setOpen(true)}
+            className="nova_navbar-cart-container"
+          >
+            <img src={shoppingCart} alt="icon" />
+            <div className="nova_navbar-cart-item">
+              <p>{isNaN(productsInCart) ? 0 : productsInCart}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

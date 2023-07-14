@@ -1,0 +1,22 @@
+.guest-form-login {
+  width: 80rem;
+  /* height: 70rem; */
+  background: #fff;
+  padding: 2rem 5rem;
+  overflow: scroll;
+}
+
+.guest-form-login h1 {
+  color: black;
+  margin-top: 4rem;
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: "Comfortaa";
+  font-weight: 700;
+}
+.center-btn {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}

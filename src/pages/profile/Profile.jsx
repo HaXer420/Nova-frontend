@@ -37,6 +37,7 @@ const btnArr = [
 const Profile = () => {
   const [isloading, setIsLoading] = useState(false);
   const modal = useSelector((data) => data.showModal.showModal);
+  const [updateService, seUpdateService] = useState(false);
   const dispatch = useDispatch();
   const userDataGet = useSelector((data) => data.userDataSlice.userData);
   const [image, setImage] = useState(userDataGet?.image);
@@ -57,7 +58,6 @@ const Profile = () => {
   };
 
   const upDateApi = (url) => {
-    console.log("image", url);
     let body = {
       image: url,
     };
@@ -79,7 +79,6 @@ const Profile = () => {
   };
 
   const upDateApiCoverImage = (url) => {
-    console.log("coverimage", url);
     let body = {
       coverimage: url,
     };
@@ -103,7 +102,6 @@ const Profile = () => {
   };
   const getMyServices = () => {
     let getRes = (res) => {
-      console.log("res of my get Services", res);
       setPastServices(res?.mypastservices);
       setCancelServices(res?.myupcanceledservices);
       setUpcomingServices(res?.myupcomonigservices);
@@ -119,8 +117,10 @@ const Profile = () => {
   };
 
   const cancelBooking = (id1, id2) => {
+    seUpdateService(false);
     let getRes = (res) => {
-      console.log("res of my deleService", res);
+      console.log("cancel services", res);
+      seUpdateService(true);
       GreenNotify("You have successfully canceled service");
       Navigate("/");
     };
@@ -131,7 +131,8 @@ const Profile = () => {
       setIsLoading,
       getRes,
       (error) => {
-        console.log("error", error);
+        seUpdateService(true);
+        console.log("error", { error });
       }
     );
   };
@@ -140,7 +141,7 @@ const Profile = () => {
 
   useEffect(() => {
     getMyServices();
-  }, []);
+  }, [updateService]);
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />

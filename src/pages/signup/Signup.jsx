@@ -20,8 +20,8 @@ export default function Signup() {
     "https://novathreadbucket.s3.amazonaws.com/nova-app-1685176470232-dummy.PNG"
   );
   const [isloading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(true);
 
   let faqDummy =
     "https://novathreadbucket.s3.amazonaws.com/nova-app-1685176470232-dummy.PNG";
@@ -101,7 +101,7 @@ export default function Signup() {
       email: "",
       mobileNumber: "",
       password: "",
-      dateOfBirth: "",
+      dateOfBirth: moment(new Date()).format("2023-07-03"),
     },
     validationSchema: Yup.object({
       profileName: Yup.string()
@@ -272,6 +272,7 @@ export default function Signup() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.dateOfBirth}
+              max={moment(new Date()).format("2023-07-03")}
               error={
                 formik.touched.dateOfBirth && formik.errors.dateOfBirth
                   ? formik.errors.dateOfBirth

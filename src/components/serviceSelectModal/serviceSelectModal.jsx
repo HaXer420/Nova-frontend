@@ -3,21 +3,26 @@ import "./serviceSelectModal.css";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import ServiceInCart from "../serviceInCart/serviceInCart";
-import { useDispatch } from "react-redux";
-import { productInCart } from "../../redux/userDataSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { cartServices, productInCart } from "../../redux/userDataSlice";
 import Loader from "../loader/loader";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 
-const ServiceSelectModal = ({ setServiceModal }) => {
+const ServiceSelectModal = ({ setServiceModal, updateCart }) => {
   const [isloading, setIsLoading] = useState(false);
   const [updateMyCart, setUpdateMyCart] = useState(false);
+  const serviceStore = useSelector((data) => data.userDataSlice.services);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [services, setServices] = useState([]);
   const [serviceAmount, setServiceAmount] = useState(0);
   const [deleteService, setDeleteService] = useState([]);
+
+  let servicesTotalPrice = serviceStore
+    ?.map((obj) => obj.amount)
+    ?.reduce((a, b) => a + b, 0);
 
   // const selectService = (item, index) => {
   //   let arr = [...services];
@@ -37,68 +42,51 @@ const ServiceSelectModal = ({ setServiceModal }) => {
   // };
 
   const selectService = (item, index) => {
-    if (services.length == 1)
+    if (serviceStore.length == 1)
       return RedNotify("At least one service require for checkout");
-    setUpdateMyCart(false);
-    let body = {
-      services: [item?._id],
-      products: [],
-    };
-    let getRes = (res) => {
-      setUpdateMyCart(true);
+    let newArr = serviceStore.filter((obj, i) => i !== index);
 
-      console.log("res of update cart", res);
-    };
-
-    callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
-      console.log("error", error);
-    });
-  };
-
-  const updateCart = () => {
-    setServiceModal(false);
-    navigate("/checkout");
-    // if (deleteService.length == services.length)
-    //   return RedNotify("Select services for checkout");
+    dispatch(cartServices(newArr));
+    // setUpdateMyCart(false);
     // let body = {
-    //   services: deleteService,
+    //   services: [item?._id],
     //   products: [],
     // };
-
     // let getRes = (res) => {
+    //   setUpdateMyCart(true);
+
     //   console.log("res of update cart", res);
-    //   setServiceModal(false);
-    //   navigate("/checkout");
     // };
+
     // callApi("PATCH", routes.updateCart, body, setIsLoading, getRes, (error) => {
     //   console.log("error", error);
     // });
   };
 
-  const getMyCart = () => {
-    let getRes = (res) => {
-      console.log("res of my cart", res);
+  // const getMyCart = () => {
+  //   let getRes = (res) => {
+  //     console.log("res of my cart", res);
 
-      dispatch(
-        productInCart(
-          res?.data?.mycart?.products?.length +
-            res?.data?.mycart?.services?.length
-        )
-      );
-      setServiceAmount(res?.data?.mycart?.servicesamount);
+  //     dispatch(
+  //       productInCart(
+  //         res?.data?.mycart?.products?.length +
+  //           res?.data?.mycart?.services?.length
+  //       )
+  //     );
+  //     setServiceAmount(res?.data?.mycart?.servicesamount);
 
-      setServices(
-        res?.data?.mycart?.services?.map((item) => {
-          return { ...item, select: true };
-        })
-      );
-    };
-    callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
-  };
+  //     setServices(
+  //       res?.data?.mycart?.services?.map((item) => {
+  //         return { ...item, select: true };
+  //       })
+  //     );
+  //   };
+  //   callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
+  // };
 
-  useEffect(() => {
-    getMyCart();
-  }, [updateMyCart]);
+  // useEffect(() => {
+  //   getMyCart();
+  // }, [updateMyCart]);
 
   return (
     <div className="nova-after-confirm-modal-mainContainer">
@@ -108,12 +96,12 @@ const ServiceSelectModal = ({ setServiceModal }) => {
         <div className="service-amount-container">
           <div className="service-amount-sub-container">
             <h3>Total Prices Of Services:</h3>
-            <p style={{ marginLeft: "2rem" }}>${serviceAmount}</p>
+            <p style={{ marginLeft: "2rem" }}>${servicesTotalPrice}</p>
           </div>
           <div></div>
         </div>
-        {services?.length !== 0 ? (
-          services?.map((item, index) => (
+        {serviceStore?.length !== 0 ? (
+          serviceStore?.map((item, index) => (
             <ServiceInCart
               check={true}
               index={index}

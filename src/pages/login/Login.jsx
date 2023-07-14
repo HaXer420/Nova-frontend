@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button, TextInput } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
 import { DeviceUUID } from "device-uuid";
@@ -17,7 +17,8 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isloading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const [showPassword, setShowPassword] = useState(true);
   const auth = useSelector((data) => data.userDataSlice.userData);
 
   const signInHit = (email, password) => {
@@ -33,7 +34,11 @@ export default function Login() {
         dispatch(accessToken(res?.data?.token));
         dispatch(refreshToken(res?.data?.refreshToken));
         GreenNotify(res.message);
-        navigate("/", { replace: true });
+        if (location?.state?.loginForCheckOut) {
+          navigate("/checkout", { replace: true });
+        } else {
+          navigate("/", { replace: true });
+        }
       } else {
         RedNotify(res.message);
       }
@@ -61,7 +66,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    auth ? navigate("/") : navigate("/login");
+    // auth ? navigate("/") : navigate("/login");
   }, []);
 
   const formik = useFormik({

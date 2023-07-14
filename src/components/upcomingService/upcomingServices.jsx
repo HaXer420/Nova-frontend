@@ -37,7 +37,7 @@ const UpcomingServices = ({
         ))
       ) : (
         <div className="cart-product-information-heading">
-          <h2>There is no coming services</h2>
+          <h2>There is no upcoming services</h2>
         </div>
       )}
     </div>

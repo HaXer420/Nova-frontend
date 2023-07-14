@@ -1,5 +1,6 @@
 import React from "react";
 import { errorIcon } from "../../assets";
+import "./textInputMyinfo.css";
 
 const TextInputMyInfo = (props) => {
   return (
