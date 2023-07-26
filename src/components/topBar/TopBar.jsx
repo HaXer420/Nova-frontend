@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./topBar.css";
-import { logoTheme } from "../../assets";
+import { clock1, logoTheme, mainLogo, phone1 } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginState } from "../../redux/loginSlice";
@@ -57,12 +57,32 @@ const TopBar = () => {
     <div className="nova-top_bar-main_view">
       <Loader loading={isloading} />
       <div className="nova-top_bar-data_view">
-        <img alt="" src={logoTheme} />
-        <h2>Mon - Sat 10 Am to 8 Pm</h2>
-        <div className="nova-top_bar-small_divider" />
-        <h2>Sun 11 Am to 6 Pm</h2>
-        <div className="nova-top_bar-small_divider" />
-        <h2>+1 5654 4658 23</h2>
+        <div className="nova-top-bar-logo-view">
+          <img src={mainLogo} />
+        </div>
+
+        <div className="clock-view">
+          <img src={clock1} alt="" />
+          <div className="clock-view-container">
+            <p>Monday-Saturday</p>
+            <h1>10:00Am-8:00Pm</h1>
+          </div>
+        </div>
+        <div style={{ marginLeft: "4rem" }} className="clock-view">
+          <img src={clock1} alt="" />
+          <div className="clock-view-container">
+            <p>Monday-Saturday</p>
+            <h1>10:00Am-8:00Pm</h1>
+          </div>
+        </div>
+        <div style={{ marginLeft: "4rem" }} className="clock-view">
+          <img src={phone1} alt="" />
+          <div className="clock-view-container">
+            <p>Call Now</p>
+            <h1>+1 5654 4658 23</h1>
+          </div>
+        </div>
+
         <div className="nova-top_bar-buttons_view">
           {!showlogOut ? (
             <>

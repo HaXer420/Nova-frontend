@@ -78,3 +78,7 @@ export { default as uncheck } from "./uncheck.png";
 export { default as closeIconPink } from "./closs-icon-pink.png";
 export { default as addIcon } from "./add-icon.png";
 export { default as removeIcon } from "./remove.png";
+export { default as phone1 } from "./phone1.png";
+export { default as clock1 } from "./clock1.png";
+export { default as mainLogo } from "./main-logo.png";
+// export { default as clock } from "./clock.png";

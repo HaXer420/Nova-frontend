@@ -43,7 +43,8 @@ const Checkout = () => {
   const [customTip, setCustomTip] = useState("");
   const [customRedeem, setCustomRedeem] = useState("");
   const [amount, setAmount] = useState(0);
-  const [availableAward, setAvailableAward] = useState(0);
+  // const [availableAward, setAvailableAward] = useState(0);
+  const [availablePoints, setAvailablePoints] = useState(0);
   const [fixedAvailableAward, setFixedAvailableAward] = useState(0);
   const [productArr, setProductArr] = useState([]);
   const [tipArr, setTipArr] = useState([
@@ -102,10 +103,11 @@ const Checkout = () => {
   let totalPrice = productTotalPrice + servicesTotalPrice;
 
   const customAddRedeem = () => {
-    if (customRedeem > fixedAvailableAward)
+    if (customRedeem > availablePoints)
       return RedNotify("Select value under your available redeem points");
     setCustomRedeem("");
-    setAvailableAward(customRedeem);
+    // setAvailableAward(customRedeem);
+    setAvailablePoints(customRedeem);
   };
 
   const customTipAdd = () => {
@@ -124,37 +126,16 @@ const Checkout = () => {
     setCustomTip("");
   };
 
-  // const getMyCart = () => {
-  //   let getRes = (res) => {
-  //     // console.log("res of my cart", res);
-  //     setProductArr(
-  //       res?.data?.mycart?.products?.map((item) => {
-  //         return { ...item, select: true };
-  //       })
-  //     );
-  //     setProductAmount(res?.data?.mycart?.productsamount);
-  //     setServiceAmount(res?.data?.mycart?.servicesamount);
-  //     setAmount(
-  //       res?.data?.mycart?.productsamount + res?.data?.mycart?.servicesamount
-  //     );
-  //     setServices(
-  //       res?.data?.mycart?.services?.map((item) => {
-  //         return { ...item, select: true };
-  //       })
-  //     );
-  //   };
-  //   callApi("GET", routes.myCart, null, setIsLoading, getRes, (error) => {});
-  // };
-
   const getMyRewards = () => {
     let getRes = (res) => {
-      setAvailableAward(res?.credits?.availablecredit);
-      setFixedAvailableAward(res?.credits?.availablecredit);
+      // setAvailableAward(res?.credits?.availablecredit);
+      setFixedAvailableAward(res?.points?.availablepoints);
+      setAvailablePoints(res?.points?.availablepoints);
       console.log("res of reward", res);
     };
     callApi("GET", routes.myRewards, null, setIsLoading, getRes, (error) => {});
   };
-
+  let availableAward = availablePoints / 20;
   let tip = tipSelect.per
     ? servicesTotalPrice * (tipSelect.value / 100)
     : parseInt(tipSelect.value);
@@ -349,9 +330,9 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>
-                    Redeem Points
+                    Redeemed Points
                     <span style={{ fontSize: "1.6rem" }}>
-                      (${fixedAvailableAward})
+                      ({fixedAvailableAward})
                     </span>
                   </h2>
                   <div className="nova-booking-confirm_comp_service_price_view">
@@ -362,7 +343,7 @@ const Checkout = () => {
                       <input
                         value={customRedeem}
                         onChange={(e) => setCustomRedeem(e.target.value)}
-                        placeholder="Redeem "
+                        placeholder="Redeem"
                         type="number"
                         id="839"
                       />
