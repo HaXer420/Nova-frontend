@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { logo } from "../../assets";
+import { logo, tiktok, instagram, facebook, twitter } from "../../assets";
 import "./footer.css";
 import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
@@ -118,7 +118,9 @@ export default function Footer({ setIsLoading }) {
           <h1>Social</h1>
           <h2>
             <a href="https://www.instagram.com/novawaxing1/" target="_blank">
-              Instagram
+            <img src={instagram} alt="" />
+            <span> Instagram</span>
+            {/* <h1>Instagram</h1> */}
             </a>
           </h2>
 
@@ -127,18 +129,24 @@ export default function Footer({ setIsLoading }) {
               href="https://www.facebook.com/profile.php?id=100092507547391&mibextid=ZbWKwL"
               target="_blank"
             >
-              Facebook
+            <img src={facebook} alt="" />
+            <span> Facebook</span>
+            {/* <h1>Facebook</h1> */}
             </a>
           </h2>
 
           <h2>
             <a href="https://twitter.com/novawaxing1" target="_blank">
-              Twitter
+            <img src={twitter} alt="" />
+            <span> Twitter</span>
+            {/* <h1>Twitter</h1> */}
             </a>
           </h2>
           <h2>
             <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
-              TikTok
+            <img src={tiktok} alt="" />
+            <span> Tiktok</span>
+            {/* <h1>Tiktok</h1> */}
             </a>
           </h2>
         </div>

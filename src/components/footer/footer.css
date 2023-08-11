@@ -3,6 +3,36 @@
   padding: 6.5rem 17.5rem 3rem 16.6rem;
 }
 
+.nova-footer_detail_socials_top_view img{
+  height: 40px !important;
+  width: 40px !important;
+}
+
+.nova-footer_detail_socials_top_view {
+  display: flex;
+  align-items: left;
+}
+
+.nova-footer_detail_socials_top_view a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nova-footer_detail_socials_top_view img {
+  width: 24px; 
+  height: 24px; 
+  margin-right: 8px; 
+}
+
+.nova-footer_detail_socials_top_view h1 {
+  /* margin: 0px; */
+  align-items: center !important;
+  padding-bottom: 3.2rem;
+}
+
+
+
 .nova-footer_contact_us-top_view {
   display: flex;
   flex-direction: row;
@@ -225,6 +255,12 @@
     padding: 4.5rem 10.5rem 2rem 10.6rem;
   }
 
+  .nova-footer_detail_socials_top_view img{
+    height: 30px !important;
+    width: 30px !important;
+  }
+  
+
   .nova-footer_contact_us_view h1 {
     font-size: 4rem;
     line-height: 4.6rem;
@@ -302,6 +338,8 @@
     line-height: 140.47%;
   }
 
+  
+
   .nova-footer_detail_contacts_top_view span {
     font-size: 2rem;
     line-height: 140.47%;
@@ -353,6 +391,11 @@
     margin-top: 5rem;
   }
 
+  .nova-footer_detail_socials_top_view img{
+    height: 40px !important;
+    width: 40px !important;
+  }
+
   .nova-footer_detail_contacts_top_view {
     display: flex;
     flex-direction: column;
@@ -366,8 +409,15 @@
     padding: 4.5rem 5.5rem 2rem 5.6rem;
   }
 
+  .nova-footer_detail_socials_top_view img{
+    height: 25px !important;
+    width: 25px !important;
+  }
+
   .nova-footer_detail_socials_top_view {
     margin-top: 0rem;
+    padding-top: 50px;
+    padding-right: 150px;
   }
 
   .nova-footer_detail_contacts_top_view {
@@ -386,6 +436,11 @@
 
   .nova-footer_detail_contacts_top_view {
     margin-left: 5rem;
+  }
+
+  .nova-footer_detail_socials_top_view img{
+    height: 20px !important;
+    width: 20px !important;
   }
 
   .nova-footer_contact_us_view h1 {
@@ -456,6 +511,11 @@
     width: 100%;
   }
 
+  .nova-footer_detail_socials_top_view{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
   .nova-footer_detail_links_top_view {
     margin-left: 0rem;
     margin-top: 5rem;
@@ -467,6 +527,8 @@
   }
 
   .nova-footer_detail_socials_top_view {
+    display: flex;
+    flex-direction: row;
     margin-right: 5.1rem;
   }
 }
@@ -474,6 +536,11 @@
 @media screen and (max-width: 400px) {
   .nova-footer_top_view {
     padding: 4.5rem 3.5rem 2rem 3.6rem;
+  }
+
+  .nova-footer_detail_socials_top_view{
+    display: flex;
+    flex-direction: column;
   }
 
   .nova-footer_contact_us_view h1 {
@@ -484,5 +551,12 @@
   .nova-footer_contact_us_view h2 {
     font-size: 3rem;
     line-height: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .nova-footer_detail_socials_top_view{
+    display: flex;
+    flex-direction: column;
   }
 }

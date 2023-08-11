@@ -5,7 +5,8 @@
 }
 
 .nova-top_bar-data_view {
-  padding: 1.6rem 2rem 1.4rem 2rem;
+  /* padding: 1.6rem 2rem 1.4rem 2rem; */
+  padding: 1.6rem 2rem 0.2rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,6 +75,26 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.nova-top_bar-gallery_button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0rem 1.8rem; */
+  margin-left: 20px !important;
+  height: 3.6rem;
+  border-bottom: 3px solid #ee509c;
+  /* margin-bottom: 10px; */
+  /* background: #ee509c; */
+  /* border-radius: 8px; */
+  cursor: pointer;
+}
+
+.nova-top_bar-gallery_button > img{
+  object-fit: contain !important;
+  height: 100%;
+  margin-right: 10px !important;
+}
 
 .nova-top_bar-signup_button h3 {
   font-family: "Poppins";
@@ -121,6 +142,8 @@
   .nova-top_bar-data_view {
     padding: 1.2rem 2rem 1rem 2rem;
   }
+
+  nova-top_bar-gallery_button
 
   .nova-top_bar-data_view img {
     width: 7.1rem;

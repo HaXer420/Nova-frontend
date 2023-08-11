@@ -41,6 +41,7 @@
 }
 
 .nova-service_detail-images_top_view {
+  text-align: justify;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -71,6 +72,7 @@
 }
 
 .nova-service_detail-images_top_view_two {
+  text-align: justify;
   display: flex;
   flex-direction: row;
   align-items: center;

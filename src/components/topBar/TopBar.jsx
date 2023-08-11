@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./topBar.css";
-import { clock1, logoTheme, mainLogo, phone1 } from "../../assets";
+import { clock1, gallery, logoTheme, mainLogo, phone1 } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loginState } from "../../redux/loginSlice";
@@ -108,8 +108,12 @@ const TopBar = () => {
             </div>
           )}
         </div>
+        <div onClick={() => navigate("/gallery")} style={{ marginLeft: "4rem"}} className="nova-top_bar-gallery_button">
+          <img src={gallery} alt="" />
+            <h1>Gallery</h1>
+        </div>
       </div>
-      <div className="nova-top_bar-divider" />
+      {/* <div className="nova-top_bar-divider" /> */}
     </div>
   );
 };
