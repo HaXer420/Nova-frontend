@@ -15,6 +15,7 @@ import {
   threadingSpecial,
   waxing,
   waxingCombo,
+  mapImage
 } from "../../assets";
 // import Carousel from "react-simply-carousel";
 import Carousel from "react-multi-carousel";
@@ -307,9 +308,9 @@ export default function Dashboard() {
               })}
             </div>
           </div>
-          <div className="nova-dashboard-banner_image_view">
+          {/* <div className="nova-dashboard-banner_image_view">
             <img alt="" src={homePageBanner} />
-          </div>
+          </div> */}
         </div>
         <div className="nova-dashboard-our_services_and_specials_top_view">
           <div className="nova-dashboard-our_services_top_view">
@@ -390,14 +391,19 @@ export default function Dashboard() {
         <div className="nova-dashboard-location_text_view">
           <h6>Location</h6>
         </div>
-        <div className="nova-dashboard-map_top_view">
-          <GoogleMapReact
+        <div className="nova-dashboard-map_top_view"  style={{width: '70%',height:'70%', maxWidth: '400px', marginRight: '20px'}}>
+          <img
+            src={mapImage}
+            alt="Image description"
+            // style={{width: '100%', maxWidth: '400px', border: '2px solid blue', marginRight: '20px'}}
+          />
+          {/* <GoogleMapReact
             bootstrapURLKeys={{
               key: "AIzaSyDN7lHPbUtmCz0cO3Ln0Ync6uKPokXGe5E",
             }}
             defaultCenter={defaultProps.center}
             zoom={11}
-          />
+          /> */}
         </div>
         <div className="nova-dashboard-about_me_top_view">
           <div className="nova-dashboard-about_me_detail_view">

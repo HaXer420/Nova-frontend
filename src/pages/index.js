@@ -17,3 +17,4 @@ export { default as PaymentPage } from "./paymentPage/PaymentPage";
 export { default as Products } from "./products/Products";
 export { default as Product } from "./product/product";
 export { default as Checkout } from "./checkout/checkout";
+export { default as Gallery} from "./gallery/Gallery";

@@ -21,11 +21,13 @@ export { default as calender } from "./calender.png";
 export { default as show } from "./show.png";
 export { default as hide } from "./hide.png";
 export { default as edit } from "./edit.png";
-export { default as aboutDummyOne } from "./aboutDummyOne.png";
-export { default as aboutDummyTwo } from "./aboutDummyTwo.png";
-export { default as aboutDummyThree } from "./aboutDummyThree.png";
+export { default as aboutImageOne } from "./aboutImageOne.png";
+export { default as aboutImageTwo } from "./aboutImageTwo.png";
+export { default as aboutImageThree } from "./aboutImageThree.png";
 export { default as aboutDummyFour } from "./aboutDummyFour.png";
 export { default as dummyMap } from "./dummyMap.png";
+export { default as gallery } from "./gallery.png";
+export { default as mapImage } from "./mapImage.png";
 export { default as dummyService } from "./dummyService.png";
 export { default as facial } from "./facial.png";
 export { default as tattos } from "./tattos.png";
@@ -34,6 +36,10 @@ export { default as serviceDetailOne } from "./serviceDetailOne.png";
 export { default as serviceDetailTwo } from "./serviceDetailTwo.png";
 export { default as reviewBanner } from "./reviewBanner.png";
 export { default as waxingDark } from "./waxingDark.png";
+export { default as facebook } from "./facebook.png";
+export { default as instagram } from "./instagram.png";
+export { default as twitter } from "./twitter.png";
+export { default as tiktok } from "./tiktok.png";
 
 // --------------Profile-------------------//
 
@@ -78,3 +84,7 @@ export { default as uncheck } from "./uncheck.png";
 export { default as closeIconPink } from "./closs-icon-pink.png";
 export { default as addIcon } from "./add-icon.png";
 export { default as removeIcon } from "./remove.png";
+export { default as phone1 } from "./phone1.png";
+export { default as clock1 } from "./clock1.png";
+export { default as mainLogo } from "./main-logo.png";
+// export { default as clock } from "./clock.png";

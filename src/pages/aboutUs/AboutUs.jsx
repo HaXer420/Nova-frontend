@@ -3,9 +3,9 @@ import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import {
   aboutDummyFour,
-  aboutDummyOne,
-  aboutDummyThree,
-  aboutDummyTwo,
+  aboutImageOne,
+  aboutImageThree,
+  aboutImageTwo,
 } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
 import Loader from "../../components/loader/loader";
@@ -76,7 +76,7 @@ export default function AboutUs() {
         </div>
         <div className="nova-about-us_detail_view">
           <div className="nova-about-us_single_item_top_view">
-            <img src={aboutDummyOne} />
+            <img src={aboutImageOne} />
             <div>
               <h3>Our Mission</h3>
               <h4>{aboutUs[0]?.ourmission}</h4>
@@ -90,10 +90,10 @@ export default function AboutUs() {
                 {/* <span style={{ color: "#EE509C" }}>Read more</span> */}
               </h4>
             </div>
-            <img src={aboutDummyTwo} />
+            <img src={aboutImageTwo} />
           </div>
           <div className="nova-about-us_single_item_top_view">
-            <img src={aboutDummyThree} />
+            <img src={aboutImageThree} />
             <div>
               <h3>Our Values</h3>
               <h4>{aboutUs[0]?.ourvalues}</h4>

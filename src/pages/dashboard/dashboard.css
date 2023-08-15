@@ -18,7 +18,11 @@
   justify-content: space-between;
   padding: 0rem 16.6rem 6.1rem 16.6rem;
   align-items: flex-start;
+  background-image: url('../../assets/homePageBanner.png');
+  background-size: 100% 100%; /* Image will cover 100% of width and height */
+  background-repeat: no-repeat; /* Prevents image from repeating */
 }
+
 
 .nova-dashboard-banner_detail_view {
   display: flex;
@@ -139,7 +143,7 @@
   display: flex;
   background-color: white;
   padding: 0rem 16.6rem;
-  padding-bottom: 3rem;
+  padding-bottom: 3rem;  
 }
 
 .nova-dashboard-location_text_view {
@@ -147,6 +151,8 @@
   background-color: white;
   padding: 2.4rem 16.6rem 1.6rem 16.6rem;
 }
+
+
 
 .nova-dashboard-location_text_view h6 {
   font-family: "Comfortaa";
@@ -160,6 +166,7 @@
   width: 139.6rem;
   height: 71.8rem;
   object-fit: contain;
+  
 }
 
 .nova-dashboard-about_me_top_view {

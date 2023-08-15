@@ -7,6 +7,16 @@
   background: #ee509c;
 }
 
+.nova__navbar-links_text_view img{
+  height: 35px;
+  width: 35px;
+  margin-right: 25px;
+}
+
+.nova__navbar-links-insta_text_view img{
+  margin-left: 40px;
+}
+
 .nova__navbar-links {
   display: flex;
   justify-content: center;
@@ -123,6 +133,7 @@
   /* padding-right: 2.2rem; */
   /* margin-top: -10px; */
 }
+
 
 .nova_navbar-logo_view img {
   width: 9.1rem;
