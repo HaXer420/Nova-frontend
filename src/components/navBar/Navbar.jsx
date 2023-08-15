@@ -125,10 +125,23 @@ const Navbar = () => {
       </div>
       <div className="nova__navbar-links_text_view">
         <h1
-          onClick={() => navigate("/products")}
+          onClick={() => navigate("/specials")}
           style={{
             borderBottomStyle:
-              window.location.href === "http://localhost:3000/products"
+              window.location.href === "http://localhost:3000/specials"
+                ? "solid"
+                : "none",
+          }}
+        >
+          Gallery
+        </h1>
+      </div>
+      <div className="nova__navbar-links_text_view">
+        <h1
+          onClick={() => navigate("/gallery")}
+          style={{
+            borderBottomStyle:
+              window.location.href === "http://localhost:3000/gallery"
                 ? "solid"
                 : "none",
           }}
