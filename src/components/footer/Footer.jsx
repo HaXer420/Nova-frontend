@@ -155,11 +155,12 @@ export default function Footer({ setIsLoading }) {
           <h2>
             <span>E-mail:</span> novawaxing1@gmail.com
           </h2>
-          {/* <h2>
-            <span>Phone :</span> +1 (456) 123 4567
-          </h2> */}
           <h2>
-            <span>Address :</span> 875 Lawrenceville-Suwanee Rd, Auburn GA 30011
+            <span>Phone :</span> 678-404-5580
+          </h2>
+          <h2>
+          <span>Address :</span> 875 Lawrenceville-Suwanee Rd#580, Lawrenceville GA 30043
+            {/* <span>Address :</span> 875 Lawrenceville-Suwanee Rd, Auburn GA 30011 */}
             {/* California, USA. */}
           </h2>
         </div>

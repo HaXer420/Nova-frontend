@@ -296,7 +296,7 @@ export default function Dashboard() {
               more when it comes to your care. With us, you will be sexier and
               ever confident like never before! We can't wait to see you!
             </h5>
-            <h3>The NOVA Difference</h3>
+            <h3 >The NOVA Difference</h3>
             <div className="nova-dashboard-banner_percantages_view">
               {novaDiffArray.map((item) => {
                 return (
@@ -390,22 +390,15 @@ export default function Dashboard() {
         </div>
         <div className="nova-dashboard-location_text_view">
           <h6>Location</h6>
-        </div>
-        <div className="nova-dashboard-map_top_view"  style={{width: '70%',height:'70%', maxWidth: '400px', marginRight: '20px'}}>
+          <div className='map-img'>
           <img
             src={mapImage}
             alt="Image description"
-            // style={{width: '100%', maxWidth: '400px', border: '2px solid blue', marginRight: '20px'}}
           />
-          {/* <GoogleMapReact
-            bootstrapURLKeys={{
-              key: "AIzaSyDN7lHPbUtmCz0cO3Ln0Ync6uKPokXGe5E",
-            }}
-            defaultCenter={defaultProps.center}
-            zoom={11}
-          /> */}
         </div>
-        <div className="nova-dashboard-about_me_top_view">
+        </div>
+        
+        {/* <div className="nova-dashboard-about_me_top_view">
           <div className="nova-dashboard-about_me_detail_view">
             <div className="nova-dashboard-about_me_know_text">
               <h1>
@@ -442,7 +435,7 @@ export default function Dashboard() {
           <div className="nova-dashboard-about_me_image_view">
             <img alt="" src={aboutMe} />
           </div>
-        </div>
+        </div> */}
         <div className="nova-dashboard-reviews_top_view">
           <h1>Reviews</h1>
           {/* <div className="nova-dashboard-reviews_view"> */}
@@ -483,7 +476,7 @@ export default function Dashboard() {
           </Carousel>
           {/* </div> */}
         </div>
-        <div className="nova-dashboard-questions_top_view">
+        {/* <div className="nova-dashboard-questions_top_view">
           <div className="nova-dashboard-questions_view">
             <h1>Got Questions?</h1>
             {questionsArray?.map((item, index) => {
@@ -516,8 +509,8 @@ export default function Dashboard() {
           <div className="nova-dashboard-questions_image_view">
             <img alt="" src={faqDummy} />
           </div>
-        </div>
-        <div className="nova-dashboard-team_members_top_view">
+        </div> */}
+        {/* <div className="nova-dashboard-team_members_top_view">
           <h1>Our Teams </h1>
           <div className="nova-dashboard-team_members_view">
             <p>
@@ -526,7 +519,7 @@ export default function Dashboard() {
               customer care. Our beauticians are passionate about and love what
               they do
             </p>
-            {/* {teamMembers.map((item) => {
+            {teamMembers.map((item) => {
               return (
                 <div
                   key={item.id}
@@ -542,9 +535,9 @@ export default function Dashboard() {
                   </div>
                 </div>
               );
-            })} */}
+            })}
           </div>
-        </div>
+        </div> */}
         <Footer setIsLoading={setIsLoading} />
       </div>
     </div>

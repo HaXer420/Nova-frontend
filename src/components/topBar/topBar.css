@@ -71,6 +71,7 @@
   justify-content: center;
   padding: 0rem 2.8rem;
   height: 3.6rem;
+  /* width: 100%; */
   background: #ee509c;
   border-radius: 8px;
   cursor: pointer;
@@ -138,6 +139,13 @@
   font-weight: 500;
 }
 
+@media screen and (max-width: 1355px) {
+  .nova-top_bar-signup_button h3 {
+    /* padding: 0rem 1rem; */
+    font-size: 12px;
+    width: 5vw;
+  }
+}
 @media screen and (max-width: 1440px) {
   .nova-top_bar-data_view {
     padding: 1.2rem 2rem 1rem 2rem;
@@ -164,7 +172,7 @@
   }
 
   .nova-top_bar-login_button {
-    padding: 0rem 3rem;
+    padding: 0rem 1rem;
     height: 3.5rem;
   }
 
@@ -174,12 +182,16 @@
   }
 
   .nova-top_bar-signup_button {
-    padding: 0rem 2rem;
-    height: 3.5rem;
+    padding: 0rem 3rem;
+    /* height: 3.5rem; */
+    display: flex;
+    flex-direction: row;
   }
 
   .nova-top_bar-signup_button h3 {
-    font-size: 1.6rem;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4rem;
     line-height: 2.6rem;
     color: #ffffff;
   }

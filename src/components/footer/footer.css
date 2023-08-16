@@ -378,12 +378,36 @@
   .nova-footer_detail_socials_top_view {
     margin-left: 0rem;
     margin-right: 0rem;
+    padding-top: 0rem !important;
   }
 
   .nova-footer_detail_links_top_view {
     margin-left: 10rem;
     margin-right: 8rem;
   }
+
+  .nova-footer_top_view {
+    padding: 4.5rem 5.5rem 2rem 5.6rem;
+  }
+
+  /* .nova-footer_detail_socials_top_view img{
+    height: 25px !important;
+    width: 25px !important;
+  } */
+
+  /* .nova-footer_detail_socials_top_view {
+    margin-top: 0rem;
+    padding-top: 50px;
+    padding-right: 150px;
+  } */
+
+  /* .nova-footer_detail_contacts_top_view {
+    margin-left: 0rem;
+  } */
+
+  /* .nova-footer_divider {
+    margin: 4rem 5rem 2.1rem 5rem;
+  } */
 }
 
 @media screen and (max-width: 781px) {
