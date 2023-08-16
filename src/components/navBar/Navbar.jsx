@@ -125,10 +125,10 @@ const Navbar = () => {
       </div>
       <div className="nova__navbar-links_text_view">
         <h1
-          onClick={() => navigate("/specials")}
+          onClick={() => navigate("/gallery")}
           style={{
             borderBottomStyle:
-              window.location.href === "http://localhost:3000/specials"
+              window.location.href === "http://localhost:3000/gallery"
                 ? "solid"
                 : "none",
           }}
@@ -138,10 +138,10 @@ const Navbar = () => {
       </div>
       <div className="nova__navbar-links_text_view">
         <h1
-          onClick={() => navigate("/gallery")}
+          onClick={() => navigate("/products")}
           style={{
             borderBottomStyle:
-              window.location.href === "http://localhost:3000/gallery"
+              window.location.href === "http://localhost:3000/products"
                 ? "solid"
                 : "none",
           }}
@@ -197,7 +197,6 @@ const Navbar = () => {
         </h1>
       </div>
       <div className="nova__navbar-links_text_view">
-          {/* <h1>Social</h1> */}
           <h2 className="nova__navbar-links-insta_text_view">
             <a href="https://www.instagram.com/novawaxing1/" target="_blank">
             <img src={instagram} alt="" />

@@ -65,14 +65,14 @@ const TopBar = () => {
           <img src={clock1} alt="" />
           <div className="clock-view-container">
             <p>Monday-Saturday</p>
-            <h1>10:00Am-8:00Pm</h1>
+            <h1>10AM-7:00PM</h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">
           <img src={clock1} alt="" />
           <div className="clock-view-container">
-            <p>Monday-Saturday</p>
-            <h1>10:00Am-8:00Pm</h1>
+            <p>Sunday</p>
+            <h1>11AM-6:00PM</h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">

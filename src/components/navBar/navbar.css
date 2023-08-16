@@ -204,6 +204,23 @@
   font-weight: 400;
 }
 
+@media screen and (max-width: 1400px) {
+  .nova__navbar-links_text_view {
+    margin-right: -10px;
+  }
+
+  /* .nova__navbar-links-contact_text_view h1{
+    display: flex;
+    flex-direction: row;
+    width: 2vw;
+  } */
+
+  .nova__navbar-links_text_view h1 {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+    width: max-content;
+  }
+}
 @media screen and (max-width: 1260px) {
   .nova__navbar-links_book_now_button {
     margin-bottom: 1rem;
