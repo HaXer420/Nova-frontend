@@ -108,8 +108,8 @@ const TopBar = () => {
             </div>
           )}
         </div>
-        <div onClick={() => navigate("/gallery")} style={{ marginLeft: "4rem"}} className="nova-top_bar-gallery_button">
-          <img src={gallery} alt="" />
+        <div className='nova-top_bar-gallery_button' onClick={() => navigate("/gallery")} style={{ marginLeft: "4rem"}}>
+          <img src={gallery} alt=""/>
             <h1>Gallery</h1>
         </div>
       </div>

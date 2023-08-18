@@ -7,14 +7,14 @@
   background: none;
 }
 
-.nova-button_border_view {
+/* .nova-button_border_view {
   position: relative;
   width: 17.2rem;
   height: 5.9rem;
   border: 1px solid #ee509c;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   transform: rotate(162deg);
-}
+} */
 
 .nova-button_main_view {
   position: absolute;

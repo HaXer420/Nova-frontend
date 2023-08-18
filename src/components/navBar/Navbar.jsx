@@ -123,7 +123,7 @@ const Navbar = () => {
           Specials
         </h1>
       </div>
-      <div className="nova__navbar-links_text_view">
+      {/* <div className="nova__navbar-links_text_view">
         <h1
           onClick={() => navigate("/gallery")}
           style={{
@@ -135,7 +135,7 @@ const Navbar = () => {
         >
           Gallery
         </h1>
-      </div>
+      </div> */}
       <div className="nova__navbar-links_text_view">
         <h1
           onClick={() => navigate("/products")}

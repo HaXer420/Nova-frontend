@@ -445,29 +445,41 @@ export default function Dashboard() {
             // customRightArrow={<button>ht</button>}
           >
             {reviews?.map((item) => {
+              const characterLimit = 70; // Set your desired character limit
+
+              const reviewText = item?.review || ''; // Handle null or undefined case
+              
+              const truncatedText = reviewText.length > characterLimit
+                ? `${reviewText.slice(0, characterLimit)}...`
+                : reviewText;
+              
+              const shouldShowReadMore = reviewText.length > characterLimit;
+              // console.log('item',item);
               return (
                 <div key={item.id} className="nova-dashboard-single_review">
                   <img alt="" src={item?.creator?.image} />
                   <div>
-                    <p>
-                      {item?.review}
-                      {/* <span
-                          style={{
-                            color: "#F088B8",
-                            cursor: "pointer",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {" "}
-                          Read More
-                        </span> */}
-                    </p>
+                  <p>
+                    {truncatedText}
+                    {shouldShowReadMore && (
+                      <span
+                        style={{
+                          color: "#F088B8",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {" "}
+                        Read More
+                      </span>
+                    )}
+                  </p>
                     <p style={{ marginTop: 10 }}>
-                      {item?.name}
-                      {/* <span style={{ color: "#F088B8", fontWeight: "bold" }}>
+                      {item?.name} <span style={{color:'#F088B8'}}>({item?.serviceName})</span>
+                      <span style={{ color: "#F088B8", fontWeight: "bold" }}>
                           {" "}
                           {item.type}
-                        </span> */}
+                        </span>
                     </p>
                   </div>
                 </div>

@@ -111,19 +111,19 @@
   justify-content: center;
 }
 
-.nova-footer_contact_us_form_button_border_view {
+/* .nova-footer_contact_us_form_button_border_view {
   position: relative;
   width: 21.2rem;
   height: 8rem;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   transform: rotate(160deg);
-}
+} */
 
 .nova-footer_contact_us_form_button_main_view {
   position: absolute;
-  width: 21.2rem;
-  height: 8rem;
+  width: 15.2rem;
+  height: 5.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -136,7 +136,7 @@
 .nova-footer_contact_us_form_button_main_view h3 {
   font-family: "Poppins";
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 3rem;
   color: #292929;
 }

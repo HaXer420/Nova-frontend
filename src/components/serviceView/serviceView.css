@@ -8,8 +8,10 @@
 
 .nova-dashboard-single_service_view img {
   width: 43.6rem;
+  /* padding-left: -5rem !important; */
   height: 35.6rem;
-  object-fit: contain;
+  object-fit: cover;
+  /* border: 2px solid green; */
 }
 
 .nova-dashboard-single_service_title_view {
@@ -106,7 +108,7 @@
   }
 
   .nova-dashboard-single_service_title_view {
-    margin-top: 2rem;
+    margin-top: 34rem;
     margin-bottom: 1.4rem;
   }
 

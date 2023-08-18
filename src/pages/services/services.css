@@ -58,10 +58,14 @@
   justify-content: center;
 }
 
+/* .nova-services-single_service_view img > *{
+  object-fit: cover;
+} */
+
 .nova-services-single_service_view img {
   width: 50rem;
   height: 32.6rem;
-  object-fit: contain;
+  object-fit: cover;
   cursor: pointer;
   padding-right: 3rem;
 }
