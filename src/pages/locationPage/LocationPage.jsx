@@ -150,8 +150,12 @@ export default function LocationPage() {
                 </div>
               );
             })}
+            {/* <h1>More Coming Soon!</h1> */}
           </div>
         </div>
+          <div className="nova-locations-bottom_main_view">
+            <h1>More Coming Soon!</h1>
+          </div>
         <Footer />
       </div>
     </div>

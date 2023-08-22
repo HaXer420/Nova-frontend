@@ -285,7 +285,7 @@ export default function BookingPage() {
 
   const getallServices = () => {
     let getRes = (res) => {
-      //console.log("get all services", JSON.stringify(res?.data?.data));
+      // console.log("get all services", JSON.stringify(res?.data?.data));
       setAppointmentItems(res?.data?.data);
     };
     callApi(
