@@ -54,16 +54,21 @@
   flex-direction: column;
   margin-right: 6.8rem;
   margin-bottom: 3.5rem;
-  width: 39.9rem;
+  width: 100%;
+  height: auto;
   justify-content: center;
 }
 
+.nova-services-single_service_view img > *{
+  object-fit: cover;
+}
+
 .nova-services-single_service_view img {
-  width: 50rem;
-  height: 32.6rem;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   cursor: pointer;
-  padding-right: 3rem;
+  /* padding-right: 1rem; */
 }
 
 .nova-services-single_service_title_view {
@@ -120,13 +125,13 @@
   .nova-services-single_service_view {
     margin-right: 5.8rem;
     margin-bottom: 3.5rem;
-    width: 36rem;
+    width: 40rem;
   }
 
   .nova-services-single_service_view img {
     width: 40rem;
     height: 33rem;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   .nova-services-single_service_title_view {

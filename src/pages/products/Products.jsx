@@ -5,6 +5,7 @@ import {
   productOne,
   productThree,
   productTwo,
+  crossPrice
 } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
 import "./products.css";
@@ -47,6 +48,7 @@ export default function Products() {
           <h1>Products</h1>
           <div className="nova-services-top_view">
             {products?.map((item) => {
+              console.log('products',products);
               return (
                 <div
                   key={item.id}
@@ -67,7 +69,11 @@ export default function Products() {
                   <div className="nova-services-single_service_title_view">
                     <h2>{item.title}</h2>
                     <h3>{item.offValue}</h3>
+                    <div className="nova-product-off-container">
+                    <p>{item?.salepercentage?.toFixed(2)}% OFF</p>
                   </div>
+                  </div>
+
                   <h4>
                     {item?.description.length > 30
                       ? item?.description.substring(0, 30) + "..."
@@ -86,13 +92,15 @@ export default function Products() {
                     </span>
                   </h4>
                   <div className="nova-products-single_product_price_view">
-                    {item?.salePrice && (
-                      <div className="nova-products-single_product_cross_price_view">
-                        <img src={deleteProduct} />
-                        <h5>${item?.price}.00</h5>
-                      </div>
-                    )}
-                    <h5>${item?.salePrice ? item?.salePrice : item?.price}</h5>
+                  {item?.salePrice && (
+                    <div className="nova-product-cross-price-container">
+                      <img src={crossPrice} alt="cross-icon" />
+                      <p>${item?.price}.00</p>
+                    </div>
+                  )}
+                    <div className="nova-product-price-product">
+                    <p>${item?.price}</p>
+                  </div>
                     <div
                       onClick={() =>
                         navigate(
@@ -103,7 +111,7 @@ export default function Products() {
                       }
                       className="add_to-cart-btn"
                     >
-                      <p>Details</p>
+                      <p>Add to Cart</p>
                     </div>
                   </div>
                 </div>

@@ -56,13 +56,17 @@ export default function Footer({ setIsLoading }) {
   });
   return (
     <div className="nova-footer_top_view">
-      {window.location.href === "http://localhost:3000/" && (
+      {/* {window.location.href === "http://localhost:3000/" && ( */}
+      { (
         <form onSubmit={formik.handleSubmit}>
           <div className="nova-footer_contact_us-top_view">
             <div className="nova-footer_contact_us_view">
               <h1>Contact Us</h1>
               <h2>Did you got confused at anything?</h2>
-              <h3>If you have any confusion, you can contact us</h3>
+              <h3>Please fill the form and just click&nbsp;
+                <span style={{fontWeight: "bold"}}>"Send!"</span>
+                {/* <span>!</span> */}
+              </h3>
             </div>
             <div className="nova-footer_contact_us_form_top_view">
               <input placeholder="Enter your full name" />
@@ -159,7 +163,7 @@ export default function Footer({ setIsLoading }) {
             <span>Phone :</span> 678-404-5580
           </h2>
           <h2>
-          <span>Address :</span> 875 Lawrenceville-Suwanee Rd#580, Lawrenceville GA 30043
+          <span>Address :</span> 875 Lawrenceville Suwanee Rd, #580 Lawrenceville, GA 30043
             {/* <span>Address :</span> 875 Lawrenceville-Suwanee Rd, Auburn GA 30011 */}
             {/* California, USA. */}
           </h2>

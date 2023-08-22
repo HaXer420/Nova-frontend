@@ -43,6 +43,15 @@ export default function Dashboard() {
   const [activeSlide3, setActiveSlide3] = useState(0);
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [expandedReviews, setExpandedReviews] = useState([]);
+
+  const toggleReview = (reviewId) => {
+    if (expandedReviews.includes(reviewId)) {
+      setExpandedReviews(expandedReviews.filter((id) => id !== reviewId));
+    } else {
+      setExpandedReviews([...expandedReviews, reviewId]);
+    }
+  };  
 
   const novaDiffArray = [
     {
@@ -445,34 +454,48 @@ export default function Dashboard() {
             // customRightArrow={<button>ht</button>}
           >
             {reviews?.map((item) => {
-              return (
-                <div key={item.id} className="nova-dashboard-single_review">
-                  <img alt="" src={item?.creator?.image} />
-                  <div>
-                    <p>
-                      {item?.review}
-                      {/* <span
-                          style={{
-                            color: "#F088B8",
-                            cursor: "pointer",
-                            fontWeight: "bold",
-                          }}
-                        >
-                          {" "}
-                          Read More
-                        </span> */}
-                    </p>
-                    <p style={{ marginTop: 10 }}>
-                      {item?.name}
-                      {/* <span style={{ color: "#F088B8", fontWeight: "bold" }}>
+        const characterLimit = 50; // Set your desired character limit
+
+        const reviewText = item?.review || ""; // Handle null or undefined case
+
+        const shouldShowReadMore = reviewText.length > characterLimit;
+
+        const truncatedText = shouldShowReadMore
+          ? expandedReviews.includes(item.id)
+            ? reviewText
+            : `${reviewText.slice(0, characterLimit)}...`
+          : reviewText;
+
+        return (
+          <div key={item.id} className="nova-dashboard-single_review">
+            <img alt="" src={item?.creator?.image} />
+            <div>
+              <p>
+                {truncatedText}
+                {shouldShowReadMore && (
+                  <span
+                    style={{
+                      color: "#F088B8",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                    }}
+                    onClick={() => toggleReview(item.id)}
+                  >
+                    {expandedReviews.includes(item.id) ? " Read Less" : " Read More"}
+                  </span>
+                )}
+              </p>
+              <p style={{ marginTop: 10 }}>
+                      {item?.name} <span style={{color:'#F088B8'}}>({item?.serviceName})</span>
+                      <span style={{ color: "#F088B8", fontWeight: "bold" }}>
                           {" "}
                           {item.type}
-                        </span> */}
+                        </span>
                     </p>
-                  </div>
-                </div>
-              );
-            })}
+            </div>
+          </div>
+        );
+      })}
           </Carousel>
           {/* </div> */}
         </div>

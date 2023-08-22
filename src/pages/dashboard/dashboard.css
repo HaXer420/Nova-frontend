@@ -107,6 +107,10 @@
   object-fit: contain;
 }
 
+.react-multi-carousel-track li {
+  width: 470px!important;
+}
+
 .nova-dashboard-our_services_and_specials_top_view {
   display: flex;
   flex-direction: column;
@@ -126,7 +130,7 @@
   font-size: 3.2rem;
   line-height: 3.6rem;
   color: #ffffff;
-  padding-bottom: 2.4rem;
+  padding-bottom: 1.8rem;
 }
 
 .nova-dashboard-our_services_view {
@@ -292,8 +296,8 @@
 .nova-dashboard-single_review {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-right: 6.4rem;
+  /* align-items: center; */
+  margin-right: 3.4rem;
 }
 
 .nova-dashboard-single_review div {
@@ -305,7 +309,7 @@
 .nova-dashboard-single_review img {
   width: 15.3rem;
   height: 15.3rem;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 1.6rem;
   margin-right: 4.2rem;
 }

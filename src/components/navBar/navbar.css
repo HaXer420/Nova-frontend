@@ -204,10 +204,18 @@
   font-weight: 400;
 }
 
+#gallery{
+  display: none;
+}
+
 @media screen and (max-width: 1400px) {
   .nova__navbar-links_text_view {
     margin-right: -10px;
   }
+
+  /* #gallery{
+    display: block;
+  } */
 
   /* .nova__navbar-links-contact_text_view h1{
     display: flex;
@@ -224,6 +232,10 @@
 @media screen and (max-width: 1260px) {
   .nova__navbar-links_book_now_button {
     margin-bottom: 1rem;
+  }
+
+  #gallery{
+    display: block;
   }
 
   .nova__navbar-links_text_view h1 {

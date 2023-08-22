@@ -9,8 +9,21 @@
   font-size: 3.6rem;
   line-height: 4rem;
   color: #171d1c;
-  padding: 2.4rem 2.4rem 3.6rem 16.6rem;
+  /* padding: 2.4rem 2.4rem 0rem 16.6rem; */
+  text-align: center; /* Center-align the text */
 }
+
+.nova-locations-bottom_main_view h1 {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 3.6rem;
+  line-height: 7rem;
+  color: #171d1c;
+  padding-top: -4rem !important;
+  /* padding: 2.4rem 2.4rem 0rem 16.6rem; */
+  text-align: center; /* Center-align the text */
+}
+
 
 .nova-locations_data_top_view {
   display: flex;
@@ -27,7 +40,7 @@
   align-items: center;
   width: 30.3rem;
   height: 44.3rem;
-  background: #ee509c;
+  background: #e6ecee;
   border-radius: 1.7rem;
   margin-right: 3.6rem;
   margin-bottom: 3.6rem;
@@ -35,7 +48,7 @@
 }
 
 .nova-locations_single_location_view img {
-  width: 27.5rem;
+  width: 37.5rem;
   height: 22.6rem;
   object-fit: cover;
   border-radius: 1.7rem;
@@ -46,9 +59,11 @@
   font-family: "Comfortaa";
   font-weight: 700;
   font-size: 2.4rem;
-  line-height: 2.7rem;
+  line-height: 3.7rem;
   padding-bottom: 0.7rem;
-  color: #ffffff;
+  padding-top: 1.7rem;
+  text-align: center;
+  color: black;
 }
 
 .nova-locations_single_location_view h3 {
@@ -57,7 +72,7 @@
   font-size: 2rem;
   line-height: 3rem;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
   padding-bottom: 2rem;
 }
 
@@ -67,14 +82,14 @@
   justify-content: center;
 }
 
-.nova-location_button_border_view {
+/* .nova-location_button_border_view {
   position: relative;
   width: 13.5rem;
   height: 4.6rem;
   border: 1px solid #ffffff;
   border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
   transform: rotate(162deg);
-}
+} */
 
 .nova-location_button_main_view {
   position: absolute;
@@ -104,7 +119,7 @@
   }
 
   .nova-locations_data_top_view {
-    padding: 0rem 11.8rem 4rem 15.4rem;
+    padding: 0rem 11.8rem 0rem 15.4rem;
   }
 
   .nova-locations_single_location_view {
@@ -138,6 +153,12 @@
   .nova-location_button_border_view {
     width: 13rem;
     height: 4rem;
+    /* margin-top: 2rem; */
+  }
+  
+  .nova-location_button_main_view{
+    background-color: #ee509c;
+
   }
 
   .nova-location_button_main_view {

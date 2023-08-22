@@ -11,13 +11,17 @@ const BookingStartComp = ({
   onClickNext,
   selectServices,
 }) => {
+      // console.log('parentItem',appointmentItems?.[0]?.title)
   return (
     <div className="nova-booking-start_comp_top_view">
       <h1>What is your appointment for?</h1>
 
-      {appointmentItems.map((parentItem, mainIndex) => (
+      {appointmentItems.map((parentItem, mainIndex) => 
+      // console.log('parentItem',parentItem.title)
+      (
         <Accordion className="accordion-main-container">
           <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+            <h1>{parentItem?.title}</h1>
             <h5>{parentItem?.title}</h5>
           </AccordionSummary>
 
