@@ -25,7 +25,7 @@
 
 .nova-login_forgot_password_text_view {
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   margin-top: -2rem;
   margin-bottom: 7.1rem;
 }

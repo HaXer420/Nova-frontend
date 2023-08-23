@@ -11,7 +11,7 @@ import Loader from "../../components/loader/loader";
 
 export default function ContactPage() {
   const [isloading, setIsLoading] = useState(false);
-  const contactUsApi = (email, message, phone) => {
+  const contactUsApi = (name, email, message, phone) => {
     // console.log("data", email, message, phone);
     let getRes = (res) => {
       console.log("res of contact us", res);
@@ -22,7 +22,9 @@ export default function ContactPage() {
     callApi(
       "POST",
       routes.contactUs,
-      { mail: email, message: message, phone: phone },
+      { 
+        name: name, 
+        mail: email, message: message, phone: phone },
       setIsLoading,
       getRes,
       (error) => {}
@@ -31,11 +33,13 @@ export default function ContactPage() {
 
   const formik = useFormik({
     initialValues: {
+      name: "",
       email: "",
       message: "",
       phone: "",
     },
     validationSchema: Yup.object({
+      name: Yup.string(),
       email: Yup.string().email("Invalid email address"),
       phone: Yup.string().required("Phone number is required"),
       message: Yup.string()
@@ -43,7 +47,9 @@ export default function ContactPage() {
         .required("First name is required."),
     }),
     onSubmit: (val) => {
-      contactUsApi(val.email, val.message, val.phone);
+      contactUsApi(
+        val.name, 
+        val.email, val.message, val.phone);
     },
   });
   return (
@@ -56,6 +62,14 @@ export default function ContactPage() {
           <div className="nova-contact_page-main_view">
             <h1>Contact</h1>
             <div className="nova-contact_page_inputs_top_view">
+            <TextInputTwo
+                title={"Name(Optional)"}
+                placeholder={"Your name"}
+                id="name"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.name}
+              />
               <TextInputTwo
                 type="number"
                 title={"Phone"}
