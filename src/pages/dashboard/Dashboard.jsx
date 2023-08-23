@@ -43,6 +43,7 @@ export default function Dashboard() {
   const [activeSlide3, setActiveSlide3] = useState(0);
   const [services, setServices] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const [selectedService, setSelectedService] = useState(null);
   const [expandedReviews, setExpandedReviews] = useState([]);
 
   const toggleReview = (reviewId) => {
@@ -343,6 +344,7 @@ export default function Dashboard() {
                         )
                       }
                       item={item}
+                     
                     />
                   );
                 })}

@@ -419,14 +419,20 @@ export default function BookingPage() {
                 borderRadius: "10px",
                 backgroundColor: "#f04f9c",
                 width: "210px",
+                fontSize:'15px',
+                padding:'8px',
+                fontWeight:'100'
+                // paddingLeft:'5px'
               }}
             >
-              <img src={location} width={30} height={20} />
+              <img src={location} width={30} height={20} style={{paddingRight:'10px',
+              // marginLeft:'-20px'
+              }} />
               {storeLocation[0]?.name}
             </h1>
           </div>
           <div className="nova-booking-banner_image_view">
-            <div>
+            <div className="inner-wrapper">
               <img src={location} />
               <h2>{storeLocation[0]?.location?.address}</h2>
             </div>
