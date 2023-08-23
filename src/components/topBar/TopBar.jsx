@@ -79,7 +79,7 @@ const TopBar = () => {
           <img src={phone1} alt="" />
           <div className="clock-view-container">
             <p>Call Now</p>
-            <h1>+1 5654 4658 23</h1>
+            <h1>678-404-5580</h1>
           </div>
         </div>
 

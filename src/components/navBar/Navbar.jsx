@@ -278,7 +278,7 @@ const Navbar = () => {
             </div>
             <h5>Mon - Sat 10 Am to 8 Pm</h5>
             <h5>Sun 11 Am to 6 Pm</h5>
-            <h5>+1 5654 4658 23</h5>
+            <h5>678-404-5580</h5>
 
             {showProfile ? (
               <div onClick={() => logOut()} className="nova-navBar_button">
