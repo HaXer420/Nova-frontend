@@ -405,8 +405,27 @@ export default function BookingPage() {
       )}
       <div className="nova-dashboard-container">
         <div className="nova-booking-banner_view">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              color: "white",
+              marginBottom: "15px",
+            }}
+          >
+            <h1
+              style={{
+                flexDirection: "row",
+                borderRadius: "10px",
+                backgroundColor: "#f04f9c",
+                width: "210px",
+              }}
+            >
+              <img src={location} width={30} height={20} />
+              {storeLocation[0]?.name}
+            </h1>
+          </div>
           <div className="nova-booking-banner_image_view">
-            <h1>{storeLocation[0]?.name}</h1>
             <div>
               <img src={location} />
               <h2>{storeLocation[0]?.location?.address}</h2>
