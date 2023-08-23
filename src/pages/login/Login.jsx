@@ -12,6 +12,9 @@ import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 import { accessToken, refreshToken, userData } from "../../redux/userDataSlice";
+import {
+  arrowLeft
+} from "../../assets";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -96,6 +99,7 @@ export default function Login() {
       <div className="nova-login_main_view">
         {/* <Loader /> */}
         <h1>Login</h1>
+        {/* <img src={arrowLeft} alt="" /> */}
         <div className="nova-login_inputs_view">
           <TextInput
             title={"Email"}
@@ -129,7 +133,7 @@ export default function Login() {
             }
           />
           <div className="nova-login_forgot_password_text_view">
-            <h2 onClick={() => navigate("/")}>Go to Home?</h2>
+            {/* <h2 onClick={() => navigate("/")}>Go to Home?</h2> */}
             <h2 onClick={() => navigate("/forgotpassword")}>
               Forget Password?
             </h2>

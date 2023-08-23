@@ -67,10 +67,15 @@ export default function Products() {
                   />
 
                   <div className="nova-services-single_service_title_view">
+                    {
+                      console.log('item',item)
+                    }
                     <h2>{item.title}</h2>
                     <h3>{item.offValue}</h3>
                     <div className="nova-product-off-container">
-                    <p>{item?.salepercentage?.toFixed(2)}% OFF</p>
+                    <p style={item?.price ? { marginLeft: '20px' } : {marginLeft: '0px'}}>
+                      {!item?.price ? <></> : `${item?.salepercentage}% OFF`}
+                    </p>
                   </div>
                   </div>
 
@@ -92,14 +97,17 @@ export default function Products() {
                     </span>
                   </h4>
                   <div className="nova-products-single_product_price_view">
-                  {item?.salePrice && (
+                    {
+                      console.log(item?.salePrice)
+                    }
+                  {item?.price ? (
                     <div className="nova-product-cross-price-container">
                       <img src={crossPrice} alt="cross-icon" />
                       <p>${item?.price}.00</p>
                     </div>
-                  )}
+                  ) : <></>}
                     <div className="nova-product-price-product">
-                    <p>${item?.price}</p>
+                    <p>${item?.salePrice}</p>
                   </div>
                     <div
                       onClick={() =>
