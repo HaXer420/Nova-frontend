@@ -190,7 +190,8 @@ export default function BookingPage() {
       };
     });
 
-    let ServicesArr = [...serviceStore, ...newArr];
+
+    let ServicesArr = [...(serviceStore ?? []), ...newArr];
     // ServicesArr.push(newArr);
     dispatch(cartServices(ServicesArr));
     GreenNotify("Your selected Services is add to Cart");

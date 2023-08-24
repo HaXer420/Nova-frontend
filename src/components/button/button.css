@@ -17,7 +17,7 @@
 } */
 
 .nova-button_main_view {
-  position: absolute;
+  /* position: absolute; */
   width: 17.2rem;
   height: 5.9rem;
   display: flex;

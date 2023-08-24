@@ -509,7 +509,8 @@
 }
 
 .nova-dashboard-banner_detail_view > h1,h5 {
-  color: white !important;
+  /* color: white !important; */
+  color: white;
 }
 
 .nova-dashboard-banner_percantages_view > div > *{

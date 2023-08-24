@@ -101,7 +101,7 @@
   font-weight: 700;
   font-size: 2.4rem;
   line-height: 3.6rem;
-  color: #292929;
+  color: #292929 !important;
 }
 
 .nova-booking-confirm_comp_service_detail_divider {

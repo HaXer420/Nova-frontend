@@ -20,6 +20,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
+  const userDataGet = useSelector((data) => data.userDataSlice.userData)
   const productsStore = useSelector((data) => data.userDataSlice.products);
   const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -252,7 +253,8 @@ const Navbar = () => {
               <img alt="" src={showProfile?.image} />
             </div>
           )}
-          {/* <div
+          { userDataGet && (
+            <div
             onClick={() => setOpen(true)}
             className="nova_navbar-cart-container"
           >
@@ -260,7 +262,9 @@ const Navbar = () => {
             <div className="nova_navbar-cart-item">
               <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
             </div>
-          </div> */}
+          </div>
+          )
+          }
         </div>
       </div>
       <div className="nova__navbar-menu">
@@ -318,7 +322,7 @@ const Navbar = () => {
               <img alt="" src={showProfile?.image} />
             </div>
           )}
-          {/* <div
+          <div
             onClick={() => setOpen(true)}
             className="nova_navbar-cart-container"
           >
@@ -326,7 +330,7 @@ const Navbar = () => {
             <div className="nova_navbar-cart-item">
               <p>{isNaN(productsInCart) ? 0 : productsInCart}</p>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>
