@@ -129,7 +129,7 @@ export default function OtpVerification() {
       <div className="nova-forgot_main_view">
         {/* <h1>OTP Verification</h1> */}
         <div className="OTP-Verification-div">
-        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
+        <img onClick={() => navigate(-1)} src={arrowLeft} alt="" />
         <h1>OTP Verification</h1>
         <h1></h1>
         </div>

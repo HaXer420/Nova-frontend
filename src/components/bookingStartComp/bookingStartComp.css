@@ -88,12 +88,12 @@
   box-shadow: none !important;
 }
 
-.accordion-main-container h5 {
+/* .accordion-main-container h5 {
   font-family: "Poppins";
   font-weight: 600;
   font-size: 18px;
   color: #292929;
-}
+} */
 
 .accordion-main-container h1{
   padding: .4rem;

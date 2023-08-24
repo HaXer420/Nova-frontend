@@ -57,7 +57,7 @@ export default function ForgotPassword() {
       <div className="nova-forgot_main_view">
         {/* <h1>Forgot Password</h1> */}
         <div className="Forgot-Password-div">
-        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
+        <img onClick={() => navigate(-1)} src={arrowLeft} alt="" />
         <h1>Forgot Password</h1>
         <h1></h1>
         </div>

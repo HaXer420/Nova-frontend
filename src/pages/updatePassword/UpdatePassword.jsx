@@ -70,7 +70,7 @@ export default function UpdatePassword() {
       <div className="nova-login_main_view">
         {/* <h1>Reset Password</h1> */}
         <div className="update-password-div">
-        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
+        <img onClick={() => navigate(-1)} src={arrowLeft} alt="" />
         <h1>Reset Password</h1>
         <h1></h1>
         </div>
