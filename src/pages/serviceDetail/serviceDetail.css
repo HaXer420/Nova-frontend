@@ -68,7 +68,8 @@
 .nova-service_detail-images_top_view img {
   width: 47.1rem;
   height: 40rem;
-  object-fit: contain;
+  object-fit: cover;
+  border-radius: 20px !important;
 }
 
 .nova-service_detail-images_top_view_two {
@@ -91,6 +92,7 @@
   width: 45.1rem;
   height: 48rem;
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .nova-service_detail-images_top_view_two_text {

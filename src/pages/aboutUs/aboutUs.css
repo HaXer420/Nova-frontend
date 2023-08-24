@@ -84,6 +84,7 @@
   width: 32.3rem;
   height: 36.1rem;
   object-fit: contain;
+  border-radius: 20px;
 }
 
 .nova-about-us_single_item_top_view div {
