@@ -253,7 +253,7 @@ const Navbar = () => {
               <img alt="" src={showProfile?.image} />
             </div>
           )}
-          { userDataGet && (
+          {/* { userDataGet && ( */}
             <div
             onClick={() => setOpen(true)}
             className="nova_navbar-cart-container"
@@ -263,8 +263,8 @@ const Navbar = () => {
               <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
             </div>
           </div>
-          )
-          }
+          {/* ) */}
+          {/* } */}
         </div>
       </div>
       <div className="nova__navbar-menu">

@@ -14,7 +14,7 @@ const BookingStartComp = ({
       // console.log('parentItem',appointmentItems?.[0]?.title)
   return (
     <div className="nova-booking-start_comp_top_view">
-      <h1>What is your appointment for?</h1>
+      <h2>What is your appointment for?</h2>
 
       {appointmentItems.map((parentItem, mainIndex) => 
       // console.log('parentItem',parentItem.title)

@@ -488,7 +488,8 @@ export default function Dashboard() {
                 )}
               </p>
               <p style={{ marginTop: 10 }}>
-                      {item?.name} <span style={{color:'#F088B8'}}>({item?.serviceName})</span>
+                {item?.name}
+                      {/* {item?.name} <span style={{color:'#F088B8'}}>({item?.serviceName})</span> */}
                       <span style={{ color: "#F088B8", fontWeight: "bold" }}>
                           {" "}
                           {item.type}
