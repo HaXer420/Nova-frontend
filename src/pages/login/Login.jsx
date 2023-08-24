@@ -98,8 +98,11 @@ export default function Login() {
       <Loader loading={isloading} />
       <div className="nova-login_main_view">
         {/* <Loader /> */}
+        <div className="login-div">
+        <img onClick={() => navigate("/")} src={arrowLeft} alt="" />
         <h1>Login</h1>
-        {/* <img src={arrowLeft} alt="" /> */}
+        <h1></h1>
+        </div>
         <div className="nova-login_inputs_view">
           <TextInput
             title={"Email"}

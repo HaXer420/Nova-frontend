@@ -8,7 +8,7 @@ import { GreenNotify, RedNotify } from "../../helper/utility";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import Loader from "../../components/loader/loader";
-
+import { edit, arrowLeft } from "../../assets";
 export default function UpdatePassword() {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -68,7 +68,12 @@ export default function UpdatePassword() {
     <form onSubmit={formik.handleSubmit}>
       <Loader loading={isloading} />
       <div className="nova-login_main_view">
+        {/* <h1>Reset Password</h1> */}
+        <div className="update-password-div">
+        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
         <h1>Reset Password</h1>
+        <h1></h1>
+        </div>
         <div className="nova-login_inputs_view">
           <TextInput
             eye
@@ -107,10 +112,10 @@ export default function UpdatePassword() {
           <div className="nova-login_forgot_password_text_view"></div>
           <Button>Reset Password</Button>
           <div className="nova-login_dont_have_account_text_view">
-            <h3 onClick={() => navigate("/signup")}>
+            {/* <h3 onClick={() => navigate("/signup")}>
               Don’t have an account?{" "}
               <span style={{ fontWeight: 700 }}>Sign Up</span>
-            </h3>
+            </h3> */}
           </div>
         </div>
       </div>

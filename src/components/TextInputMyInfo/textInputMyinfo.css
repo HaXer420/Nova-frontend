@@ -44,6 +44,6 @@
   font-weight: 400;
   font-size: 2rem;
   line-height: 3rem;
-  color: #ee509c;
+  color: #ee509c !important;
   margin-bottom: 0.3rem;
 }

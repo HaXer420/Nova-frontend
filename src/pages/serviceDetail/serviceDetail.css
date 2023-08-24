@@ -90,7 +90,7 @@
 .nova-service_detail-images_top_view_two_image img {
   width: 45.1rem;
   height: 48rem;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .nova-service_detail-images_top_view_two_text {

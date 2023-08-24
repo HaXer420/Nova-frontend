@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { DeviceUUID } from "device-uuid";
-
+import { edit, arrowLeft } from "../../assets";
 import { Button, TextInput } from "../../components";
 import "./otpVerification.css";
 import Loader from "../../components/loader/loader";
@@ -127,7 +127,12 @@ export default function OtpVerification() {
     <form onSubmit={formik.handleSubmit}>
       <Loader loading={isloading} />
       <div className="nova-forgot_main_view">
+        {/* <h1>OTP Verification</h1> */}
+        <div className="OTP-Verification-div">
+        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
         <h1>OTP Verification</h1>
+        <h1></h1>
+        </div>
         <h4>
           Please enter the OTP sent at{" "}
           <span style={{ fontWeight: 700 }}>{state?.email}</span>
@@ -167,10 +172,10 @@ export default function OtpVerification() {
             onClick={() => navigate("/signup")}
             className="nova-forgot_dont_have_account_text_view"
           >
-            <h3>
+            {/* <h3>
               Don’t have an account?
               <span style={{ fontWeight: 700 }}> Sign Up</span>
-            </h3>
+            </h3> */}
           </div>
         </div>
       </div>

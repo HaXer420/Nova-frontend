@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { edit } from "../../assets";
+import { edit, arrowLeft } from "../../assets";
 import { Button, TextInput } from "../../components";
 import "./signup.css";
 import moment from "moment/moment";
@@ -160,7 +160,12 @@ export default function Signup() {
       <div className="nova-signup_main_view">
         <Loader loading={isloading} />
 
+        {/* <h1>Sign Up</h1> */}
+        <div className="signup-div">
+        <img onClick={() => navigate("/")} src={arrowLeft} alt="" />
         <h1>Sign Up</h1>
+        <h1></h1>
+        </div>
         <div className="nova-signup_profile_top_view">
           <div className="nova-signup_profile_border_view" />
           <div

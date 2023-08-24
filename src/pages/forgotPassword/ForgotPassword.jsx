@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-
+import { edit, arrowLeft } from "../../assets";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
 import { Button, TextInput } from "../../components";
@@ -55,7 +55,12 @@ export default function ForgotPassword() {
     <form onSubmit={formik.handleSubmit}>
       <Loader loading={isloading} />
       <div className="nova-forgot_main_view">
+        {/* <h1>Forgot Password</h1> */}
+        <div className="Forgot-Password-div">
+        <img onClick={() => navigate("/-1")} src={arrowLeft} alt="" />
         <h1>Forgot Password</h1>
+        <h1></h1>
+        </div>
         <h4>Please enter your Email. An OTP will be sent to your email.</h4>
         <div className="nova-forgot_inputs_view">
           <TextInput
@@ -76,7 +81,7 @@ export default function ForgotPassword() {
             <Button>Send Code</Button>
           </div>
           <div
-            onClick={() => navigate("/signup")}
+            onClick={() => navigate("/login")}
             className="nova-forgot_dont_have_account_text_view"
           >
             <h3>

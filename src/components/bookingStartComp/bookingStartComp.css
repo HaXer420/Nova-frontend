@@ -94,6 +94,11 @@
   font-size: 18px;
   color: #292929;
 }
+
+.accordion-main-container h1{
+  padding: .4rem;
+}
+
 @media screen and (max-width: 1440px) {
   .nova-booking-start_comp_top_view h1 {
     font-size: 2.8rem;
