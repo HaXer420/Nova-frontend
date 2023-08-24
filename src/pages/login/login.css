@@ -7,6 +7,21 @@
   padding-right: 1rem;
 }
 
+.login-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 34%;
+  justify-content: space-between;
+}
+
+.login-div img{
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  /* padding-left: 100px; */
+}
+
 .nova-login_main_view h1 {
   font-family: "Comfortaa";
   font-weight: 700;
@@ -48,6 +63,7 @@
 .nova-login_dont_have_account_text_view h3 {
   font-family: "Poppins";
   font-weight: 400;
+  padding-top: 80px;
   font-size: 1.6rem;
   line-height: 1.9rem;
   color: #292929;
