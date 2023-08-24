@@ -60,7 +60,7 @@
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: #3f3f3f;
+  color: #3f3f3f !important;
   padding-left: 2.9rem;
 }
 
