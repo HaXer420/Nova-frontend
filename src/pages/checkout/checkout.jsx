@@ -141,11 +141,13 @@ const Checkout = () => {
     : parseInt(tipSelect.value);
   let serviceTax =
     selectRedeemPoint && servicesTotalPrice != 0
-      ? (servicesTotalPrice - availableAward) * 0.1
+      // ? (servicesTotalPrice - availableAward) * 0.1
+      ? (servicesTotalPrice) * 0.1
       : servicesTotalPrice * 0.1;
   let productTax =
     selectRedeemPoint && productTotalPrice != 0
-      ? (productTotalPrice - availableAward) * 0.1
+      // ? (productTotalPrice - availableAward) * 0.1
+      ? (productTotalPrice) * 0.1
       : productTotalPrice * 0.1;
   let discount = 10;
   let myAwards = (servicesTotalPrice + productTotalPrice) * 0.05;

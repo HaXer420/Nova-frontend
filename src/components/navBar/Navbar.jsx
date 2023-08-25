@@ -245,7 +245,7 @@ const Navbar = () => {
         </div>
 
         <div className="nova_navbar-Profile-main-container">
-          {showProfile && (
+          {(showProfile && !showProfile.isTemp) && (
             <div
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"
@@ -314,7 +314,7 @@ const Navbar = () => {
           <img alt="" src={logo} />
         </div>
         <div className="nova_navbar-Profile-main-container">
-          {showProfile && (
+          {(showProfile && !showProfile.isTemp) && (
             <div
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"

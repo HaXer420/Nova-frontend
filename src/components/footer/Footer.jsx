@@ -52,6 +52,7 @@ export default function Footer({ setIsLoading }) {
     }),
     onSubmit: (val) => {
       contactUsApi(val.email, val.message);
+    formik.resetForm();
     },
   });
   return (

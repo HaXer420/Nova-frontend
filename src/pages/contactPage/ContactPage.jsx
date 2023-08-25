@@ -22,9 +22,7 @@ export default function ContactPage() {
     callApi(
       "POST",
       routes.contactUs,
-      { 
-        name: name, 
-        mail: email, message: message, phone: phone },
+      { name: name, mail: email, message: message, phone: phone },
       setIsLoading,
       getRes,
       (error) => {}
@@ -48,8 +46,9 @@ export default function ContactPage() {
     }),
     onSubmit: (val) => {
       contactUsApi(
-        val.name, 
-        val.email, val.message, val.phone);
+        val.name, val.email, val.message, val.phone
+      );
+        formik.resetForm();
     },
   });
   return (

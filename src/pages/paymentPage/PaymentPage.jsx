@@ -224,6 +224,7 @@ export default function PaymentPage() {
         .typeError("Card number must be a number."),
     }),
     onSubmit: (val) => {
+      console.log('value',val);
       confirmToPay(
         val.firstname,
         val.lastname,
@@ -303,7 +304,7 @@ export default function PaymentPage() {
                     />
                     <TextInput
                       id="cardNumber"
-                      type={"number"}
+                      type={"string"}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
                       value={formik.values.cardNumber}

@@ -2,7 +2,8 @@
   width: 100%;
   flex-direction: column;
   display: flex;
-  padding: 0 16rem 16rem 7.7rem;
+  /* padding: 0 16rem 16rem 7.7rem; */
+  padding: 0 16rem 6rem 7.7rem;
 }
 
 .nova-checkout-main-heading p {
