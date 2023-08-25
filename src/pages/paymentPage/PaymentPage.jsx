@@ -155,12 +155,12 @@ export default function PaymentPage() {
       // cardnumber: "",
       // expmonth: "",
       // expyear: "",
-      // expmonth: 11,
-      // expyear: 2024,
+      expmonth: 11,
+      expyear: 2024,
       // cvc: "",
       type: "at-store",
     };
-    // console.log("body", body);
+    console.log("body>>>>", body);
     let getRes = (res) => {
       if (res?.status == 201) {
         dispatch(cartProducts([]));
@@ -203,7 +203,7 @@ export default function PaymentPage() {
       lastname: "",
       cardNumber: "",
       cvc: "",
-      expryDate: "",
+      expryDate: "12/26",
     },
     validationSchema: Yup.object({
       firstname: Yup.string()
@@ -213,18 +213,17 @@ export default function PaymentPage() {
       cvc: Yup.string()
         .max(3, "Must be long 3 characters or less")
         .required("CVC is required."),
-      expryDate: Yup.number().required("Expiry date is required."),
+      // expryDate: Yup.string().required("Expiry date is required."),
 
       cardNumber: Yup.number()
         // .matches(/(01)(\d){8}\b/, 'Enter a valid mobile number')
         .required("Card number is required.")
         .positive()
         .integer()
-        .max(9999999999999999, "Card Number limit is 16")
+        // .max(16, "Card Number limit is 16")
+        // .min(16, "Card Number limit is 16")
         .typeError("Card number must be a number."),
     }),
-
-    
     onSubmit: (val) => {
       console.log('value',val);
       confirmToPay(
@@ -320,7 +319,7 @@ export default function PaymentPage() {
                       }
                     />
                     <div className="nova-payment_small_inputs_top_view">
-                      {/* <div className="nova-payment_small_inputs_view">
+                      <div className="nova-payment_small_inputs_view">
                         <TextInput
                           style={{ borderColor: "#EE509C" }}
                           placeholder={"mm/yy"}
@@ -328,23 +327,7 @@ export default function PaymentPage() {
                           value={expvalue}
                           onChange={(e) => onchangeVale(e)}
                         />
-                      </div> */}
-                      <TextInput
-  id="expryDate"
-  type={"number"} // You can adjust the input type as needed
-  onChange={formik.handleChange}
-  onBlur={formik.handleBlur}
-  value={formik.values.expryDate}
-  style={{ borderColor: "#EE509C" }}
-  placeholder={"mm/yy"}
-  title={"Expiry Date"}
-  error={
-    formik.touched.expryDate && formik.errors.expryDate
-      ? formik.errors.expryDate
-      : null
-  }
-/>
-
+                      </div>
                       <div className="nova-payment_small_inputs_view">
                         <TextInput
                           id="cvc"

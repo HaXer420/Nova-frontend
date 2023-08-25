@@ -299,8 +299,17 @@ const Checkout = () => {
                       />
                     </div>
 
-                    <TipDropDown
+                    {/* <TipDropDown
                       options={tipArr}
+                      selected={tipSelect}
+                      setSelected={setTipSelect}
+                    /> */}
+                    
+                    <TipDropDown
+                      options={tipArr.map((option) => ({
+                        label: `${option.label} - $${(totalPrice * option.value / 100).toFixed(2)}`,
+                        value: option.value,
+                      }))}
                       selected={tipSelect}
                       setSelected={setTipSelect}
                     />
