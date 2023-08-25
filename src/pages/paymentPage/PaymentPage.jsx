@@ -213,7 +213,7 @@ export default function PaymentPage() {
       cvc: Yup.string()
         .max(3, "Must be long 3 characters or less")
         .required("CVC is required."),
-      // expryDate: Yup.string().required("Expiry date is required."),
+      expryDate: Yup.number().required("Expiry date is required."),
 
       cardNumber: Yup.number()
         // .matches(/(01)(\d){8}\b/, 'Enter a valid mobile number')
@@ -223,6 +223,8 @@ export default function PaymentPage() {
         .max(9999999999999999, "Card Number limit is 16")
         .typeError("Card number must be a number."),
     }),
+
+    
     onSubmit: (val) => {
       console.log('value',val);
       confirmToPay(
@@ -318,7 +320,7 @@ export default function PaymentPage() {
                       }
                     />
                     <div className="nova-payment_small_inputs_top_view">
-                      <div className="nova-payment_small_inputs_view">
+                      {/* <div className="nova-payment_small_inputs_view">
                         <TextInput
                           style={{ borderColor: "#EE509C" }}
                           placeholder={"mm/yy"}
@@ -326,7 +328,23 @@ export default function PaymentPage() {
                           value={expvalue}
                           onChange={(e) => onchangeVale(e)}
                         />
-                      </div>
+                      </div> */}
+                      <TextInput
+  id="expryDate"
+  type={"number"} // You can adjust the input type as needed
+  onChange={formik.handleChange}
+  onBlur={formik.handleBlur}
+  value={formik.values.expryDate}
+  style={{ borderColor: "#EE509C" }}
+  placeholder={"mm/yy"}
+  title={"Expiry Date"}
+  error={
+    formik.touched.expryDate && formik.errors.expryDate
+      ? formik.errors.expryDate
+      : null
+  }
+/>
+
                       <div className="nova-payment_small_inputs_view">
                         <TextInput
                           id="cvc"
