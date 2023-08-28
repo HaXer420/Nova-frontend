@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { logo, tiktok, instagram, facebook, twitter } from "../../assets";
+import { logo, tiktok, instagram, facebook, twitter, youtube } from "../../assets";
 import "./footer.css";
 import routes from "../../api/routes";
 import { callApi } from "../../api/apiCaller";
@@ -154,6 +154,12 @@ export default function Footer({ setIsLoading }) {
             {/* <h1>Tiktok</h1> */}
             </a>
           </h2>
+          {/* <h2>
+            <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+            <img src={youtube} alt="" />
+            <span> Youtube</span>
+            </a>
+          </h2> */}
         </div>
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>

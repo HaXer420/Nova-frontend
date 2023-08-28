@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { close, menu, logo, profileIcon, shoppingCart, tiktok, twitter, facebook,instagram } from "../../assets";
+import { close, menu, logo, profileIcon, shoppingCart, tiktok, twitter, facebook, instagram, youtube } from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DrawerCart from "../DrawerCart/DrawerCart";
@@ -232,6 +232,11 @@ const Navbar = () => {
             <img src={tiktok} alt="" />
             </a>
           </h2>
+          {/* <h2>
+            <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+            <img src={youtube} alt="" />
+            </a>
+          </h2> */}
         </div>
     </>
   );
