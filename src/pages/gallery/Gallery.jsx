@@ -23,6 +23,7 @@ export default function Gallery() {
   // const [playing, setPlaying] = useState(false);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [services, setServices] = useState([]);
+  const [currentVideo,setCurrentVideo] = useState(null)
   const navigate = useNavigate();
 
   const [selectedFormat, setSelectedFormat] = useState({
@@ -118,9 +119,71 @@ export default function Gallery() {
     }
   };
 
+  const NestedDescription = ({ showModalDes, setShowModalDes, description }) => {
+    // Set a minimum height for the modal
+    const minHeight = 250;
+    const maxHeight = 600;
+    const descriptionHeight = 500
+    return (
+    <div
+      onClick={() => setShowModalDes(false)}
+      className="add-product-modal-main-container"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
+        zIndex: 9999,
+      }}
+    >
+      <div
+        style={{
+         marginLeft:"20rem",
+         width: "800px", // Set the modal width to 600 pixels
+        //   minHeight: `${minHeight + descriptionHeight}px`,
+          height: descriptionHeight, // Set the modal height to 400 pixels
+          overflowY: "hidden", // Enable vertical scrolling when content overflows
+        //   wordBreak: "break-word",
+          wordWrap:"break-word",
+          backgroundColor: "#fff", // White background color
+          padding: "20px", // Add some padding to the modal content
+          borderRadius: "8px", // Rounded corners
+        }}
+        className="add-product-modal-container product-description-detail"
+      >
+        <h1>Description</h1>
+        <h2 >{<video
+        style={{
+          height:'425px',
+          width:'100%',
+          overflowY:'none'
+        }}
+                              // url={currentVideo.photo}
+                              src={currentVideo.photo}
+                              playing
+                              controls
+
+                            /> }</h2>
+      </div>
+    </div>
+  );
+};
+
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
+      {
+                                console.log('aaaaa',currentVideo)
+
+      }
+      {currentVideo &&
+      <NestedDescription
+       currentVideo={currentVideo} setShowModalDes={setCurrentVideo} showModalDes={currentVideo}/>}
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
@@ -219,24 +282,42 @@ export default function Gallery() {
       <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
     )}
   </div> */}
-  <div key={index} className="thumbnail-container">
-    {playingIndex === index ? (
-      <ReactPlayer
-        url={item.photo}
-        playing
-        controls
-        width="100%"
-        height="auto"
-      />
-    ) : (
-      <>
-        <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
-        <div className="play-button" onClick={() => handleThumbnailClick(index)}>
-          <span>&#9654;</span> {/* Play button icon */}
-        </div>
-      </>
-    )}
-  </div>
+                        <div key={index} className="thumbnail-container">
+
+                          {/* {playingIndex === index ? (
+                            <ReactPlayer
+                              url={item.photo}
+                              playing
+                              controls
+                              width="100%"
+                              height="auto"
+                            />
+                          ) : ( */}
+                            <>
+                              <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
+                              <div className="play-button" onClick={() =>{
+                                handleThumbnailClick(index)
+                                setCurrentVideo(item)
+                              } }
+                              style={{
+                                position: 'absolute',
+                                top: '50%', // Center vertically
+                                left: '50%', // Center horizontally
+                                transform: 'translate(-50%, -50%)', // Center both vertically and horizontally
+                                cursor: 'pointer', // Add a pointer cursor for interaction
+                              }}
+                              >
+                                <span
+                                style={{
+                                  fontSize: '50px', // Adjust the font size for the play button icon
+                                  color: 'white' 
+                                }}
+                                >&#9654;</span> {/* Play button icon */}
+                              </div>
+                            </>
+                          {/* ) */}
+                          {/* } */}
+                        </div>
                       <div className="nova-services-single_service_title_view">
                         <h2>{item.title}</h2>
                       </div>

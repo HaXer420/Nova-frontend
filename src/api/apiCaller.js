@@ -100,7 +100,7 @@ export const callApi = async (
         }),
       };
 
-      await fetch(`${BASE_URL}user/refresh/${refreshToken}`, fetchObject)
+      await fetch(`${BASE_URL}/user/refresh/${refreshToken}`, fetchObject)
         .then(async (res) => {
           let resJson = await res.json();
           //console.log("Fetch refreshResponse ==>  ", resJson);

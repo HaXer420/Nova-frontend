@@ -88,6 +88,7 @@ export default function LocationPage() {
     },
   ];
   const navigateTo = (item) => {
+    console.log("item is",item)
     Navigate("/bookingpage", { state: { item: item } });
   };
   const defaultProps = {

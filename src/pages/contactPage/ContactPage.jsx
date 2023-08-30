@@ -62,7 +62,7 @@ export default function ContactPage() {
             <h1>Contact</h1>
             <div className="nova-contact_page_inputs_top_view">
             <TextInputTwo
-                title={"Name(Optional)"}
+                title={"Name"}
                 placeholder={"Your name"}
                 id="name"
                 onChange={formik.handleChange}

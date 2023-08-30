@@ -28,6 +28,7 @@ export default function PaymentPage() {
   const location = useLocation();
   const userData = useSelector((data) => data.userDataSlice);
 
+
   const dispatch = useDispatch();
   const [isloading, setIsLoading] = useState(false);
   const [showModel, setShowModel] = useState(false);
@@ -74,6 +75,7 @@ export default function PaymentPage() {
     if (expvalue == "") return RedNotify("Enter expiry date");
     // console.log("jjsd", firstName, lastName, cardNumber, cvc, expryDate);
     // setShowModel(true);
+    console.log('location',location);
     let body = {
       store: "6468aef24b84762f11bdc623",
       products: location?.state?.productArr,
@@ -104,6 +106,7 @@ export default function PaymentPage() {
       expyear: `${parseInt(expvalue.split("/")[1])}`,
       // expmonth: 11,
       // expyear: 2024,
+      expryDate,
       cvc: cvc,
       type: "card",
     };
@@ -203,7 +206,7 @@ export default function PaymentPage() {
       lastname: "",
       cardNumber: "",
       cvc: "",
-      expryDate: "12/26",
+      expryDate: "",
     },
     validationSchema: Yup.object({
       firstname: Yup.string()

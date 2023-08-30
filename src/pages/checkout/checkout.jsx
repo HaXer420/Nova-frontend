@@ -160,6 +160,15 @@ const Checkout = () => {
     : totalProductsAmount + totalServiceAmount;
 
   const confirmPay = () => {
+    console.log('payment',{
+      productArr: productsStore,
+      services: serviceStore,
+      tip: tip,
+      subtotal: totalPrice,
+      discount: myAwards,
+      redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
+      amount: finalAmount,
+    });
     navigate("/paymentpage", {
       state: {
         productArr: productsStore,
