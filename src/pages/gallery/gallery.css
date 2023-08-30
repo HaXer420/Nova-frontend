@@ -1,3 +1,10 @@
+.thumbnail-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+
 /* .nova-services-main_view {
   display: flex;
   flex-direction: column;
