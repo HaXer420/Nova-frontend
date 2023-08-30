@@ -14,6 +14,7 @@ export const Method = {
   DELETE: "DELETE",
 };
 
+
 export const Status = {
   SUCCESS: 200,
   ERROR: 400,
