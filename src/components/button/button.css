@@ -37,13 +37,13 @@
 }
 
 @media screen and (max-width: 470px) {
-  .nova-button_border_view {
+  /* .nova-button_border_view {
     width: 14.2rem;
     height: 4.9rem;
     border: 1px solid #ee509c;
     border-radius: 60% 60% 60% 60% / 60% 60% 60% 60%;
     transform: rotate(162deg);
-  }
+  } */
 
   .nova-button_main_view {
     width: 14.2rem;

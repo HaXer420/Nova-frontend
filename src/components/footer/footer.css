@@ -584,4 +584,41 @@
     display: flex;
     flex-direction: column;
   }
+
+  .nova-footer_detail_top_view {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .nova-footer_contact_us_form_top_view input,
+  .nova-footer_contact_us_form_top_view textarea {
+    font-size: 1.6rem;
+    line-height: 1rem;
+  }
+
+  .nova-footer_contact_us_view h2 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+
+  .nova-footer_contact_us_form_top_view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
+  }
+
+  .nova-footer_detail_contacts_top_view h1,
+  .nova-footer_detail_socials_top_view h1,
+  .nova-footer_detail_links_top_view h1 {
+    font-size: 1.8rem;
+    line-height: 0;
+  }
+
+  .nova-footer_top_view {
+    padding: 4.5rem 3.5rem 2rem 3.6rem;
+    margin-top: 1rem;
+  }
 }
+
