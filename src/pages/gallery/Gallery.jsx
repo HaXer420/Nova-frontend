@@ -132,44 +132,15 @@ export default function Gallery() {
     return (
       <div
         onClick={() => setShowModalDes(false)}
-        className="add-product-modal-main-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
-          zIndex: 9999,
-        }}
+        className="add-product-modal-main-container-video"
       >
         <div
-          style={{
-            marginLeft: "20rem",
-            width: "800px", // Set the modal width to 600 pixels
-            //   minHeight: `${minHeight + descriptionHeight}px`,
-            height: descriptionHeight, // Set the modal height to 400 pixels
-            overflowY: "hidden", // Enable vertical scrolling when content overflows
-            //   wordBreak: "break-word",
-            wordWrap: "break-word",
-            backgroundColor: "#fff", // White background color
-            padding: "20px", // Add some padding to the modal content
-            borderRadius: "8px", // Rounded corners
-          }}
-          className="add-product-modal-container product-description-detail"
+          className="add-product-modal-container-product-description-detail-video"
         >
           {/* <h1>Description</h1> */}
           <h2>
             {
-              <video
-                style={{
-                  height: "425px",
-                  width: "100%",
-                  overflowY: "none",
-                }}
+              <video className="video-model"
                 // url={currentVideo.photo}
                 src={currentVideo.photo}
                 playing
@@ -194,35 +165,9 @@ export default function Gallery() {
     return (
       <div
         onClick={() => setShowModalDes(false)}
-        className="add-product-modal-main-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
-          zIndex: 9999,
-        }}
+        className="add-product-modal-main-container-desc"
       >
-        <div
-          style={{
-            marginLeft: "15rem",
-            width: "800px", // Set the modal width to 600 pixels
-            //   minHeight: `${minHeight + descriptionHeight}px`,
-            height: descriptionHeight, // Set the modal height to 400 pixels
-            overflowY: "auto", // Enable vertical scrolling when content overflows
-            //   wordBreak: "break-word",
-            wordWrap: "break-word",
-            backgroundColor: "#fff", // White background color
-            padding: "20px", // Add some padding to the modal content
-            borderRadius: "8px", // Rounded corners
-          }}
-          className="add-product-modal-container product-description-detail"
-        >
+        <div className="add-product-modal-container-product-description-detail-desc">
           <h2>
           {
           readMore?.description
