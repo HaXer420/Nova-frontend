@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./checkout.css";
 import { Button, Footer, NavBar, TopBar } from "../../components";
+import { setParam } from "../../api/params";
+
 import {
   addIcon,
   calenderTwo,
@@ -23,6 +25,7 @@ import { RedNotify } from "../../helper/utility";
 import GuestModal from "../../components/guestModal/guestModal";
 import GuestForm from "../../components/guestForm/guestForm";
 import { accessToken, refreshToken, userData } from "../../redux/userDataSlice";
+
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -169,6 +172,8 @@ const Checkout = () => {
       redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
       amount: finalAmount,
     });
+    
+    
     navigate("/paymentpage", {
       state: {
         productArr: productsStore,
@@ -180,6 +185,8 @@ const Checkout = () => {
         amount: finalAmount,
       },
     });
+
+
   };
 
   const asGuest = () => {
@@ -244,7 +251,17 @@ const Checkout = () => {
         handleClose={handleClose}
         asGuest={asGuest}
       />
-      <GuestForm open={openF} handleClose={() => setOpenF(false)} />
+      <GuestForm open={openF} additionalData={{
+      state: {
+        productArr: productsStore,
+        services: serviceStore,
+        tip: tip,
+        subtotal: totalPrice,
+        discount: myAwards,
+        redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
+        amount: finalAmount,
+      },
+    }} handleClose={() => setOpenF(false)} />
       <div className="nova-dashboard-container">
         <div className="nova-checkout-main-container">
           <div className="nova-checkout-main-heading">

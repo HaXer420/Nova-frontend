@@ -93,8 +93,12 @@ export default function AboutUs() {
             <img src={aboutImageTwo} />
           </div>
           <div className="nova-about-us_single_item_top_view">
+              <div id="small-text">
+              <h3>Our Values</h3>
+              <h4>{aboutUs[0]?.ourvalues}</h4>
+              </div>
             <img src={aboutImageThree} />
-            <div>
+            <div id="big-text">
               <h3>Our Values</h3>
               <h4>{aboutUs[0]?.ourvalues}</h4>
             </div>

@@ -211,3 +211,53 @@
     margin-left: 0;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .nova-product-main-img-container img {
+    width: 30rem;
+    height: 21rem;
+  }
+
+  .nova-product-name-main-container {
+    width: 30rem;
+  }
+
+  .nova-product-description p {
+    font-size: 1.5rem;
+    text-align: justify;
+    display: flex;
+  }
+
+  .nova-product-qty-main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -3.7rem;
+    margin-left: 14rem;
+  }
+
+  .nova-product-qty-count-container {
+    width: 3.7rem;
+    height: 3.7rem;
+    border-radius: 50%;
+    background-color: #ee509c;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .nova-product-cross-price-container img {
+    width: 5.8rem;
+    height: 2.7rem;
+    position: absolute;
+  }
+  
+    .nova-product-qty-main-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: -3.7rem;
+      margin-left: 16rem;
+  }
+}

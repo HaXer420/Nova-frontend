@@ -8,7 +8,7 @@ import { myInfo } from "../../redux/userDataSlice";
 import { useNavigate } from "react-router-dom";
 import { RedNotify } from "../../helper/utility";
 
-const GuestForm = ({ open, handleClose }) => {
+const GuestForm = ({ open, additionalData, handleClose }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -34,7 +34,9 @@ const GuestForm = ({ open, handleClose }) => {
       })
     );
     handleClose();
-    navigate("/paymentpage");
+    navigate("/paymentpage", {
+      state: additionalData.state
+    });
   };
   return (
     <Modal

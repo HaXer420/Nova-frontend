@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactPlayer from 'react-player'
+import ReactPlayer from "react-player";
 import { useNavigate } from "react-router-dom";
 import { callApi } from "../../api/apiCaller";
 import { setParam } from "../../api/params";
@@ -23,7 +23,8 @@ export default function Gallery() {
   // const [playing, setPlaying] = useState(false);
   const [playingIndex, setPlayingIndex] = useState(null);
   const [services, setServices] = useState([]);
-  const [currentVideo,setCurrentVideo] = useState(null)
+  const [currentVideo, setCurrentVideo] = useState(null);
+  const [readMore, setReadMore] = useState(null);
   const navigate = useNavigate();
 
   const [selectedFormat, setSelectedFormat] = useState({
@@ -119,78 +120,90 @@ export default function Gallery() {
     }
   };
 
-  const NestedDescription = ({ showModalDes, setShowModalDes, description }) => {
+  const NestedDescription = ({
+    showModalDes,
+    setShowModalDes,
+    description,
+  }) => {
     // Set a minimum height for the modal
     const minHeight = 250;
     const maxHeight = 600;
-    const descriptionHeight = 500
+    const descriptionHeight = 500;
     return (
-    <div
-      onClick={() => setShowModalDes(false)}
-      className="add-product-modal-main-container"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
-        zIndex: 9999,
-      }}
-    >
       <div
-        style={{
-         marginLeft:"20rem",
-         width: "800px", // Set the modal width to 600 pixels
-        //   minHeight: `${minHeight + descriptionHeight}px`,
-          height: descriptionHeight, // Set the modal height to 400 pixels
-          overflowY: "hidden", // Enable vertical scrolling when content overflows
-        //   wordBreak: "break-word",
-          wordWrap:"break-word",
-          backgroundColor: "#fff", // White background color
-          padding: "20px", // Add some padding to the modal content
-          borderRadius: "8px", // Rounded corners
-        }}
-        className="add-product-modal-container product-description-detail"
+        onClick={() => setShowModalDes(false)}
+        className="add-product-modal-main-container-video"
       >
-        <h1>Description</h1>
-        <h2 >{<video
-        style={{
-          height:'425px',
-          width:'100%',
-          overflowY:'none'
-        }}
-                              // url={currentVideo.photo}
-                              src={currentVideo.photo}
-                              playing
-                              controls
-
-                            /> }</h2>
+        <div
+          className="add-product-modal-container-product-description-detail-video"
+        >
+          {/* <h1>Description</h1> */}
+          <h2>
+            {
+              <video className="video-model"
+                // url={currentVideo.photo}
+                src={currentVideo.photo}
+                playing
+                controls
+              />
+            }
+          </h2>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+
+  const HandleReadMoreClick = ({
+    showModalDes,
+    setShowModalDes,
+    description,
+  }) => {
+    // Set a minimum height for the modal
+    const minHeight = 250;
+    const maxHeight = 600;
+    const descriptionHeight = 500;
+    return (
+      <div
+        onClick={() => setShowModalDes(false)}
+        className="add-product-modal-main-container-desc"
+      >
+        <div className="add-product-modal-container-product-description-detail-desc">
+          <h2>
+          {
+          readMore?.description
+          }
+        </h2>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
-      {
-                                console.log('aaaaa',currentVideo)
+      {/* {console.log("aaaaa", readMore)} */}
+      {(readMore && (
+        <HandleReadMoreClick
+          readMore={readMore}
+          setShowModalDes={setReadMore}
+          showModalDes={readMore}
+        />
+      ))}
+      {currentVideo && (
+        <NestedDescription
+          currentVideo={currentVideo}
+          setShowModalDes={setCurrentVideo}
+          showModalDes={currentVideo}
+        />
+      )}
 
-      }
-      {currentVideo &&
-      <NestedDescription
-       currentVideo={currentVideo} setShowModalDes={setCurrentVideo} showModalDes={currentVideo}/>}
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
         <div className="nova-services-main_view">
           <h1>Gallery</h1>
           <div className="nova-services-gender_view">
-            {formatArray.map((item,index) => {
+            {formatArray.map((item, index) => {
               return (
                 <div
                   onClick={() => setSelectedFormat(item)}
@@ -222,18 +235,18 @@ export default function Gallery() {
             <div className="nova-services-top_view">
               {services
                 ?.filter((item) => item?.type == "photo")
-                ?.map((item,index) => {
+                ?.map((item, index) => {
                   return (
                     <div
-                    //   key={item._id}
+                      //   key={item._id}
                       className="nova-services-single_service_view"
-                    //   onClick={() =>
-                    //     navigate(
-                    //       `/Sservicedetail?${setParam({
-                    //         product: JSON.stringify(item),
-                    //       })}`
-                    //     )
-                    //   }
+                      //   onClick={() =>
+                      //     navigate(
+                      //       `/Sservicedetail?${setParam({
+                      //         product: JSON.stringify(item),
+                      //       })}`
+                      //     )
+                      //   }
                     >
                       <img alt="" src={item?.photo} />
                       <div className="nova-services-single_service_title_view">
@@ -254,37 +267,36 @@ export default function Gallery() {
             <div className="nova-services-top_view">
               {services
                 ?.filter((item) => item?.type == "video")
-                ?.map((item,index) => {
+                ?.map((item, index) => {
                   console.log("item", item);
                   return (
                     <div
-                    //   key={item._id}
+                      //   key={item._id}
                       className="nova-services-single_service_view"
-                    //   onClick={() =>
-                    //     navigate(
-                    //       `/Sservicedetail?${setParam({
-                    //         product: JSON.stringify(item),
-                    //       })}`
-                    //     )
-                    //   }
+                      //   onClick={() =>
+                      //     navigate(
+                      //       `/Sservicedetail?${setParam({
+                      //         product: JSON.stringify(item),
+                      //       })}`
+                      //     )
+                      //   }
                     >
                       {/* <video controls src={item?.photo}></video> */}
                       {/* <div key={index} onClick={() => handleThumbnailClick(index)}>
-    {playingIndex === index ? (
-      <ReactPlayer
-        url={item.photo}
-        playing
-        controls
-        width="100%"
-        height="auto"
-      />
-    ) : (
-      <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
-    )}
-  </div> */}
-                        <div key={index} className="thumbnail-container">
-
-                          {/* {playingIndex === index ? (
+                        {playingIndex === index ? (
+                          <ReactPlayer
+                            url={item.photo}
+                            playing
+                            controls
+                            width="100%"
+                            height="auto"
+                          />
+                        ) : (
+                          <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
+                        )}
+                      </div> */}
+                      <div key={index} className="thumbnail-container">
+                        {/* {playingIndex === index ? (
                             <ReactPlayer
                               url={item.photo}
                               playing
@@ -293,36 +305,56 @@ export default function Gallery() {
                               height="auto"
                             />
                           ) : ( */}
-                            <>
-                              <img src={item.thumbnail} alt={`Video Thumbnail ${index}`} />
-                              <div className="play-button" onClick={() =>{
-                                handleThumbnailClick(index)
-                                setCurrentVideo(item)
-                              } }
+                        <>
+                          <img
+                            src={item.thumbnail}
+                            alt={`Video Thumbnail ${index}`}
+                          />
+                          <div
+                            className="play-button"
+                            onClick={() => {
+                              handleThumbnailClick(index);
+                              setCurrentVideo(item);
+                            }}
+                            style={{
+                              position: "absolute",
+                              top: "50%", // Center vertically
+                              left: "50%", // Center horizontally
+                              transform: "translate(-50%, -50%)", // Center both vertically and horizontally
+                              cursor: "pointer", // Add a pointer cursor for interaction
+                            }}
+                          >
+                            <span
                               style={{
-                                position: 'absolute',
-                                top: '50%', // Center vertically
-                                left: '50%', // Center horizontally
-                                transform: 'translate(-50%, -50%)', // Center both vertically and horizontally
-                                cursor: 'pointer', // Add a pointer cursor for interaction
+                                fontSize: "50px", // Adjust the font size for the play button icon
+                                color: "white",
                               }}
-                              >
-                                <span
-                                style={{
-                                  fontSize: '50px', // Adjust the font size for the play button icon
-                                  color: 'white' 
-                                }}
-                                >&#9654;</span> {/* Play button icon */}
-                              </div>
-                            </>
-                          {/* ) */}
-                          {/* } */}
-                        </div>
+                            >
+                              &#9654;
+                            </span>{" "}
+                            {/* Play button icon */}
+                          </div>
+                        </>
+                        {/* ) */}
+                        {/* } */}
+                      </div>
                       <div className="nova-services-single_service_title_view">
                         <h2>{item.title}</h2>
                       </div>
                       <h4>
-                        {item?.description}
+                        {/* {item?.description.length > 10 ? ( */}
+                          <>
+                            {item?.description.substring(0, 50)}
+                            <div
+                              onClick={() => setReadMore(item)}
+                              style={{ cursor: "pointer", color: "blue" }}
+                            >
+                              Read More
+                            </div>
+                          </>
+                        {/* ) : (
+                          item?.description */}
+                        {/* )} */}
                       </h4>
                     </div>
                   );

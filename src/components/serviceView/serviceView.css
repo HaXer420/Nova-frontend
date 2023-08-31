@@ -109,6 +109,7 @@
 
   .nova-dashboard-single_service_title_view {
     margin-top: 34rem;
+    /* margin-top: 3rem; */
     margin-bottom: 1.4rem;
   }
 
@@ -133,4 +134,59 @@
     margin-bottom: 4.6rem;
     border: 3px solid #FFFFFF;
   }
+}
+
+@media screen and (max-width:360px) {
+  .nova-dashboard-single_service_view {
+    margin-right: .6rem;
+    width: 20.6rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nova-dashboard-single_service_view img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -100px !important;
+    height: 21.6rem;
+    width: 21.6rem;
+
+  }
+
+  .nova-dashboard-single_service_title_view {
+    margin-top: 12rem !important;
+    margin-bottom: 1.4rem;
+  }
+
+  .react-multiple-carousel__arrow {
+    position: absolute;
+    outline: 0;
+    transition: all .5s;
+    border-radius: 15px;
+    z-index: 1000;
+    border: 0;
+    background: rgba(0,0,0,0.5);
+    min-width: 30px;
+    min-height: 30px;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.nova-dashboard-our_services_and_specials_top_view{
+  padding-left: 2.6rem !important;
+  /* width: auto; */
+}
+
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px);
+}
+
+.react-multi-carousel-track li {
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+    width: 330px!important;
+}
+  
 }

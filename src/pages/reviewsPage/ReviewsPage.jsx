@@ -115,6 +115,7 @@ export default function ReviewsPage() {
     }),
     onSubmit: (val) => {
       reviewSubmit(val.name);
+      formik.resetForm();
     },
   });
 

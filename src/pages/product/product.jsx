@@ -110,13 +110,28 @@ const Product = () => {
                     <p>{item?.title}</p>
                   </div>
                   <div className="nova-product-off-container">
-                    <p>{item?.salepercentage?.toFixed(2)}% OFF</p>
+                    {/* <p>{item?.salepercentage?.toFixed(2)}% OFF</p> */}
+                    <p style={item?.price ? { marginLeft: '20px' } : {marginLeft: '0px'}}>
+                      {!item?.price ? <></> : `${item?.salepercentage}% OFF`}
+                    </p>
                   </div>
                 </div>
                 <div className="nova-product-description">
                   <p>{item?.description}</p>
                 </div>
                 <div className="nova-product-price-container">
+                {item?.price ? (
+                    <div className="nova-product-cross-price-container">
+                      <img src={crossPrice} alt="cross-icon" />
+                      <p>${item?.price}.00</p>
+                    </div>
+                  ) : <></>
+                  }
+                    <div className="nova-product-price-product">
+                    <p>${item?.salePrice}</p>
+                  </div>
+                  </div>
+                {/* <div className="nova-product-price-container">
                   {item?.salePrice && (
                     <div className="nova-product-cross-price-container">
                       <img src={crossPrice} alt="cross-icon" />
@@ -126,7 +141,7 @@ const Product = () => {
                   <div className="nova-product-price-product">
                     <p>${totalPrice}</p>
                   </div>
-                </div>
+                </div> */}
                 <div className="nova-product-qty-main-container">
                   <div
                     onClick={() => handleCountChange(-1)}

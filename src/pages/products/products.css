@@ -83,3 +83,13 @@
     line-height: 1.8rem;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .add_to-cart-btn p {
+    font-family: "poppins";
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    color: #fff;
+  }
+}

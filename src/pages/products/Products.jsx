@@ -97,15 +97,13 @@ export default function Products() {
                     </span>
                   </h4>
                   <div className="nova-products-single_product_price_view">
-                    {
-                      console.log(item?.salePrice)
-                    }
                   {item?.price ? (
                     <div className="nova-product-cross-price-container">
                       <img src={crossPrice} alt="cross-icon" />
                       <p>${item?.price}.00</p>
                     </div>
-                  ) : <></>}
+                  ) : <></>
+                  }
                     <div className="nova-product-price-product">
                     <p>${item?.salePrice}</p>
                   </div>

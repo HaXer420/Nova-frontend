@@ -4,8 +4,8 @@ import { DeviceUUID } from "device-uuid";
 
 import { accessToken } from "../redux/userDataSlice";
 
-const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
-// export const BASE_URL = "http://localhost:4500/api/v1";
+// const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
+export const BASE_URL = "http://localhost:4500/api/v1";
 export const Method = {
   GET: "GET",
   POST: "POST",
@@ -13,6 +13,7 @@ export const Method = {
   PATCH: "PATCH",
   DELETE: "DELETE",
 };
+
 
 export const Status = {
   SUCCESS: 200,
