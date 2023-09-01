@@ -24,6 +24,18 @@ const Product = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  // Function to toggle between full and shortened description
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+   // The maximum length at which you want to truncate the description
+   const maxDescriptionLength = 150;
+
+   // Create a shortened version of the description
+   const shortenedDescription = item?.description?.slice(0, maxDescriptionLength);
 
   const handleCountChange = (change) => {
     const newCount = count + change;
@@ -117,7 +129,26 @@ const Product = () => {
                   </div>
                 </div>
                 <div className="nova-product-description">
-                  <p>{item?.description}</p>
+                  <p className="justify-text">
+                    {showFullDescription
+                      ? item?.description
+                      : `${shortenedDescription} ${
+                          item?.description?.length > maxDescriptionLength ? "..." : ""
+                        }`}
+                    {item?.description?.length > maxDescriptionLength && (
+                      <span
+                        style={{
+                          color: "#F088B8",
+                          cursor: "pointer",
+                          fontWeight: "bold",
+                          fontSize: "2rem",
+                        }}
+                        onClick={toggleDescription}
+                      >
+                        {showFullDescription ? " Read Less" : " Read More"}
+                      </span>
+                    )}
+                  </p>
                 </div>
                 <div className="nova-product-price-container">
                 {item?.price ? (

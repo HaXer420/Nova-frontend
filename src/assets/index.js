@@ -66,6 +66,8 @@ export { default as boxSearch } from "./box-search.png";
 
 // -----------------------------------------------------
 export { default as back } from "./back.png";
+export { default as locationPin} from './locationPin.png'
+// export { default as locationPin } from "./locationPin.png";
 export { default as next } from "./next.png";
 export { default as bookingBanner } from "./bookingBanner.png";
 export { default as calenderTwo } from "./calenderTwo.png";

@@ -145,13 +145,13 @@ const Checkout = () => {
   let serviceTax =
     selectRedeemPoint && servicesTotalPrice != 0
       // ? (servicesTotalPrice - availableAward) * 0.1
-      ? (servicesTotalPrice) * 0.1
-      : servicesTotalPrice * 0.1;
+      ? (servicesTotalPrice) * 0
+      : servicesTotalPrice * 0;
   let productTax =
     selectRedeemPoint && productTotalPrice != 0
       // ? (productTotalPrice - availableAward) * 0.1
-      ? (productTotalPrice) * 0.1
-      : productTotalPrice * 0.1;
+      ? (productTotalPrice) * 0.06
+      : productTotalPrice * 0.06;
   let discount = 10;
   let myAwards = (servicesTotalPrice + productTotalPrice) * 0.05;
   // console.log("serviceTax", serviceTax.toFixed(2));
@@ -349,7 +349,7 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Service Tax</h2>
-                  <h3>{`10% ($${serviceTax.toFixed(2)})`}</h3>
+                  <h3>{`0% ($${serviceTax.toFixed(2)})`}</h3>
                 </div>
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
@@ -358,12 +358,13 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Product Tax</h2>
-                  <h3>{`10% ($${productTax.toFixed(2)})`} </h3>
+                  <h3>{`6% ($${productTax.toFixed(2)})`} </h3>
                 </div>
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
             )}
-            {auth && (
+            {/* {auth && ( */}
+            {(auth && !auth.isTemp) && (
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>
