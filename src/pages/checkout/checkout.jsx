@@ -103,6 +103,8 @@ const Checkout = () => {
     ?.map((obj) => obj.amount)
     ?.reduce((a, b) => a + b, 0);
 
+    console.log('servicesTotalPrice',servicesTotalPrice);
+
   let totalPrice = productTotalPrice + servicesTotalPrice;
 
   const customAddRedeem = () => {
@@ -141,7 +143,10 @@ const Checkout = () => {
   let availableAward = availablePoints / 20;
   let tip = tipSelect.per
     ? servicesTotalPrice * (tipSelect.value / 100)
-    : parseInt(tipSelect.value);
+    : servicesTotalPrice * (tipSelect.value / 100)
+    // : parseInt(tipSelect.value);
+
+    console.log('tip',parseInt(tipSelect.value));
   let serviceTax =
     selectRedeemPoint && servicesTotalPrice != 0
       // ? (servicesTotalPrice - availableAward) * 0.1
