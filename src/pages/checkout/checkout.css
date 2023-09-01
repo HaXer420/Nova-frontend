@@ -92,3 +92,14 @@
     padding: 0 0 0 0;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .nova-checkout-pink-heading p {
+    font-family: "Comfortaa";
+    font-weight: 700;
+    font-size: 24px;
+    padding: 2rem;
+    color: #171d1c;
+    margin-bottom: 2.5rem;
+}
+}

@@ -72,7 +72,7 @@ export default function Footer({ setIsLoading }) {
             <div className="nova-footer_contact_us_form_top_view">
               <input placeholder="Enter your full name" />
               <input
-                placeholder="Enter your e-mail address *"
+                placeholder="Enter your Email address *"
                 type="text"
                 id="email"
                 onChange={formik.handleChange}
@@ -164,7 +164,7 @@ export default function Footer({ setIsLoading }) {
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>
           <h2>
-            <span>E-mail:</span> novawaxing1@gmail.com
+            <span>E-mail:</span> nova.waxing1@gmail.com
           </h2>
           <h2>
             <span>Phone :</span> 678-404-5580

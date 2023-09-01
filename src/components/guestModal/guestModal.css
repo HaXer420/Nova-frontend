@@ -37,3 +37,29 @@
   text-align: center;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 360px) {
+  .signIn-container {
+    width: 30rem;
+    /* height: 50%; */
+    background: #fff;
+    height: 23rem;
+    border-radius: 3%;
+    padding: 8rem 10rem;
+  }
+  
+  .login-continue h3 {
+    cursor: pointer;
+    font-family: "Comfortaa";
+    font-weight: 700;
+    /* margin-left: -6rem; */
+    margin: -2rem -6rem;
+    font-size: 2rem;
+    /* display: inline-block; */
+    line-height: 1rem;
+    color: #ee509c;
+    /* padding-top: 4.1rem; */
+    text-align: center;
+    text-decoration: underline;
+  }
+}

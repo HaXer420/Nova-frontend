@@ -311,8 +311,9 @@
     display: flex;
     position: relative;
     justify-content: center;
+    margin-top: -3rem;
     /* outline: none; */
-    margin-bottom: -6rem;
+    margin-bottom: 2rem;
     border: none;
     background: none;
   }
@@ -349,6 +350,7 @@
   height: 5.9rem;
   display: flex;
   margin-left: 2rem;
+  margin-top: 4rem;
   align-items: center;
   justify-content: center;
   background-color: #ee509c;

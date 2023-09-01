@@ -311,7 +311,7 @@
   /* .nova-booking-date_comp_date_view {
     display: none;
   } */
-
+  
   .nova-booking-date_comp_text_input_view {
     display: flex;
   }
@@ -320,7 +320,7 @@
     font-size: 1rem;
     line-height: 1.2rem;
   }
-
+  
   .nova-booking-date_comp_single_slot_view div {
     margin-right: 0.5rem;
     width: 7.8rem;
@@ -339,8 +339,19 @@
   .nova-booking-date_comp_slots_title_view {
     display: none;
   }
-
+  
   .nova-booking-date_comp_slots_view {
     height: 37rem;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .nova-booking-date_comp_single_slot_view div {
+    margin-right: 0.9rem;
+    width: 5.8rem;
+    height: 1.9rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+}
+

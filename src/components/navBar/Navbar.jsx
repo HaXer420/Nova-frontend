@@ -232,11 +232,11 @@ const Navbar = () => {
             <img src={tiktok} alt="" />
             </a>
           </h2>
-          {/* <h2>
+          <h2>
             <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
             <img src={youtube} alt="" />
             </a>
-          </h2> */}
+          </h2>
         </div>
     </>
   );

@@ -367,7 +367,7 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>
-                    Redeemed Points
+                    Redeem Rewards
                     <span style={{ fontSize: "1.6rem" }}>
                       ({fixedAvailableAward})
                     </span>

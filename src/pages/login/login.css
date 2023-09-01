@@ -96,3 +96,14 @@
     line-height: 1.7rem;
   }
 }
+
+@media screen and (max-width: 360px) {
+  .login-div img {
+    margin-left: -8rem;
+    height: 40px;
+    margin-right: 6rem;
+    width: 40px;
+    cursor: pointer;
+    /* padding-left: 100px; */
+  }
+}
