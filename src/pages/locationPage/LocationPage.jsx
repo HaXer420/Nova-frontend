@@ -123,7 +123,7 @@ export default function LocationPage() {
       <NavBar />
       <div className="nova-dashboard-container">
         <div className="nova-locations_main_view">
-          <h1>We Currently Operate In</h1>
+          <h1>We currently operate in</h1>
           <div className="nova-locations_data_top_view">
             {storeLocation?.map((item) => {
               return (

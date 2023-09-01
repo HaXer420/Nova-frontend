@@ -99,3 +99,11 @@
     line-height: 2.2rem;
   }
 }
+
+@media screen and (max-width: 470px) {
+  .nova-input_container p {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    margin-top: 1rem;
+  }
+}
