@@ -310,7 +310,10 @@ const Navbar = () => {
               </div>
             )}
 
-            <div className="nova-navBar_button">
+              <div
+                onClick={() => navigate("/signup")}
+                className="nova-navBar_button"
+              >
               <h6>Sign Up</h6>
             </div>
           </div>

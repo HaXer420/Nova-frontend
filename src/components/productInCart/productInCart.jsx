@@ -1,6 +1,8 @@
-import React from "react";
+// import React from "react";
 import "./productInCart.css";
 import { productOne, removeIcon, squareTick, uncheck } from "../../assets";
+import React, { useState } from "react";
+
 
 const ProductInCart = ({
   onSelect,
@@ -10,6 +12,18 @@ const ProductInCart = ({
   qty,
   check,
 }) => {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  // Function to toggle between full and shortened description
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
+   // The maximum length at which you want to truncate the description
+   const maxDescriptionLength = 100;
+
+   // Create a shortened version of the description
+   const shortenedDescription = item?.product?.description?.slice(0, maxDescriptionLength);
   return (
     <>
       <div
@@ -27,9 +41,28 @@ const ProductInCart = ({
                 <p style={{ marginLeft: "2rem" }}>Qty: {item?.quantity}</p>
               )}
             </div>
-            <h3 style={textWidth}>
+            {/* <h3 style={textWidth}>
               {item?.product?.description}
-              {/* <span style={{ color: "#EE509C" }}> Read More </span> */}
+            </h3> */}
+            <h3 className="justify-text">
+              {showFullDescription
+                ? item?.product?.description
+                : `${shortenedDescription} ${
+                    item?.product?.description?.length > maxDescriptionLength ? "..." : ""
+                  }`}
+              {item?.product?.description?.length > maxDescriptionLength && (
+                <span
+                  style={{
+                    color: "#F088B8",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                  }}
+                  onClick={toggleDescription}
+                >
+                  {showFullDescription ? " Read Less" : " Read More"}
+                </span>
+              )}
             </h3>
           </div>
           <div className="nova-product_in-cart-main-container">
