@@ -26,7 +26,6 @@ import GuestModal from "../../components/guestModal/guestModal";
 import GuestForm from "../../components/guestForm/guestForm";
 import { accessToken, refreshToken, userData } from "../../redux/userDataSlice";
 
-
 const Checkout = () => {
   const navigate = useNavigate();
   const [isloading, setIsLoading] = useState(false);
@@ -50,6 +49,23 @@ const Checkout = () => {
   const [availablePoints, setAvailablePoints] = useState(0);
   const [fixedAvailableAward, setFixedAvailableAward] = useState(0);
   const [productArr, setProductArr] = useState([]);
+
+  ///////////////////////////////
+  const [taxDeductionPercentage, setTaxDeductionPercentage] = useState([]);
+
+  const getService = () => {
+    let getRes = (res) => {
+      console.log("res of get response", res);
+      setTaxDeductionPercentage(res?.data?.data);
+      // setShowModal(false);
+    };
+
+    callApi("GET", routes.getTax, null, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
+  };
+  ///////////////////////////
+
   const [tipArr, setTipArr] = useState([
     {
       id: 1,
@@ -103,7 +119,7 @@ const Checkout = () => {
     ?.map((obj) => obj.amount)
     ?.reduce((a, b) => a + b, 0);
 
-    console.log('servicesTotalPrice',servicesTotalPrice);
+  console.log("servicesTotalPrice", servicesTotalPrice);
 
   let totalPrice = productTotalPrice + servicesTotalPrice;
 
@@ -143,20 +159,44 @@ const Checkout = () => {
   let availableAward = availablePoints / 20;
   let tip = tipSelect.per
     ? servicesTotalPrice * (tipSelect.value / 100)
-    : servicesTotalPrice * (tipSelect.value / 100)
-    // : parseInt(tipSelect.value);
+    : servicesTotalPrice * (tipSelect.value / 100);
+  // : parseInt(tipSelect.value);
 
-    console.log('tip',parseInt(tipSelect.value));
+  // console.log('tip',parseInt(tipSelect.value));
+
+  /////////////////////////////
+  const serviceTaxDeductionPercentage = taxDeductionPercentage.filter(
+    (item) => item.taxType === "Service"
+  );
+  const taxDBServicePercentage = serviceTaxDeductionPercentage.map(
+    (item) => item.taxPercentage / 100
+  );
+  const totalServicePercentage = serviceTaxDeductionPercentage.map(
+    (item) => item.taxPercentage
+  );
   let serviceTax =
     selectRedeemPoint && servicesTotalPrice != 0
-      // ? (servicesTotalPrice - availableAward) * 0.1
-      ? (servicesTotalPrice) * 0
-      : servicesTotalPrice * 0;
+      ? // ? (servicesTotalPrice - availableAward) * 0.1
+        servicesTotalPrice * taxDBServicePercentage[0]
+      : servicesTotalPrice * taxDBServicePercentage[0];
+  /////////////////////////////
+  const productTaxDeductionPercentage = taxDeductionPercentage.filter(
+    (item) => item.taxType === "Product"
+  );
+  const taxDBProductPercentage = productTaxDeductionPercentage.map(
+    (item) => item.taxPercentage / 100
+  );
+  const totalProductPercentage = productTaxDeductionPercentage.map(
+    (item) => item.taxPercentage
+  );
   let productTax =
     selectRedeemPoint && productTotalPrice != 0
-      // ? (productTotalPrice - availableAward) * 0.1
-      ? (productTotalPrice) * 0.06
-      : productTotalPrice * 0.06;
+      ? // ? (productTotalPrice - availableAward) * 0.1
+        productTotalPrice * taxDBProductPercentage[0]
+      : productTotalPrice * taxDBProductPercentage[0];
+  ///////////////////////////
+
+
   let discount = 10;
   let myAwards = (servicesTotalPrice + productTotalPrice) * 0.05;
   // console.log("serviceTax", serviceTax.toFixed(2));
@@ -168,7 +208,7 @@ const Checkout = () => {
     : totalProductsAmount + totalServiceAmount;
 
   const confirmPay = () => {
-    console.log('payment',{
+    console.log("payment", {
       productArr: productsStore,
       services: serviceStore,
       tip: tip,
@@ -177,8 +217,7 @@ const Checkout = () => {
       redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
       amount: finalAmount,
     });
-    
-    
+
     navigate("/paymentpage", {
       state: {
         productArr: productsStore,
@@ -190,8 +229,6 @@ const Checkout = () => {
         amount: finalAmount,
       },
     });
-
-
   };
 
   const asGuest = () => {
@@ -243,7 +280,12 @@ const Checkout = () => {
   useEffect(() => {
     getMyRewards();
     // getMyCart();
+    getService(); // Ensure this is being executed
   }, []);
+
+  // useEffect(() => {
+  //   getService(); // Ensure this is being executed
+  // }, []);
 
   return (
     <div className="nova-dashboard-main_container">
@@ -256,17 +298,21 @@ const Checkout = () => {
         handleClose={handleClose}
         asGuest={asGuest}
       />
-      <GuestForm open={openF} additionalData={{
-      state: {
-        productArr: productsStore,
-        services: serviceStore,
-        tip: tip,
-        subtotal: totalPrice,
-        discount: myAwards,
-        redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
-        amount: finalAmount,
-      },
-    }} handleClose={() => setOpenF(false)} />
+      <GuestForm
+        open={openF}
+        additionalData={{
+          state: {
+            productArr: productsStore,
+            services: serviceStore,
+            tip: tip,
+            subtotal: totalPrice,
+            discount: myAwards,
+            redeempoints: selectRedeemPoint ? availableAward * 20 : 0,
+            amount: finalAmount,
+          },
+        }}
+        handleClose={() => setOpenF(false)}
+      />
       <div className="nova-dashboard-container">
         <div className="nova-checkout-main-container">
           <div className="nova-checkout-main-heading">
@@ -335,10 +381,13 @@ const Checkout = () => {
                       selected={tipSelect}
                       setSelected={setTipSelect}
                     /> */}
-                    
+
                     <TipDropDown
                       options={tipArr.map((option) => ({
-                        label: `${option.label} - $${(totalPrice * option.value / 100).toFixed(2)}`,
+                        label: `${option.label} - $${(
+                          (totalPrice * option.value) /
+                          100
+                        ).toFixed(2)}`,
                         value: option.value,
                       }))}
                       selected={tipSelect}
@@ -354,7 +403,7 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Service Tax</h2>
-                  <h3>{`0% ($${serviceTax.toFixed(2)})`}</h3>
+                  <h3>{`${totalServicePercentage}% ($${serviceTax.toFixed(2)})`}</h3>
                 </div>
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
@@ -363,13 +412,13 @@ const Checkout = () => {
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>Product Tax</h2>
-                  <h3>{`6% ($${productTax.toFixed(2)})`} </h3>
+                  <h3>{`${totalProductPercentage}% ($${productTax.toFixed(2)})`} </h3>
                 </div>
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
               </>
             )}
             {/* {auth && ( */}
-            {(auth && !auth.isTemp) && (
+            {auth && !auth.isTemp && (
               <>
                 <div className="nova-booking-confirm_comp_tip_top_view">
                   <h2>

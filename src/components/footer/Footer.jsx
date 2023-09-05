@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -12,6 +12,30 @@ import Loader from "../loader/loader";
 
 export default function Footer({ setIsLoading }) {
   const navigate = useNavigate();
+
+  ///////////
+  const [services, setServices] = useState([]);
+
+
+  const getService = () => {
+    let getRes = (res) => {
+      console.log("res of get response", res);
+      setServices(res?.data?.data);
+      // setShowModal(false);
+    };
+
+    callApi(
+      "GET",
+      routes.getFooterDetail,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {
+        console.log("error", error);
+      }
+    );
+  }
+  ////////////////
 
   const contactUsApi = (email, message) => {
     if (email == "") {
@@ -55,6 +79,11 @@ export default function Footer({ setIsLoading }) {
     formik.resetForm();
     },
   });
+
+  useEffect(() => {
+    getService(); // Ensure this is being executed
+  }, []);
+
   return (
     <div className="nova-footer_top_view">
       {/* {window.location.href === "http://localhost:3000/" && ( */}
@@ -154,25 +183,43 @@ export default function Footer({ setIsLoading }) {
             {/* <h1>Tiktok</h1> */}
             </a>
           </h2>
-          {/* <h2>
+          <h2>
             <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
             <img src={youtube} alt="" />
             <span> Youtube</span>
             </a>
-          </h2> */}
+          </h2>
         </div>
         <div className="nova-footer_detail_contacts_top_view">
           <h1>Contacts</h1>
           <h2>
-            <span>E-mail:</span> nova.waxing1@gmail.com
+            <span>E-mail:</span>{
+              services.map((item, index) => {
+                return (
+                  <div key={index}>
+                    {item.email}
+                  </div>
+                );
+              })
+            }
+          </h2>
+          {/* <h2>
+            <span>E-mail:</span>
+            {services.map((item, index) => (
+              <span key={index}>{item.email}</span>
+            ))}
+          </h2> */}
+          <h2>
+          <span>Phone:</span>
+          {services.map((item, index) => (
+              <span key={index}>{item.contact}</span>
+            ))}
           </h2>
           <h2>
-            <span>Phone :</span> 678-404-5580
-          </h2>
-          <h2>
-          <span>Address :</span> 875 Lawrenceville Suwanee Rd, #580 Lawrenceville, GA 30043
-            {/* <span>Address :</span> 875 Lawrenceville-Suwanee Rd, Auburn GA 30011 */}
-            {/* California, USA. */}
+          <span>Address :</span>
+          {services.map((item, index) => (
+              <span key={index}>{item.address}</span>
+            ))}
           </h2>
         </div>
       </div>

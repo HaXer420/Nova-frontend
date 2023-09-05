@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./topBar.css";
 import { clock1, gallery, logoTheme, mainLogo, phone1 } from "../../assets";
 import { useNavigate } from "react-router-dom";
@@ -24,6 +24,31 @@ const TopBar = () => {
   const [isloading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+    ///////////
+    const [services, setServices] = useState([]);
+
+
+    const getService = () => {
+      let getRes = (res) => {
+        console.log("res of get response", res);
+        setServices(res?.data?.data);
+        // setShowModal(false);
+      };
+  
+      callApi(
+        "GET",
+        routes.getSchedule,
+        null,
+        setIsLoading,
+        getRes,
+        (error) => {
+          console.log("error", error);
+        }
+      );
+    }
+    ////////////////
 
   const logOut = () => {
     // localStorage.clear();
@@ -53,6 +78,10 @@ const TopBar = () => {
       console.log("error", error);
     });
   };
+
+  useEffect(() => {
+    getService(); // Ensure this is being executed
+  }, []);
   return (
     <div className="nova-top_bar-main_view">
       <Loader loading={isloading} />
@@ -64,15 +93,35 @@ const TopBar = () => {
         <div className="clock-view">
           <img src={clock1} alt="" />
           <div className="clock-view-container">
-            <p>Monday-Saturday</p>
-            <h1>10AM-7:00PM</h1>
+          <p>
+            {services.length > 0 && (
+              <span>
+                {services[1].startDay}-{services[1].endDay}
+              </span>
+            )}
+          </p>
+            <h1>{services.length > 0 && (
+              <span>
+                {services[1].startTime}-{services[1].endTime}
+              </span>
+            )}</h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">
           <img src={clock1} alt="" />
           <div className="clock-view-container">
-            <p>Sunday</p>
-            <h1>11AM-6:00PM</h1>
+          <p>
+            {services.length > 0 && (
+              <span>
+                {services[0].startDay}
+              </span>
+            )}
+          </p>
+          <h1>{services.length > 0 && (
+              <span>
+                {services[0].startTime}-{services[0].endTime}
+              </span>
+            )}</h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">

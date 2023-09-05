@@ -1,5 +1,5 @@
 export const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
-// export const BASE_URL = "http://localhost:4500/api/v1";
+// export const BASE_URL = "http://localhost:4500/api/v1/";
 export default {
   // -----AUTH------//
   signUp: BASE_URL + "user/signup",
@@ -42,4 +42,10 @@ export default {
   // -------------get-card----------
   getMyCards: BASE_URL + "card/mycards",
   deleteCard: BASE_URL + "card/delete",
+  deleteCard: BASE_URL + "card/delete",
+  
+  
+  getFooterDetail: BASE_URL + "info/getall",
+  getSchedule: BASE_URL + "schedule/getall",
+  getTax: BASE_URL + "tax/getall",
 };
