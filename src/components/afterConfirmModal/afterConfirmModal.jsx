@@ -27,3 +27,5 @@ const AfterConfirmModal = ({ addProduct, checkOut }) => {
 };
 
 export default AfterConfirmModal;
+
+
