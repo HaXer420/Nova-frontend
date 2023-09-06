@@ -317,6 +317,7 @@
   font-size: 2rem;
   line-height: 3rem;
   color: #383838;
+  text-align: justify;
 }
 
 .nova-dashboard-questions_top_view {
@@ -675,6 +676,7 @@
   .nova-dashboard-single_review p {
     font-size: 1.6rem;
     line-height: 2rem;
+  text-align: justify;
   }
 
   .nova-dashboard-single_review div {
@@ -869,6 +871,7 @@
   .nova-dashboard-single_review p {
     font-size: 1.4rem;
     line-height: 1.8rem;
+  text-align: justify;
   }
 
   .nova-dashboard-single_review div {
@@ -1215,6 +1218,7 @@
   .nova-dashboard-single_review p {
     font-size: 1.2rem;
     line-height: 1.6rem;
+  text-align: justify;
   }
 
   .nova-dashboard-single_review div {

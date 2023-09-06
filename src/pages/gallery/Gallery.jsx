@@ -253,11 +253,15 @@ export default function Gallery() {
                         <h2>{item?.title}</h2>
                       </div>
                       <h4>
-                        {/* {item?.description[0]?.title} */}
-                        {item?.description}
-                        {/* <span style={{ color: "#EE509C", fontWeight: "bold" }}>
-                          Read more
-                        </span> */}
+                      <>
+                            {item?.description.substring(0, 50)}
+                            <div
+                              onClick={() => setReadMore(item)}
+                              style={{ cursor: "pointer", color: "blue" }}
+                            >
+                              Read More
+                            </div>
+                          </>
                       </h4>
                     </div>
                   );
