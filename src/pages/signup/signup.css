@@ -145,9 +145,19 @@
     font-size: 3rem;
     line-height: 3.6rem;
   }
-
+  
   .nova-signup_input_view {
     width: 27.5rem;
     margin-right: 0rem;
   }
+}
+
+@media screen and (max-width: 360px) {
+  .signup-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 85%;
+    justify-content: space-between;
+}
 }

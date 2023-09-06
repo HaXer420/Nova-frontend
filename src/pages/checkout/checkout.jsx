@@ -200,6 +200,7 @@ const Checkout = () => {
   let discount = 10;
   let myAwards = (servicesTotalPrice + productTotalPrice) * 0.05;
   // console.log("serviceTax", serviceTax.toFixed(2));
+  let totalServiceAmountBeforeTax = servicesTotalPrice + tip;
   let totalServiceAmount = servicesTotalPrice + serviceTax + tip;
   let totalProductsAmount = productTotalPrice + productTax;
 
@@ -385,7 +386,7 @@ const Checkout = () => {
                     <TipDropDown
                       options={tipArr.map((option) => ({
                         label: `${option.label} - $${(
-                          (totalPrice * option.value) /
+                          (totalServiceAmountBeforeTax * option.value) /
                           100
                         ).toFixed(2)}`,
                         value: option.value,

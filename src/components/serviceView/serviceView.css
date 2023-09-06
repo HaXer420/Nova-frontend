@@ -179,7 +179,7 @@
   }
 
   .react-multiple-carousel__arrow--left {
-  left: calc(0% + 1px);
+  left: calc(3% + 1px);
   }
 
 /* .react-multi-carousel-track li {

@@ -230,7 +230,7 @@
   .nova-product-description p {
     font-size: 1.5rem;
     text-align: justify;
-    display: flex;
+    /* display: flex; */
   }
 
   .nova-product-qty-main-container {
