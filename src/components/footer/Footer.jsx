@@ -10,7 +10,9 @@ import { callApi } from "../../api/apiCaller";
 import { GreenNotify, RedNotify } from "../../helper/utility";
 import Loader from "../loader/loader";
 
-export default function Footer({ setIsLoading }) {
+// export default function Footer({ setIsLoading }) {
+export default function Footer() {
+  const [isloading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   ///////////
@@ -217,7 +219,7 @@ export default function Footer({ setIsLoading }) {
           </h2>
           <h2>
           <span>Address :</span>
-          {services.map((item, index) => (
+            {services.map((item, index) => (
               <span key={index}>{item.address}</span>
             ))}
           </h2>

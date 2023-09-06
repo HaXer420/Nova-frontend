@@ -24,31 +24,48 @@ const TopBar = () => {
   const [isloading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [footer, setFooter] = useState([]);
 
+  ///////////
+  const [services, setServices] = useState([]);
 
-    ///////////
-    const [services, setServices] = useState([]);
+  const getService = () => {
+    let getRes = (res) => {
+      console.log("res of get response", res);
+      setServices(res?.data?.data);
+      // setShowModal(false);
+    };
 
+    callApi("GET", routes.getSchedule, null, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
+  };
 
-    const getService = () => {
-      let getRes = (res) => {
-        console.log("res of get response", res);
-        setServices(res?.data?.data);
-        // setShowModal(false);
-      };
-  
-      callApi(
-        "GET",
-        routes.getSchedule,
-        null,
-        setIsLoading,
-        getRes,
-        (error) => {
-          console.log("error", error);
-        }
-      );
-    }
-    ////////////////
+  const weekSchedule = services.filter((item) => item.scheduleType === "week");
+  const daySchedule = services.filter((item) => item.scheduleType === "day");
+
+  // console.log("weekSchedule", weekSchedule);
+  ////////////////
+
+  const getFooter = () => {
+    let getRes = (res) => {
+      console.log("res of get response", res);
+      setFooter(res?.data?.data);
+      // setShowModal(false);
+    };
+
+    callApi(
+      "GET",
+      routes.getFooterDetail,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {
+        console.log("error", error);
+      }
+    );
+  };
+  ////////////////
 
   const logOut = () => {
     // localStorage.clear();
@@ -80,7 +97,8 @@ const TopBar = () => {
   };
 
   useEffect(() => {
-    getService(); // Ensure this is being executed
+    getService();
+    getFooter();
   }, []);
   return (
     <div className="nova-top_bar-main_view">
@@ -93,42 +111,73 @@ const TopBar = () => {
         <div className="clock-view">
           <img src={clock1} alt="" />
           <div className="clock-view-container">
-          <p>
-            {services.length > 0 && (
-              <span>
-                {services[1].startDay}-{services[1].endDay}
-              </span>
-            )}
-          </p>
-            <h1>{services.length > 0 && (
-              <span>
-                {services[1].startTime}-{services[1].endTime}
-              </span>
-            )}</h1>
+            <p>
+              {services.length > 0 && (
+                <span>
+                  {weekSchedule.length > 0 && (
+                    <span>
+                      {weekSchedule[0].startDay}-{weekSchedule[0].endDay}
+                    </span>
+                  )}
+                </span>
+              )}
+            </p>
+            <h1>
+              {services.length > 0 && (
+                <span>
+                  {weekSchedule.length > 0 && (
+                    <span>
+                      {weekSchedule[0].startTime}-{weekSchedule[0].endTime}
+                    </span>
+                  )}
+                </span>
+              )}
+            </h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">
           <img src={clock1} alt="" />
           <div className="clock-view-container">
-          <p>
+            <p>
+              {services.length > 0 && (
+                <span>
+                  {daySchedule.length > 0 && (
+                    <span>
+                      {daySchedule[0].startDay}-{daySchedule[0].endDay}
+                    </span>
+                  )}
+                </span>
+              )}
+            </p>
+            {/* <h1>
             {services.length > 0 && (
               <span>
-                {services[0].startDay}
+                {services[1].startTime}-{services[1].endTime}
               </span>
             )}
-          </p>
-          <h1>{services.length > 0 && (
-              <span>
-                {services[0].startTime}-{services[0].endTime}
-              </span>
-            )}</h1>
+            </h1> */}
+            <h1>
+              {services.length > 0 && (
+                <span>
+                  {daySchedule.length > 0 && (
+                    <span>
+                      {daySchedule[0].startTime}-{daySchedule[0].endTime}
+                    </span>
+                  )}
+                </span>
+              )}
+            </h1>
           </div>
         </div>
         <div style={{ marginLeft: "4rem" }} className="clock-view">
           <img src={phone1} alt="" />
           <div className="clock-view-container">
             <p>Call Now</p>
-            <h1>678-404-5580</h1>
+            <h2>
+              {footer.map((item, index) => (
+                <span key={index}>{item.contact}</span>
+              ))}
+            </h2>
           </div>
         </div>
 
@@ -157,9 +206,13 @@ const TopBar = () => {
             </div>
           )}
         </div>
-        <div className='nova-top_bar-gallery_button' onClick={() => navigate("/gallery")} style={{ marginLeft: "4rem"}}>
-          <img src={gallery} alt=""/>
-            <h1>Gallery</h1>
+        <div
+          className="nova-top_bar-gallery_button"
+          onClick={() => navigate("/gallery")}
+          style={{ marginLeft: "4rem" }}
+        >
+          <img src={gallery} alt="" />
+          <h1>Gallery</h1>
         </div>
       </div>
       {/* <div className="nova-top_bar-divider" /> */}

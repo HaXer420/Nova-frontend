@@ -353,3 +353,12 @@ border-bottom: 1px solid black;
     display: none;
   } */
 }
+
+
+@media screen and (max-width: 360px) {
+  .nova__navbar-links_text_view img{
+    height: 35px;
+    width: 35px;
+    margin-right: 18px;
+  }
+}

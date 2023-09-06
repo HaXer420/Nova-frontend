@@ -92,3 +92,10 @@
     font-size: 1.6rem;
   }
 }
+
+@media screen and (max-width: 360px){
+  .nova-bucket-container {
+      padding: 2.6rem 2.5rem 0;
+      width: 36rem !important;
+  }
+}
