@@ -168,7 +168,7 @@ export default function Gallery() {
         className="add-product-modal-main-container-desc"
       >
         <div className="add-product-modal-container-product-description-detail-desc">
-          <h2>
+          <h2 style={{textAlign:'justify'}}>
           {
           readMore?.description
           }
@@ -254,7 +254,7 @@ export default function Gallery() {
                       </div>
                       <h4>
                       <>
-                            {item?.description.substring(0, 50)}
+                            {`${item?.description.substring(0, 50)}...`}
                             <div
                               onClick={() => setReadMore(item)}
                               style={{ cursor: "pointer", color: "blue" }}
@@ -348,7 +348,8 @@ export default function Gallery() {
                       <h4>
                         {/* {item?.description.length > 10 ? ( */}
                           <>
-                            {item?.description.substring(0, 50)}
+                            {/* {item?.description.substring(0, 50)} */}
+                            {`${item?.description.substring(0, 50)}...`}
                             <div
                               onClick={() => setReadMore(item)}
                               style={{ cursor: "pointer", color: "blue" }}

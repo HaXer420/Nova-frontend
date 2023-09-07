@@ -44,8 +44,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  /* justify-content: center;
+  flex-wrap: wrap; */
 }
 
 .nova-booking-add-custom-tip-container {
@@ -93,6 +93,25 @@
   }
 }
 
+@media screen and (max-width: 390px) {
+  .nova-checkout-pink-heading p {
+    font-family: "Comfortaa" !important;
+    font-weight: 700 !important;
+    font-size: 24px !important;
+    padding: 2rem !important;
+    color: #171d1c !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.nova-booking-confirm-drop-down-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
+}
+}
+
 @media screen and (max-width: 360px) {
   .nova-checkout-pink-heading p {
     font-family: "Comfortaa";
@@ -101,5 +120,14 @@
     padding: 2rem;
     color: #171d1c;
     margin-bottom: 2.5rem;
+}
+
+.nova-booking-confirm-drop-down-container {
+  display: flex;
+  /* size: 44rem; */
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
 }
 }

@@ -208,6 +208,47 @@
   }
 }
 
+@media screen and (max-width: 390px) {
+  .nova-booking-start_comp_top_view {
+    display: flex !important;
+    flex-direction: column !important;
+    margin: -2rem !important;
+}
+
+.nova-booking-start_comp_item_view h2 {
+  font-size: 1rem;
+  line-height: 0.8rem;
+  padding: 7px;
+}
+}
+
+@media screen and (max-width: 390px) {
+  .nova-booking-my_info_comp_radia_button_view div {
+    width: 5rem !important;
+    height: 2rem !important;
+    border-radius: 1rem !important;
+    background-color: #d7d7d7 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 1.2rem !important;
+  }
+
+  .nova-booking-my_info_comp_radia_button_view h4 {
+    font-size: 1.2rem;
+    line-height: 1.9rem;
+    text-align: justify;
+}
+
+.nova-booking-my_info_comp_inputs_top_view {
+  display: flex !important;
+  flex-direction: column !important;
+  padding-left: 1.8rem !important;
+  padding-right: 2.2rem !important;
+  margin-bottom: 5rem !important;
+}
+}
+
 @media screen and (max-width: 360px) {
   .nova-booking-start_comp_top_view {
     display: flex;
@@ -217,7 +258,7 @@
 
   .nova-booking-start_comp_item_view h2 {
     font-size: 1rem;
-    line-height: 1.6rem;
+    line-height: .9rem;
     padding: 7px;
   }
 

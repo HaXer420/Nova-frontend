@@ -115,7 +115,7 @@
   .nova-locations_main_view h1 {
     font-size: 3.2rem;
     line-height: 3.6rem;
-    padding: 2.8rem 2.4rem 3.6rem 12.6rem;
+    padding: 2.8rem 2.4rem 3.6rem 2.6rem;
   }
 
   .nova-locations_data_top_view {
@@ -241,8 +241,6 @@
 }
 
 @media screen and (max-width: 360px) {
-
-
   .nova-locations-bottom_main_view h1 {
     font-family: "Comfortaa";
     font-weight: 700;
@@ -260,10 +258,16 @@
     flex-direction: column;
   }
 
-  .nova-locations_main_view h1 {
+  /* .nova-locations_main_view h1 {
     font-size: 2rem;
     margin-left: 2rem;
     line-height: 2.4rem;
+  } */
+
+  .nova-locations_main_view h1{
+    font-size: 2.2rem;
+    line-height: 3.6rem;
+    padding: 2.8rem 2.4rem 3.6rem 3.6rem;
   }
 
   .nova-locations_data_top_view {

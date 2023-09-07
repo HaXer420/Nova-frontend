@@ -46,6 +46,35 @@ export default function Dashboard() {
   const [selectedService, setSelectedService] = useState(null);
   const [expandedReviews, setExpandedReviews] = useState([]);
 
+    //////////////////////reviews read more///////////////////
+    const [readMore, setReadMore] = useState(null);
+
+    const HandleReadMoreClick = ({
+      showModalDes,
+      setShowModalDes,
+      description,
+    }) => {
+      // Set a minimum height for the modal
+      const minHeight = 250;
+      const maxHeight = 600;
+      const descriptionHeight = 500;
+      return (
+        <div
+          onClick={() => setShowModalDes(false)}
+          className="add-product-modal-main-container-desc"
+        >
+          <div className="add-product-modal-container-product-description-detail-desc">
+          <h2 style={{textAlign:'justify'}}>
+            {
+            readMore?.review
+            }
+          </h2>
+          </div>
+        </div>
+      );
+    };
+    //////////////////////reviews read more///////////////////
+
   const toggleReview = (reviewId) => {
     if (expandedReviews.includes(reviewId)) {
       setExpandedReviews(expandedReviews.filter((id) => id !== reviewId));
@@ -292,6 +321,13 @@ export default function Dashboard() {
   return (
     <div className="nova-dashboard-main_container">
       <Loader loading={isloading} />
+      {(readMore && (
+        <HandleReadMoreClick
+          readMore={readMore}
+          setShowModalDes={setReadMore}
+          showModalDes={readMore}
+        />
+      ))}
       <TopBar />
       <NavBar />
       <div className="nova-dashboard-container">
@@ -472,21 +508,21 @@ export default function Dashboard() {
           <div key={item.id} className="nova-dashboard-single_review">
             <img alt="" src={item?.creator?.image} />
             <div>
-              <p>
-                {truncatedText}
-                {shouldShowReadMore && (
+            <p>
+              {item?.review.length > 50 ? (
+                <>
+                  {`${item?.review.substring(0, 50)}...`}
                   <span
-                    style={{
-                      color: "#F088B8",
-                      cursor: "pointer",
-                      fontWeight: "bold",
-                    }}
-                    onClick={() => toggleReview(item.id)}
-                  >
-                    {expandedReviews.includes(item.id) ? " Read Less" : " Read More"}
+                    onClick={() => setReadMore(item)}
+                    style={{ cursor: "pointer", color: "blue" }}
+                  > 
+                    {' Read More'}
                   </span>
-                )}
-              </p>
+                </>
+              ) : (
+                item?.review
+              )}
+            </p>
               <p style={{ marginTop: 10 }}>
                 {item?.name}
                       {/* {item?.name} <span style={{color:'#F088B8'}}>({item?.serviceName})</span> */}

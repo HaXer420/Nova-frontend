@@ -47,6 +47,7 @@
   line-height: 3rem;
   color: #292929;
   padding-bottom: 6rem;
+  text-align: justify;
 }
 
 .nova-dashboard-banner_detail_view h3 {
@@ -1337,10 +1338,10 @@
 
 .nova-dashboard-single_review img {
   width: 8.3rem;
-  margin-left: 1rem;
+  margin-left: 3rem;
   height: 8.3rem;
   border-radius: 0.8rem;
-  margin-right: 3rem;
+  margin-right: 1.3rem;
 }
 
 .nova-dashboard-reviews_top_view h1 {

@@ -208,45 +208,6 @@
   display: none;
 }
 
-.dropbtn {
-  /* background-color: #04AA6D; */
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content-border{
-border-bottom: 1px solid black;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
-
 @media screen and (max-width: 1400px) {
   .nova__navbar-links_text_view {
     margin-right: -10px;
@@ -361,4 +322,71 @@ border-bottom: 1px solid black;
     width: 35px;
     margin-right: 18px;
   }
+
+  .service-dropdown-content:hover {
+    display: none;
+    position: absolute;
+    background-color: white !important;
+    min-width: 300px;
+    height: 50rem !important;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow-y: scroll;
 }
+}
+
+
+
+/* ///////////////////////////////////// */
+.service-dropbtn {
+  /* background-color: #04AA6D; */
+  color: white;
+  font-size: 16px;
+  border: none;
+  height: 50rem;
+}
+
+.service-dropdown {
+  position: relative;
+  display: inline-block;
+  /* height: 50rem; */
+}
+
+.service-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white !important;
+  min-width: 300px;
+  height: 50rem !important;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  overflow-y: scroll;
+  margin-top: 1.8rem;
+}
+
+/* .service-dropdown-content-border{
+border-bottom: 1px solid black;
+} */
+
+.service-dropdown-content a::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.service-dropdown-content a {
+  color: black;
+  padding: 16px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: larger;
+}
+
+.service-dropdown:hover .service-dropdown-content {
+  display: block;
+}
+
+
+/* ///////////////////////////////////// */

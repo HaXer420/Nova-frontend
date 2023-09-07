@@ -1,6 +1,18 @@
-import React, { useState } from "react";
+import { setParam } from "../../api/params";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
-import { close, menu, logo, profileIcon, shoppingCart, tiktok, twitter, facebook, instagram, youtube } from "../../assets";
+import {
+  close,
+  menu,
+  logo,
+  profileIcon,
+  shoppingCart,
+  tiktok,
+  twitter,
+  facebook,
+  instagram,
+  youtube,
+} from "../../assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DrawerCart from "../DrawerCart/DrawerCart";
@@ -20,12 +32,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //const productsInCart = useSelector((data) => data?.userDataSlice?.cart);
-  const userDataGet = useSelector((data) => data.userDataSlice.userData)
+  const userDataGet = useSelector((data) => data.userDataSlice.userData);
   const productsStore = useSelector((data) => data.userDataSlice.products);
   const serviceStore = useSelector((data) => data.userDataSlice.services);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const [isloading, setIsLoading] = useState(false);
+  const [services, setServices] = useState([]);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
   // console.log("kkk", showProfile);
   let productsInCart = productsStore?.length + serviceStore?.length;
@@ -56,6 +69,26 @@ const Navbar = () => {
       console.log("error", error);
     });
   };
+
+  const getServices = () => {
+    let getRes = (res) => {
+      setServices(res?.data?.data);
+    };
+    callApi(
+      "GET",
+      routes.getallServices,
+      null,
+      setIsLoading,
+      getRes,
+      (error) => {}
+    );
+  };
+
+  useEffect(() => {
+    getServices();
+  }, []);
+
+  // console.log('servicesssss',services);
   // console.log("productsInCart", productsInCart);
   const Menu = () => (
     <>
@@ -108,15 +141,32 @@ const Navbar = () => {
                 : "none",
           }}
         >
-          Services
-          {/* <div class="dropdown">
-          <span class="dropbtn">Dropdown</span>
-          <div class="dropdown-content">
-          <a class="dropdown-content-border" href="#">Link 1</a>
-          <a class="dropdown-content-border"  href="#">Link 2</a>
-          <a class="dropdown-content-border" href="#">Link 3</a>
-          </div>
-          </div> */}
+          {/* Services */}
+          <ul>
+            <li className="service-dropdown">
+              <a className="service-dropbtn">Services</a>
+              <div className="service-dropdown-content">
+                {services.map((service, index) => (
+                  <a
+                    href="#"
+                    key={service._id}
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent the default link behavior
+                      e.stopPropagation();
+                      navigate(
+                        `/Sservicedetail?${setParam({
+                          product: JSON.stringify(service),
+                        })}`
+                      );
+                      console.log("uijhyuyugtyftrdrer");
+                    }}
+                  >
+                    {service.title}
+                  </a>
+                ))}
+              </div>
+            </li>
+          </ul>
         </h1>
       </div>
       <div className="nova__navbar-links_text_view">
@@ -133,7 +183,7 @@ const Navbar = () => {
         </h1>
       </div>
       <div className="nova__navbar-links_text_view" id="gallery">
-        <h1 
+        <h1
           onClick={() => navigate("/gallery")}
           style={{
             borderBottomStyle:
@@ -206,38 +256,37 @@ const Navbar = () => {
         </h1>
       </div>
       <div className="nova__navbar-links_text_view">
-          <h2 className="nova__navbar-links-insta_text_view">
-            <a href="https://www.instagram.com/novawaxing1/" target="_blank">
+        <h2 className="nova__navbar-links-insta_text_view">
+          <a href="https://www.instagram.com/novawaxing1/" target="_blank">
             <img src={instagram} alt="" />
-            </a>
-          </h2>
+          </a>
+        </h2>
 
-          <h2>
-            <a
-              href="https://www.facebook.com/profile.php?id=100092507547391&mibextid=ZbWKwL"
-              target="_blank"
-            >
+        <h2>
+          <a
+            href="https://www.facebook.com/profile.php?id=100092507547391&mibextid=ZbWKwL"
+            target="_blank"
+          >
             <img src={facebook} alt="" />
-            </a>
-          </h2>
+          </a>
+        </h2>
 
-          <h2>
-            <a href="https://twitter.com/novawaxing1" target="_blank">
+        <h2>
+          <a href="https://twitter.com/novawaxing1" target="_blank">
             <img src={twitter} alt="" />
-            {/* twitter */}
-            </a>
-          </h2>
-          <h2>
-            <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+          </a>
+        </h2>
+        <h2>
+          <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
             <img src={tiktok} alt="" />
-            </a>
-          </h2>
-          <h2>
-            <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+          </a>
+        </h2>
+        <h2>
+          <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
             <img src={youtube} alt="" />
-            </a>
-          </h2>
-        </div>
+          </a>
+        </h2>
+      </div>
     </>
   );
 
@@ -250,7 +299,7 @@ const Navbar = () => {
         </div>
 
         <div className="nova_navbar-Profile-main-container">
-          {(showProfile && !showProfile.isTemp) && (
+          {showProfile && !showProfile.isTemp && (
             <div
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"
@@ -259,7 +308,7 @@ const Navbar = () => {
             </div>
           )}
           {/* { userDataGet && ( */}
-            <div
+          <div
             onClick={() => setOpen(true)}
             className="nova_navbar-cart-container"
           >
@@ -268,8 +317,8 @@ const Navbar = () => {
               <p> {isNaN(productsInCart) ? 0 : productsInCart}</p>
             </div>
           </div>
-          {/* ) */}
-          {/* } */}
+          {/* )
+          } */}
         </div>
       </div>
       <div className="nova__navbar-menu">
@@ -310,10 +359,10 @@ const Navbar = () => {
               </div>
             )}
 
-              <div
-                onClick={() => navigate("/signup")}
-                className="nova-navBar_button"
-              >
+            <div
+              onClick={() => navigate("/signup")}
+              className="nova-navBar_button"
+            >
               <h6>Sign Up</h6>
             </div>
           </div>
@@ -322,7 +371,7 @@ const Navbar = () => {
           <img alt="" src={logo} />
         </div>
         <div className="nova_navbar-Profile-main-container">
-          {(showProfile && !showProfile.isTemp) && (
+          {showProfile && !showProfile.isTemp && (
             <div
               onClick={() => navigate("/profile")}
               className="nova_navbar-profile_view"

@@ -292,9 +292,31 @@
     height: 10.1rem;
     padding-left: 2.6rem;
   }
-
+  
   .nova-reviews-banner_view h1 {
     font-size: 1.6rem;
     line-height: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .nova-reviews-single_review_item div {
+    display: flex;
+    padding: .8rem 1rem .8rem 1rem;
+    background-color: #efefef;
+    border-radius: 1.6rem;
+    margin-left: 1rem;
+    margin-right: 0rem;
+  }
+
+  .nova-reviews-single_review_item h2 {
+    font-size: 1.1rem;
+    text-align: justify;
+    line-height: 1.8rem;
+  }
+
+  .nova-reviews-divider {
+    margin-right: 3rem;
+    margin-left: 3rem;
   }
 }

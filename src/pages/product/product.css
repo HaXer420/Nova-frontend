@@ -53,6 +53,7 @@
 
 .nova-product-description {
   width: 60rem;
+  text-align: justify;
 }
 
 .nova-product-description p {
