@@ -208,6 +208,8 @@ const Checkout = () => {
     ? totalProductsAmount + totalServiceAmount - availableAward
     : totalProductsAmount + totalServiceAmount;
 
+    console.log('finalAmount',finalAmount);
+
   const confirmPay = () => {
     console.log("payment", {
       productArr: productsStore,

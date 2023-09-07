@@ -1284,7 +1284,13 @@
 }
 
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 390px) {
+  .nova__navbar-links-insta_text_view img {
+    margin-left: 0px !important;
+  }
+}
+
+  @media screen and (max-width: 360px) {
   .nova-dashboard-main_container {
     display: flex;
     flex-direction: column;

@@ -310,6 +310,15 @@
   display: none;
 }
 
+/* @media screen and (max-width: 390px) {
+  .nova-about-us_percantage_view {
+      align-items: self-start;
+      margin-left: 6rem;
+      margin-right: 4rem;
+      justify-content: space-between;
+  }
+}  */
+
 @media screen and (max-width: 360px) {
   #big-text{
     display: none;
