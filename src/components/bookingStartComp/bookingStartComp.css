@@ -208,7 +208,8 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova-booking-start_comp_top_view {
     display: flex !important;
     flex-direction: column !important;
@@ -222,7 +223,8 @@
 }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova-booking-my_info_comp_radia_button_view div {
     width: 5rem !important;
     height: 2rem !important;

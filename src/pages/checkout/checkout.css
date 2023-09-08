@@ -93,7 +93,8 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova-checkout-pink-heading p {
     font-family: "Comfortaa" !important;
     font-weight: 700 !important;

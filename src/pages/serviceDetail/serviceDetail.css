@@ -361,7 +361,8 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova-service_detail-images_top_view_two_image img {
     width: 25.1rem;
     height: 25rem;

@@ -207,6 +207,19 @@
   }
 }
 
+/* 123456789 */
+@media screen and (max-width: 410px) {
+  .nova-locations-bottom_main_view h1 {
+    color: #171d1c;
+    font-family: Comfortaa;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 0rem;
+    padding-top: -4rem!important;
+    text-align: center;
+}
+}
+
 @media screen and (max-width: 375px) {
   .nova-locations_main_view h1 {
     font-size: 2rem;

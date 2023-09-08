@@ -108,7 +108,8 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova-input_container_input {
     margin-top: 0.6rem;
     margin-right: 7rem;

@@ -108,7 +108,14 @@
   }
 }
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
+  .nova-after-confirm-modal-container {
+    width: 32rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
   .nova-after-confirm-modal-container {
     width: 32rem;
   }

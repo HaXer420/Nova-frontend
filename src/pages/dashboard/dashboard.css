@@ -1284,7 +1284,8 @@
 }
 
 
-@media screen and (max-width: 390px) {
+/* 123456789 */
+@media screen and (max-width: 410px) {
   .nova__navbar-links-insta_text_view img {
     margin-left: 0px !important;
   }
