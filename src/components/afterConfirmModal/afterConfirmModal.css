@@ -109,7 +109,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .nova-after-confirm-modal-container {
     width: 32rem;
   }

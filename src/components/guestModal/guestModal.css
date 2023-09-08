@@ -39,7 +39,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .signIn-container {
     width: 30rem;
     /* height: 50%; */

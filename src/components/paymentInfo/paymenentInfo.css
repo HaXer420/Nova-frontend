@@ -103,7 +103,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .nova-payment-info-card-name-edit-name p {
     display: flex;
     justify-content: center;

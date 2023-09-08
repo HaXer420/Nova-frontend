@@ -215,7 +215,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .nova-booking-banner_image_view h2 {
       font-size: 1.4rem;
       line-height: 2rem;

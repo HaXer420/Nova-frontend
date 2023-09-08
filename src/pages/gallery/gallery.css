@@ -59,7 +59,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .add-product-modal-container-product-description-detail-video{
       margin-left: 0;
       width: 300px;

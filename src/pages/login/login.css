@@ -98,7 +98,7 @@
 }
 
 /* 123456789 */
-@media screen and (max-width: 410px) {
+@media screen and (max-width: 412px) {
   .login-div img {
     margin-left: -8rem;
     height: 40px;
