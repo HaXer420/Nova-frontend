@@ -558,6 +558,13 @@
   }
 }
 
+@media screen and (max-width: 412px) {
+  .nova-footer_contact_us_view h2 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .nova-footer_top_view {
     padding: 4.5rem 3.5rem 2rem 3.6rem;

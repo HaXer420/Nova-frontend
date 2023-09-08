@@ -107,6 +107,22 @@
     cursor: pointer;
     /* padding-left: 100px; */
   }
+
+  .nova-login_forgot_password_text_view h2 {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: #292929;
+    cursor: pointer;
+  }
+  
+  .nova-login_dont_have_account_text_view {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 5.9rem; */
+    margin-top: -3rem;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -117,5 +133,21 @@
     width: 40px;
     cursor: pointer;
     /* padding-left: 100px; */
+  }
+
+  .nova-login_forgot_password_text_view h2 {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    color: #292929;
+    cursor: pointer;
+  }
+  
+  .nova-login_dont_have_account_text_view {
+    display: flex;
+    justify-content: center;
+    /* margin-top: 5.9rem; */
+    margin-top: -3rem;
   }
 }
