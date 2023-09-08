@@ -198,6 +198,12 @@
   }
 }
 
+@media screen and (max-width:389px) {
+  .nova-dashboard-single_service_view img {
+    height: 26.6rem;
+    width: 29.6rem;
+  }
+}
 @media screen and (max-width:360px) {
   .nova-dashboard-single_service_view {
     margin-right: .6rem;
