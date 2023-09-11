@@ -146,7 +146,9 @@ export default function Footer() {
           <h1>Quick Links</h1>
           <h2 onClick={() => navigate("/")}>Home</h2>
           <h2 onClick={() => navigate("/services")}>Services</h2>
-          <h2 onClick={() => navigate("/specials")}>Specials</h2>
+          {/* <h2 onClick={() => navigate("/specials")}>Specials</h2> */}
+          <h2 onClick={() => navigate("/bookingpage")}>Book Now</h2>
+          <h2 onClick={() => navigate("/locationpage")}>Locations</h2>
           <h2 onClick={() => navigate("/aboutus")}>About</h2>
           <h2 onClick={() => navigate("/contactpage")}>Contact</h2>
         </div>

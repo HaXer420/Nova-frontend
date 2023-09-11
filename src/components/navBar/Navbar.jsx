@@ -146,7 +146,9 @@ const Navbar = () => {
             <li className="service-dropdown">
               <a className="service-dropbtn">Services</a>
               <div className="service-dropdown-content">
-                {services.map((service, index) => (
+                {services
+                // ?.filter((item) => item?.type == "male")
+                ?.map((service, index) => (
                   <a
                     href="#"
                     key={service._id}
@@ -162,6 +164,7 @@ const Navbar = () => {
                     }}
                   >
                     {service.title}
+                    {/* {service.title}({service.type.charAt(0).toUpperCase() + service.type.slice(1)}) */}
                   </a>
                 ))}
               </div>
