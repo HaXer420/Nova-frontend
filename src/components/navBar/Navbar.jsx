@@ -146,7 +146,11 @@ const Navbar = () => {
             <li className="service-dropdown">
               <a className="service-dropbtn">Services</a>
               <div className="service-dropdown-content">
-                {services
+                {services 
+                // && [
+                //   ...services.filter((item) => item.type === "male"),
+                //   ...services.filter((item) => item.type === "female"),
+                // ]
                 // ?.filter((item) => item?.type == "male")
                 ?.map((service, index) => (
                   <a
@@ -160,7 +164,7 @@ const Navbar = () => {
                           product: JSON.stringify(service),
                         })}`
                       );
-                      console.log("uijhyuyugtyftrdrer");
+                      // console.log("uijhyuyugtyftrdrer");
                     }}
                   >
                     {service.title}

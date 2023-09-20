@@ -143,7 +143,8 @@ const TopBar = () => {
                 <span>
                   {daySchedule.length > 0 && (
                     <span>
-                      {daySchedule[0].startDay}-{daySchedule[0].endDay}
+                      {daySchedule[0].startDay}
+                      {/* {daySchedule[0].startDay}-{daySchedule[0].endDay} */}
                     </span>
                   )}
                 </span>

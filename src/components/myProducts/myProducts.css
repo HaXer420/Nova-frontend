@@ -1,0 +1,61 @@
+.nove-my_profile-my_rewards-main_container {
+  width: 100%;
+  /* height: 90rem; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.nova-my_profile-my_reward-select-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 80.8rem;
+  justify-content: space-between;
+  margin-top: 3.5rem;
+  align-self: center;
+}
+
+.nova-my_profile-my_reward-select-view {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.nova-my_profile-my_reward-select-view p {
+  font-family: "Comfortaa";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  margin-bottom: 2rem;
+}
+
+.nova-my_profile-my_reward-select-border {
+  border-bottom: 4px solid #ee509c;
+}
+
+/* ----------Media Query------------ */
+@media screen and (max-width: 1440px) {
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .nova-my_profile-my_reward-select-container {
+    width: 95%;
+  }
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .nova-my_profile-my_reward-select-view p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .nova-my_profile-my_reward-select-view p {
+    font-size: 1.6rem;
+  }
+}

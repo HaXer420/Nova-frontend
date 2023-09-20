@@ -6,6 +6,7 @@ import CancelServiceModal from "../../components/cancelServiceModal/cancelServic
 import Myprofile from "../../components/myProfile/myprofile";
 import MyReward from "../../components/myReward/myReward";
 import MyServices from "../../components/myServices/myServices";
+import MyProducts from "../../components/myProducts/myProducts";
 import PaymentInfo from "../../components/paymentInfo/paymentInfo";
 import "./Profile.css";
 import Loader from "../../components/loader/loader";
@@ -26,10 +27,14 @@ const btnArr = [
   },
   {
     id: 3,
-    text: "Rewards",
+    text: "Products",
   },
   {
     id: 4,
+    text: "Rewards",
+  },
+  {
+    id: 5,
     text: "Payment Info",
   },
 ];
@@ -228,7 +233,8 @@ const Profile = () => {
             </div>
             {select.id == 1 ? (
               <Myprofile setIsLoading={setIsLoading} />
-            ) : select.id == 2 ? (
+            ) 
+            : select.id == 2 ? (
               <MyServices
                 pastServices={pastServices}
                 cancelServices={cancelServices}
@@ -236,9 +242,23 @@ const Profile = () => {
                 setIsLoading={setIsLoading}
                 cancelBooking={cancelBooking}
               />
-            ) : select.id == 3 ? (
+            ) 
+            // : select.id == 2 ? (
+            //   <MyServices
+            //     pastServices={pastServices}
+            //     cancelServices={cancelServices}
+            //     upcomingServices={upcomingServices}
+            //     setIsLoading={setIsLoading}
+            //     cancelBooking={cancelBooking}
+            //   />
+            // ) 
+            : select.id == 3 ? (
+              <MyProducts />
+            ) 
+            : select.id == 4 ? (
               <MyReward />
-            ) : (
+            ) 
+            : (
               <PaymentInfo setIsLoading={setIsLoading} />
             )}
           </div>

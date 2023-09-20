@@ -37,6 +37,7 @@ export default {
   booking: BASE_URL + "booking/create",
   myServices: BASE_URL + "booking/myservices",
   bookingRefund: BASE_URL + "booking/refund",
+  userOrders: BASE_URL + "schedule/userOrders",
   // --------------my-rewards--------------
   myRewards: BASE_URL + "user/myrewards",
   // -------------get-card----------
