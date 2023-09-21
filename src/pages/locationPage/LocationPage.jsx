@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import { callApi } from "../../api/apiCaller";
 import routes from "../../api/routes";
-import { dummyMap, locationPin } from "../../assets";
+import { dummyMap, locationPin, locationPin2 } from "../../assets";
 import { Footer, NavBar, TopBar } from "../../components";
 import Loader from "../../components/loader/loader";
 import "./locationPage.css";
