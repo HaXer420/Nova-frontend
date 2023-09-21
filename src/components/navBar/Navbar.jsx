@@ -289,7 +289,8 @@ const Navbar = () => {
           </a>
         </h2>
         <h2>
-          <a href="https://www.tiktok.com/@novawaxing1" target="_blank">
+          {/* <a href="https://www.tiktok.com/@novawaxing1" target="_blank"> */}
+          <a href="https://www.youtube.com/" target="_blank">
             <img src={youtube} alt="" />
           </a>
         </h2>

@@ -252,9 +252,9 @@ const Profile = () => {
             //     cancelBooking={cancelBooking}
             //   />
             // ) 
-            : select.id == 3 ? (
-              <MyProducts />
-            ) 
+            // : select.id == 3 ? (
+            //   <MyProducts />
+            // ) 
             : select.id == 4 ? (
               <MyReward />
             ) 
