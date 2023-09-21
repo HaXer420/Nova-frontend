@@ -25,10 +25,10 @@ const btnArr = [
     id: 2,
     text: "Services",
   },
-  {
-    id: 3,
-    text: "Products",
-  },
+  // {
+  //   id: 3,
+  //   text: "Products",
+  // },
   {
     id: 4,
     text: "Rewards",
