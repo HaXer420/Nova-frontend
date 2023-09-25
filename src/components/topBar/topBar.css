@@ -115,10 +115,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 2rem;
 }
 
 .clock-view img {
-  width: 4.8rem;
+  width: 4rem;
   height: 4.8rem;
   object-fit: contain;
 }
@@ -134,7 +135,7 @@
 }
 .clock-view-container h1 {
   font-family: "Poppins";
-  font-size: 2rem;
+  font-size: 1.9rem;
   color: #292929;
   font-weight: 500;
 }

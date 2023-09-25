@@ -44,7 +44,7 @@ const TopBar = () => {
   const weekSchedule = services.filter((item) => item.scheduleType === "week");
   const daySchedule = services.filter((item) => item.scheduleType === "day");
 
-  // console.log("weekSchedule", weekSchedule);
+  console.log("weekSchedule", weekSchedule);
   ////////////////
 
   const getFooter = () => {
@@ -114,6 +114,35 @@ const TopBar = () => {
             <p>
               {services.length > 0 && (
                 <span>
+                  {weekSchedule.length > 0 && (
+                    <span>
+                      {weekSchedule[1].startDay}-{weekSchedule[1].endDay}
+                    </span>
+                  )}
+                </span>
+              )}
+            </p>
+            <h1>
+              {services.length > 0 && (
+                <span>
+                  {weekSchedule.length > 0 && (
+                    <span>
+                      {weekSchedule[1].startTime}-{weekSchedule[1].endTime}
+                    </span>
+                  )}
+                </span>
+              )}
+            </h1>
+          </div>
+        </div>
+        <div className="clock-view">
+          <img src={clock1} alt="" />
+          <div className="clock-view-container">
+            <p>
+              {services.length > 0 && (
+                <span>
+                {console.log('services',services)}
+
                   {weekSchedule.length > 0 && (
                     <span>
                       {weekSchedule[0].startDay}-{weekSchedule[0].endDay}
