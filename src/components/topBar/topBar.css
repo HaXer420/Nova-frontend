@@ -111,11 +111,15 @@
   margin-bottom: 1.8rem;
 }
 
+.clock-view{
+
+  margin-left: 2rem !important;
+}
+
 .clock-view {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 2rem;
 }
 
 .clock-view img {
