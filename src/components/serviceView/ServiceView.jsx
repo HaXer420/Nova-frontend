@@ -13,7 +13,7 @@ const ServiceView = (props) => {
         <img src={item?.photos[0]} />
         <div className="nova-dashboard-single_service_title_view">
           <h2>{item?.title}</h2>
-          <h2>{item?.price}</h2>
+          {/* <h2>{item?.price}</h2> */}
         </div>
         <h4>{item?.description[0]?.title}... Read More</h4>
       </div>
