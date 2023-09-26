@@ -44,7 +44,7 @@ const TopBar = () => {
   const weekSchedule = services.filter((item) => item.scheduleType === "week");
   const daySchedule = services.filter((item) => item.scheduleType === "day");
 
-  console.log("weekSchedule", weekSchedule);
+  // console.log("weekSchedule", weekSchedule);
   ////////////////
 
   const getFooter = () => {

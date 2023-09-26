@@ -119,6 +119,7 @@ const BookingDateComp = (props) => {
     },
   ]?.filter((obj) => {
     if (moment(props.selectedDate).day() == 0 && obj?.id >= 7) {
+      console.log('moment(props.selectedDate).day()',moment(props.selectedDate).day());
       return false;
     } else return true;
   });
@@ -279,3 +280,20 @@ const BookingDateComp = (props) => {
 };
 
 export default BookingDateComp;
+
+
+
+// if (selectedDay === 1) { // Monday
+//   timeSlots = [
+//     // Define your Monday slots here
+//   ];
+// } else if (selectedDay === 5) { // Friday
+//   timeSlots = [
+//     // Define your Friday slots here
+//   ];
+// } else {
+//   // Default slots for other days
+//   timeSlots = [
+//     // Define default slots here
+//   ];
+// }

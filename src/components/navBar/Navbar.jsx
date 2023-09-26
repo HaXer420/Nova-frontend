@@ -39,6 +39,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isloading, setIsLoading] = useState(false);
   const [services, setServices] = useState([]);
+  const [schedules, setSchedule] = useState([]);
   const showProfile = useSelector((data) => data.userDataSlice.userData);
   // console.log("kkk", showProfile);
   let productsInCart = productsStore?.length + serviceStore?.length;
@@ -70,6 +71,32 @@ const Navbar = () => {
     });
   };
 
+  const formatSchedule = (schedule) => {
+    const startDay = schedule.startDay;
+    const endDay = schedule.endDay;
+    const startTime = schedule.startTime;
+    const endTime = schedule.endTime;
+
+    if (startDay === endDay) {
+      return `${startDay} ${startTime} to ${endTime}`;
+    } else {
+      return `${startDay.slice(0, 3)}-${endDay.slice(0, 3)} ${startTime} to ${endTime}`;
+    }
+  };
+
+
+  const getSchedule = () => {
+    let getRes = (res) => {
+      // console.log("res of get response", res);
+      setSchedule(res?.data?.data);
+      // setShowModal(false);
+    };
+
+    callApi("GET", routes.getSchedule, null, setIsLoading, getRes, (error) => {
+      console.log("error", error);
+    });
+  };
+
   const getServices = () => {
     let getRes = (res) => {
       setServices(res?.data?.data);
@@ -86,9 +113,10 @@ const Navbar = () => {
 
   useEffect(() => {
     getServices();
+    getSchedule()
   }, []);
 
-  // console.log('servicesssss',services);
+  // console.log('servicesssss',schedules);
   // console.log("productsInCart", productsInCart);
   const Menu = () => (
     <>
@@ -350,8 +378,13 @@ const Navbar = () => {
             <div className="nova__navbar-menu_container_links">
               <Menu />
             </div>
-            <h5>Mon - Sat 10 Am to 8 Pm</h5>
-            <h5>Sun 11 Am to 6 Pm</h5>
+            {/* {schedules.map((schedule, index) => (
+              <h5 key={index}>{formatSchedule(schedule)}</h5>
+            ))} */}
+
+            <h5>Mon - Thu 10 AM to 7 PM</h5>
+            <h5>Fri - Sat 10 AM to 8 PM</h5>
+            <h5>Sun 11 AM to 6 PM</h5>
             <h5>678-404-5580</h5>
 
             {showProfile ? (
