@@ -107,7 +107,7 @@ const Navbar = () => {
       null,
       setIsLoading,
       getRes,
-      (error) => {}
+      (error) => { }
     );
   };
 
@@ -115,6 +115,12 @@ const Navbar = () => {
     getServices();
     getSchedule()
   }, []);
+
+  const obj = {
+    Monday: 1,
+    Friday: 2,
+    Sunday: 3
+  }
 
   // console.log('servicesssss',schedules);
   // console.log("productsInCart", productsInCart);
@@ -174,31 +180,31 @@ const Navbar = () => {
             <li className="service-dropdown">
               <a className="service-dropbtn">Services</a>
               <div className="service-dropdown-content">
-                {services 
-                // && [
-                //   ...services.filter((item) => item.type === "male"),
-                //   ...services.filter((item) => item.type === "female"),
-                // ]
-                // ?.filter((item) => item?.type == "male")
-                ?.map((service, index) => (
-                  <a
-                    href="#"
-                    key={service._id}
-                    onClick={(e) => {
-                      e.preventDefault(); // Prevent the default link behavior
-                      e.stopPropagation();
-                      navigate(
-                        `/Sservicedetail?${setParam({
-                          product: JSON.stringify(service),
-                        })}`
-                      );
-                      // console.log("uijhyuyugtyftrdrer");
-                    }}
-                  >
-                    {service.title}
-                    {/* {service.title}({service.type.charAt(0).toUpperCase() + service.type.slice(1)}) */}
-                  </a>
-                ))}
+                {services
+                  // && [
+                  //   ...services.filter((item) => item.type === "male"),
+                  //   ...services.filter((item) => item.type === "female"),
+                  // ]
+                  // ?.filter((item) => item?.type == "male")
+                  ?.map((service, index) => (
+                    <a
+                      href="#"
+                      key={service._id}
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent the default link behavior
+                        e.stopPropagation();
+                        navigate(
+                          `/Sservicedetail?${setParam({
+                            product: JSON.stringify(service),
+                          })}`
+                        );
+                        // console.log("uijhyuyugtyftrdrer");
+                      }}
+                    >
+                      {service.title}
+                      {/* {service.title}({service.type.charAt(0).toUpperCase() + service.type.slice(1)}) */}
+                    </a>
+                  ))}
               </div>
             </li>
           </ul>
@@ -378,14 +384,17 @@ const Navbar = () => {
             <div className="nova__navbar-menu_container_links">
               <Menu />
             </div>
-            {/* {schedules.map((schedule, index) => (
-              <h5 key={index}>{formatSchedule(schedule)}</h5>
-            ))} */}
+            {schedules
+            .sort((a, b) => obj[a.startDay] > obj[b.startDay] ? 1 : -1)
+            .map((schedule, index) => (
 
-            <h5>Mon - Thu 10 AM to 7 PM</h5>
+              <h5 key={index}>{formatSchedule(schedule)}</h5>
+            ))}
+
+            {/* <h5>Mon - Thu 10 AM to 7 PM</h5>
             <h5>Fri - Sat 10 AM to 8 PM</h5>
             <h5>Sun 11 AM to 6 PM</h5>
-            <h5>678-404-5580</h5>
+            <h5>678-404-5580</h5> */}
 
             {showProfile ? (
               <div onClick={() => logOut()} className="nova-navBar_button">
