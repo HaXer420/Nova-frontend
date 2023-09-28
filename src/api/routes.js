@@ -19,6 +19,7 @@ export default {
   getFAQ: BASE_URL + "faq/getall",
   // -------------AboutUs--------------//
   getAboutUs: BASE_URL + "aboutus/get",
+  
   // -------------storeLocation--------------//
   getStoreLocation: BASE_URL + "store/getAll?limit=",
   // -------------services--------------//
