@@ -58,6 +58,7 @@
   border-radius: 5px;
   border: 0.5px solid #ff4195;
   justify-content: space-between;
+  margin-right: 2rem;
 }
 
 .nova-booking-add-custom-tip-container img {

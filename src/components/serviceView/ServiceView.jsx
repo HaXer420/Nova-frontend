@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const ServiceView = (props) => {
   const { item } = props;
   const navigate = useNavigate();
-  console.log('aaaaa',item);
+  // console.log('aaaaa',item);
 
   return (
     <div key={item?.id} className="nova-dashboard-single_service_view">

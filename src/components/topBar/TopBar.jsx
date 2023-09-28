@@ -31,7 +31,7 @@ const TopBar = () => {
 
   const getService = () => {
     let getRes = (res) => {
-      console.log("res of get response", res);
+      // console.log("res of get response", res);
       setServices(res?.data?.data);
       // setShowModal(false);
     };
@@ -49,7 +49,7 @@ const TopBar = () => {
 
   const getFooter = () => {
     let getRes = (res) => {
-      console.log("res of get response", res);
+      // console.log("res of get response", res);
       setFooter(res?.data?.data);
       // setShowModal(false);
     };
@@ -141,7 +141,7 @@ const TopBar = () => {
             <p>
               {services.length > 0 && (
                 <span>
-                {console.log('services',services)}
+                {/* {console.log('services',services)} */}
 
                   {weekSchedule.length > 0 && (
                     <span>

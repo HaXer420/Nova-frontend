@@ -132,7 +132,8 @@ const Checkout = () => {
   };
 
   const customTipAdd = () => {
-    if (customTip == "") return RedNotify("Enter custom tip");
+    console.log("customTip",customTip);
+    // if (customTip == "") return RedNotify("Enter custom tip");
     let arr = [
       ...tipArr,
       {
@@ -144,7 +145,7 @@ const Checkout = () => {
     ];
     arr.sort((a, b) => a.value - b.value);
     setTipArr(arr);
-    setCustomTip("");
+    setCustomTip(customTip);
   };
 
   const getMyRewards = () => {
@@ -208,8 +209,9 @@ const Checkout = () => {
     ? totalProductsAmount + totalServiceAmount - availableAward
     : totalProductsAmount + totalServiceAmount;
 
-  console.log('finalAmount',finalAmount);
-  finalAmount = finalAmount.toFixed(2)
+    finalAmount = parseInt(customTip) ? parseInt(customTip) + finalAmount : finalAmount;
+    finalAmount = finalAmount.toFixed(2)
+    console.log('finalAmount', finalAmount);
 
   const confirmPay = () => {
     console.log("payment", {
@@ -373,30 +375,29 @@ const Checkout = () => {
                         type="number"
                       />
 
-                      <img
+                      <inputNumber
                         onClick={customTipAdd}
                         src={addIcon}
                         alt="add-icon"
                       />
                     </div>
 
-                    {/* <TipDropDown
-                      options={tipArr}
-                      selected={tipSelect}
-                      setSelected={setTipSelect}
-                    /> */}
-
-                    <TipDropDown
-                      options={tipArr.map((option) => ({
-                        label: `${option.label} - $${(
-                          (totalServiceAmountBeforeTax * option.value) /
-                          100
-                        ).toFixed(2)}`,
-                        value: option.value,
-                      }))}
-                      selected={tipSelect}
-                      setSelected={setTipSelect}
-                    />
+                    {customTip !== '' ? (
+                        <div className="nova-booking-custom-tip">
+                          <h3>${parseFloat(customTip).toFixed(2)}</h3>
+                        </div>
+                      ) : (
+                        <div className="nova-booking-confirm-drop-down-container">
+                          <TipDropDown
+                            options={tipArr.map((option) => ({
+                              label: `${option.label} - $${((totalServiceAmountBeforeTax * option.value) / 100).toFixed(2)}`,
+                              value: option.value,
+                            }))}
+                            selected={tipSelect}
+                            setSelected={setTipSelect}
+                          />
+                        </div>
+                      )}
                   </div>
                 </div>
                 <div className="nova-booking-confirm_comp_service_detail_divider" />
