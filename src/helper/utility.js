@@ -47,7 +47,7 @@ export const upload = (cb, setIsLoading) => (evt) => {
   };
   setIsLoading(true);
   fetch(
-    "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/user/upload",
+    "ec2-34-228-62-195.compute-1.amazonaws.com/api/v1/user/upload",
     requestOptions
   )
     .then((response) => response.json())
