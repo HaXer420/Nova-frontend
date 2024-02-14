@@ -47,7 +47,7 @@ export const upload = (cb, setIsLoading) => (evt) => {
   };
   setIsLoading(true);
   fetch(
-    "ec2-34-228-62-195.compute-1.amazonaws.com/api/v1/user/upload",
+    "https://api.novawaxing.com/api/v1/user/upload",
     requestOptions
   )
     .then((response) => response.json())
