@@ -47,7 +47,6 @@ export default {
   deleteCard: BASE_URL + "card/delete",
   deleteCard: BASE_URL + "card/delete",
   
-  
   getFooterDetail: BASE_URL + "info/getall",
   getSchedule: BASE_URL + "schedule/getall",
   getTax: BASE_URL + "tax/getall",
