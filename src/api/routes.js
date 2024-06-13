@@ -1,4 +1,5 @@
-export const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
+// export const BASE_URL = "https://rxje2xzpme.us-east-1.awsapprunner.com/api/v1/";
+export const BASE_URL = "https://api.novawaxing.com/api/v1/";
 // export const BASE_URL = "http://localhost:4500/api/v1/";
 export default {
   // -----AUTH------//
@@ -45,7 +46,6 @@ export default {
   getMyCards: BASE_URL + "card/mycards",
   deleteCard: BASE_URL + "card/delete",
   deleteCard: BASE_URL + "card/delete",
-  
   
   getFooterDetail: BASE_URL + "info/getall",
   getSchedule: BASE_URL + "schedule/getall",
